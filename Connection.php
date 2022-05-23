@@ -9,10 +9,11 @@
     if (!$conn) 
     {
         echo "Connection failed";
+        setcookie('connection', false,0,"","",false,false);
         exit();
     }
     else {
-        //echo " Connected ";
+        setcookie('connection', true,0,"","",false,false);
     }
 
 ?>
