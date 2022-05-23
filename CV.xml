@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE 3 SYSTEM "3.dtd">
 
-<Coachs> 
-	
+<!DOCTYPE CV SYSTEM "CV.dtd">
+
+<CV> 
     <Coach id = "Coach1"> 
         <Age> 28 </Age>
         <Nom> Dupont </Nom>
         <Prénom> Benjamin </Prénom>
         <Diplômes> BPJEPS Rugby,  </Diplômes>
-        <Experiences> Super Heros / Action </Experiences>
+        <Experiences> Soutien Entraîneur RACING CLUB (3 ans) </Experiences>
         <LV1> Francais </LV1>
         <LV2> Anglais </LV2>
     </Coach>
@@ -16,8 +16,8 @@
         <Age> 26 </Age>
         <Nom> Martin </Nom>
         <Prénom> Léo </Prénom>
-        <Diplômes> BPJEPS Coach Musculation </Diplômes>
-        <Experiences> Super Heros / Action </Experiences>
+        <Diplômes> BPJEPS Musculation </Diplômes>
+        <Experiences> Coach Musculation à FitnessPark (2 ans) </Experiences>
         <LV1> Italien </LV1>
         <LV2> Francais </LV2>
     </Coach>
@@ -26,7 +26,7 @@
         <Nom> Dubois </Nom>
         <Prénom> Gabriel </Prénom>
         <Diplômes> DEJEPS Tennis </Diplômes>
-        <Experiences> Super Heros / Action </Experiences>
+        <Experiences> Assitant Directeur Roland Garros (5 ans) </Experiences>
         <LV1> Francais </LV1>
         <LV2> Anglais </LV2>
     </Coach>
@@ -34,17 +34,17 @@
         <Age> 29 </Age>
         <Nom> Bonnet </Nom>
         <Prénom> Jade </Prénom>
-        <Diplômes> MEEF Cardio-Training,  </Diplômes>
-        <Experiences> Super Heros / Action </Experiences>
+        <Diplômes> MEEF Cardio-Training </Diplômes>
+        <Experiences> Responsable Cardio-Training chez BasicFit (3 ans) </Experiences>
         <LV1> Francais </LV1>
         <LV2> Espagnol </LV2>
     </Coach>
     <Coach id = "Coach5"> 
-        <Age> 27 </Age>
+        <Age> 40 </Age>
         <Nom> Legrand </Nom>
         <Prénom> Julia </Prénom>
         <Diplômes> DEJEPS Natation </Diplômes>
-        <Experiences> Super Heros / Action </Experiences>
+        <Experiences> Coach Personnel Solène Lousseau (8 ans)</Experiences>
         <LV1> Espagnol </LV1>
         <LV2> Anglais </LV2>
     </Coach>
@@ -66,22 +66,40 @@
         <LV1> Francais </LV1>
         <LV2> Américain </LV2>
     </Coach>
-    <Coach id = "Coach1"> 
-        <Age> 28 </Age>
-        <Nom> Dupont </Nom>
-        <Prénom> Benjamin </Prénom>
-        <Diplômes> BPJEPS Sports Collectifs,  </Diplômes>
+    <Coach id = "Coach8"> 
+        <Age> 27 </Age>
+        <Nom> Robin </Nom>
+        <Prénom> Leon </Prénom>
+        <Diplômes> DESJEPS Football </Diplômes>
         <Experiences> Super Heros / Action </Experiences>
-        <LV1> Francais </LV1>
+        <LV1> Allemand </LV1>
         <LV2> Anglais </LV2>
     </Coach>
-    <Coach id = "Coach1"> 
-        <Age> 28 </Age>
-        <Nom> Dupont </Nom>
-        <Prénom> Benjamin </Prénom>
-        <Diplômes> BPJEPS Sports Collectifs,  </Diplômes>
+    <Coach id = "Coach9"> 
+        <Age> 30 </Age>
+        <Nom> Perrin </Nom>
+        <Prénom> Lou </Prénom>
+        <Diplômes> DEJEPS Plongeon </Diplômes>
         <Experiences> Super Heros / Action </Experiences>
-        <LV1> Francais </LV1>
+        <LV1> Espagnol </LV1>
         <LV2> Anglais </LV2>
     </Coach>
-</Coachs>
+    <Coach id = "Coach10"> 
+        <Age> 28 </Age>
+        <Nom> Boyer </Nom>
+        <Prénom> Inès </Prénom>
+        <Diplômes> DEJEPS Plongeon </Diplômes>
+        <Experiences> Super Heros / Action </Experiences>
+        <LV1> Anglais </LV1>
+        <LV2> Francais </LV2>
+    </Coach>
+    <Coach id = "Coach11"> 
+        <Age> 33 </Age>
+        <Nom> Bertrand </Nom>
+        <Prénom> Martin </Prénom>
+        <Diplômes> BPJEPS Cours Collectifs </Diplômes>
+        <Experiences> Super Heros / Action </Experiences>
+        <LV1> Allemand </LV1>
+        <LV2> Francais </LV2>
+    </Coach>
+</CV>

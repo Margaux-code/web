@@ -1,4 +1,4 @@
-<!ELEMENT Coachq (Coach*)>
+<!ELEMENT CV (Coach+)>
 <!ELEMENT Coach (Age,Nom,Prénom,Diplômes,Experiences,LV1,LV2)>
 <!ATTLIST Coach  id CDATA "0">
 <!ELEMENT Age (#PCDATA)>
