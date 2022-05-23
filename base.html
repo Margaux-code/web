@@ -3,26 +3,28 @@
 
 <head>
     <title>Base</title>
-    <meta name="viewport" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html; charset=utf-8" />
     <link rel="stylesheet" href="style_base.css">
     <script type="text/javascript" src="script_base.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="page">
         <div class="haut">
-            <div class="logo">
-                <img id="img_logo" src="Image/Logo_Omnes_Sport_bordure.png">
+            <div class="logo_slogan">
+                <div class="logo">
+                    <img id="img_logo" src="Image/Logo_Omnes_Sport_bordure.png">
+                </div>
+                <div class="slogan"  id="slogan">
+                    <span class="text_slogan">Omnes Sport</span>
+                </div>
             </div>
-            <div class="nav">
-                <table class="table_button">
-                    <tr>
-                        <td><button class="nav-button" id="accueil">Accueil</button></td>
-                        <td><button class="nav-button" id="parcourir">Tout parcourir</button></td>
-                        <td><button class="nav-button" id="rdv">Rendez vous</button></td>
-                    </tr>
-                </table>
+            <div class="div_button">
+                <button class="nav-button" id="accueil">Accueil</button>
+                <button class="nav-button" id="parcourir">Tout parcourir</button>
+                <button class="nav-button" id="rdv">Rendez vous</button>
             </div>
             <div class="search-box">
                 <input type="text" name="input" id="search-bar" class="search" placeholder="Recherche">
@@ -34,10 +36,21 @@
 
         </div>
 
-        <div class="footer">
-            <div class="copyright"><p>ceci est un copyright</p></div>
-            <div class="text"><p>footer</p></div>
-            <div class="button-dark"><button id="dark-mode">Bouton</button></div>
+        <div class="footer" id="footer">
+            <div class="copyright">
+                <p>ceci est un copyright</p>
+            </div>
+            <div class="text">
+                <p>footer</p>
+            </div>
+            <div class="button-dark">
+                <input type="checkbox" class="checkbox" id="checkbox" onclick="changeColor()">
+                <label for="checkbox" class="label">
+                    <span class="moon">&#9789;</span>
+                    <span class="sun">&#9788;</span>
+                    <div class="ball"></div>
+                </label>
+            </div>
         </div>
     </div>
 </body>
