@@ -274,11 +274,7 @@ body {
 
 
 /* PAge de garde*/
-html, body {
-    margin: 0px;
-    padding: 0px;
-    background: url("http://digital.bnint.com/filelib/s9/photos/white_wood_4500x3000_lo_res.jpg");
-}
+
 .milieu {
    
     font-family: 'Roboto';
@@ -287,14 +283,14 @@ html, body {
 }
 .citation{
     font-style : italic;
-    flex-grow: 4;
+    
     display: flex;
     align-items: space-around;
     flex-direction: row;
 }
 .catch_phrase{
 
-    flex-grow: 5;
+
     display: flex;
     align-items: space-around;
     flex-direction: row;
@@ -305,9 +301,12 @@ width : 100%;
 height :100%;
 
 }
+#carroussel{
+    max-width: 600px;
+}
 .carousel {
     position: relative;
-    flex-grow: 6;
+
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -320,8 +319,9 @@ height :100%;
     margin-right : 5%;
     margin-left : 5%;
     margin-top : 5%;
-    margin-bottom : 10%;
-    max-width: 1200px;
+    margin-bottom : 5%;
+    
+
 }
 
 .carousel-open:checked + .carousel-item {
@@ -415,3 +415,9 @@ height :100%;
 #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
     color: #428bca;
 }
+#map {
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+  }
