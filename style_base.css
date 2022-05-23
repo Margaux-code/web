@@ -29,11 +29,15 @@
 }
 
 .item {
-    flex-grow: 1;
+    
 }
 
 /* TOP */
 /* Logo */
+.logo{
+    flex-grow: 1;
+}
+
 #img_logo {
     left: 2%;
     width: 5%;
@@ -42,7 +46,8 @@
 }
 
 /* Boutons de navigations */
-#nav {
+.nav {
+    flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -108,19 +113,12 @@
 }
 
 /* Barre de recherche */
-#search-box {
+.search-box {
+    flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     flex: 2;
-}
-
-.search-box {
-    top: 5%;
-    right: min(-15%, -18%);
-    width: 40%;
-    position: fixed;
-    display: flex;
 }
 
 #search-bar {
