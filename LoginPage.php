@@ -6,7 +6,7 @@
 
     // ***************************** FORM SE CONNECTER PHP ***********************
 
-    if(isset($_POST["Se Connecter"]))
+    if(isset($_POST["Se_Connecter"]))
     {
         $username = $_POST["username"];
         $password = $_POST["password"];
@@ -64,10 +64,32 @@
 
     // ***************************** FORM CREER UN COMPTE PHP ***********************
 
-    if(isset($_POST["Créer Compte"]))
+    if(isset($_POST["Creer_Compte"]))
+{
+    include 'db_Connection.php';
+
+    $lastname = $_POST['nom'];
+    $firstname = $_POST['prenom'];
+    $email = $_POST['email'];
+    $tel = $_POST['tel'];
+    $adresse = $_POST['adresse'];
+    $ville = $_POST['ville'];
+    $codepostal = $_POST['codepostal'];
+    $mdp = $_POST['mdp'];
+
+    $sql = "INSERT INTO client (Nom_client, Prenom_client, Email_client, Tel_client, Adresse_client, Ville_client, CodePostal_client, MDP_client) 
+            VALUES ('$lastname', '$firstname', '$email', '$tel', '$adresse', '$ville', '$codepostal', '$mdp')";
+    $res = mysqli_query($db_handle, $sql);
+
+    /*if ($res)
     {
-        
+        echo "Vous êtes Inscrit avec succès!";
     }
+    else
+    {
+        echo "Problème d'inscription!";
+    }*/
+}
 ?>
 
 <!------------------------------ FIN CODE PHP ------------------------------->
@@ -97,7 +119,7 @@
             </div>
             <br><br>
             <div>
-                <input type="submit" name="Se Connecter">
+                <input type="submit" name="Se_Connecter">
             </div>
         </form>
     <br><br><br>
@@ -144,7 +166,7 @@
             </div>
             <br><br>
             <div>
-                <input type="submit" name="Créer Compte">
+                <input type="submit" name="Creer_Compte">
             </div>
         </form>
     </center>
