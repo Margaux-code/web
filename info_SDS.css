@@ -254,7 +254,7 @@ body {
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 540px) {
     .div_button {
         flex-direction: column;
 
@@ -571,6 +571,14 @@ p {
 }
 
 /* Nav pills */
-.nav-pills .active >a {
-    background-color: red;
+.nav-pills .nav-link.active {
+    background-color: #d4af37 !important;
+    color: black !important;
+    border: 1px solid black !important;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.195) !important;
+}
+
+.nav-pills .nav-link {
+    margin-top: 1% !important;
+    color: black !important;
 }
