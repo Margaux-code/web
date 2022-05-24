@@ -1,3 +1,6 @@
+
+
+
 function changeColor() {
     if(document.body.style.background == "black"){
         changeToWhite();
