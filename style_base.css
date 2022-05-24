@@ -283,17 +283,14 @@ body {
 }
 .citation{
     font-style : italic;
+    text-align : center;
     
-    display: flex;
-    align-items: space-around;
-    flex-direction: row;
+    
 }
 .catch_phrase{
 
+    text-align : center;
 
-    display: flex;
-    align-items: space-around;
-    flex-direction: row;
 
 }
 .milieu{
@@ -303,6 +300,7 @@ height :100%;
 }
 #carroussel{
     max-width: 600px;
+    text-align : center;
 }
 .carousel {
     position: relative;
@@ -414,4 +412,7 @@ height :100%;
 #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
 #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
     color: #428bca;
+}
+#pres_carte{
+    text-align: left;
 }
