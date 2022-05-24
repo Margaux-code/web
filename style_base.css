@@ -10,7 +10,6 @@ body {
     min-height: 100vh;
     /* hauteur minimale égale à 100% du viewport */
     display: flex;
-    /* pointer-events: none; */
     flex-direction: column;
 
 }
@@ -340,15 +339,8 @@ body {
 /* Connexion/Inscription */
 /*Source : https://codepen.io/ig_design/pen/KKVQpVP */
 
-/* test */
-/* .page {
-    display: block;
-    filter: blur(4px);
-} */
-
 #CoIns-window {
     display: none;
-    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -403,127 +395,6 @@ p {
     border: 1px solid black;
 }
 
-<<<<<<< Updated upstream
-.checkCoIns-container {
-    position: absolute;
-    top: 5%;
-}
-
-.full-height {
-    min-height: 100vh;
-}
-
-.checkCoIns:checked,
-.checkCoIns:not(:checked) {
-    position: absolute;
-    left: -9999px;
-}
-
-.checkCoIns:checked+label,
-.checkCoIns:not(:checked)+label {
-    position: relative;
-    display: block;
-    text-align: center;
-    width: 60px;
-    height: 16px;
-    border-radius: 8px;
-    padding: 0;
-    margin: 10px auto;
-    cursor: pointer;
-    background-color: #000000;
-}
-
-.checkCoIns+label:before {
-    background-color: black;
-}
-
-.checkCoIns:checked+label:before,
-.checkCoIns:not(:checked)+label:before {
-    position: absolute;
-    display: block;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    color: #d4af37;
-    border: 3px solid black;
-    /*background-color: black;*/
-    font-family: 'unicons';
-    content: '\eb4f';
-    z-index: 20;
-    top: -10px;
-    left: -10px;
-    line-height: 36px;
-    text-align: center;
-    font-size: 24px;
-    transition: all 0.5s ease;
-}
-
-.checkCoIns:checked+label:before {
-    transform: translateX(44px) rotate(-270deg);
-}
-
-
-.card-3d-wrap {
-    position: absolute;
-    width: 440px;
-    max-width: 100%;
-    height: 400px;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    perspective: 800px;
-    margin-top: 60px;
-}
-
-.card-3d-wrapper {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 20%;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    transition: all 600ms ease-out;
-}
-
-#fond-Av, #fond-Ar {
-    width: 100%;
-    height: 100%;
-    background-color: #2a2b38;
-    /*background-image: url("/Image/marbrenoir.jpg");*/
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    background-size: 300%;
-    position: absolute;
-    border-radius: 6px;
-    left: 0;
-    top: 0;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-#fond-Ar {
-    transform: rotateY(180deg);
-}
-
-.checkCoIns:checked~.card-3d-wrap .card-3d-wrapper {
-    transform: rotateY(180deg);
-}
-
-.center-wrap {
-    position: absolute;
-    width: 100%;
-    padding: 0 35px;
-    top: 50%;
-    left: 0;
-    transform: translate3d(0, -50%, 35px) perspective(100px);
-    z-index: 20;
-    display: block;
-}
-=======
->>>>>>> Stashed changes
 
 
 .form-input {
@@ -684,157 +555,9 @@ p {
 }
 
 #close {
-<<<<<<< Updated upstream
-    width: 100px;
-    height: 100px;
-/* PAge de garde*/
-
-.milieu {
-   
-    font-family: 'Roboto';
-   
-
-}
-.citation{
-    font-style : italic;
-    text-align : center;
-    
-    
-}
-.catch_phrase{
-
-    text-align : center;
-
-
-}
-.milieu{
-width : 100%;
-height :100%;
-
-}
-#carroussel{
-    max-width: 600px;
-    text-align : center;
-}
-.carousel {
-    position: relative;
-
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-
-}
-
-.carousel-inner {
-    position: relative;
-    overflow: hidden;
-    margin-right : 5%;
-    margin-left : 5%;
-    margin-top : 5%;
-    margin-bottom : 5%;
-    
-
-}
-
-.carousel-open:checked + .carousel-item {
-    position: static;
-    opacity: 100;
-}
-
-.carousel-item {
-    position: absolute;
-    opacity: 0;
-    -webkit-transition: opacity 0.6s ease-out;
-    transition: opacity 0.6s ease-out;
-}
-
-.carousel-item img {
-    display: block;
-    height: auto;
-    max-width: 100%;
-    border-radius : 5%;
-}
-
-.carousel-control {
-    background: rgba(0, 0, 0, 0.28);
-    border-radius: 50%;
-    color: #fff;
-    cursor: pointer;
-    display: none;
-    font-size: 40px;
-    height: 40px;
-    line-height: 35px;
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translate(0, -50%);
-    cursor: pointer;
-    -ms-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-    text-align: center;
-    width: 40px;
-    z-index: 10;
-}
-
-.carousel-control.prev {
-    left: 2%;
-}
-
-.carousel-control.next {
-    right: 2%;
-}
-
-.carousel-control:hover {
-    background: rgba(0, 0, 0, 0.8);
-    color: #aaaaaa;
-}
-
-#carousel-1:checked ~ .control-1,
-#carousel-2:checked ~ .control-2,
-#carousel-3:checked ~ .control-3 {
-    display: block;
-}
-
-.carousel-indicators {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    bottom: 2%;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 10;
-}
-
-.carousel-indicators li {
-    display: inline-block;
-    margin: 0 5px;
-}
-
-.carousel-bullet {
-    color: #fff;
-    cursor: pointer;
-    display: block;
-    font-size: 35px;
-}
-
-.carousel-bullet:hover {
-    color: #aaaaaa;
-}
-
-#carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
-#carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
-#carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
-    color: #428bca;
-}
-#pres_carte{
-    text-align: left;
-=======
     width: 200%;
     height: 200%;
 }
-
-
 
 #tab-co, #tab-ins {
     border: solid 1px black;
@@ -846,5 +569,4 @@ height :100%;
 #myTab {
     width: 89%;
     background-color: #d4af37;
->>>>>>> Stashed changes
 }
