@@ -15,6 +15,7 @@ body {
 }
 
 .haut {
+    isolation: isolate;
     width: 100%;
     height: 120%;
     background: #D4AF37;
@@ -26,18 +27,6 @@ body {
 
 .milieu {
     flex-grow: 1;
-}
-
-.footer {
-    width: 100%;
-    background-color: #D4AF37;
-    color: black;
-    text-align: center;
-    border-radius: 5px;
-    display: flex;
-    font-family: 'Roboto';
-
-    justify-content: space-between;
 }
 
 /* TOP */
@@ -64,6 +53,10 @@ body {
 
 #slogan {
     color: rgb(46, 44, 41);
+}
+
+.darkmode--activated #slogan {
+    color: rgb(228, 227, 227);
 }
 
 .logo {
@@ -110,10 +103,19 @@ body {
     display: inline-block;
     outline: none;
     border: none;
+    font-weight: 900;
+}
+
+.darkmode--activated .nav-button {
+    color: rgb(228, 227, 227);
 }
 
 .nav-button:hover {
     color: white;
+}
+
+.darkmode--activated .nav-button:hover {
+    color: black;
 }
 
 .nav-button:after {
@@ -127,6 +129,10 @@ body {
     background-color: white;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
+}
+
+.darkmode--activated .nav-button:after {
+    background-color: black;
 }
 
 .nav-button:hover:after {
@@ -167,6 +173,12 @@ body {
     background: white;
 }
 
+.darkmode--activated #search-bar {
+    color: white;
+    background: darkgrey;
+    border: 3px solid rgb(27, 27, 27);
+}
+
 #searchbutton {
     width: 40px;
     height: 36px;
@@ -178,10 +190,20 @@ body {
     font-size: 20px;
 }
 
+.darkmode--activated #loupe {
+    color: #ffffff;
+}
+
+.darkmode--activated #searchbutton {
+    background: rgb(27, 27, 27);
+    border: 3px solid rgb(27, 27, 27);
+}
+
 .search-box:active {
     transform: translateY(2px);
 }
 
+/* Bouton de co/Ins */
 .btnRegLog {
     flex: 1;
     min-width: 60px;
@@ -189,9 +211,9 @@ body {
 
 .reg-log {
     width: auto;
-    background: #D4AF37;
+    background: transparent;
     height: auto;
-    color: black;
+    filter: invert(0%);
     border-radius: 5px;
     font-size: 120%;
     font-family: 'Roboto', serif;
@@ -201,6 +223,14 @@ body {
     display: inline-block;
     outline: none;
     border: none;
+}
+
+.darkmode--activated .reg-log {
+    filter: invert(100%);
+}
+
+#compte:hover {
+    color: white;
 }
 
 .reg-log:after {
@@ -268,73 +298,25 @@ body {
 }
 
 /* FOOTER */
-.copyright {
-    width: 30%;
-}
-
-.text {
-    width: 30%;
-}
-
-.button-dark {
-    width: 30%;
+.footer {
+    width: 100%;
+    background-color: #D4AF37;
+    text-align: center;
+    border-radius: 5px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.darkCheck {
-    opacity: 0;
-    position: absolute;
-}
-
-.label {
-    top: 5px;
-    background-color: #111;
-    display: flex;
-    align-items: center;
+    font-family: 'Roboto';
     justify-content: space-between;
-    border-radius: 50px;
-    position: relative;
-    padding: 5px;
-    width: 45px;
-    height: 20px;
-    transform: scale(1.5);
+    isolation: isolate;
 }
 
-.ball {
-    background-color: #fff;
-    border-radius: 50%;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    height: 16px;
-    width: 16px;
-    transition: transform 0.2s linear;
+.darkmode--activated .copyright, .darkmode--activated .text {
+    color: rgb(228, 227, 227);
 }
 
-.darkCheck:checked+.label .ball {
-    transform: translateX(24px);
+.copyright, .text {
+    color: black;
+    width: 30%;
 }
-
-.moon {
-    position: absolute;
-    top: -3px;
-    left: 2px;
-    height: 16px;
-    width: 16px;
-    color: #f1c40f;
-}
-
-.sun {
-    position: absolute;
-    top: -3px;
-    left: 26px;
-    height: 15px;
-    width: 15px;
-    color: #f39c12;
-}
-
 
 /* Connexion/Inscription */
 /*Source : https://codepen.io/ig_design/pen/KKVQpVP */
