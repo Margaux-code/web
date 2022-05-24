@@ -1,3 +1,5 @@
+// Add your code here
+
 function changeColor() {
     if(document.body.style.background == "black"){
         changeToWhite();
@@ -6,10 +8,41 @@ function changeColor() {
         changeToBlack();
     }
 }
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  let expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
+function getCookie(cname) {
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookieTheme() {
+  let theme = getCookie("theme");
+  if (theme != "") {
+    alert("Le theme que vous avez choisi est " + theme);
+  }
+}
+  
 function changeToWhite() {
-   document.cookie = "couleur=claire; path=/";
-   alert(document.cookie);
+
+  setCookie("theme","clair",365);
+  checkCookieTheme();
+    
+
     var slogan = document.getElementById("slogan");
     var button = document.getElementsByClassName("nav-button");
     var footer = document.getElementById("footer");
@@ -30,7 +63,8 @@ function changeToWhite() {
 }
 
 function changeToBlack() {
-    document.cookie = "couleur=sombre; path=/";
+  setCookie("theme","fonce",365);
+  checkCookieTheme();
     
 
     var slogan = document.getElementById("slogan");
