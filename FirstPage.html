@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Base</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html; charset=utf-8" />
+    <link rel="stylesheet" href="style_base.css">
+    <script type="text/javascript" src="script_base.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="page">
+        <div class="haut">
+            <div class="logo_slogan">
+                <div class="logo">
+                    <img id="img_logo" src="Image/Logo_Omnes_Sport_bordure.png">
+                </div>
+                <div class="slogan" id="slogan">
+                    <span class="text_slogan">Omnes Sport</span>
+                </div>
+            </div>
+            <div class="div_button">
+                <button class="nav-button" id="accueil">Accueil</button>
+                <button class="nav-button" id="parcourir">Tout parcourir</button>
+                <button class="nav-button" id="rdv">Rendez vous</button>
+            </div>
+            <div class="search-box">
+                <input type="text" name="input" id="search-bar" class="search" placeholder="Recherche">
+                <button type="submit" id="searchbutton" class="search">&#x1F50E;</button>
+            </div>
+        </div>
+
+        <div class="milieu">
+            <div id="introduction">
+                <h1 class="citation">"Faire du sport un plaisir, pour apprécier la vie." </h1>
+                <p class="catch_phrase"> Venez découvrir le sport sans barrières supplémentaires dans un cadre simple et
+                    conviviale pour renouer avec votre corps. </p>
+                <p class="evenements">Les informations sportives de la semaine </p>
+                </br>
+                <div id="carroussel">
+                    <!-- CAROUSEL -->
+                    <div class="carousel-inner">
+                        <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true"
+                            hidden="" checked="checked">
+                        <div class="carousel-item">
+                            <a href="https://www.google.com/"><img
+                                    src="http://fakeimg.pl/2000x800/0079D8/fff/?text=Without"></a>
+                        </div>
+                        <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true"
+                            hidden="">
+                        <div class="carousel-item">
+                            <a href="https://www.google.com/"><img
+                                    src="http://fakeimg.pl/2000x800/DA5930/fff/?text=JavaScript"></a>
+                        </div>
+                        <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true"
+                            hidden="">
+                        <div class="carousel-item">
+                            <a href="https://www.google.com/"><img
+                                    src="http://fakeimg.pl/2000x800/F90/fff/?text=Carousel"></a>
+                        </div>
+                        <label for="carousel-3" class="carousel-control prev control-1"></label>
+                        <label for="carousel-2" class="carousel-control next control-1"></label>
+                        <label for="carousel-1" class="carousel-control prev control-2"></label>
+                        <label for="carousel-3" class="carousel-control next control-2"></label>
+                        <label for="carousel-2" class="carousel-control prev control-3"></label>
+                        <label for="carousel-1" class="carousel-control next control-3"></label>
+
+                        <ol class="carousel-indicators">
+                            <li>
+                                <label for="carousel-1" class="carousel-bullet">•</label>
+                            </li>
+                            <li>
+                                <label for="carousel-2" class="carousel-bullet">•</label>
+                            </li>
+                            <li>
+                                <label for="carousel-3" class="carousel-bullet">•</label>
+                            </li>
+                        </ol>
+                    </div>
+                    <!-- FIN CAROUSEL -->
+
+                </div>
+
+
+            </div>
+
+            <div class="footer" id="footer">
+                <div class="copyright">
+                    <p>ceci est un copyright</p>
+                </div>
+                <div class="text">
+                    <p>footer</p>
+                </div>
+                <div class="button-dark">
+                    <input type="checkbox" class="checkbox" id="checkbox" onclick="changeColor()">
+                    <label for="checkbox" class="label">
+                        <span class="moon">&#9789;</span>
+                        <span class="sun">&#9788;</span>
+                        <div class="ball"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+</body>

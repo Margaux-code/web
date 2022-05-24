@@ -21,7 +21,7 @@ function changeToWhite() {
     search_bar.style.background = 'white';
     search_button.style.border = '1px solid rgb(148, 148, 148)';
     search_button.style.background = 'rgb(148, 148, 148)';
-
+    text_accueil.style.color ='black';
     for(let i=0; i<button.length; i++){
         button[i].style.color = 'black';
     }
@@ -41,6 +41,7 @@ function changeToBlack() {
     search_bar.style.background = 'lightgrey';
     search_button.style.border = '1px solid rgb(28, 28, 28)';
     search_button.style.background = 'rgb(28, 28, 28)';
+    text_accueil.style.color ='white';
 
     for(let i=0; i<button.length; i++){
         button[i].style.color = 'white';
