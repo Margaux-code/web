@@ -138,6 +138,7 @@ body {
 }
 
 /* Barre de recherche */
+
 .search-box-co {
     display: flex;
     flex-direction: row;
@@ -580,5 +581,6 @@ p {
 
 .nav-pills .nav-link {
     margin-top: 1% !important;
+    margin-bottom: 2% !important;
     color: black !important;
 }
