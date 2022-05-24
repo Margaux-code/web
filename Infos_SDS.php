@@ -1,3 +1,6 @@
+
+<!-- ---------------------- CODE HTML----------------------- -->
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -31,21 +34,52 @@
                 <button type="submit" id="searchbutton" class="search">&#x1F50E;</button>
             </div>
         </div>
-
         <div class="milieu">
+        <nav>
+            <button type="submit" name="Personnel">Personnels de la salle</button>
+            <button type="submit" name="Horaires">Horaires de la Salle</button>
+            <button type="submit" name="Machines">Utilisations des machines</button>
+            <button type="submit" name="Abonnements">Abonnements et Prix</button>
+            <button type="submit" name="Alimentation">Alimentation et Nutrition</button>
+            <button type="submit" name="Gynecologie">Gynécologie</button>
+        </nav>
+        <!----------------------------------->
             <div class="Personnel">
                 <h2 class="TitreService">
                     Personnels de la Salle de sport
                 </h2>
                 <img id="img_Personnel" src="Image/SalleDeSport/Personnel Salle de sport.jpg">
                 <div class="Informations">
-                    <p>Léo MARTIN : Coach de Musculation</p>
-                    <p>Jade BONNET : Coach de Cardio Training</p>
-                    <p>Louise GARNIER : Coach de Fitness</p>
-                    <p>Arthur BLANC : Coach Biking</p>
-                    <p>Inès BOYER : Responsable des Cours Collectifs</p>
+                <?php
+                    include 'SqlConDatabase.php';
+                    $sql = "SELECT * FROM coach";
+                        $result = mysqli_query($db_handle, $sql);
+                        echo "<table border='1'>";
+                        echo "<tr>";
+                        echo "<th>" . "Nom" . "</th>";
+                        echo "<th>" . "Prenom" . "</th>";
+                        echo "<th>" . "Domaine d'expertise" . "</th>";
+                        echo "<th>" . "Bureau" . "</th>";
+                        echo "<th>" . "Téléphone" . "</th>";
+                        echo "<th>" . "Email" . "</th>";
+
+                        //afficher le resultat
+                        while ($data = mysqli_fetch_assoc($result)) 
+                        {
+                            echo "<tr>";
+                            echo "<td>" . $data['Nom_coach'] . "</td>";
+                            echo "<td>" . $data['Prenom_coach'] . "</td>";
+                            echo "<td>" . $data['Domaine_coach'] . "</td>";
+                            echo "<td>" . $data['Bureau_coach'] . "</td>";
+                            echo "<td>" . $data['Tel_coach'] . "</td>";
+                            echo "<td>" . $data['Email_coach'] . "</td>";
+                            echo "</tr>";
+                        }
+                        echo "</table>";
+                    ?>
                 </div>
             </div>
+            <!----------------------------------->
             <div class="Horaires">
                 <h2 class="TitreService">
                     Horaires de la gym
@@ -59,6 +93,7 @@
                     </p>
                 </div>
             </div>
+            <!----------------------------------->
             <div class="Règles">
                 <h2 class="TitreService">
                     Règles pour une bonne séance à la Salle de sport
@@ -105,6 +140,7 @@
                     </ul>
                 </div>
             </div>
+            <!----------------------------------->
             <div class="NouveauxClients">
                 <h2 class="TitreService">
                     Comparer les Abonnements
@@ -112,6 +148,7 @@
                 <div class="Informations">
                 </div>
             </div>
+            <!----------------------------------->
             <div class="Alimentation">
                 <h2 class="TitreService">
                     Alimentation et Nutritions
@@ -138,6 +175,7 @@
                     </ul>
                 </div>
             </div>
+            <!----------------------------------->
             <div class="Gynécologie">
                 <h2 class="TitreService">
                     Gynécologie
