@@ -73,7 +73,7 @@ figure a {
 figure::before {
   position: absolute;
   filter: blur(40px) saturate(120%) brightness(1.1);
-  font-size: 440pt;
+  font-size: 250pt;
   content: "🥪";
   z-index: -1;
   animation: rotate 12s linear infinite;
