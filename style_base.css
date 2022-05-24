@@ -99,7 +99,7 @@ body {
     color: black;
     border-radius: 5px;
     font-size: 120%;
-    font-family: 'Roboto', serif;
+    font-family: 'Roboto';
     font-weight: 500;
     cursor: pointer;
     position: relative;
@@ -415,9 +415,3 @@ height :100%;
 #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
     color: #428bca;
 }
-#map {
-    height: 400px;
-    /* The height is 400 pixels */
-    width: 100%;
-    /* The width is the width of the web page */
-  }

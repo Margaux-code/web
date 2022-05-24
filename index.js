@@ -12,6 +12,6 @@ function initMap() {
       position: uluru,
       map: map,
     });
+    window.initMap = initMap;
   }
   
-  window.initMap = initMap;
