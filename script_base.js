@@ -8,6 +8,8 @@ function changeColor() {
 }
 
 function changeToWhite() {
+   document.cookie = "couleur=claire; path=/";
+   alert(document.cookie);
     var slogan = document.getElementById("slogan");
     var button = document.getElementsByClassName("nav-button");
     var footer = document.getElementById("footer");
@@ -28,6 +30,9 @@ function changeToWhite() {
 }
 
 function changeToBlack() {
+    document.cookie = "couleur=sombre; path=/";
+    
+
     var slogan = document.getElementById("slogan");
     var button = document.getElementsByClassName("nav-button");
     var footer = document.getElementById("footer");
