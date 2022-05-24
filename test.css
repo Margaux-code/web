@@ -1,0 +1,20 @@
+.tab-content {
+    border: solid 1px black;
+    border-top: 0;
+}
+
+#tab-co, #tab-ins {
+    border: solid 1px black;
+    border-bottom: 0;
+}
+
+
+#myTab {
+    border-color: blue;
+    background-color: #A5C967;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}

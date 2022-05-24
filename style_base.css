@@ -10,7 +10,7 @@ body {
     min-height: 100vh;
     /* hauteur minimale égale à 100% du viewport */
     display: flex;
-    /*pointer-events: none;*/
+    /* pointer-events: none; */
     flex-direction: column;
 
 }
@@ -250,6 +250,10 @@ body {
         flex: 2;
         margin-bottom: 2%;
     }
+
+    .section {
+        margin-left: 30%;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -257,6 +261,10 @@ body {
         flex-direction: column;
 
 
+    }
+
+    .section {
+        margin-left: 0;
     }
 }
 
@@ -333,13 +341,16 @@ body {
 /*Source : https://codepen.io/ig_design/pen/KKVQpVP */
 
 /* test */
-/*.page {
+/* .page {
     display: block;
     filter: blur(4px);
-}*/
+} */
 
 #CoIns-window {
     display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 a {
@@ -365,16 +376,6 @@ p {
     line-height: 1.7;
 }
 
-h4 {
-    font-weight: 600;
-}
-
-.Co-Ins-container {
-    position: absolute;
-    display: flex;
-    justify-content: space-evenly;
-}
-
 #Co {
     margin-right: 5%;
     margin-bottom: 2%;
@@ -389,12 +390,20 @@ h4 {
 .section {
     position: absolute;
     top: 10%;
-    left: 0;
-    width: 100%;
+    margin-left: 40%;
+    width: 20%;
+    min-width: 320px;
+    height: 40%;
     display: flex;
     justify-content: center;
+    background-image: url('Image/marbreblanc.jpg');
+    margin-top: 5%;
+    padding-top: 2%;
+    border-radius: 5px;
+    border: 1px solid black;
 }
 
+<<<<<<< Updated upstream
 .checkCoIns-container {
     position: absolute;
     top: 5%;
@@ -513,12 +522,14 @@ h4 {
     z-index: 20;
     display: block;
 }
+=======
+>>>>>>> Stashed changes
 
 
 .form-input {
     position: relative;
     display: block;
-    margin: 7;
+    margin: 10% auto;
     padding: 0;
 }
 
@@ -615,8 +626,8 @@ h4 {
 
 .btnValid {
     position: absolute;
-    margin-top: 2%;
-    left: 35%;
+    margin-top: 1%;
+    left: 32%;
     border-radius: 4px;
     height: 44px;
     font-size: 13px;
@@ -658,16 +669,12 @@ h4 {
     text-align: center;
 }
 
-img {
-    border-radius: 7px;
-}
-
 .closeForm-container {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 10%;
-    left: 90%;
+    width: 13%;
+    height: 13%;
+    margin-left: 70%;
+    top: 0;
 }
 
 .closeForm {
@@ -677,6 +684,7 @@ img {
 }
 
 #close {
+<<<<<<< Updated upstream
     width: 100px;
     height: 100px;
 /* PAge de garde*/
@@ -821,4 +829,22 @@ height :100%;
 }
 #pres_carte{
     text-align: left;
+=======
+    width: 200%;
+    height: 200%;
+}
+
+
+
+#tab-co, #tab-ins {
+    border: solid 1px black;
+    border-bottom: 0;
+    color: black;
+}
+
+
+#myTab {
+    width: 89%;
+    background-color: #d4af37;
+>>>>>>> Stashed changes
 }

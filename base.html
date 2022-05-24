@@ -9,6 +9,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -67,75 +70,68 @@
     <!--Form de Connection/Inscription-->
     <div id="CoIns-window">
         <div class="section">
-            <div class="closeForm-container">
-                <button class="closeForm"><i class="iconify" id="close" data-icon="eva:close-circle-outline"
-                        onclick="closeForm()"></i></button>
-            </div>
-            <div class="row full-height justify-content-center">
-                <div class="Co-Ins-container">
-                    <div class="Co-Ins" id="Co">
-                        <span id="Co">Connexion</span>
-                    </div>
-                    <div class="Co-Ins" id="Ins">
-                        <span id="Ins">Inscription</span>
-                    </div>
+            <div class="CoIns">
+                <div class="closeForm-container">
+                    <button class="closeForm"><i class="iconify" id="close" data-icon="eva:close-circle-outline"
+                            onclick="closeForm()"></i></button>
                 </div>
-                <div class="checkCoIns-container">
-                    <input type="checkbox" class="checkCoIns" id="reg-log-choice" name="reg-log-choice"/>
-                    <label for="reg-log-choice"></label>
-                </div>
-                <div class="card-3d-wrap mx-auto">
-                    <div class="card-3d-wrapper">
-                        <div id="fond-Av"><img id="imgAv" src="Image/marbrenoir.jpg" width="100%" height="100%">
-                            <div class="center-wrap">
-                                <div class="blocID">
-                                    <h4 class="mb-4 pb-3">Connexion</h4>
-                                    <div class="form-input">
-                                        <input type="email" name="mail" class="form-style" placeholder="Votre e-mail"
-                                            id="mail" autocomplete="off">
-                                        <i class="input-icon uil uil-at"></i>
-                                    </div>
-                                    <div class="form-input mt-2">
-                                        <input type="password" name="mdp" class="form-style"
-                                            placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
-                                        <i class="input-icon uil uil-lock-alt"></i>
-                                    </div>
-                                    <a href="#" class="btnValid">Envoyer</a>
-                                    <div class="mdp-forget-container">
-                                        <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
-                                    </div>
-                                </div>
-                            </div>
+
+                <nav class="nav nav-tabs" id="myTab">
+                    <a class="nav-item nav-link active" id="tab-co" href="#Co" data-toggle="tab">Connexion</a>
+                    <a class="nav-item nav-link" id="tab-ins" href="#Ins" data-toggle="tab">Inscription</a>
+                </nav>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="Co">
+                        <div class="form-input">
+                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                autocomplete="off">
+                            <i class="input-icon uil uil-at"></i>
                         </div>
-                        <div id="fond-Ar"><img id="imgAr" src="Image/marbreblanc.jpg" width="100%" height="100%">
-                            <div class="center-wrap">
-                                <div class="blocID">
-                                    <h4 class="inscription">Inscription</h4>
-                                    <form action="php.php" method="get">
-                                        <div class="form-input">
-                                            <input type="text" name="nom" class="form-style" placeholder="Votre nom"
-                                                id="nom" autocomplete="off">
-                                            <i class="input-icon uil uil-user"></i>
-                                        </div>
-                                        <div class="form-input">
-                                            <input type="email" name="mail" class="form-style"
-                                                placeholder="Votre e-mail" id="mail" autocomplete="off">
-                                            <i class="input-icon uil uil-at"></i>
-                                        </div>
-                                        <div class="form-input">
-                                            <input type="password" name="mdp" class="form-style"
-                                                placeholder="Votre mot de passe" id="mdp" autocomplete="off">
-                                            <i class="input-icon uil uil-lock-alt"></i>
-                                        </div>
-                                        <input type="submit" class="btnValid" name="validI" value="Validate">
-                                    </form>
-                                </div>
-                            </div>
+                        <div class="form-input mt-2">
+                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe"
+                                id="mdp" autocomplete="off">
+                            <i class="input-icon uil uil-lock-alt"></i>
                         </div>
+                        <input type="submit" class="btnValid" name="validCo" value="Envoyer">
+                        <div class="mdp-forget-container">
+                            <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="Ins">
+                        <form action="php.php" method="get">
+                            <div class="form-input">
+                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
+                                    autocomplete="off">
+                                <i class="input-icon uil uil-user"></i>
+                            </div>
+                            <div class="form-input">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-input">
+                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe"
+                                    id="mdp" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <input type="submit" class="btnValid" name="validI" value="Validate">
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!--Fin du Form de Connection/Inscription-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
