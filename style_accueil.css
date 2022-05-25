@@ -6,7 +6,9 @@
     flex-direction : column;
   
   }
-  
+  .darkmode-toggle {
+    z-index: 1000;
+}
   .vente {
     order :1;
     color: cornflowerblue;
