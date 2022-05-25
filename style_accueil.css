@@ -1,78 +1,78 @@
 #text_accueil {
 
-  font-family: 'Roboto';
-
-
-}
-
-.vente {
-  margin-top: 5%;
-  text-align: center;
-  color: cornflowerblue;
-  margin-bottom :7%;
-}
-
-.citation {
-  margin-top: 3%;
-  margin-bottom: 10%;
-  margin-right: 10%;
-  margin-left : 7%;
-  font-style: italic;
-  float: left;
-  text-align: center;
-
-
-}
-
-.catch_phrase {
-
-margin-left : 3%;
-  flex-direction: row;
-  color: grey;
-  float: left;
-  size: 50%;
-  font-style: italic;
-
-}
-
-.milieu {
-  width: 100%;
-  height: 100%;
-
-}
-
-.carousel-caption {
-  width: 100%;
-  height: 100%;
-  left: 0 !important;
-}
-
-.carousel-caption h5 {
-  text-align: left;
-  margin-left: 30px;
-}
-
-.carousel-caption p {
-  margin-top: 40%;
-  text-align: center;
-}
-
-@media screen and (max-width: 479px) {
-  .carousel-caption p {
-    margin-top: 20%;
-    font-size: smaller;
+    font-family: 'Roboto';
+  
+  
   }
-}
-
-@media screen and (min-width: 480px) and (max-width: 640px) {
-  .carousel-caption p {
-    margin-top: 30%;
-    font-size: smaller;
+  
+  .vente {
+    margin-top: 5%;
+    text-align: center;
+    color: cornflowerblue;
+    margin-bottom :7%;
   }
-}
-
-@media screen and (min-width: 641px) {
+  
+  .citation {
+    margin-top: 3%;
+    margin-bottom: 10%;
+    margin-right: 10%;
+    margin-left : 7%;
+    font-style: italic;
+    float: left;
+    text-align: center;
+  
+  
+  }
+  
+  .catch_phrase {
+  
+  margin-left : 3%;
+    flex-direction: row;
+    color: grey;
+    float: left;
+    size: 50%;
+    font-style: italic;
+  
+  }
+  
+  .milieu {
+    width: 100%;
+    height: 100%;
+  
+  }
+  
+  .carousel-caption {
+    width: 100%;
+    height: 100%;
+    left: 0 !important;
+  }
+  
+  .carousel-caption h5 {
+    text-align: left;
+    margin-left: 30px;
+  }
+  
   .carousel-caption p {
     margin-top: 40%;
+    text-align: center;
   }
-}
+  
+  @media screen and (max-width: 479px) {
+    .carousel-caption p {
+      margin-top: 20%;
+      font-size: smaller;
+    }
+  }
+  
+  @media screen and (min-width: 480px) and (max-width: 640px) {
+    .carousel-caption p {
+      margin-top: 30%;
+      font-size: smaller;
+    }
+  }
+  
+  @media screen and (min-width: 641px) {
+    .carousel-caption p {
+      margin-top: 40%;
+    }
+  }

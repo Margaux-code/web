@@ -2,10 +2,9 @@
 <html lang="fr">
 
 <head>
-    <title>Base</title>
+    <title>Tout Parcourir</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html; charset=utf-8" />
-    <link rel="stylesheet" href="style_base.css">
-    <script type="text/javascript" src="script_base.js"></script>
+    <link rel="stylesheet" href="style_toutParcourir.css">
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -32,12 +31,12 @@
             <div class="search-box-co">
                 <div class="search-box">
                     <input type="text" name="input" id="search-bar" class="search" placeholder="Recherche">
-                    <button type="submit" id="searchbutton" class="search"><i class="iconify"
-                            id="loupe" data-icon="simple-line-icons:magnifier"></i></button>
+                    <button type="submit" id="searchbutton" class="search"><i class="iconify" id="loupe"
+                            data-icon="simple-line-icons:magnifier"></i></button>
                 </div>
                 <div class="btnRegLog">
-                    <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify"
-                            id="compte" data-icon="uil:user"></i></button>
+                    <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" id="compte"
+                            data-icon="uil:user"></i></button>
                     <script>
                         "use strict";
 
@@ -51,17 +50,81 @@
 
 
         <div class="milieu" id="content">
-
-        </div>
-
-        <div class="footer" id="footer">
-            <div class="copyright">
-                <p>ceci est un copyright</p>
+            <div class="nav-button-side-container">
+                <button class="nav-button-side active"
+                    onClick="document.getElementById('activite').scrollIntoView({ behavior: 'smooth', block: 'center' })">
+                    <p class="text-side-button">ACTIVITES</p>
+                </button>
+                <button class="nav-button-side"
+                    onClick="document.getElementById('competition').scrollIntoView({ behavior: 'smooth', block: 'center' })">
+                    <p class="text-side-button">COMPETITION</p>
+                </button>
+                <button class="nav-button-side"
+                    onClick="document.getElementById('salle').scrollIntoView({ behavior: 'smooth', block: 'center' })">
+                    <p class="text-side-button">SALLES</p>
+                </button>
             </div>
-            <div class="text">
-                <p>footer</p>
+            <div class="page-content">
+                <div class="navbarVert" id="activite">
+                    <div class="text-container">
+                        <h2>Activités sportives</h2>
+                        <div class="text-box">
+                            <h3>Section Text</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex est
+                                rerum id quis eaque rem suscipit reprehenderit quaerat vero
+                                nesciunt?
+                            </p>
+                        </div>
+                    </div>
+                    <div class="img-container">
+                        <img class="halteres" id="halteres" src="Image/halteres.png">
+                        <img class="perso" id="perso" src="Image/Perso_ssHaltere.png">
+                    </div>
+                </div>
+
+                <div class="navbarVert" id="competition">
+                    <div class="container">
+                        <h2>Les sports de compétition</h2>
+                        <div class="text-container">
+                            <div class="text-box">
+                                <h3>Section Text</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex est
+                                    rerum id quis eaque rem suscipit reprehenderit quaerat vero
+                                    nesciunt?
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navbarVert" id="salle">
+                    <div class="container">
+                        <h2>Salles de sport Omnes</h2>
+                        <div class="text-container">
+                            <div class="text-box">
+                                <h3>Section text</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+                                    eius molestiae perferendis eos provident vitae iste.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+
+    <div class="footer" id="footer">
+        <div class="copyright">
+            <p>ceci est un copyright</p>
+        </div>
+        <div class="text">
+            <p>footer</p>
+        </div>
+    </div>
     </div>
 
     <!--Form de Connection/Inscription-->
@@ -127,9 +190,9 @@
 
     <script>
         const options = {
-            bottom: '64px', // default: '32px'
-            right: 'unset', // default: '32px'
-            left: '32px', // default: 'unset'
+            bottom: '50px', // default: '32px'
+            right: '32px', // default: '32px'
+            left: 'unset', // default: 'unset'
             time: '0.5s', // default: '0.3s'
             mixColor: '#fff', // default: '#fff'
             backgroundColor: '#fff',  // default: '#fff'
@@ -153,4 +216,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script type="text/javascript" src="script_toutParcourir.js"></script>
 </body>
