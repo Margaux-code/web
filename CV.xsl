@@ -9,17 +9,21 @@
             <table border="1">
                 <tr bgcolor="#9acd32">
                     <th>Nom du Coach </th>
+                    <th>Prenom </th>
                     <th>Age</th>
                     <th>Diplôme</th>
                     <th>Expériences </th>
                     <th>Langue maternelle</th>
                     <th>Autre langue parlée</th>
                 </tr>
-                <xsl:for-each select="CV/Coach[@id='Coach3']">
+                <xsl:for-each select="CV/Coach">
                     <tr>
                         <td>
                             <xsl:value-of select="Nom" />
                             
+                        </td>
+                        <td>
+                            <xsl:value-of select="Prenom" />
                         </td>
                         <td>
                             <xsl:value-of select="Age" />

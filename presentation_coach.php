@@ -16,38 +16,50 @@
 <?php
 
 setcookie('connection', false, 0, "", "", false, false);
+
 if (isset($_POST['coach1'])) {
     $coach = 1;
+    
 }
 if (isset($_POST['coach2'])) {
     $coach = 2;
+   
 }
 if (isset($_POST['coach3'])) {
     $coach = 3;
+ 
 }
 if (isset($_POST['coach4'])) {
     $coach = 4;
+
 }
 if (isset($_POST['coach5'])) {
     $coach = 5;
+  
 }
 if (isset($_POST['coach6'])) {
     $coach = 6;
+   
 }
 if (isset($_POST['coach7'])) {
     $coach = 7;
+    
 }
 if (isset($_POST['coach8'])) {
     $coach = 8;
+   
 }
 if (isset($_POST['coach9'])) {
     $coach = 9;
+
 }
 if (isset($_POST['coach10'])) {
     $coach = 10;
+    
 }
 if (isset($_POST['coach11'])) {
     $coach = 11;
+    
 }
 
 include 'SqlConDatabase.php';
@@ -70,6 +82,7 @@ if ($connect) {
         $Email = $row['Email_coach'];
     }
 }
+
 ?>
 <body>
     <div class="page" id="page">
