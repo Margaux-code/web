@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+        
 </head>
 <?php
 
@@ -121,8 +121,29 @@ if ($connect) {
             ?>
         </div>
         <div class="cv_coach">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.
 
+            <?php
+                $xml_file ='CV.xml';
+                $xsl_file ='CV.xsl';
+                $dom_object = new DOMDocument();
+                if(!file_exists($xml_file)) 
+                {
+                    exit ('failed to open $xml_file');
+                }
+                $dom_object->load($xml_file);
+                $xsl_obj = new DomDocument();
+                if(!file_exists($xsl_file))
+                {
+                    exit ('failed to open $xsl_file');
+                } 
+                $xsl_obj->load($xsl_file);
+                $proc = new XSLTProcessor;
+                $proc -> importStylesheet($xsl_obj);
+                $html_fragment = $proc->transformToXml($dom_object);
+                print($html_fragment);
+
+            ?>
+            
         </div>
     </div>
 

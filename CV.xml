@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE CV SYSTEM "CV.dtd">
+ <?xml-stylesheet href="CV.xsl" type="text/xsl"?>
 
 <CV> 
     <Coach id = "Coach1"> 
