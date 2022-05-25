@@ -2,7 +2,7 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css');
 @import url('https://unicons.iconscout.com/release/v2.1.9/css/unicons.css');
 
-body {
+.haut, .footer {
     background: white;
 }
 
@@ -24,7 +24,6 @@ body {
         0px 4px 5px rgba(0, 0, 0, 0.148);
     border-radius: 5px;
 }
-
 .milieu {
     flex-grow: 1;
 }
@@ -59,7 +58,7 @@ body {
     color: rgb(228, 227, 227);
 }
 
-.logo {
+.haut .logo {
     flex: 2;
     width: 100%;
     height: auto;
@@ -104,6 +103,16 @@ body {
     outline: none;
     border: none;
     font-weight: 900;
+}
+
+.nav-page, .nav-page:hover, .nav-page:focus, .nav-page:active {
+    text-decoration: none;
+    color: inherit;
+} 
+
+.nav-page {
+	text-decoration: none; /* remove underline */
+	color: inherit; /* remove blue */
 }
 
 .darkmode--activated .nav-button {
@@ -229,7 +238,7 @@ body {
     filter: invert(100%);
 }
 
-#compte:hover {
+.haut #compte:hover {
     color: white;
 }
 
@@ -327,7 +336,12 @@ body {
     justify-content: center;
 }
 
-a {
+.haut a {
+    cursor: pointer;
+    transition: all 200ms linear;
+}
+
+#CoIns-window a {
     cursor: pointer;
     transition: all 200ms linear;
 }
@@ -344,7 +358,7 @@ a:hover {
     color: #565656;
 }
 
-p {
+.footer p {
     font-weight: 500;
     font-size: 14px;
     line-height: 1.7;

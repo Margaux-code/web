@@ -52,46 +52,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 </head>
 <body>
-    <!-- Navbar top -->
-    <div class="navbar-top">
-        <div class="title">
-            <h1>Profile</h1>
-        </div>
-
-        <!-- Navbar -->
-        <ul>
-            <li>
-                <a href="#sign-out">
-                    <i class="fa fa-sign-out-alt fa-2x"></i>
-                </a>
-            </li>
-        </ul>
-        <!-- End -->
-    </div>
-    <!-- End -->
-
     <!-- Sidenav -->
     <div class="sidenav">
+        <div class="return"><img src="Image/Deconnection.jpg"></div>
         <div class="profile">
             <img src="Image/IconClient.jpg" alt="" width="100" height="100">
-
-            <div class="name">
-                ImDezCode
-            </div>
-            <div class="job">
-                Web Developer
+            <div class="ProfileTitle">
+                PROFILE
             </div>
         </div>
-
         <div class="sidenav-url">
             <div class="url">
-                <input type="submit" name="InfosClients">
-                <a href="#profile" class="active">Profile</a>
+                <input type="submit" name="InfosClients" value="Informations">
+                <!-- <a href="#profile" class="active">Profile</a> -->
                 <hr align="center">
             </div>
             <div class="url">
-                <input type="submit" name="HistoriqueRDV">
-                <a href="#settings">Historique des RDV</a>
+                <input type="submit" name="HistoriqueRDV" value="Rendez-vous">
+                <!-- <a href="#settings">Historique des RDV</a> -->
                 <hr align="center">
             </div>
         </div>
@@ -99,7 +77,7 @@
     <!-- End -->
 
     <!-- Main -->
-    <form class="form">
+    <form class="form-left">
         <div class="form-group">
             <label for="email">Nom :</label>
             <div class="relative">
@@ -114,6 +92,29 @@
                 <i class="fa fa-user"></i>
             </div>
         </div>
+        <div class="form-group">
+            <label for="email">Numéro de Téléphone :</label>
+            <div class="relative">
+                <input class="form-control" type="text" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required="" placeholder="Type your Mobile Number...">
+                <i class="fa fa-phone"></i>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <div class="relative">
+                <input class="form-control" type="email" required="" placeholder="Type your email address..." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                <i class="fa fa-envelope"></i>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <div class="relative">
+                <input class="form-control" type="password" required="" placeholder="Type your email address..." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                <i class="fa fa-envelope"></i>
+            </div>
+        </div>
+    </form>
+    <form class="form-right">
         <div class="form-group">
             <label for="email">Adresse :</label>
             <div class="relative">
@@ -142,28 +143,7 @@
                 <i class="fa fa-building"></i>
             </div>
         </div>
-        <div class="form-group">
-            <label for="email">Numéro de Téléphone :</label>
-            <div class="relative">
-                <input class="form-control" type="text" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required="" placeholder="Type your Mobile Number...">
-                <i class="fa fa-phone"></i>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email">Email :</label>
-            <div class="relative">
-                <input class="form-control" type="email" required="" placeholder="Type your email address..." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-                <i class="fa fa-envelope"></i>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email">Email :</label>
-            <div class="relative">
-                <input class="form-control" type="password" required="" placeholder="Type your email address..." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-                <i class="fa fa-envelope"></i>
-            </div>
-        </div>
-      </form>
+    </form>
     <!-- End -->
 </body>
 </html>
