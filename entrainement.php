@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="style_profil_coach.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <!-- Fichiers CSS -->
     <!-- Fichiers JS -->
 </head>
@@ -42,8 +43,8 @@ if ($connect) {
             ?>
         </div>
         <div class="description_profil">
-            Profil : </br>
-            <?php echo $Nom . "</br>" . $Prenom . "</br>" . $Domaine . "</br>" . $Bureau . "</br>" . $Tel . "</br>" . $Email . "</br>";
+           <h1 id="profil"> Profil de coach : </h1>
+            <?php echo "<p class='presentation'>". $Prenom . " ".$Nom . "</br>  Spécialité : " . $Domaine . "</br> <i> Contact :</i> </br> " . $Tel . "</br>" . $Email . "</br> Vous pouvez trouver son bureau au 1er étage, porte n°" . $Bureau . "</br> </p>";
             ?>
         </div>
         <div class="cv_coach">

@@ -3,6 +3,7 @@
     display : flex;
     flex-wrap : wrap;
     justify-content : space-evenly;
+    font-family:'Roboto';
 }
 .photo_profil{
     order :1;
@@ -11,7 +12,11 @@
 }
 .description_profil{
     order :2;
+    align-self : flex-start;
  
+}
+#profil{
+    size: 70%;
 }
 .cv_coach{
     margin-top : 5%;
