@@ -7,12 +7,15 @@
 }
 .photo_profil{
     order :1;
+    flex-shrink :1;
 
    
 }
 .description_profil{
     order :2;
     align-self : flex-start;
+    flex-grow:2;
+    margin-left :3%;
  
 }
 #profil{
