@@ -1,42 +1,10 @@
-function setCookie(cname, cvalue, exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
+var controller = new ScrollMagic.Controller();
 
-function getCookie(cname) {
-    let name = cname + "=";
-    let ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-function checkCookieTheme() {
-    let theme = getCookie("theme");
-    if (theme != "") {
-        alert("Le theme que vous avez choisi est " + theme);
-    }
-}
-
-function openForm() {
-    document.getElementById("CoIns-window").style.display = "block";
-    var page = document.getElementById("page");
-    page.style.filter = "blur(4px)";
-    page.style.pointerEvents = "none";
-}
-
-function closeForm() {
-    document.getElementById("CoIns-window").style.display = "none";
-    var page = document.getElementById("page");
-    page.style.filter = "blur(0)";
-    page.style.pointerEvents = "auto";
-}
+var scene = new ScrollMagic.Scene({
+    triggerElement: '.animation',
+    triggerHook: 0.5,
+    duration: 1000
+})
+.setClassToggle('.halteres', 'show')
+.addIndicators()
+.addTo(controller);

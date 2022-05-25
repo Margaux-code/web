@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css');
 @import url('https://unicons.iconscout.com/release/v2.1.9/css/unicons.css');
+@import url("https://fonts.googleapis.com/css2?family=Asap&display=swap");
 
 body {
     background: white;
@@ -309,11 +310,13 @@ body {
     isolation: isolate;
 }
 
-.darkmode--activated .copyright, .darkmode--activated .text {
+.darkmode--activated .copyright,
+.darkmode--activated .text {
     color: rgb(228, 227, 227);
 }
 
-.copyright, .text {
+.copyright,
+.text {
     color: black;
     width: 30%;
 }
@@ -568,3 +571,110 @@ p {
     background-color: #d4af37;
 }
 
+/* Animation scroll */
+.text-container {
+    margin-left: 5%;
+    width: 100%;
+    flex: 1;
+}
+
+.nav-button-side-container {
+    position: fixed;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 85px;
+    height: 61%;
+    z-index: 1000;
+}
+
+.nav-button-side {
+    margin-top: 5px;
+    width: 55%;
+    border-radius: 0 10px 10px 0;
+    border: none;
+    background: none;
+    text-shadow: 2px 2px 3px rgb(131, 131, 131);
+}
+
+.nav-button-side {
+    background: rgb(212, 175, 55);
+    background: linear-gradient(0deg, rgba(120, 0, 0, 0.5) 0%, rgba(212, 175, 55, 0.5) 100%);
+}
+
+.darkmode--activated .nav-button-side {
+    background: rgb(95, 33, 125);
+    background: linear-gradient(0deg, rgba(95, 33, 125, 0.5) 0%, rgba(212, 175, 55, 0.5) 100%);
+}
+
+.text-side-button {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbarVert {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    color: #42455a;
+    width: 100%;
+}
+
+.navbarVert:nth-child(1) {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(212, 175, 55, 1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.navbarVert:nth-child(2) {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg, rgba(212, 175, 55, 1) 0%, rgba(143, 0, 0, 1) 100%);
+}
+
+.navbarVert:nth-child(3) {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(212, 175, 55, 1) 0%, rgba(255, 255, 255, 1) 10%, rgba(143, 0, 0, 1) 100%);
+}
+
+.darkmode--activated .navbarVert:nth-child(1) {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(240, 227, 185, 1) 0%, rgba(255, 255, 255, 1) 100%)
+}
+
+.darkmode--activated .navbarVert:nth-child(2) {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgb(197, 253, 200) 0%, rgba(240, 227, 185, 1) 100%)
+}
+
+.darkmode--activated .navbarVert:nth-child(3) {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgb(191, 199, 248) 0%, rgb(197, 253, 200) 100%)
+}
+
+/* Animation Perso */
+#activite {
+    z-index: 1;
+}
+.img-container {
+    flex: 1;
+    display: flex;
+}
+
+.halteres, .perso {
+    max-width: 300px;
+    max-height: 400px;
+    width: 70%;
+}
+
+.halteres {
+    transition: 3s;
+}
+
+
+.go-up{
+    transform: translateY(-40vh);
+}
