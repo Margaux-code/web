@@ -43,6 +43,5 @@ var scene = new ScrollMagic.Scene({
     triggerHook: 0
 })
 .setClassToggle('.halteres', 'go-up')
-.addIndicators()
 .setPin("#activite")
 .addTo(controller);
