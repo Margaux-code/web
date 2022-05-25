@@ -107,6 +107,16 @@ body {
     font-weight: 900;
 }
 
+.nav-page, .nav-page:hover, .nav-page:focus, .nav-page:active {
+    text-decoration: none;
+    color: inherit;
+} 
+
+.nav-page {
+	text-decoration: none; /* remove underline */
+	color: inherit; /* remove blue */
+}
+
 .darkmode--activated .nav-button {
     color: rgb(228, 227, 227);
 }

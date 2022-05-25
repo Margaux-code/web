@@ -94,6 +94,16 @@ body {
     align-items: center;
 }
 
+.nav-page, .nav-page:hover, .nav-page:focus, .nav-page:active {
+    text-decoration: none;
+    color: inherit;
+} 
+
+.nav-page {
+	text-decoration: none; /* remove underline */
+	color: inherit; /* remove blue */
+}
+
 .nav-button {
     background: #D4AF37;
     width: 20%;
