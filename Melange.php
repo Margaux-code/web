@@ -14,7 +14,7 @@
 
 // SI BOUTON Musculation PRESSE 
 setcookie('connection', false, 0, "", "", false, false);
-include 'connection.php';
+include 'SqlConDatabase.php';
 $connect = $_COOKIE['connection'];
 $bouton_presse = false;
 if ($connect) {
