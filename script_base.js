@@ -28,7 +28,7 @@ function checkCookieTheme() {
 }
 
 function openForm() {
-  document.getElementById("CoIns-window").style.display = "block";
+  document.getElementById("CoIns-window").style.display = "flex";
   var page = document.getElementById("page");
   page.style.filter = "blur(4px)";
   page.style.pointerEvents = "none";

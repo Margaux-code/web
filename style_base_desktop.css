@@ -11,6 +11,7 @@ body {
     /* hauteur minimale égale à 100% du viewport */
     display: flex;
     flex-direction: column;
+
 }
 
 .haut {

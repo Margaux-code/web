@@ -4,7 +4,14 @@
 <head>
     <title>Base</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html; charset=utf-8" />
+
+    <!-- main css -->
     <link rel="stylesheet" href="style_base.css">
+
+    <!-- css for different device -->
+    <link rel="stylesheet" media="screen and (max-width: 980px)" href="style_base_mobile.css">
+    <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_base_desktop.css">
+
     <script type="text/javascript" src="script_base.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -26,18 +33,19 @@
             </div>
             <div class="div_button">
                 <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
-                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout parcourir</a></button>
+                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout
+                        parcourir</a></button>
                 <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
                 <div class="search-box">
                     <input type="text" name="input" id="search-bar" class="search" placeholder="Recherche">
-                    <button type="submit" id="searchbutton" class="search"><i class="iconify"
-                            id="loupe" data-icon="simple-line-icons:magnifier"></i></button>
+                    <button type="submit" id="searchbutton" class="search"><i class="iconify" id="loupe"
+                            data-icon="simple-line-icons:magnifier"></i></button>
                 </div>
                 <div class="btnRegLog">
-                    <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify"
-                            id="compte" data-icon="uil:user"></i></button>
+                    <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" id="compte"
+                            data-icon="uil:user"></i></button>
                     <script>
                         "use strict";
 

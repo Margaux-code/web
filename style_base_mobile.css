@@ -11,9 +11,11 @@ body {
     /* hauteur minimale égale à 100% du viewport */
     display: flex;
     flex-direction: column;
+
 }
 
 .haut {
+    flex-direction: column;
     isolation: isolate;
     width: 100%;
     height: 120%;
@@ -35,9 +37,10 @@ body {
     flex-grow: 1;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-around;
+    text-align: center;
     font-weight: 550;
     font-style: italic;
     font-size: 140%;
@@ -62,7 +65,7 @@ body {
     flex: 2;
     width: 100%;
     height: auto;
-    min-width: 100px;
+    max-width: 50px;
 }
 
 #img_logo {
@@ -78,6 +81,7 @@ body {
 
 /* Boutons de navigations */
 .div_button {
+    flex-direction: column;
     flex-grow: 1;
     display: flex;
     justify-content: space-between;
@@ -103,16 +107,22 @@ body {
     outline: none;
     border: none;
     font-weight: 900;
+    margin-bottom: 2%;
 }
 
-.nav-page, .nav-page:hover, .nav-page:focus, .nav-page:active {
+.nav-page,
+.nav-page:hover,
+.nav-page:focus,
+.nav-page:active {
     text-decoration: none;
     color: inherit;
-} 
+}
 
 .nav-page {
-	text-decoration: none; /* remove underline */
-	color: inherit; /* remove blue */
+    text-decoration: none;
+    /* remove underline */
+    color: inherit;
+    /* remove blue */
 }
 
 .darkmode--activated .nav-button {
@@ -168,6 +178,7 @@ body {
     justify-content: center;
     flex: 2;
     min-width: 300px;
+    margin-bottom: 2%;
 }
 
 #search-bar {
@@ -264,48 +275,6 @@ body {
     transform: translateY(2px);
 }
 
-/* Responsive */
-@media screen and (max-width: 1000px) {
-    .haut {
-        flex-direction: column;
-    }
-
-    .logo_slogan {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
-    }
-
-    .logo {
-        max-width: 50px;
-    }
-
-    .nav-button {
-        margin-bottom: 2%;
-    }
-
-    .search-box {
-        flex: 2;
-        margin-bottom: 2%;
-    }
-
-    .section {
-        margin-left: 30%;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .div_button {
-        flex-direction: column;
-
-
-    }
-
-    .section {
-        margin-left: 0;
-    }
-}
-
 /* FOOTER */
 .footer {
     width: 100%;
@@ -318,11 +287,13 @@ body {
     isolation: isolate;
 }
 
-.darkmode--activated .copyright, .darkmode--activated .text {
+.darkmode--activated .copyright,
+.darkmode--activated .text {
     color: rgb(228, 227, 227);
 }
 
-.copyright, .text {
+.copyright,
+.text {
     color: black;
     width: 30%;
 }
@@ -333,7 +304,7 @@ body {
 #CoIns-window {
     display: none;
     align-items: center;
-    justify-content: center;
+    justify-content: center;   
 }
 
 a {
@@ -372,19 +343,17 @@ p {
 
 #section-form {
     position: absolute;
-    top: 10%;
-    margin-left: 40%;
+    top: 25%;
+    margin-left: 5%;
     width: 20%;
     min-width: 320px;
     height: 40%;
     display: flex;
     justify-content: center;
-    /* background-image: url('Image/marbreblanc.jpg'); */
     margin-top: 5%;
     padding-top: 2%;
     border-radius: 5px;
     border: 1px solid black;
-    background: red;
 }
 
 .CoIns {
@@ -576,4 +545,3 @@ p {
     width: 89%;
     background-color: #d4af37;
 }
-
