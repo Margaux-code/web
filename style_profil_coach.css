@@ -1,0 +1,20 @@
+.page_profil{
+    margin-top : 3%;
+    display : flex;
+    flex-wrap : wrap;
+    justify-content : space-evenly;
+}
+.photo_profil{
+    order :1;
+
+   
+}
+.description_profil{
+    order :2;
+ 
+}
+.cv_coach{
+    margin-top : 5%;
+    order:3;
+    
+}

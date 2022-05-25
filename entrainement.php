@@ -1,29 +1,54 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 
 <head>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="style_profil_coach.css">
     <!-- Fichiers CSS -->
     <!-- Fichiers JS -->
 </head>
 
-    <?php
+<?php
 
-    setcookie('connection', false, 0, "", "", false, false);
-    if(isset($_POST['coach6']))
-    {
-        $coach =6;
+setcookie('connection', false, 0, "", "", false, false);
+if (isset($_POST['coach6'])) {
+    $coach = 6;
+}
+include 'SqlConDatabase.php';
+$connect = $_COOKIE['connection'];
+
+
+if ($connect) {
+
+    $sql1 = "SELECT * FROM coach WHERE Id_coach = '" . $coach . "'";
+
+    // ON CHERCHE LES INFORMATIONS DU COACH CORRESPONDANT AU DOMAINE SELECTIONNE PAR L'UTILISATEUR (Bouton)
+    $result1 = mysqli_query($db_handle, $sql1);
+
+    while ($row = mysqli_fetch_assoc($result1)) {
+        $Nom = $row['Nom_coach'];
+        $Prenom = $row['Prenom_coach'];
+        $Domaine = $row['Domaine_coach'];
+        $Bureau = $row['Bureau_coach'];
+        $Tel = $row['Tel_coach'];
+        $Email = $row['Email_coach'];
     }
-    include 'SqlConDatabase.php';
-    $connect = $_COOKIE['connection'];
-  
+}
+?>
 
-    if ($connect) {
-            echo " <img src='Image/Profil_prof/".$coach.".jpg' alt = 'Photo de Profil' style='max-width :200px;'>";
-            
+<body>
+    <div class="page_profil">
+        <div class="photo_profil">
+            <?php echo " <img src='Image/Profil_prof/" . $coach . ".jpg' alt = 'Photo de Profil' style='max-width :200px;'>";
+            ?>
+        </div>
+        <div class="description_profil">
+            Profil : </br>
+            <?php echo $Nom . "</br>" . $Prenom . "</br>" . $Domaine . "</br>" . $Bureau . "</br>" . $Tel . "</br>" . $Email . "</br>";
+            ?>
+        </div>
+        <div class="cv_coach">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.
 
-
-    }
-    ?>
-
-
+        </div>
+    </div>
+</body>
