@@ -3,6 +3,7 @@
     display : flex;
     flex-wrap : wrap;
     justify-content : space-evenly;
+    flex-direction: column;
     font-family:'Roboto';
 }
 .photo_profil{
@@ -23,6 +24,7 @@
 }
 .cv_coach{
     margin-top : 5%;
-    order:3;
+   flex : column;
+   
     
 }
