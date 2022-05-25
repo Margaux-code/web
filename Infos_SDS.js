@@ -65,7 +65,6 @@ function changeToBlack() {
     for (let l = 0; l < titre.length; l++) {
         titre[l].style.color = 'white';
     }
-}
 
     document.body.style.background = 'black';
     footer.style.color = 'white';
