@@ -79,7 +79,7 @@
                 Heure de fin :
                 <input type="time" id="HeureFin" name="HeureFin" value=17:00> </br>
                 Temps d'une consultation en minutes :
-                <input type="time" id="TempsConsult" name="TempsConsult" value=00:00 max=03:00 required> </br>
+                <input type="time" id="TempsConsult" name="TempsConsult" value=01:00 min=01:00 max=04:00 required> </br>
                 Jour :
                 <input type="date" id="jour_travail" name="JourTravail" value="2022-06-02" min="2022-06-02" max="2022-07-10" required>
                 <input type="submit" name="JourRDV" value="Ajouter au planning"><input type="reset">

@@ -18,7 +18,7 @@
         <thread>
 
             <tr>
-                
+
                 <th scope="col">Coach</th>
                 <th scope="col">Domaine de coaching</th>
                 <th scope="col">Jour </th>
@@ -46,6 +46,7 @@
                 while ($row_coach = mysqli_fetch_assoc($availablecoach)) {
 
                     $IdCoach = $row_coach['Id_coach'];
+                    $IdPlanning = $row_coach['Id_planning'];
                     echo "<tr>";
                     $sql_NomCoach = "SELECT * from coach WHERE Id_coach= '" . $IdCoach . "'";
                     $getNomCoach = mysqli_query($db_handle, $sql_NomCoach);
@@ -54,7 +55,7 @@
                         $PrenomCoach = $row_nom['Prenom_coach'];
                         $Domaine = $row_nom['Domaine_coach'];
                         echo "<td>" . $PrenomCoach . " " . $NomCoach . "</td>";
-                        echo "<td>".$Domaine."</td>";
+                        echo "<td>" . $Domaine . "</td>";
                     }
                     $Debut = $row_coach['start_time'];
                     $Fin = $row_coach['end_time'];
@@ -63,8 +64,11 @@
                     <td>" . $Debut . "</td>                    
                     <td>" . $Fin . "</td>                    
                    <td>" . $TempsSeance . "</td>";
-                    echo"<td> <form action ='RDV_un_coach.php' method='post'>             
-                    <input type='submit' name='bouton' value='Choisir ce coach'>                    
+                    echo "<td> <form name = '1' action ='RDV_un_coach.php' method='post'> 
+                        <input type='hidden' name='id_planning' value='" . $IdPlanning . "'>
+                        <input type='hidden' name='id_coach' value='" . $IdCoach . "'>     
+                        <input type='hidden' name='date' value'".$dateChoisie."'>                    
+                    <input type='submit' name='bouton' class='a' value='Choisir ce coach'>                    
                     </form> </td>";
 
                     echo "</tr>";
@@ -75,4 +79,3 @@
         </tbody>
     </table>
 </body>
-
