@@ -20,6 +20,7 @@
             <tr>
                 
                 <th scope="col">Coach</th>
+                <th scope="col">Domaine de coaching</th>
                 <th scope="col">Jour </th>
                 <th scope="col">Heure de debut</th>
                 <th scope="col">Heure de Fin</th>
@@ -51,7 +52,9 @@
                     while ($row_nom = mysqli_fetch_assoc($getNomCoach)) {
                         $NomCoach = $row_nom['Nom_coach'];
                         $PrenomCoach = $row_nom['Prenom_coach'];
+                        $Domaine = $row_nom['Domaine_coach'];
                         echo "<td>" . $PrenomCoach . " " . $NomCoach . "</td>";
+                        echo "<td>".$Domaine."</td>";
                     }
                     $Debut = $row_coach['start_time'];
                     $Fin = $row_coach['end_time'];
