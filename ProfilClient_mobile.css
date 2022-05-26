@@ -1,0 +1,200 @@
+/* Import Font Dancing Script */
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+
+* {
+    margin: 0;
+}
+
+.milieu {
+    background-color: #f0f1f5;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.page {
+    min-height: 100vh;
+    /* hauteur minimale égale à 100% du viewport */
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* End */
+
+/* Sidenav */
+.sidenav {
+    /* flex-direction: row; */
+    background-color: white;
+    color: #333;
+    border-radius: 25px;
+    padding-top: 5%;
+    margin-top: 2%;
+    border: 3px solid #d4af37;
+    width: 100%;
+    height: 100px;
+}
+
+.sidenav-url {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: -10px;
+}
+
+.sidenav img {
+    color: #333;
+    margin-left: 2%;
+    max-width: 20%;
+}
+
+.ProfileTitle {
+    font-size: 100%;
+    font-weight: bold;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.profile {
+    margin-bottom: 20px;
+    margin-top: -12px;
+    text-align: center;
+}
+
+.url hr {
+    margin-left: 20%;
+    width: 60%;
+    border-top: 2px solid #d4af37;
+    margin-top: 10px;
+}
+
+.url input {
+    background-color: rgb(148, 148, 148);
+    color: white;
+    border-radius: 28px;
+    display: flex;
+    font-size: 100%;
+    text-decoration: none;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.url input:hover,
+.url .active {
+    color: black;
+    border-radius: 28px;
+    background-color: #d4af37;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* End */
+
+/* ______________________________________ Main _______________________________________ */
+
+.form-container {
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    margin-top: 20px;
+    margin: 5% auto;
+    max-width: calc(100vw - 40px);
+    width: 100%;;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 8px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 90%;
+}
+
+.form-group input {
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
+    outline: none;
+    resize: none;
+    border: 0;
+    background-color: #f0f1f5;
+    transition: all .3s;
+    border: 2px solid #d4af37;
+}
+
+.relative {
+    position: relative;
+}
+
+.relative i.fa {
+    position: absolute;
+    top: 2px;
+    right: 1px;
+    text-align: center;
+    border-radius: 0 4px 4px 0;
+    height: 0;
+    z-index: 99;
+    border-left: 20px solid transparent;
+    border-right: 10px solid #ccc;
+    border-bottom: 34px solid #ccc;
+    transition: all 0.15s ease-in-out;
+
+}
+
+.form-group .email .form-control:focus {
+    border-color: #d4af37;
+    box-shadow: inset 0px 1px 1px #d4af37, 0 0 8px #d4af37;
+}
+
+.relative input:focus+i.fa {
+    border-left: 20px solid transparent;
+    border-right: 30px solid #d4af37;
+    border-bottom: 34px solid #d4af37;
+}
+
+input:focus+i.fa:before {
+    color: rgb(176, 21, 21);
+}
+
+.input-group .form-control:not(:first-child):not(:last-child),
+.input-group-addon:not(:first-child):not(:last-child),
+.input-group-btn:not(:first-child):not(:last-child) {
+    border-radius: 0 4px 4px 0;
+}
+
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+    background-color: rgb(255, 255, 255);
+}
+
+/* --- Animated Buttons --- */
+
+/* End */
+
+.darkmode-toggle {
+    z-index: 1000;
+}
+
+/* FOOTER */
+.footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #D4AF37;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    font-family: 'Roboto';
+    justify-content: space-between;
+    isolation: isolate;
+}
+
+.darkmode--activated .copyright,
+.darkmode--activated .text {
+    color: rgb(228, 227, 227);
+}
+
+.copyright,
+.text {
+    color: black;
+    width: 30%;
+}
