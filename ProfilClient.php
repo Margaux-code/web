@@ -110,66 +110,66 @@ if (isset($_POST["Se_Connecter"])) {
             <div class="form-container">
                 <form class="form">
                     <div class="form-group">
-                        <label for="email">Nom :</label>
+                        <label class="form-label" for="name">Nom :</label>
                         <div class="relative">
-                            <input class="form-control" id="name" type="text" pattern="[a-zA-Z\s]+" required="" autofocus="" title="Le nom ne doit contenir que des lettres de l'alphabet" autocomplete="" placeholder="Rentrez votre Nom...">
-                            <i class="fa fa-user"></i>
+                            <input class="form-control" id="name" type="text" pattern="[a-zA-Z\s]+" required="" autofocus="" placeholder="Rentrez votre Nom">
+                            <i class="fa fa-building"><i class="iconify" data-icon="bx:user"></i></i>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email">Prénom :</label>
+                        <label class="form-label" for="firstname">Prénom :</label>
                         <div class="relative">
-                            <input class="form-control" id="firstname" type="text" pattern="[a-zA-Z\s]+" required="" autofocus="" title="Le nom ne doit contenir que des lettres de l'alphabet" autocomplete="" placeholder="Rentrez votre Prénom...">
-                            <i class="fa fa-user"></i>
+                            <input class="form-control" id="firstname" type="text" pattern="[a-zA-Z\s]+" required="" autofocus="" placeholder="Rentrez votre Prénom">
+                            <i class="fa fa-building"><i class="iconify" data-icon="bx:user"></i></i>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email">Adresse :</label>
+                        <label class="form-label" for="addresse">Adresse :</label>
                         <div class="relative">
-                            <input class="form-control" id="addresse" type="text" required="" placeholder="Veuillez indiquer le numéro et le nom de votre Adresse...">
-                            <i class="fa fa-envelope"></i>
+                            <input class="form-control" id="addresse" type="text" required="" placeholder="Veuillez indiquer le numéro et le nom de votre Adresse">
+                            <i class="fa fa-building"><i class="iconify" data-icon="bx:home-alt"></i></i>  
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email">Ville :</label>
+                        <label class="form-label" for="city">Ville :</label>
                         <div class="relative">
-                            <input class="form-control" type="text" pattern="[a-zA-Z\s]+" required="" placeholder="Veuillez indiquer votre Ville...">
-                            <i class="fa fa-building"></i>
+                            <input class="form-control" id="city" type="text" pattern="[a-zA-Z\s]+" required="" placeholder="Veuillez indiquer votre Ville">
+                            <i class="fa fa-building"><i class="iconify" data-icon="material-symbols:location-city-rounded"></i></i>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email">Code Postal :</label>
+                        <label class="form-label" for="postalCode">Code Postal :</label>
                         <div class="relative">
-                            <input class="form-control" type="number" required="" placeholder="Veuillez indiquer votre code Postal...">
-                            <i class="fa fa-building"></i>
+                            <input class="form-control" id="postalCode" type="number" required="" placeholder="Veuillez indiquer votre code Postal">
+                            <i class="fa fa-building"><i class="iconify" data-icon="map:postal-code-prefix"></i></i> 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email">Pays :</label>
+                        <label class="form-label" for="country">Pays :</label>
                         <div class="relative">
-                            <input class="form-control" type="url" pattern="https?://.+" required="" placeholder="Veuillez indiquer votre Pays...">
-                            <i class="fa fa-building"></i>
+                            <input class="form-control" id="country" type="text" required="" placeholder="Veuillez indiquer votre Pays">
+                            <i class="fa fa-building"><i class="iconify" data-icon="gis:search-country"></i></i>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email">Numéro de Téléphone :</label>
+                        <label class="form-label" for="phone">Numéro de Téléphone :</label>
                         <div class="relative">
-                            <input class="form-control" type="text" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required="" placeholder="Rentrez votre Numéro de Téléphone...">
-                            <i class="fa fa-phone"></i>
+                            <input class="form-control" id="country" type="text" maxlength="10" onkeydown="return event.keyCode !== 69" required="" placeholder="Rentrez votre Numéro de Téléphone">
+                            <i class="fa fa-building"><i class="iconify" data-icon="ant-design:phone-outlined"></i></i>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email :</label>
+                        <label class="form-label" for="email">Email :</label>
                         <div class="relative">
-                            <input class="form-control" type="email" required="" placeholder="Rentrez votre Adresse Mail..." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-                            <i class="fa fa-envelope"></i>
+                            <input class="form-control" id="email" type="email" required="" placeholder="Rentrez votre Adresse Mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                            <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>  
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email">Mot de passe :</label>
+                        <label class="form-label" for="passwd">Mot de passe :</label>
                         <div class="relative">
-                            <input class="form-control" type="password" required="" placeholder="Rentrez votre mot de passe...">
-                            <i class="fa fa-envelope"></i>
+                            <input class="form-control" id="passwd" type="password" required="" placeholder="Rentrez votre mot de passe">
+                            <i class="fa fa-building"><i class="iconify" data-icon="ri:lock-password-fill"></i></i>
                         </div>
                     </div>
                 </form>
@@ -204,11 +204,11 @@ if (isset($_POST["Se_Connecter"])) {
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
                         <div class="form-input">
-                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
+                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" >
                             <i class="input-icon uil uil-at"></i>
                         </div>
                         <div class="form-input mt-2">
-                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
+                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe" id="mdp" >
                             <i class="input-icon uil uil-lock-alt"></i>
                         </div>
                         <input type="submit" class="btnValid" name="validCo" value="Envoyer">
@@ -220,15 +220,15 @@ if (isset($_POST["Se_Connecter"])) {
                     <div class="tab-pane" id="Ins">
                         <form action="php.php" method="get">
                             <div class="form-input">
-                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom" autocomplete="off">
+                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom" >
                                 <i class="input-icon uil uil-user"></i>
                             </div>
                             <div class="form-input">
-                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail">
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input">
-                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp" autocomplete="off">
+                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp" >
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
                             <input type="submit" class="btnValid" name="validI" value="Validate">

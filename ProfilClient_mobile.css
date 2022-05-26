@@ -29,10 +29,16 @@
     color: #333;
     border-radius: 25px;
     padding-top: 5%;
-    margin-top: 2%;
+    margin: 2% auto;
     border: 3px solid #d4af37;
-    width: 100%;
+    width: 90%;
     height: 100px;
+}
+
+.darkmode--activated .sidenav {
+    mix-blend-mode: difference;
+    border: 3px solid #d4af37;
+    background-color: black;
 }
 
 .sidenav-url {
@@ -42,17 +48,15 @@
     margin-top: -10px;
 }
 
-.sidenav img {
-    color: #333;
-    margin-left: 2%;
-    max-width: 20%;
-}
-
 .ProfileTitle {
     font-size: 100%;
     font-weight: bold;
     color: black;
     font-family: 'Montserrat', sans-serif;
+}
+
+.darkmode--activated .ProfileTitle {
+    color: white;
 }
 
 .profile {
@@ -103,11 +107,11 @@
     margin: 5% auto;
     max-width: calc(100vw - 40px);
     width: 100%;;
-    background: rgba(255, 255, 255, 1);
     border-radius: 8px;
     font-family: 'Raleway', sans-serif;
     font-size: 90%;
 }
+
 
 .form-group input {
     width: 100%;
@@ -119,6 +123,15 @@
     background-color: #f0f1f5;
     transition: all .3s;
     border: 2px solid #d4af37;
+}
+
+.darkmode--activated .form-group input {
+    background-color: #a0a0a0;
+    color: rgb(232, 232, 232);
+}
+
+.darkmode--activated .form-group input ::placeholder {
+    color: red;
 }
 
 .relative {
@@ -137,10 +150,18 @@
     border-right: 10px solid #ccc;
     border-bottom: 34px solid #ccc;
     transition: all 0.15s ease-in-out;
-
 }
 
-.form-group .email .form-control:focus {
+.darkmode--activated .relative i.fa {
+    border-right: 10px solid darkgrey;
+    border-bottom: 34px solid darkgrey;
+}
+
+.iconify {
+    margin-top: 10px;
+}
+
+.form-group .form-control:focus {
     border-color: #d4af37;
     box-shadow: inset 0px 1px 1px #d4af37, 0 0 8px #d4af37;
 }
@@ -149,10 +170,6 @@
     border-left: 20px solid transparent;
     border-right: 30px solid #d4af37;
     border-bottom: 34px solid #d4af37;
-}
-
-input:focus+i.fa:before {
-    color: rgb(176, 21, 21);
 }
 
 .input-group .form-control:not(:first-child):not(:last-child),

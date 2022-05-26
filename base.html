@@ -3,8 +3,10 @@
 
 <head>
     <title>Base</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html; charset=utf-8" />
-    <link rel="stylesheet" href="style_base.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_base.css">
+    <link rel="stylesheet" media="screen and (max-width: 980px)" href="style_base_mobile.css">
     <script type="text/javascript" src="script_base.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -26,18 +28,19 @@
             </div>
             <div class="div_button">
                 <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
-                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout parcourir</a></button>
+                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout
+                        parcourir</a></button>
                 <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
                 <div class="search-box">
                     <input type="text" name="input" id="search-bar" class="search" placeholder="Recherche">
-                    <button type="submit" id="searchbutton" class="search"><i class="iconify"
-                            id="loupe" data-icon="simple-line-icons:magnifier"></i></button>
+                    <button type="submit" id="searchbutton" class="search"><i class="iconify" id="loupe"
+                            data-icon="simple-line-icons:magnifier"></i></button>
                 </div>
                 <div class="btnRegLog">
-                    <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify"
-                            id="compte" data-icon="uil:user"></i></button>
+                    <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" id="compte"
+                            data-icon="uil:user"></i></button>
                     <script>
                         "use strict";
 
@@ -81,24 +84,26 @@
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
-                        <div class="form-input">
-                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
-                                autocomplete="off">
-                            <i class="input-icon uil uil-at"></i>
-                        </div>
-                        <div class="form-input mt-2">
-                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe"
-                                id="mdp" autocomplete="off">
-                            <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <input type="submit" class="btnValid" name="validCo" value="Envoyer">
-                        <div class="mdp-forget-container">
-                            <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
-                        </div>
+                        <form action="LoginPage.php" method="post">
+                            <div class="form-input">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-input mt-2">
+                                <input type="password" name="password" class="form-style" placeholder="Votre Mot de passe"
+                                    id="mdp" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">
+                            <div class="mdp-forget-container">
+                                <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="tab-pane" id="Ins">
-                        <form action="php.php" method="get">
+                        <form action="LoginPage.php" method="post">
                             <div class="form-input">
                                 <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
                                     autocomplete="off">

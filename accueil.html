@@ -2,10 +2,17 @@
 <html lang="fr">
 
 <head>
-    <title>Base</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html; charset=utf-8" />
-    <link rel="stylesheet" href="style_base.css">
-    <link rel="stylesheet" href="style_accueil.css">
+    <title>Omnes Sport</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html" />
+    <meta charset="utf-8" />
+    <!-- main css -->
+    <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_base.css">
+    <link rel="stylesheet" media="screen and (max-width: 980px)" href="style_base_mobile.css">
+
+    <!-- css for the page -->
+    <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_accueil.css">
+    
+
     <script type="text/javascript" src="script_base.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -18,7 +25,7 @@
 
 </head>
 
-<body>
+<body onload="testCo()">
     <div class="page" id="page">
         <div class="haut">
             <div class="logo_slogan">
@@ -42,7 +49,7 @@
                             data-icon="simple-line-icons:magnifier"></i></button>
                 </div>
                 <div class="btnRegLog">
-                    <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" id="compte"
+                    <button class="reg-log" id="reg-log" onclick="btnProfil()"><i class="iconify" id="compte"
                             data-icon="uil:user"></i></button>
                     <script>
                         "use strict";
@@ -94,7 +101,7 @@
 
 
                     </p>
-                  
+
                 </div>
                 <hr>
                 </br>
@@ -108,11 +115,11 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img class="d-block w-100" src="Image/actualite/cyan.jpg" alt="First slide">
-                            
+
                         </div>
                         <div class="carousel-item">
                             <img class="d-block w-100" src="Image/actualite/jaune.jpg" alt="Second slide">
-                            
+
                         </div>
                         <div class="carousel-item">
                             <img class="d-block w-100" src="Image/actualite/rouge.jpg" alt="Third slide">
@@ -127,7 +134,7 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-                
+
 
                 <h3 id="pres_carte">Vous voulez nous rejoindre ? Suivez la carte ! </h3>
                 <div id="map" class="mt-3 mb-5" style=" height:400px; ">
@@ -177,13 +184,14 @@
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9_0X0vpS4MzyC04prSTBWsRo_YplE21s&callback=initMap">
                         </script>
                 </div>
-                <h4 id="pres_coach"> Voici notre équipe de spécialistes qui EXISTE qui vous accueillerons : <i>(et définitivement pas des IA)</i></h4>
-            </br>
+                <h4 id="pres_coach"> Voici notre équipe de spécialistes qui EXISTE qui vous accueillerons : <i>(et
+                        définitivement pas des IA)</i></h4>
+                </br>
             </div>
             <div class="row">
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action ="presentation_coach.php" method="post">
+                        <form action="presentation_coach.php" method="post">
                             <img src="Image/Profil_profs/1.jpg" alt="Lights" style="width:70% ;">
                             <div class="caption">
                                 <input type="submit" name="coach1" value="Benjamin Dupont">
@@ -193,7 +201,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action ="presentation_coach.php" method="post">
+                        <form action="presentation_coach.php" method="post">
                             <img src="Image/Profil_profs/2.jpg" alt="Nature" style="width:70%">
                             <div class="caption">
                                 <input type="submit" name="coach2" value="Leo Martin">
@@ -203,18 +211,18 @@
                 </div>
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action ="presentation_coach.php" method="post">
+                        <form action="presentation_coach.php" method="post">
                             <img src="Image/Profil_profs/3.jpg" alt="Fjords" style="width:70%">
                             <div class="caption">
                                 <input type="submit" name="coach3" value="Gabriel Dubois">
-                              
+
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action ="presentation_coach.php" method="post">
+                        <form action="presentation_coach.php" method="post">
                             <img src="Image/Profil_profs/4.jpg" alt="Lights" style="width:70%;">
                             <div class="caption">
                                 <input type="submit" name="coach4" value="Jade Bonnet">
@@ -224,7 +232,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action ="presentation_coach.php" method="post">
+                        <form action="presentation_coach.php" method="post">
                             <img src="Image/Profil_profs/5.jpg" alt="Lights" style="width:70%;">
                             <div class="caption">
                                 <input type="submit" name="coach5" value="Julia Legrand">
@@ -235,7 +243,7 @@
 
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action ="presentation_coach.php" method="post">
+                        <form action="presentation_coach.php" method="post">
                             <img src="Image/Profil_profs/6.jpg" alt="Lights" style="width:70%;">
                             <div class="caption">
                                 <input type="submit" name="coach6" value="Louise Garnier">
@@ -245,7 +253,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action ="presentation_coach.php" method="post">
+                        <form action="presentation_coach.php" method="post">
                             <img src="Image/Profil_profs/7.jpg" alt="Lights" style="width:70%;">
                             <div class="caption">
                                 <input type="submit" name="coach7" value="Arthur Blanc">
@@ -256,7 +264,7 @@
 
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action ="presentation_coach.php" method="post">
+                        <form action="presentation_coach.php" method="post">
                             <img src="Image/Profil_profs/8.jpg" alt="Lights" style="width:70%;">
                             <div class="caption">
                                 <input type="submit" name="coach8" value="Leon Robin">
@@ -268,7 +276,7 @@
 
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action ="presentation_coach.php" method="post">
+                        <form action="presentation_coach.php" method="post">
                             <img src="Image/Profil_profs/9.jpg" alt="Lights" style="width:70%;">
                             <div class="caption">
                                 <input type="submit" name="coach9" value="Julia Legrand">
@@ -280,7 +288,7 @@
 
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action ="presentation_coach.php" method="post">
+                        <form action="presentation_coach.php" method="post">
                             <img src="Image/Profil_profs/10.jpg" alt="Lights" style="width:70%;">
                             <div class="caption">
                                 <input type="submit" name="coach10" value="Ines Boyer">
@@ -291,7 +299,7 @@
 
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action ="presentation_coach.php" method="post">
+                        <form action="presentation_coach.php" method="post">
                             <img src="Image/Profil_profs/11.jpg" alt="Lights" style="width:70%;">
                             <div class="caption">
                                 <input type="submit" name="coach11" value="Martin Bertrand">
@@ -331,24 +339,26 @@
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
-                        <div class="form-input">
-                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
-                                autocomplete="off">
-                            <i class="input-icon uil uil-at"></i>
-                        </div>
-                        <div class="form-input mt-2">
-                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe"
-                                id="mdp" autocomplete="off">
-                            <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <input type="submit" class="btnValid" name="validCo" value="Envoyer">
-                        <div class="mdp-forget-container">
-                            <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
-                        </div>
+                        <form action="connexion.php" method="post">
+                            <div class="form-input">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-input mt-2">
+                                <input type="password" name="password" class="form-style"
+                                    placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">
+                            <div class="mdp-forget-container">
+                                <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="tab-pane" id="Ins">
-                        <form action="php.php" method="get">
+                        <form action="LoginPage.php" method="post">
                             <div class="form-input">
                                 <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
                                     autocomplete="off">

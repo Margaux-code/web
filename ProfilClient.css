@@ -23,7 +23,7 @@
 /* Sidenav */
 .sidenav {
     display: block;
-    background-color: red;
+    background-color: white;
     color: #333;
     border-bottom-right-radius: 25px;
     border-top-right-radius: 25px;
@@ -35,6 +35,10 @@
     position: absolute;
     border: 3px solid #d4af37;
     width: 17%;
+}
+
+.darkmode--activated .sidenav {
+    background: black;
 }
 
 .sidenav .disconnect img {
@@ -50,6 +54,11 @@
     color: black;
     font-family: 'Roboto', sans-serif;
 }
+
+.darkmode--activated .ProfileTitle {
+    color: white;
+}
+
 
 .profile {
     margin-bottom: 20px;
@@ -104,7 +113,7 @@
     max-width: calc(100vw - 40px);
     width: 50%;
     height: 70%;
-    background: red;
+    background: white;
     border-radius: 8px;
     margin: 3% auto;
     padding: 1% 1.5%;
@@ -115,9 +124,13 @@
     margin-right: 16%;
 }
 
-/* .darkmode--activated .form {
+.darkmode--activated .form {
     background: black;
-} */
+}
+
+.darkmode--activated .form-label {
+    color: white;
+}
 
 .form-group input {
     width: 100%;
@@ -129,6 +142,21 @@
     background-color: #f0f1f5;
     transition: all .3s;
     border: 2px solid #d4af37;
+}
+
+.darkmode--activated .form-group input {
+    background-color: #a0a0a0;
+    color: rgb(232, 232, 232);
+}
+
+.darkmode--activated .form-group input ::placeholder {
+    color: red;
+}
+
+.darkmode--activated .relative i.fa {
+    border-left: 20px solid transparent;
+    border-right: 30px solid rgb(132, 132, 132);
+    border-bottom: 34px solid rgb(132, 132, 132);
 }
 
 .relative {
@@ -149,10 +177,13 @@
     border-right: 30px solid #ccc;
     border-bottom: 34px solid #ccc;
     transition: all 0.15s ease-in-out;
-
 }
 
-.form-group .email .form-control:focus {
+.iconify {
+    margin-top: 10px;
+}
+
+.form-group .form-control:focus {
     border-color: #d4af37;
     box-shadow: inset 0px 1px 1px #d4af37, 0 0 8px #d4af37;
 }

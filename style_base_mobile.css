@@ -14,18 +14,13 @@ body {
 
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-
 .haut {
-    flex-direction: column;
     isolation: isolate;
     width: 100%;
     height: 120%;
     background: #D4AF37;
     display: flex;
+    flex-direction: column;
     box-shadow:
         0px 4px 5px rgba(0, 0, 0, 0.148);
     border-radius: 5px;
@@ -42,16 +37,13 @@ img {
     flex-grow: 1;
     width: 100%;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
     text-align: center;
+    align-items: center;
     font-weight: 550;
     font-style: italic;
     font-size: 140%;
-
-
-
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .slogan {
@@ -70,7 +62,7 @@ img {
     flex: 2;
     width: 100%;
     height: auto;
-    max-width: 50px;
+    max-width: 100px;
 }
 
 #img_logo {
@@ -86,14 +78,13 @@ img {
 
 /* Boutons de navigations */
 .div_button {
-    flex-direction: column;
     flex-grow: 1;
     display: flex;
     justify-content: space-between;
     flex: 2;
-    display: flex;
     width: 100%;
     align-items: center;
+    flex-direction: column;
 }
 
 .nav-button {
@@ -280,6 +271,12 @@ img {
     transform: translateY(2px);
 }
 
+@media screen and (max-width: 500px) {
+    .section {
+        margin-left: 0;
+    }
+}
+
 /* FOOTER */
 .footer {
     width: 100%;
@@ -308,8 +305,6 @@ img {
 
 #CoIns-window {
     display: none;
-    align-items: center;
-    justify-content: center;   
 }
 
 a {
@@ -348,17 +343,17 @@ p {
 
 #section-form {
     position: absolute;
-    top: 25%;
-    margin-left: 5%;
+    top: 10%;
+    left: 5%;
     width: 20%;
     min-width: 320px;
-    height: 40%;
+    height: 50%;
     display: flex;
     justify-content: center;
-    margin-top: 5%;
     padding-top: 2%;
     border-radius: 5px;
     border: 1px solid black;
+    background: red;
 }
 
 .CoIns {
@@ -523,7 +518,7 @@ p {
     position: absolute;
     width: 13%;
     height: 13%;
-    margin-left: 100%;
+    margin-left: 95%;
     top: 0;
 }
 
@@ -551,16 +546,6 @@ p {
     background-color: #d4af37;
 }
 
-/* Nav pills */
-.nav-pills .nav-link.active {
-    background-color: #d4af37 !important;
-    color: black !important;
-    border: 1px solid black !important;
-    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.195) !important;
-}
-
-.nav-pills .nav-link {
-    margin-top: 1% !important;
-    margin-bottom: 2% !important;
-    color: black !important;
+img {
+    max-width: 100%;
 }
