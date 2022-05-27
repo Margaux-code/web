@@ -12,13 +12,14 @@
     <!-- css for the page -->
     <link rel="stylesheet" href="info_SDS.css">
     <link rel="stylesheet" media="screen and (max-width: 980px)" href="info_SDS_mobile.css">
-    
+    <link rel="stylesheet" media="screen and (min-width: 981px)" href="AbonnementTest.css">
+    <link rel="stylesheet" media="screen and (max-width: 980px)" href="AbonnementTest_mobile.css">
+
     <script type="text/javascript" src="script_base.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 
@@ -42,12 +43,10 @@
             <div class="search-box-co">
                 <div class="search-box">
                     <input type="text" name="input" id="search-bar" class="search" placeholder="Recherche">
-                    <button type="submit" id="searchbutton" class="search"><i class="iconify"
-                            data-icon="simple-line-icons:magnifier"></i></button>
+                    <button type="submit" id="searchbutton" class="search"><i class="iconify" data-icon="simple-line-icons:magnifier"></i></button>
                 </div>
                 <div class="btnRegLog">
-                    <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify"
-                            data-icon="uil:user"></i></button>
+                    <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" data-icon="uil:user"></i></button>
                 </div>
             </div>
         </div>
@@ -67,38 +66,38 @@
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="v-pills-personnel">
                     <div class="Personnel">
-                        <!-- <h2 class="TitreService">
+                        <h2 class="TitreService">
                             Personnels de la Salle de sport
                         </h2>
                         <img id="img_Personnel" src="Image/SalleDeSport/Personnel Salle de sport.jpg">
                         <div class="Informations">
-                        <?php
+                            <?php
                             include 'SqlConDatabase.php';
                             $sql = "SELECT * FROM coach";
-                                $result = mysqli_query($db_handle, $sql);
-                                echo "<table border='1'>";
+                            $result = mysqli_query($db_handle, $sql);
+                            echo "<table class=\"table-data\" border='1'>";
+                            echo "<tr>";
+                            echo "<th>" . "Nom" . "</th>";
+                            echo "<th>" . "Prenom" . "</th>";
+                            echo "<th>" . "Domaine d'expertise" . "</th>";
+                            echo "<th>" . "Bureau" . "</th>";
+                            echo "<th>" . "Téléphone" . "</th>";
+                            echo "<th>" . "Email" . "</th>";
+
+                            //afficher le resultat
+                            while ($data = mysqli_fetch_assoc($result)) {
                                 echo "<tr>";
-                                echo "<th>" . "Nom" . "</th>";
-                                echo "<th>" . "Prenom" . "</th>";
-                                echo "<th>" . "Domaine d'expertise" . "</th>";
-                                echo "<th>" . "Bureau" . "</th>";
-                                echo "<th>" . "Téléphone" . "</th>";
-                                echo "<th>" . "Email" . "</th>";
-        
-                                //afficher le resultat
-                                while ($data = mysqli_fetch_assoc($result)) 
-                                {
-                                    echo "<tr>";
-                                    echo "<td>" . $data['Nom_coach'] . "</td>";
-                                    echo "<td>" . $data['Prenom_coach'] . "</td>";
-                                    echo "<td>" . $data['Domaine_coach'] . "</td>";
-                                    echo "<td>" . $data['Bureau_coach'] . "</td>";
-                                    echo "<td>" . $data['Tel_coach'] . "</td>";
-                                    echo "<td>" . $data['Email_coach'] . "</td>";
-                                    echo "</tr>";
-                                }
-                                echo "</table>";
-                            ?> -->
+                                echo "<td>" . $data['Nom_coach'] . "</td>";
+                                echo "<td>" . $data['Prenom_coach'] . "</td>";
+                                echo "<td>" . $data['Domaine_coach'] . "</td>";
+                                echo "<td>" . $data['Bureau_coach'] . "</td>";
+                                echo "<td>" . $data['Tel_coach'] . "</td>";
+                                echo "<td>" . $data['Email_coach'] . "</td>";
+                                echo "</tr>";
+                            }
+                            echo "</table>";
+                            ?>
+                        </div>
                     </div>
                 </div>
 
@@ -189,6 +188,118 @@
                             Comparer les Abonnements
                         </h2>
                         <div class="Informations">
+                            <div class="tous_abonnement">
+                                <div class="price-container">
+                                    <div class="price-card">
+                                        <div class="face face1">
+                                            <div class="content">
+                                                <div class="icon">
+                                                    <i class="icon-abo iconify" id="icon-vip" data-icon="fa6-solid:crown"></i>
+                                                </div>
+                                                <h3>CLASSIQUE</h3>
+                                            </div>
+                                        </div>
+                                        <div class="face face2">
+                                            <div class="content">
+                                                <p class="Prix_before">19,95€</p>
+                                                <br>
+                                                <p class="NbDuree">Le premier mois</p>
+                                                <p class="Prix_after">puis <b>29,95€</b>/mois</p>
+                                                <br>
+                                                <p class="trait"></p>
+                                                <br>
+                                                <p class="annonceAdhesion">Adhésion OmnesSport</p>
+                                                <p class="PrixAdhesion">49€</p>
+                                                <br>
+                                                <p class="trait"></p>
+                                                <br>
+                                                <p class="dureeEngagement">Engagement 12 mois</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="price-card">
+                                        <div class="face face1">
+                                            <div class="content">
+                                                <div class="icon">
+                                                    <i class="icon-abo iconify" id="icon-free" data-icon="foundation:unlink"></i>
+                                                </div>
+                                                <h3>SANS ENGAGEMENT</h3>
+                                            </div>
+                                        </div>
+                                        <div class="face face2">
+                                            <div class="content">
+                                                <p class="Prix_before">24,95€</p>
+                                                <br>
+                                                <p class="NbDuree">Le premier mois</p>
+                                                <p class="Prix_after">puis <b>34,95€</b>/mois</p>
+                                                <br>
+                                                <p class="trait"></p>
+                                                <br>
+                                                <p class="annonceAdhesion">Adhésion OmnesSport</p>
+                                                <p class="PrixAdhesion">49€</p>
+                                                <br>
+                                                <p class="trait"></p>
+                                                <br>
+                                                <p class="dureeEngagement">Sans Engagement</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="price-card">
+                                        <div class="face face1">
+                                            <div class="content">
+                                                <div class="icon">
+                                                    <i class="icon-abo iconify" id="icon-student" data-icon="icons8:student"></i>
+                                                </div>
+                                                <h3>ETUDIANT</h3>
+                                            </div>
+                                        </div>
+                                        <div class="face face2">
+                                            <div class="content">
+                                                <p class="Prix_before">24,95€</p>
+                                                <br>
+                                                <p class="NbDuree">Pendant 1 an</p>
+                                                <p class="Prix_after">puis <b>29,95€</b>/mois</p>
+                                                <br>
+                                                <p class="trait"></p>
+                                                <br>
+                                                <p class="annonceAdhesion">Adhésion OmnesSport</p>
+                                                <p class="PrixAdhesion">49€</p>
+                                                <br>
+                                                <p class="trait"></p>
+                                                <br>
+                                                <p class="dureeEngagement">Sans Engagement</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="price-card">
+                                        <div class="face face1">
+                                            <div class="content">
+                                                <div class="icon">
+                                                    <i class="icon-abo iconify" id="icon-young" data-icon="fa6-solid:children"></i>
+                                                </div>
+                                                <h3>16-18 ANS</h3>
+                                            </div>
+                                        </div>
+                                        <div class="face face2">
+                                            <div class="content">
+                                                <p class="Prix_before">19,95€</p>
+                                                <br>
+                                                <p class="NbDuree">jusqu'à tes 18 ans</p>
+                                                <p class="Prix_after">puis <b>29,95€</b>/mois</p>
+                                                <br>
+                                                <p class="trait"></p>
+                                                <br>
+                                                <p class="annonceAdhesion">Adhésion OmnesSport</p>
+                                                <p class="PrixAdhesion">15€</p>
+                                                <br>
+                                                <p class="trait"></p>
+                                                <br>
+                                                <p class="dureeEngagement">Engagement 12 mois</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -302,8 +413,7 @@
             <div id="img-CoIns"><img id="imgCoIns" src="Image/marbreblanc.jpg" width="100%" height="100%"></div>
             <div class="CoIns">
                 <div id="closeForm-container">
-                    <button class="closeForm"><i class="iconify" id="close" data-icon="eva:close-circle-outline"
-                            onclick="closeForm()"></i></button>
+                    <button class="closeForm"><i class="iconify" id="close" data-icon="eva:close-circle-outline" onclick="closeForm()"></i></button>
                 </div>
 
                 <nav class="nav nav-tabs" id="myTab">
@@ -314,13 +424,11 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
                         <div class="form-input">
-                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
-                                autocomplete="off">
+                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
                             <i class="input-icon uil uil-at"></i>
                         </div>
                         <div class="form-input mt-2">
-                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe"
-                                id="mdp" autocomplete="off">
+                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
                             <i class="input-icon uil uil-lock-alt"></i>
                         </div>
                         <input type="submit" class="btnValid" name="validCo" value="Envoyer">
@@ -332,18 +440,15 @@
                     <div class="tab-pane" id="Ins">
                         <form action="php.php" method="get">
                             <div class="form-input">
-                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
-                                    autocomplete="off">
+                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom" autocomplete="off">
                                 <i class="input-icon uil uil-user"></i>
                             </div>
                             <div class="form-input">
-                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
-                                    autocomplete="off">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input">
-                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe"
-                                    id="mdp" autocomplete="off">
+                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
                             <input type="submit" class="btnValid" name="validI" value="Validate">
@@ -364,8 +469,8 @@
             left: '32px', // default: 'unset'
             time: '0.5s', // default: '0.3s'
             mixColor: '#fff', // default: '#fff'
-            backgroundColor: '#fff',  // default: '#fff'
-            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            backgroundColor: '#fff', // default: '#fff'
+            buttonColorDark: '#100f2c', // default: '#100f2c'
             buttonColorLight: '#fff', // default: '#fff'
             saveInCookies: true, // default: true,
             label: '🌓', // default: ''
@@ -376,13 +481,7 @@
         darkmode.showWidget();
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>

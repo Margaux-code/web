@@ -2,17 +2,12 @@
 <html lang="fr">
 
 <head>
-    <title>Tout Parcourir</title>
+    <title>Base</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html" />
     <meta charset="utf-8" />
-    <!-- main css -->
     <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_base.css">
     <link rel="stylesheet" media="screen and (max-width: 980px)" href="style_base_mobile.css">
-
-    <!-- css for the page -->
-    <link rel="stylesheet" href="toutParcourir.css">
-
-    <link rel="stylesheet" href="style_toutParcourir.css">
+    <script type="text/javascript" src="script_base.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -59,97 +54,70 @@
 
 
         <div class="milieu" id="content">
-            <div class="nav-button-side-container">
-                <div class="nav-button-side-class>">
-                    <button class="nav-button-side"
-                        onClick="document.getElementById('activite').scrollIntoView({ behavior: 'smooth', block: 'center' })">
-                        <p class="text-side-button">ACTIVITES</p>
-                    </button>
-                </div>
-                <div class="nav-button-side-class>">
-                    <button class="nav-button-side active"
-                        onClick="document.getElementById('competition').scrollIntoView({ behavior: 'smooth', block: 'center' })">
-                        <p class="text-side-button">COMPETITION</p>
-                    </button>
-                </div>
-                <div class="nav-button-side-class>">
-                    <button class="nav-button-side"
-                        onClick="document.getElementById('salle').scrollIntoView({ behavior: 'smooth', block: 'center' })">
-                        <p class="text-side-button">SALLES</p>
-                    </button>
-                </div>
+
+        <table class="table table-dark">
+
+        <h1> Vous êtes sur la page de réservation d'une séance avec
+            <?php
+            include 'SqlConDatabase.php';
+            $connect = $_COOKIE['connection'];
+            $date = $_POST['date'];
+            $idCoach = $_POST['id_coach'];
+            $sql2 = "SELECT * from coach WHERE Id_coach= '" . $idCoach . "'";
+            $get2 = mysqli_query($db_handle, $sql2);
+            while ($row2 = mysqli_fetch_assoc($get2)) {
+                $NomCoach = $row2['Nom_coach'];
+                $PrenomCoach = $row2['Prenom_coach'];
+                $Domaine = $row2['Domaine_coach'];
+                echo " " . $PrenomCoach . " " . $NomCoach . " Avec pour domaine : " . $Domaine . "</br> Prendre rendez vous le " . $date;
+            }
+            ?>
+        </h1>
+        <thread>
+            <tr>
+
+                <th scope="col">Début de la séance </th>
+                <th scope="col">Fin de la séance </th>
+                <th scope="col">Reserver cette séance </th>
+            </tr>
+        </thread>
+        <tbody>
+            <?php
+
+            if ($connect) {
+                $idPlanning = $_POST['id_planning'];
+
+                $sql1 = "SELECT * from time_slot WHERE Id_planning= '" . $idPlanning . "'AND Status='Actif'";
+                $get1 = mysqli_query($db_handle, $sql1);
+
+                while ($row1 = mysqli_fetch_assoc($get1)) {
+                    echo "<tr>";
+                    $debut = $row1['heure_debut'];
+                    $fin = $row1['heure_fin'];
+                    echo "<td>" . $debut . "</td>";
+                    echo "<td>" . $fin . "</td>";
+                    echo "<td> <form name = '1' action ='RDV_un_coach.php' method='post'>                                      
+                <input type='submit' name='bouton' class='a' value='Choisir ce coach'>                    
+                </form> </td>";
+
+                    echo "</tr>";
+                }
+            }
+
+            ?>
+        </tbody>
+    </table>
+
+        </div>
+
+        <div class="footer" id="footer">
+            <div class="copyright">
+                <p>ceci est un copyright</p>
             </div>
-
-            <div class="page-content">
-                <div class="navbarVert" id="salle">
-                    <div class="text-container">
-                        <h2>Salles de sport Omnes</h2>
-                        <div class="text-box">
-                            <h3>Section text</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-                                eius molestiae perferendis eos provident vitae iste.
-                            </p>
-                        </div>
-                        <div class="button-box">
-                            <button class="nav-button" id="nos-services"><a class="nav-page" href="info_SDS.php">Nos
-                                    services</a></button>
-                        </div>
-                    </div>
-                    <div class="img-container">
-                    </div>
-                </div>
-
-                <div class="navbarVert" id="competition">
-                    <div class="img-container">
-                        <img class="halteres" id="halteres" src="Image/halteres.png">
-                        <img class="perso" id="perso" src="Image/Perso_ssHaltere.png">
-                    </div>
-                    <div class="text-container">
-                        <h2>Les sports de compétition</h2>
-                        <div class="text-box">
-                            <h3>Section Text</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex est
-                                rerum id quis eaque rem suscipit reprehenderit quaerat vero
-                                nesciunt?
-                            </p>
-                        </div>
-                        <div class="button-box">
-                            <button class="nav-button"><a class="nav-page" href="#">Nos services</a></button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="navbarVert" id="activite">
-                    <div class="text-container">
-                        <h2>Activités sportives</h2>
-                        <div class="text-box">
-                            <h3>Section Text</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex est
-                                rerum id quis eaque rem suscipit reprehenderit quaerat vero
-                                nesciunt?
-                            </p>
-                        </div>
-                        <div class="button-box">
-                            <button class="nav-button"><a class="nav-page" href="#">Rendez vous</a></button>
-                        </div>
-                    </div>
-                    <div class="img-container"></div>
-                </div>
+            <div class="text">
+                <p>footer</p>
             </div>
         </div>
-    </div>
-
-    <div class="footer" id="footer">
-        <div class="copyright">
-            <p>ceci est un copyright</p>
-        </div>
-        <div class="text">
-            <p>footer</p>
-        </div>
-    </div>
     </div>
 
     <!--Form de Connection/Inscription-->
@@ -169,24 +137,26 @@
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
-                        <div class="form-input">
-                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
-                                autocomplete="off">
-                            <i class="input-icon uil uil-at"></i>
-                        </div>
-                        <div class="form-input mt-2">
-                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe"
-                                id="mdp" autocomplete="off">
-                            <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <input type="submit" class="btnValid" name="validCo" value="Envoyer">
-                        <div class="mdp-forget-container">
-                            <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
-                        </div>
+                        <form action="LoginPage.php" method="post">
+                            <div class="form-input">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-input mt-2">
+                                <input type="password" name="password" class="form-style" placeholder="Votre Mot de passe"
+                                    id="mdp" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">
+                            <div class="mdp-forget-container">
+                                <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="tab-pane" id="Ins">
-                        <form action="php.php" method="get">
+                        <form action="LoginPage.php" method="post">
                             <div class="form-input">
                                 <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
                                     autocomplete="off">
@@ -215,9 +185,9 @@
 
     <script>
         const options = {
-            bottom: '32px', // default: '32px'
-            right: '32px', // default: '32px'
-            left: 'unset', // default: 'unset'
+            bottom: '64px', // default: '32px'
+            right: 'unset', // default: '32px'
+            left: '32px', // default: 'unset'
             time: '0.5s', // default: '0.3s'
             mixColor: '#fff', // default: '#fff'
             backgroundColor: '#fff',  // default: '#fff'
@@ -241,7 +211,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-    <script type="text/javascript" src="script_toutParcourir.js"></script>
 </body>

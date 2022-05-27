@@ -37,11 +37,11 @@ function closeForm() {
 /* Animation scroll */
 var controller = new ScrollMagic.Controller();
 
-var scene = new ScrollMagic.Scene({
-    triggerElement: "#activite",
+var scene1 = new ScrollMagic.Scene({
+    triggerElement: "#competition",
     duration: 500,
     triggerHook: 0
 })
 .setClassToggle('.halteres', 'go-up')
-.setPin("#activite")
+.setPin("#competition")
 .addTo(controller);

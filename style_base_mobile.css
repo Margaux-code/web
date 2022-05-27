@@ -549,3 +549,7 @@ p {
 img {
     max-width: 100%;
 }
+
+.darkmode-toggle {
+    z-index: 1000;
+}

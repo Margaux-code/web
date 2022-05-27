@@ -4,13 +4,16 @@
 <head>
     <title>TEST_ABONNEMENT</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="AbonnementTest.css">
+
+    <!-- css for the page -->
+    <link rel="stylesheet" media="screen and (min-width: 981px)" href="AbonnementTest.css">
+    <link rel="stylesheet" media="screen and (max-width: 980px)" href="AbonnementTest_mobile.css">
 </head>
 
 <body>
     <div class="tous_abonnement">
-        <div class="container">
-            <div class="card">
+        <div class="price-container">
+            <div class="price-card">
                 <div class="face face1">
                     <div class="content">
                         <img src="Image/SalleDeSport/Abonnement_Premium.jpg">
@@ -35,7 +38,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <div class="price-card">
                 <div class="face face1">
                     <div class="content">
                         <img class="ImgSsEngagement" src="Image/SalleDeSport/Abonnement_sansEngagement.jpg">
@@ -60,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <div class="price-card">
                 <div class="face face1">
                     <div class="content">
                         <img src="Image/SalleDeSport/Abonnement_Etudiant.jpg">
@@ -85,7 +88,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <div class="price-card">
                 <div class="face face1">
                     <div class="content">
                         <img src="Image/SalleDeSport/Abonnement_ado.jpg">
@@ -112,4 +115,25 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+    <script>
+        const options = {
+            bottom: '64px', // default: '32px'
+            right: 'unset', // default: '32px'
+            left: '32px', // default: 'unset'
+            time: '0.5s', // default: '0.3s'
+            mixColor: '#fff', // default: '#fff'
+            backgroundColor: '#fff',  // default: '#fff'
+            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            buttonColorLight: '#fff', // default: '#fff'
+            saveInCookies: true, // default: true,
+            label: '🌓', // default: ''
+            autoMatchOsTheme: true // default: true
+        }
+
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+    </script>
 </body>

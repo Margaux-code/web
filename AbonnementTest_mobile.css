@@ -13,14 +13,7 @@
     display: flex;
     justify-content: space-between;
     padding-top: 5%;
-}
-
-.price-container:nth-child(even) {
-    background: red;
-}
-
-.price-container:nth-child(odd) {
-    background: blue;
+    flex-direction: column;
 }
 
 .darkmode-activated .price-card {
@@ -28,7 +21,7 @@
 }
 
 .price-container .price-card {
-    /* position: relative; */
+    position: relative;
     cursor: pointer;
 }
 
@@ -45,12 +38,12 @@
     justify-content: center;
     align-items: center;
     z-index: 1;
-    transform: translateY(300px);
+    transform: translateX(300px);
 }
 
 .price-container .price-card:hover .face.face1 {
     background: #d4af37;
-    transform: translateY(0);
+    transform: translateX(0);
 }
 
 .price-container .price-card:hover .face.face1 .content h3 {

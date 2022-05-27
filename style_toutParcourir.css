@@ -3,11 +3,30 @@
 @import url('https://unicons.iconscout.com/release/v2.1.9/css/unicons.css');
 @import url("https://fonts.googleapis.com/css2?family=Asap&display=swap");
 
+#content {
+    background: rgb(212, 175, 55);
+    background: linear-gradient(0deg, rgba(212, 175, 55, 1) 0%, rgba(143, 49, 52, 1) 40%, rgba(212, 175, 55, 1) 80%, rgba(255, 255, 255, 1) 100%);
+}
+
+.darkmode--activated #content {
+    background: rgb(191, 199, 248);
+    background: linear-gradient(0deg, rgba(191, 199, 248, 1) 0%, rgba(197, 253, 200, 1) 40%, rgba(240, 227, 185, 1) 80%, rgba(255, 255, 255, 1) 100%);
+}
+
+/* .darkmode--activated .text-container {
+    color: white;
+} */
+
 /* Animation scroll */
 .text-container {
     margin-left: 5%;
     width: 100%;
     flex: 1;
+    isolation: isolate;
+}
+
+.darkmode--activated .text-container {
+    color: white;
 }
 
 .nav-button-side-container {
@@ -57,46 +76,18 @@
     width: 100%;
 }
 
-.navbarVert:nth-child(1) {
-    background: rgb(255, 255, 255);
-    background: linear-gradient(0deg, rgba(212, 175, 55, 1) 0%, rgba(255, 255, 255, 1) 100%);
-}
-
-.navbarVert:nth-child(2) {
-    background: rgb(255, 255, 255);
-    background: linear-gradient(180deg, rgba(212, 175, 55, 1) 0%, rgba(143, 0, 0, 1) 100%);
-}
-
-.navbarVert:nth-child(3) {
-    background: rgb(255, 255, 255);
-    background: linear-gradient(0deg, rgba(212, 175, 55, 1) 0%, rgba(255, 255, 255, 1) 10%, rgba(143, 0, 0, 1) 100%);
-}
-
-.darkmode--activated .navbarVert:nth-child(1) {
-    background: rgb(255, 255, 255);
-    background: linear-gradient(0deg, rgba(240, 227, 185, 1) 0%, rgba(255, 255, 255, 1) 100%)
-}
-
-.darkmode--activated .navbarVert:nth-child(2) {
-    background: rgb(255, 255, 255);
-    background: linear-gradient(0deg, rgb(197, 253, 200) 0%, rgba(240, 227, 185, 1) 100%)
-}
-
-.darkmode--activated .navbarVert:nth-child(3) {
-    background: rgb(255, 255, 255);
-    background: linear-gradient(0deg, rgb(191, 199, 248) 0%, rgb(197, 253, 200) 100%)
-}
-
 /* Animation Perso */
 #activite {
     z-index: 1;
 }
+
 .img-container {
     flex: 1;
     display: flex;
 }
 
-.halteres, .perso {
+.halteres,
+.perso {
     max-width: 300px;
     max-height: 400px;
     width: 70%;
@@ -107,7 +98,7 @@
 }
 
 
-.go-up{
+.go-up {
     transform: translateY(-40vh);
 }
 
@@ -123,8 +114,9 @@
         justify-content: space-evenly;
         width: 100%;
         z-index: 100;
+        top: 90vh;
     }
-    
+
     .nav-button-side {
         margin-top: 5px;
         width: 120%;
@@ -132,27 +124,44 @@
         border: none;
         text-shadow: 2px 2px 3px rgb(131, 131, 131);
     }
-
-    .change-fixed {
-        transform: translateY(-40%);
-    }
 }
 
-@media screen and (max-width: 1000px) {
-    .nav-button-side-container {
-        top: 150px;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .nav-button-side-container {
-        top: 220px;
-    }
-}
 
 .SDS {
     width: 100%;
     max-width: 900px;
     min-width: 900px;
     height: auto;
+}
+
+.darkmode-toggle {
+    z-index: 1000;
+}
+
+@media screen and (max-width: 980px) {
+    .perso {
+        overflow: hidden;
+    }
+
+    .text-side-button {
+        writing-mode: horizontal-tb;
+        text-orientation: sideways-right;
+    }
+
+    .nav-button-side-container {
+        position: fixed;
+        display: flex;
+        justify-content: space-evenly;
+        width: 80%;
+        z-index: 100;
+        top: 90vh;
+    }
+
+    .nav-button-side {
+        margin-top: 5px;
+        width: 100%;
+        border-radius: 10px;
+        border: none;
+        text-shadow: 2px 2px 3px rgb(131, 131, 131);
+    }
 }
