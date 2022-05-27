@@ -5,15 +5,16 @@
     //identifier votre serveur (localhost), utlisateur (root), mot de passe ("")
     $db_handle = mysqli_connect('localhost', 'root', '');
     $conn = mysqli_select_db($db_handle, $database);
-    
+  
+    setcookie('connectionDB', false,0,"","",false,false);
     if (!$conn) 
     {
         echo "Connection failed";
-        setcookie('connection', false,0,"","",false,false);
+        setcookie('connectionDB', false,0,"","",false,false);
         exit();
     }
     else {
-        setcookie('connection', true,0,"","",false,false);
+        setcookie('connectionDB', true,0,"","",false,false);
     }
 
 ?>

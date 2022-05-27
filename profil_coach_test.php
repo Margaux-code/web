@@ -29,7 +29,7 @@ function loginForm()
  <p>Veuillez saisir votre nom pour continuer!</p>
  <form action="index.php" method="post">
  <label for="name">Nom: </label>
- <input type="text" name="name" id="name" />
+ <input type="text" name="name" id="name_chat" />
  <input type="submit" name="enter" id="enter" value="Soumettre" />
  </form>
  </div>';
@@ -40,7 +40,7 @@ function isCo()
     if ($_COOKIE["connection"] == false) {
         loginForm();
     } else {
-        $_SESSION['name'] = $_COOKIE["Session_name_user"];
+        $_SESSION['name_chat'] = $_COOKIE["Session_name_user"];
     }
 }
 ?>
@@ -68,61 +68,6 @@ function isCo()
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 
 </head>
-<?php
-
-if (isset($_POST['coach1'])) {
-    $coach = 1;
-}
-if (isset($_POST['coach2'])) {
-    $coach = 2;
-}
-if (isset($_POST['coach3'])) {
-    $coach = 3;
-}
-if (isset($_POST['coach4'])) {
-    $coach = 4;
-}
-if (isset($_POST['coach5'])) {
-    $coach = 5;
-}
-if (isset($_POST['coach6'])) {
-    $coach = 6;
-}
-if (isset($_POST['coach7'])) {
-    $coach = 7;
-}
-if (isset($_POST['coach8'])) {
-    $coach = 8;
-}
-if (isset($_POST['coach9'])) {
-    $coach = 9;
-}
-if (isset($_POST['coach10'])) {
-    $coach = 10;
-}
-if (isset($_POST['coach11'])) {
-    $coach = 11;
-}
-
-include 'SqlConDatabase.php';
-
-if ($_COOKIE["connectionDB"] == true) {
-
-    $sql1 = "SELECT * FROM coach WHERE Id_coach = '" . $coach . "'";
-
-    // ON CHERCHE LES INFORMATIONS DU COACH CORRESPONDANT AU DOMAINE SELECTIONNE PAR L'UTILISATEUR (Bouton)
-    $result1 = mysqli_query($db_handle, $sql1);
-
-    while ($row = mysqli_fetch_assoc($result1)) {
-        $Nom = $row['Nom_coach'];
-        $Prenom = $row['Prenom_coach'];
-        $Domaine = $row['Domaine_coach'];
-        $Bureau = $row['Bureau_coach'];
-        $Tel = $row['Tel_coach'];
-        $Email = $row['Email_coach'];
-    }
-}
-?>
 
 <body>
     <div class="page" id="page">
@@ -161,155 +106,91 @@ if ($_COOKIE["connectionDB"] == true) {
 
         <div class="milieu" id="content">
 
-            <div class="page_profil">
-                <div id="pro">
-                    <div class="photo_profil">
-                        <?php echo " <img src='Image/Profil_profs/" . $coach . ".jpg' alt = 'Photo de Profil' style='max-width :200px;'>";
-                        ?>
+        <!-- ---------------------------------------------------ChatBox--------------------------------------------------------------------- -->
+        <div id="button-chatbox-container">
+            <button id="button-chatbox" onclick="chatBox_open()"><i class="iconify" id="button-chatbox-icon" data-icon="bi:chat-dots-fill"></i></button>
+        </div>
+        <div id="chatbox-container">
+            <?php
+            // isCo();
+            $_SESSION['name'] = 'coach';
+            ?>
+            <div id="chatbox-wrapper">
+                <div id="menu">
+                    <div class="menu-welcome">
+                        <p class="welcome">Bienvenue, <b><?php echo $_SESSION['name']; ?></b></p>
                     </div>
-                    <div class="description_profil">
-                        <h1 id="profil"> Profil de coach </h1>
-                        <?php echo "<p class='presentation'>" . $Prenom . " " . $Nom . "</br>  Spécialité : " . $Domaine . "</br> <i> Contact :</i> </br> " . $Tel . "</br>" . $Email . "</br> Vous pouvez trouver son bureau au 1er étage, porte n°" . $Bureau . "</br> </p>";
-                        ?>
+                    <div class="menu-button">
+                        <button id="close-session" onclick="chatBox_close()"><i class="iconify" id="button-chatbox-icon" data-icon="charm:circle-cross"></i></button>
                     </div>
                 </div>
-                <div id="RDV">
-                    <h2 id="dispo"> Voici les jours où ce coach est disponible :</h2>
-                    <table class="table table-dark">
-
-                        <thread>
-
-                            <tr>
-
-                                <th scope="col">date</th>
-                                <th scope="col">Prendre Rendez-vous</th>
-
-                            </tr>
-                        </thread>
-
-                        <tbody>
-                            <?php
-                            $connect = $_COOKIE['connectionDB'];
-                            if ($connect) {
-                                $sql_RechercheCoach = "SELECT * from planning_coach WHERE Id_coach= '" . $coach . "'";
-                                $availablecoach = mysqli_query($db_handle, $sql_RechercheCoach);
-                                while ($row_coach = mysqli_fetch_assoc($availablecoach)) {
-
-                                    $date = $row_coach['planning_coach_date'];
-                                    echo "<tr>";
-
-                                    echo "<td>" . $date . "</td>";
-                                    $IdPlanning = $row_coach['Id_planning'];
-                                    echo "<td> <form name = '1' action ='RDV_un_coach.php' method='post'> 
-                                   <input type='hidden' name='id_planning' value='" . $IdPlanning . "'>
-                                   <input type='hidden' name='id_coach' value='" . $coach . "'>     
-                                   <input type='hidden' name='date' value='" . $date . "'>                    
-                                   <input type='submit' name='bouton' class='a' value='Choisir cette date'>                    
-                                   </form> </td>";
-                                    echo "</tr>";
-                                }
-                            }
-
-                            ?>
-                        </tbody>
-                    </table>
+                <div id="chatbox">
+                    <?php
+                    echo "<script>console.log('Debug Objects: " . file_get_contents("log.html") . "' );</script>";
+                    if (file_exists("log.html") && filesize("log.html") > 0) {
+                        $contents = file_get_contents("log.html");
+                        echo $contents;
+                    }
+                    ?>
                 </div>
-                <div class="cv_coach">
-                    Vous êtes un administrateur ?
-                    <form action="page_admin.php" method="post">
-
-                        <input type="submit" name="admin" value="Voir page admin">
-
-                    </form>
-
-                </div>
+                <form name="message" action="">
+                    <input name="usermsg" type="text" id="usermsg" />
+                    <input name="submitmsg" type="submit" id="submitmsg" value="Envoyer" />
+                </form>
             </div>
-
-
-            <!-- ---------------------------------------------------ChatBox--------------------------------------------------------------------- -->
-            <div id="button-chatbox-container">
-                <button id="button-chatbox" onclick="chatBox_open()"><i class="iconify" id="button-chatbox-icon" data-icon="bi:chat-dots-fill"></i></button>
-            </div>
-            <div id="chatbox-container">
-                <?php
-                isCo();
-                ?>
-                <div id="chatbox-wrapper">
-                    <div id="menu">
-                        <div class="menu-welcome">
-                            <p class="welcome">Bienvenue, <b><?php echo $_SESSION['name']; ?></b></p>
-                        </div>
-                        <div class="menu-button">
-                            <button id="close-session" onclick="chatBox_close()"><i class="iconify" id="button-chatbox-icon" data-icon="charm:circle-cross"></i></button>
-                        </div>
-                    </div>
-                    <div id="chatbox">
-                        <?php
-                        echo "<script>console.log('Debug Objects: " . file_get_contents("log.html") . "' );</script>";
-                        if (file_exists("log.html") && filesize("log.html") > 0) {
-                            $contents = file_get_contents("log.html");
-                            echo $contents;
-                        }
-                        ?>
-                    </div>
-                    <form name="message" action="">
-                        <input name="usermsg" type="text" id="usermsg" />
-                        <input name="submitmsg" type="submit" id="submitmsg" value="Envoyer" />
-                    </form>
-                </div>
-                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                <script type="text/javascript">
-                    // jQuery Document
-                    $(document).ready(function() {
-                        $("#submitmsg").click(function() {
-                            var clientmsg = $("#usermsg").val();
-                            $.post("post.php", {
-                                text: clientmsg
-                            });
-                            $("#usermsg").val("");
-                            return false;
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script type="text/javascript">
+                // jQuery Document
+                $(document).ready(function() {
+                    $("#submitmsg").click(function() {
+                        var clientmsg = $("#usermsg").val();
+                        $.post("post.php", {
+                            text: clientmsg
                         });
-
-                        function loadLog() {
-                            var oldscrollHeight = $("#chatbox")[0].scrollHeight - 20; //Hauteur de défilement avant la requête
-                            $.ajax({
-                                url: "log.html",
-                                cache: false,
-                                success: function(html) {
-                                    $("#chatbox").html(html); //Insérez le log de chat dans la #chatbox div
-                                    //Auto-scroll
-                                    var newscrollHeight = $("#chatbox")[0].scrollHeight - 20; //Hauteur de défilement apres la requête
-                                    if (newscrollHeight > oldscrollHeight) {
-                                        $("#chatbox").animate({
-                                            scrollTop: newscrollHeight
-                                        }, 'normal'); //Défilement automatique
-                                    }
-                                }
-                            });
-                        }
-                        setInterval(loadLog, 2500);
-                        $("#exit").click(function() {
-                            var exit = confirm("Voulez-vous vraiment mettre fin à la session ?");
-                            if (exit == true) {
-                                window.location = "index.php?logout=true";
-                            }
-                        });
+                        $("#usermsg").val("");
+                        return false;
                     });
-                </script>
-            </div>
 
-            <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
-
+                    function loadLog() {
+                        var oldscrollHeight = $("#chatbox")[0].scrollHeight - 20; //Hauteur de défilement avant la requête
+                        $.ajax({
+                            url: "log.html",
+                            cache: false,
+                            success: function(html) {
+                                $("#chatbox").html(html); //Insérez le log de chat dans la #chatbox div
+                                //Auto-scroll
+                                var newscrollHeight = $("#chatbox")[0].scrollHeight - 20; //Hauteur de défilement apres la requête
+                                if (newscrollHeight > oldscrollHeight) {
+                                    $("#chatbox").animate({
+                                        scrollTop: newscrollHeight
+                                    }, 'normal'); //Défilement automatique
+                                }
+                            }
+                        });
+                    }
+                    setInterval(loadLog, 2500);
+                    $("#exit").click(function() {
+                        var exit = confirm("Voulez-vous vraiment mettre fin à la session ?");
+                        if (exit == true) {
+                            window.location = "index.php?logout=true";
+                        }
+                    });
+                });
+            </script>
         </div>
 
-        <div class="footer" id="footer">
-            <div class="copyright">
-                <p>ceci est un copyright</p>
-            </div>
-            <div class="text">
-                <p>footer</p>
-            </div>
+        <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+
+    </div>
+
+    <div class="footer" id="footer">
+        <div class="copyright">
+            <p>ceci est un copyright</p>
         </div>
+        <div class="text">
+            <p>footer</p>
+        </div>
+    </div>
     </div>
 
     <!--Form de Connection/Inscription-->

@@ -3,6 +3,7 @@
 include 'SqlConDatabase.php';
 setcookie('Session_Id_user', false, 0, "", "", false, false);
 setcookie('Session_type_user', false, 0, "", "", false, false);
+setcookie('Session_name_user', false, 0, "", "", false, false);
 
 // ***************************** FORM SE CONNECTER PHP ***********************
 
@@ -16,23 +17,16 @@ if (isset($_POST["Se_Connecter"])) {
     $result1 = mysqli_query($db_handle, $sql1);
     $data1 = mysqli_fetch_assoc($result1);
     $IdClient = $data1['Id_client'];
+    $NameClient = $data1['Nom_client'];
     $row1 = mysqli_num_rows($result1);
 
     if ($row1 == 1) {
         header("Location: accueil.html");
-        echo "<script> 
-        function setCookie(cname, cvalue, exdays) {
-            const d = new Date();
-            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-            let expires = 'expires=' + d.toUTCString();
-            document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
-          }
 
-        setCookie('connection', true, 0, '', '', false, false);
-        </script>";
-        
+        setCookie('connection', true, 0, "", "", false, false);
         setcookie('Session_Id_user', $IdClient, 0, "", "", false, false);
         setcookie('Session_type_user', 'client', 0, "", "", false, false);
+        setcookie('Session_name_user', $NameClient, 0, "", "", false, false);
     } else {
     }
 
@@ -42,12 +36,15 @@ if (isset($_POST["Se_Connecter"])) {
     $result2 = mysqli_query($db_handle, $sql2);
     $data2 = mysqli_fetch_assoc($result2);
     $IdCoach = $data2['Id_coach'];
+    $NameCoach = $data2['Nom_coach'];
     $row2 = mysqli_num_rows($result2);
 
     if ($row2 == 1) {
         header("Location: Coach.php");
-        setcookie('connection', true, 0, "", "", false, false);
+
+        setCookie('connection', true, 0, "", "", false, false);
         setcookie('Session_Id_user', $IdCoach, 0, "", "", false, false);
+        setcookie('Session_name_user', $NameCoach, 0, "", "", false, false);
         setcookie('Session_type_user', 'coach', 0, "", "", false, false);
     } else {
     }
@@ -62,7 +59,10 @@ if (isset($_POST["Se_Connecter"])) {
 
     if ($row3 == 1) {
         header("Location: Admin.php");
+
+        setCookie('connection', true, 0, "", "", false, false);
         setcookie('Session_Id_user', $IdAdmin, 0, "", "", false, false);
+        setcookie('Session_name_user', $username, 0, "", "", false, false);
         setcookie('Session_type_user', 'administrateur', 0, "", "", false, false);
     } else {
     }
@@ -71,4 +71,3 @@ if (isset($_POST["Se_Connecter"])) {
         echo "Erreur de LOGIN ou de PASSWORD! Veuillez réessayer ou vous créer un compte!";
     }
 }
-?>

@@ -5,6 +5,7 @@
     <title>Base</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html" />
     <meta charset="utf-8" />
+    <link rel="stylesheet"  href="RDV.css">
     <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_base.css">
     <link rel="stylesheet" media="screen and (max-width: 980px)" href="style_base_mobile.css">
     <script type="text/javascript" src="script_base.js"></script>
@@ -44,7 +45,7 @@
                     <script>
                         "use strict";
 
-                        document.cookie = "user=John"; // update only cookie named 'user'
+                        // document.cookie = "user=John"; // update only cookie named 'user'
                                 // alert(document.cookie); // show all cookies
                     </script>
                 </div>
@@ -55,9 +56,9 @@
 
         <div class="milieu" id="content">
 
-        <table class="table table-dark">
+        
 
-        <h1> Vous êtes sur la page de réservation d'une séance avec
+        <div class="PresRDV"> Vous êtes sur la page de réservation d'une séance avec
             <?php
             include 'SqlConDatabase.php';
             $connect = $_COOKIE['connection'];
@@ -69,10 +70,11 @@
                 $NomCoach = $row2['Nom_coach'];
                 $PrenomCoach = $row2['Prenom_coach'];
                 $Domaine = $row2['Domaine_coach'];
-                echo " " . $PrenomCoach . " " . $NomCoach . " Avec pour domaine : " . $Domaine . "</br> Prendre rendez vous le " . $date;
+                echo " " . $PrenomCoach . " " . $NomCoach . " </br> Avec pour domaine : " . $Domaine . "</br> Prendre rendez vous le " . $date;
             }
             ?>
-        </h1>
+        </div>
+        <table class="table table-dark">
         <thread>
             <tr>
 
@@ -96,7 +98,12 @@
                     $fin = $row1['heure_fin'];
                     echo "<td>" . $debut . "</td>";
                     echo "<td>" . $fin . "</td>";
-                    echo "<td> <form name = '1' action ='RDV_un_coach.php' method='post'>                                      
+                    echo "<td> <form name = '1' action ='paiment.php' method='post'>    
+                    <input type='hidden' name='IdCoach' value=''>
+                    <input type='hidden' name='IdClient' value=''>
+                    <input type='hidden' name='IdTimeSlot' value=''>
+                    <input type='hidden' name='DateRdv' value=''>
+                    <input type='hidden' name='HeureDebut' value=''>
                 <input type='submit' name='bouton' class='a' value='Choisir ce coach'>                    
                 </form> </td>";
 

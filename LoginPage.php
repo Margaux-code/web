@@ -22,6 +22,7 @@ if (isset($_POST["Se_Connecter"])) {
         header("Location: ProfilClient.php");
         setcookie('Session_Id_user', $IdClient, 0, "", "", false, false);
         setcookie('Session_type_user', 'client', 0, "", "", false, false);
+        setcookie('Session_name_user', $username, 0, "", "", false, false);
     } else {
     }
 
@@ -37,6 +38,7 @@ if (isset($_POST["Se_Connecter"])) {
         header("Location: Coach.php");
         setcookie('Session_Id_user', $IdCoach, 0, "", "", false, false);
         setcookie('Session_type_user', 'coach', 0, "", "", false, false);
+        setcookie('Session_name_user', $username, 0, "", "", false, false);
     } else {
     }
 
@@ -50,8 +52,9 @@ if (isset($_POST["Se_Connecter"])) {
 
     if ($row3 == 1) {
         header("Location: Admin.php");
-        setcookie('Session_Id_user', $IdAdmin, 0, "", "", false, false);
-        setcookie('Session_type_user', 'administrateur', 0, "", "", false, false);
+        setcookie('Session_Id_user', $IdAdmin, time() + 30, "", "", false, false);
+        setcookie('Session_type_user', 'administrateur', time() + 30, "", "", false, false);
+        setcookie('Session_name_user', $username, time() + 30, "", "", false, false);
     } else {
     }
 

@@ -3,8 +3,11 @@
 
 <head>
     <title>Base</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html; charset=utf-8" />
-    <link rel="stylesheet" href="style_base.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="RDV.css">
+    <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_base.css">
+    <link rel="stylesheet" media="screen and (max-width: 980px)" href="style_base_mobile.css">
     <script type="text/javascript" src="script_base.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -25,7 +28,8 @@
             </div>
             <div class="div_button">
                 <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
-                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout parcourir</a></button>
+                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout
+                        parcourir</a></button>
                 <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
@@ -49,43 +53,32 @@
 
         <div class="milieu" id="content">
 
-            <?php
-          
-            $xml_file = 'CV.xml';
-            $xsl_file = 'CV.xsl';
-            $dom_object = new DOMDocument();
-            if (!file_exists($xml_file)) {
-                exit('failed to open $xml_file');
-            }
-            $dom_object->load($xml_file);
-            $xsl_obj = new DomDocument();
-            if (!file_exists($xsl_file)) {
-                exit('failed to open $xsl_file');
-            }
-            $xsl_obj->load($xsl_file);
-            $proc = new XSLTProcessor;
-            $proc->importStylesheet($xsl_obj);
-            $html_fragment = $proc->transformToXml($dom_object);
-            print($html_fragment);
-            
+            <p class="PresRDV">Veuillez renseigner vos informations bancaires pour prendre une réservation. </br> Vous pouvez annulé à tous moment jusqu'à 72h avant et vous serez remboursé intégralement. </p>
 
-            ?>
-            <form action="gestionPlanning.php" method="post">
+            <form id="InfoCarte">
+                <div class="form-group">
+                    <label>Nom du détenteur de la carte </label>
+                    <input type="text" class="form-control" id="inputNomCarte" placeholder="Jean Dupont" required>
+                </div>
+                <div class="form-group">
+                    <label>Numéro de carte </label>
+                    <input type="number" class="form-control" id="inputNumCarte" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>Date d'expiration</label>
+                        <input type="date" class="form-control" id="inputDateExpiration" value="2022-06-02" min="2022-06-02" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState">CVV</label>
+                        <input type="number" class="form-control" id="CVV" placeholder="000" required>
+                    </div>
+                </div>
 
-                <label for="start">Gestionnaire de planning : ajouter un jour de travail a un coach avec son ID :</label>
-                <input type="number" id="id_coach" name="IDCoach" min=1 required> </br>
-                Heure de départ :
-                <input type="time" id="HeureDepart" name="HeureDepart" value=09:00> </br>
-                Heure de fin :
-                <input type="time" id="HeureFin" name="HeureFin" value=17:00> </br>
-                Temps d'une consultation en minutes :
-                <input type="time" id="TempsConsult" name="TempsConsult" value=01:00 min=01:00 max=04:00 required> </br>
-                Jour :
-                <input type="date" id="jour_travail" name="JourTravail" value="2022-06-02" min="2022-06-02" max="2022-07-10" required>
-                <input type="submit" name="JourRDV" value="Ajouter au planning"><input type="reset">
-
+                <button type="submit" class="btn btn-primary">Reserver cette seance</button>
             </form>
-           
+
+
         </div>
 
         <div class="footer" id="footer">
@@ -114,22 +107,24 @@
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
-                        <div class="form-input">
-                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
-                            <i class="input-icon uil uil-at"></i>
-                        </div>
-                        <div class="form-input mt-2">
-                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
-                            <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <input type="submit" class="btnValid" name="validCo" value="Envoyer">
-                        <div class="mdp-forget-container">
-                            <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
-                        </div>
+                        <form action="LoginPage.php" method="post">
+                            <div class="form-input">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-input mt-2">
+                                <input type="password" name="password" class="form-style" placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">
+                            <div class="mdp-forget-container">
+                                <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="tab-pane" id="Ins">
-                        <form action="php.php" method="get">
+                        <form action="LoginPage.php" method="post">
                             <div class="form-input">
                                 <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom" autocomplete="off">
                                 <i class="input-icon uil uil-user"></i>
