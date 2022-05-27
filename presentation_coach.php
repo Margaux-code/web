@@ -109,17 +109,62 @@ if ($connect) {
         <div class="milieu" id="content">
 
             <div class="page_profil">
-                <div class="photo_profil">
-                    <?php echo " <img src='Image/Profil_profs/" . $coach . ".jpg' alt = 'Photo de Profil' style='max-width :200px;'>";
-                    ?>
+                <div id="pro">
+                    <div class="photo_profil">
+                        <?php echo " <img src='Image/Profil_profs/" . $coach . ".jpg' alt = 'Photo de Profil' style='max-width :200px;'>";
+                        ?>
+                    </div>
+                    <div class="description_profil">
+                        <h1 id="profil"> Profil de coach  </h1>
+                        <?php echo "<p class='presentation'>" . $Prenom . " " . $Nom . "</br>  Spécialité : " . $Domaine . "</br> <i> Contact :</i> </br> " . $Tel . "</br>" . $Email . "</br> Vous pouvez trouver son bureau au 1er étage, porte n°" . $Bureau . "</br> </p>";
+                        ?>
+                    </div>
                 </div>
-                <div class="description_profil">
-                    <h1 id="profil"> Profil de coach : </h1>
-                    <?php echo "<p class='presentation'>" . $Prenom . " " . $Nom . "</br>  Spécialité : " . $Domaine . "</br> <i> Contact :</i> </br> " . $Tel . "</br>" . $Email . "</br> Vous pouvez trouver son bureau au 1er étage, porte n°" . $Bureau . "</br> </p>";
-                    ?>
+                <div id="RDV">
+                    <h2 id="dispo"> Voici les jours où ce coach est disponible :</h2>
+                    <table class="table table-dark">
+
+                        <thread>
+
+                            <tr>
+
+                                <th scope="col">date</th>
+                                <th scope="col">Prendre Rendez-vous</th>
+
+                            </tr>
+                        </thread>
+
+                        <tbody>
+                            <?php
+
+
+                            $connect = $_COOKIE['connection'];
+                            if ($connect) {
+                                $sql_RechercheCoach = "SELECT * from planning_coach WHERE Id_coach= '" . $coach . "'";
+                                $availablecoach = mysqli_query($db_handle, $sql_RechercheCoach);
+                                while ($row_coach = mysqli_fetch_assoc($availablecoach)) {
+
+                                    $date = $row_coach['planning_coach_date'];
+                                    echo "<tr>";
+
+                                    echo "<td>" . $date . "</td>";
+                                    $IdPlanning = $row_coach['Id_planning'];
+                                    echo "<td> <form name = '1' action ='RDV_un_coach.php' method='post'> 
+                                   <input type='hidden' name='id_planning' value='" . $IdPlanning . "'>
+                                   <input type='hidden' name='id_coach' value='" . $coach . "'>     
+                                   <input type='hidden' name='date' value='" . $date . "'>                    
+                                   <input type='submit' name='bouton' class='a' value='Choisir cette date'>                    
+                                   </form> </td>";
+                                    echo "</tr>";
+                                }
+                            }
+
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="cv_coach">
-                    Vous êtes un administrateur ? 
+                    Vous êtes un administrateur ?
                     <form action="page_admin.php" method="post">
 
                         <input type="submit" name="admin" value="Voir page admin">
