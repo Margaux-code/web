@@ -5,6 +5,7 @@
     <title>Base</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html" />
     <meta charset="utf-8" />
+    <link rel="stylesheet"  href="RDV.css">
     <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_base.css">
     <link rel="stylesheet" media="screen and (max-width: 980px)" href="style_base_mobile.css">
     <script type="text/javascript" src="script_base.js"></script>
@@ -55,21 +56,24 @@
 
         <div class="milieu" id="content">
 
+            <div class="PresRDV">
+                
+                   Vous avez un créneau libre, et vous voulez faire du sport ?</br>
+                    Choisissez votre date !
+                </br>
+                <form action="RDV_Tout_Coachs.php" method="post">                   
+                    <input type="date" id="JRDV" name="JourChoisi" value="2022-06-02" min="2022-06-02" max="2022-06-10"
+                        required>
+                    <input type="submit" name="bouton" value="Trouver les rendez-vous disponible">
 
-            Quand voulez vous prendre rendez-vous ?
-            <form action ="RDV_Tout_Coachs.php" method="post">
-                
-                <label for="start">Start date:</label>
-        
-                <input type="date" id="JRDV" name="JourChoisi" value="2022-06-02" min="2022-06-02" max="2022-06-10" required>
-                <input type="submit" name="bouton" value="Trouver les rendez-vous :">
-                
-            </form>
+                </form>
+           
+            </div>
 
         </div>
 
         <div class="footer" id="footer">
-            <div class="copyright">
+            <div class="copyright">068837068068837068
                 <p>ceci est un copyright</p>
             </div>
             <div class="text">
@@ -102,8 +106,8 @@
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input mt-2">
-                                <input type="password" name="password" class="form-style" placeholder="Votre Mot de passe"
-                                    id="mdp" autocomplete="off">
+                                <input type="password" name="password" class="form-style"
+                                    placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
                             <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">

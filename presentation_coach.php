@@ -9,9 +9,8 @@
     <script type="text/javascript" src="script_base.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <?php
 
@@ -71,6 +70,7 @@ if ($connect) {
     }
 }
 ?>
+
 <body>
     <div class="page" id="page">
         <div class="haut">
@@ -90,17 +90,15 @@ if ($connect) {
             <div class="search-box-co">
                 <div class="search-box">
                     <input type="text" name="input" id="search-bar" class="search" placeholder="Recherche">
-                    <button type="submit" id="searchbutton" class="search"><i class="iconify"
-                            id="loupe" data-icon="simple-line-icons:magnifier"></i></button>
+                    <button type="submit" id="searchbutton" class="search"><i class="iconify" id="loupe" data-icon="simple-line-icons:magnifier"></i></button>
                 </div>
                 <div class="btnRegLog">
-                    <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify"
-                            id="compte" data-icon="uil:user"></i></button>
+                    <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" id="compte" data-icon="uil:user"></i></button>
                     <script>
                         "use strict";
 
                         document.cookie = "user=John"; // update only cookie named 'user'
-                                // alert(document.cookie); // show all cookies
+                        // alert(document.cookie); // show all cookies
                     </script>
                 </div>
             </div>
@@ -110,42 +108,26 @@ if ($connect) {
 
         <div class="milieu" id="content">
 
-        <div class="page_profil">
-        <div class="photo_profil">
-            <?php echo " <img src='Image/Profil_profs/" . $coach . ".jpg' alt = 'Photo de Profil' style='max-width :200px;'>";
-            ?>
-        </div>
-        <div class="description_profil">
-           <h1 id="profil"> Profil de coach : </h1>
-            <?php echo "<p class='presentation'>". $Prenom . " ".$Nom . "</br>  Spécialité : " . $Domaine . "</br> <i> Contact :</i> </br> " . $Tel . "</br>" . $Email . "</br> Vous pouvez trouver son bureau au 1er étage, porte n°" . $Bureau . "</br> </p>";
-            ?>
-        </div>
-        <div class="cv_coach">
+            <div class="page_profil">
+                <div class="photo_profil">
+                    <?php echo " <img src='Image/Profil_profs/" . $coach . ".jpg' alt = 'Photo de Profil' style='max-width :200px;'>";
+                    ?>
+                </div>
+                <div class="description_profil">
+                    <h1 id="profil"> Profil de coach : </h1>
+                    <?php echo "<p class='presentation'>" . $Prenom . " " . $Nom . "</br>  Spécialité : " . $Domaine . "</br> <i> Contact :</i> </br> " . $Tel . "</br>" . $Email . "</br> Vous pouvez trouver son bureau au 1er étage, porte n°" . $Bureau . "</br> </p>";
+                    ?>
+                </div>
+                <div class="cv_coach">
+                    Vous êtes un administrateur ? 
+                    <form action="page_admin.php" method="post">
 
-            <?php
-                $xml_file ='CV.xml';
-                $xsl_file ='CV.xsl';
-                $dom_object = new DOMDocument();
-                if(!file_exists($xml_file)) 
-                {
-                    exit ('failed to open $xml_file');
-                }
-                $dom_object->load($xml_file);
-                $xsl_obj = new DomDocument();
-                if(!file_exists($xsl_file))
-                {
-                    exit ('failed to open $xsl_file');
-                } 
-                $xsl_obj->load($xsl_file);
-                $proc = new XSLTProcessor;
-                $proc -> importStylesheet($xsl_obj);
-                $html_fragment = $proc->transformToXml($dom_object);
-                print($html_fragment);
+                        <input type="submit" name="admin" value="Voir page admin">
 
-            ?>
-            
-        </div>
-    </div>
+                    </form>
+
+                </div>
+            </div>
 
         </div>
 
@@ -165,8 +147,7 @@ if ($connect) {
             <div id="img-CoIns"><img id="imgCoIns" src="Image/marbreblanc.jpg" width="100%" height="100%"></div>
             <div class="CoIns">
                 <div id="closeForm-container">
-                    <button class="closeForm"><i class="iconify" id="close" data-icon="eva:close-circle-outline"
-                            onclick="closeForm()"></i></button>
+                    <button class="closeForm"><i class="iconify" id="close" data-icon="eva:close-circle-outline" onclick="closeForm()"></i></button>
                 </div>
 
                 <nav class="nav nav-tabs" id="myTab">
@@ -177,13 +158,11 @@ if ($connect) {
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
                         <div class="form-input">
-                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
-                                autocomplete="off">
+                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
                             <i class="input-icon uil uil-at"></i>
                         </div>
                         <div class="form-input mt-2">
-                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe"
-                                id="mdp" autocomplete="off">
+                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
                             <i class="input-icon uil uil-lock-alt"></i>
                         </div>
                         <input type="submit" class="btnValid" name="validCo" value="Envoyer">
@@ -195,18 +174,15 @@ if ($connect) {
                     <div class="tab-pane" id="Ins">
                         <form action="php.php" method="get">
                             <div class="form-input">
-                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
-                                    autocomplete="off">
+                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom" autocomplete="off">
                                 <i class="input-icon uil uil-user"></i>
                             </div>
                             <div class="form-input">
-                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
-                                    autocomplete="off">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input">
-                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe"
-                                    id="mdp" autocomplete="off">
+                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
                             <input type="submit" class="btnValid" name="validI" value="Validate">
@@ -227,8 +203,8 @@ if ($connect) {
             left: '32px', // default: 'unset'
             time: '0.5s', // default: '0.3s'
             mixColor: '#fff', // default: '#fff'
-            backgroundColor: '#fff',  // default: '#fff'
-            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            backgroundColor: '#fff', // default: '#fff'
+            buttonColorDark: '#100f2c', // default: '#100f2c'
             buttonColorLight: '#fff', // default: '#fff'
             saveInCookies: true, // default: true,
             label: '🌓', // default: ''
@@ -239,13 +215,7 @@ if ($connect) {
         darkmode.showWidget();
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
