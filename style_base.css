@@ -2,7 +2,7 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css');
 @import url('https://unicons.iconscout.com/release/v2.1.9/css/unicons.css');
 
-.haut, .footer {
+body {
     background: white;
 }
 
@@ -24,6 +24,7 @@
         0px 4px 5px rgba(0, 0, 0, 0.148);
     border-radius: 5px;
 }
+
 .milieu {
     flex-grow: 1;
 }
@@ -58,7 +59,7 @@
     color: rgb(228, 227, 227);
 }
 
-.haut .logo {
+.logo {
     flex: 2;
     width: 100%;
     height: auto;
@@ -238,7 +239,7 @@
     filter: invert(100%);
 }
 
-.haut #compte:hover {
+#compte:hover {
     color: white;
 }
 
@@ -336,12 +337,7 @@
     justify-content: center;
 }
 
-.haut a {
-    cursor: pointer;
-    transition: all 200ms linear;
-}
-
-#CoIns-window a {
+a {
     cursor: pointer;
     transition: all 200ms linear;
 }
@@ -358,7 +354,7 @@ a:hover {
     color: #565656;
 }
 
-.footer p {
+p {
     font-weight: 500;
     font-size: 14px;
     line-height: 1.7;
@@ -406,7 +402,7 @@ a:hover {
     background-color: #2a2b38;
 }
 
-.CoIns-window .form-input {
+.form-input {
     position: relative;
     display: block;
     margin: 10% auto;
@@ -580,4 +576,8 @@ a:hover {
 #myTab {
     width: 89%;
     background-color: #d4af37;
+}
+
+.darkmode-toggle {
+    z-index: 1000;
 }

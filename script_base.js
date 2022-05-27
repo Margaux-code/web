@@ -20,13 +20,6 @@ function getCookie(cname) {
   return "";
 }
 
-function checkCookieTheme() {
-  let theme = getCookie("theme");
-  if (theme != "") {
-      alert("Le theme que vous avez choisi est " + theme);
-  }
-}
-
 function openForm() {
   document.getElementById("CoIns-window").style.display = "block";
   var page = document.getElementById("page");
@@ -39,4 +32,25 @@ function closeForm() {
   var page = document.getElementById("page");
   page.style.filter = "blur(0)";
   page.style.pointerEvents = "auto";
+}
+
+
+function testCo (){
+  let co = getCookie("connection");
+
+  if(co==true){
+    alert("Vous êtes connecté");
+  }
+
+}
+
+function btnProfil(){
+  let co = getCookie("connection");
+
+  if(co==true){
+    window.location = 'ProfilClient.php';
+  }
+  else {
+    openForm();
+  }
 }
