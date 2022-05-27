@@ -1,0 +1,38 @@
+/* ________________________ CODE CSS TABLEAU PERSONNEL __________________ */
+
+table {
+    width: 40%;
+    margin: 20px auto 0 auto;
+    border-radius: 5px;
+    border: 1px solid #987d25;
+}
+
+th {
+    background-color: #8a8880;
+    color: #ffffff;
+    height: 35px;
+    border: 1px solid #987d25;
+}
+
+td {
+    background-color: #ffffff;
+    color: #333333;
+    text-align: center;
+    height: 35px;
+    border: 1px solid #987d25;
+}
+
+tr:hover td {
+    background-color: lightgrey;
+}
+
+h2 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background-color: rgba(169, 169, 169, 0.05);
+    padding: 20px;
+    width: 650px;
+    margin: 10px auto 20px auto;
+    padding-top: 30px;
+    border-radius: 5px;    
+}
