@@ -1,6 +1,14 @@
-
-.PresRDV{
+.PresRDV {
     font-family: 'Roboto', 'sans-serif';
-    margin : 5%;
-    text-align : center;
+    margin: 5%;
+    text-align: center;
+}
+
+#InfoCarte {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom : 5%;
+    border: solid;
+    border-width: thin;
+    border-color: rgb(182, 182, 182);
 }
