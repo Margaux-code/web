@@ -91,19 +91,24 @@
 
                 $sql1 = "SELECT * from time_slot WHERE Id_planning= '" . $idPlanning . "'AND Status='Actif'";
                 $get1 = mysqli_query($db_handle, $sql1);
+                $IdClient = $_COOKIE['Session_Id_user'];
+                    //TEST AVANT LES COOKIES
+                    $IdClient=1;
 
                 while ($row1 = mysqli_fetch_assoc($get1)) {
                     echo "<tr>";
                     $debut = $row1['heure_debut'];
                     $fin = $row1['heure_fin'];
+                    $IdTimeSlot = $row1['Id_time_slot'];
+                    
                     echo "<td>" . $debut . "</td>";
                     echo "<td>" . $fin . "</td>";
                     echo "<td> <form name = '1' action ='paiment.php' method='post'>    
-                    <input type='hidden' name='IdCoach' value=''>
-                    <input type='hidden' name='IdClient' value=''>
-                    <input type='hidden' name='IdTimeSlot' value=''>
-                    <input type='hidden' name='DateRdv' value=''>
-                    <input type='hidden' name='HeureDebut' value=''>
+                    <input type='hidden' name='IdCoach' value='".$idCoach."'>
+                    <input type='hidden' name='IdClient' value='".$IdClient."'>
+                    <input type='hidden' name='IdTimeSlot' value='".$IdTimeSlot."'>
+                    <input type='hidden' name='DateRdv' value='".$date."'>
+                    <input type='hidden' name='HeureDebut' value='".$debut."'>
                 <input type='submit' name='bouton' class='a' value='Choisir ce coach'>                    
                 </form> </td>";
 

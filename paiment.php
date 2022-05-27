@@ -55,7 +55,7 @@
 
             <p class="PresRDV">Veuillez renseigner vos informations bancaires pour prendre une réservation. </br> Vous pouvez annulé à tous moment jusqu'à 72h avant et vous serez remboursé intégralement. </p>
 
-            <form id="InfoCarte">
+            <form id="InfoCarte" action="" method="post">
                 <div class="form-group">
                     <label>Nom du détenteur de la carte </label>
                     <input type="text" class="form-control" id="inputNomCarte" placeholder="Jean Dupont" required>
@@ -77,8 +77,11 @@
 
                 <button type="submit" class="btn btn-primary">Reserver cette seance</button>
             </form>
+            <?php
 
 
+
+            ?>
         </div>
 
         <div class="footer" id="footer">
