@@ -1,0 +1,48 @@
+
+<!--____________________________ CODE HTML _____________________________-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+
+    <!-- Custom JavaScript -->
+    <script type="text/javascript" src="ProfileClientV2.js"></script>
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="ProfileClientV2.css">
+
+    <!-- FontAwesome 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
+<body>
+    <main>
+        <form id="register" method="post" enctype="multipart/form-data">
+        <h2 id="register__title">Create your profile</h2>
+        <div class="register__box">
+          <label for="user">User<i class="fas fa-asterisk"></i></label>
+          <input id="user" type="text" maxLength="64" required placeholder="Username">
+        </div>
+        <div class="register__box">
+          <label for="mail">E-mail<i class="fas fa-asterisk"></i></label>
+          <input id="mail" type="email" size="64" maxLength="64" required placeholder="Example@gmail.com" pattern=".+@gmail.com" title="Example@gmail.com">
+        </div>
+        <div class="register__box">
+          <label for="password">Password<i class="fas fa-asterisk"></i></label>
+          <input id="password" type="password" minLength="6" required placeholder="Password">
+        </div>
+        <div class="register__box">
+          <label for="age">Age</label>
+          <input id="age" type="date" minLength="2">
+        </div>
+        <input type="button" value="Create profile" id="register__btn">
+        </form>  
+        <div id="overlay" class="hidden">
+          <div id="avatar"></div>
+        </div>
+    </main>
+    <script crossorigin='anonymous' src='https://kit.fontawesome.com/85274771d6.js'></script>
+</body>
+</html>

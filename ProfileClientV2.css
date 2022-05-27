@@ -27,10 +27,10 @@
     width: 17%;
 }
 
-.sidenav .disconnect img {
+.sidenav .return img {
     color: #333;
     margin-left: 2%;
-    max-width: 20%;
+    max-width: 24%;
 }
 
 .ProfileTitle {
@@ -87,7 +87,7 @@
 
 .form {
     max-width: calc(100vw - 40px);
-    width: 50%;
+    width: 60%;
     height: 70%;
     background: rgba(255, 255, 255, 1);
     border-radius: 8px;
@@ -97,7 +97,17 @@
     position: relative;
     font-family: 'Raleway', sans-serif; 
     font-size: 90%;
-    margin-right: 16%;
+}
+
+.form h2{
+    margin:18px;
+    padding-bottom:10px;
+    width: 210px;
+    color: #1e439b;
+    font-size: 22px;
+    border-bottom: 3px solid #ff5501;
+    font-weight:600;
+    margin-bottom: 30px;
 }
 
 .form-group input {
@@ -109,11 +119,19 @@
     border: 0;
     background-color: #f0f1f5;
     transition: all .3s;
-    border: 2px solid #d4af37;
+    
 }
 
 .relative{
     position: relative;
+}
+
+.relative i.fa:before{
+    color: #444;
+    padding:10px;
+    position: absolute;
+    left: -3px;
+    text-align: center;
 }
 
 .relative i.fa{
@@ -133,21 +151,13 @@
 
 }
 
-.form-group .email
-
-.form-control:focus{
-    border-color: #d4af37;
-    box-shadow: inset 0px 1px 1px #d4af37, 0 0 8px #d4af37;
-}
-
 .relative input:focus + i.fa{
     border-left: 20px solid transparent;
     border-right: 30px solid #d4af37;
     border-bottom: 34px solid #d4af37;
 }
-
-input:focus + i.fa:before{
-    color: rgb(176, 21, 21);
+.relative input:focus + i.fa:before{
+    color: #fff;
 }
 .input-group .form-control:not(:first-child):not(:last-child),
 .input-group-addon:not(:first-child):not(:last-child),
@@ -155,7 +165,7 @@ input:focus + i.fa:before{
     border-radius: 0 4px 4px 0;
 }
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
-    background-color: rgb(255, 255, 255);
+    background-color: #fff;
 }
 
 /* --- Animated Buttons --- */
