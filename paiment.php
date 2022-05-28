@@ -31,7 +31,7 @@
                 <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
                 <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout
                         parcourir</a></button>
-                <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
+                <button class="nav-button" id="rdv"><a class="nav-page" href="Rendezvous.html">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
                 <div class="search-box">
@@ -80,33 +80,28 @@
             </form>
             <?php
             include 'SqlConDatabase.php';
-            $connect = $_COOKIE['connection'];
+            $connect = $_COOKIE['connectionDB'];
             if ($connect) {
 
                 if (isset($_POST["CVV"])) {
                     if (isset($_GET['VersPaiment'])) {
-                        echo "hy";
+
                         $IdCoach = $_GET['IdCoach'];
                         $IdClient = $_GET['IdClient'];
                         $IdTimeSlot = $_GET['IdTimeSlot'];
                         $date = $_GET['DateRdv'];
                         $HeureDepart = $_GET['HeureDebut'];
-                        echo $IdCoach;
+
                         $sql = "INSERT INTO table_rdv (Id_client,Id_coach,Id_time_slot,dateRDV,heure_debut,en_ligne) VALUES ('" . $IdClient . "','" . $IdCoach . "','" . $IdTimeSlot . "','" . $date . "','" . $HeureDepart . "','non')";
                         $envoi = mysqli_query($db_handle, $sql);
                         $sql2 = "UPDATE time_slot SET Status = REPLACE (Status, 'actif','inactif') WHERE Id_time_slot=" . $IdTimeSlot . ";";
                         $envoi2 = mysqli_query($db_handle, $sql2);
-                       // header("location:" .  $_SERVER['ValidationCommande.php']);
-                       echo "Fini";
+                        if ($envoi && $envoi2) {
+                            echo "<p style='font-family : Roboto; text-align : center;'>Le paiement a été un succes <form style='text-align:center;' action='Rendezvous.php' method='post'> <input type='submit' value='Retournez au choix de rendez-vous'></form>";
+                        }
+                    } else {
+                        echo "ERREUR PAIEMENT";
                     }
-                    else{
-                        echo "ERROR";
-                        //echo "<script> alert('Une erreur est survenu dans le paiment.'); </script>";
-                        
-                    }
-                    
-
-                   
                 }
             }
             ?>

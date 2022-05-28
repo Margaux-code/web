@@ -39,7 +39,7 @@ function testCo() {
   let co = getCookie("connection");
 
   if (co == true) {
-    alert("Vous êtes connecté");
+    console.log("User connection succed");
   }
 
 }

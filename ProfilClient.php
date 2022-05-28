@@ -37,21 +37,17 @@ if (isset($_POST["Modifier"])) {
 
     // $sql = "INSERT INTO client (Nom_client, Prenom_client, Email_client, Tel_client, Adresse_client, Ville_client, CodePostal_client, MDP_client) 
     //         VALUES ('$Nom', '$Prenom', '$Email', '$Tel', '$Adresse', '$Ville', '$CodePostal', '$MDP') WHERE Id_client = '1'";  //" . $id_client . "
-    
+
     $sql = "UPDATE client 
             SET Nom_client='$Nom', Prenom_client='$Prenom', Email_client='$Email',Tel_client='$Tel', Adresse_client='$Adresse', Ville_client='$Ville', CodePostal_client='$CodePostal', MDP_client='$MDP'
             WHERE Id_client = '1'";  //" . $id_client . "
     $res = mysqli_query($db_handle, $sql);
 
-    if ($res)
-    {
+    if ($res) {
         echo "Données modifiées avec succès!";
-    }
-    else
-    {
+    } else {
         echo "Problème de modification des données!";
     }
-
 }
 
 ?>
@@ -94,8 +90,9 @@ if (isset($_POST["Modifier"])) {
             </div>
             <div class="div_button">
                 <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
-                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout parcourir</a></button>
-                <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
+                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout
+                        parcourir</a></button>
+                <button class="nav-button" id="rdv"><a class="nav-page" href="Rendezvous.html">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
                 <div class="search-box">
@@ -116,9 +113,9 @@ if (isset($_POST["Modifier"])) {
 
 
         <div class="milieu" id="content">
-            
+
             <div class="nav-pills-container" id="nav-pills-container">
-            <div class="ProfileTitle">PROFIL CLIENT</div>
+                <div class="ProfileTitle">PROFIL CLIENT</div>
                 <nav class="nav nav-pills nav-fill">
                     <a class="nav-item nav-link active" href="#v-pills-Infos" data-toggle="tab">Informations</a>
                     <a class="nav-item nav-link" href="#v-pills-RDV" data-toggle="tab">Mes rendez-vous </a>
@@ -145,7 +142,7 @@ if (isset($_POST["Modifier"])) {
                             <label class="form-label" for="addresse">Adresse :</label>
                             <div class="relative">
                                 <?php echo "<input class='form-control' id='addresse' type='text' required='' autofocus='' placeholder='Veuillez indiquer le numéro et le nom de votre Adresse' value='$Adresse'>"; ?>
-                                <i class="fa fa-building"><i class="iconify" data-icon="bx:home-alt"></i></i>  
+                                <i class="fa fa-building"><i class="iconify" data-icon="bx:home-alt"></i></i>
                             </div>
                         </div>
                         <div class="form-group">
@@ -159,7 +156,7 @@ if (isset($_POST["Modifier"])) {
                             <label class="form-label" for="postalCode">Code Postal :</label>
                             <div class="relative">
                                 <?php echo "<input class='form-control' id='postalCode' type='number' required='' autofocus='' placeholder='Veuillez indiquer votre code Postal' value='$CodePostal'>"; ?>
-                                <i class="fa fa-building"><i class="iconify" data-icon="map:postal-code-prefix"></i></i> 
+                                <i class="fa fa-building"><i class="iconify" data-icon="map:postal-code-prefix"></i></i>
                             </div>
                         </div>
                         <!-- <div class="form-group">
@@ -180,7 +177,7 @@ if (isset($_POST["Modifier"])) {
                             <label class="form-label" for="email">Email :</label>
                             <div class="relative">
                                 <?php echo "<input class='form-control' id='email' type='email' required='' placeholder='Veuillez indiquer votre Numéro de Téléphone' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' value='$Email'>"; ?>
-                                <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>  
+                                <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>
                             </div>
                         </div>
                         <div class="form-group">
@@ -216,8 +213,7 @@ if (isset($_POST["Modifier"])) {
                         echo "</tr>";
 
                         //afficher le resultat
-                        while ($data1 = mysqli_fetch_assoc($result1)) 
-                        {
+                        while ($data1 = mysqli_fetch_assoc($result1)) {
                             echo "<tr>";
                             echo "<td class='table_td'>" . $data1['Prenom_coach'] . "</td>";
                             echo "<td class='table_td'>" . $data1['Nom_coach'] . "</td>";
@@ -229,7 +225,7 @@ if (isset($_POST["Modifier"])) {
                         }
                         echo "</table>";
                         ?>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -261,11 +257,11 @@ if (isset($_POST["Modifier"])) {
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
                         <div class="form-input">
-                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" >
+                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail">
                             <i class="input-icon uil uil-at"></i>
                         </div>
                         <div class="form-input mt-2">
-                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe" id="mdp" >
+                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe" id="mdp">
                             <i class="input-icon uil uil-lock-alt"></i>
                         </div>
                         <input type="submit" class="btnValid" name="validCo" value="Envoyer">
@@ -277,7 +273,7 @@ if (isset($_POST["Modifier"])) {
                     <div class="tab-pane" id="Ins">
                         <form action="php.php" method="get">
                             <div class="form-input">
-                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom" >
+                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom">
                                 <i class="input-icon uil uil-user"></i>
                             </div>
                             <div class="form-input">
@@ -285,7 +281,7 @@ if (isset($_POST["Modifier"])) {
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input">
-                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp" >
+                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
                             <input type="submit" class="btnValid" name="validI" value="Validate">

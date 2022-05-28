@@ -9,5 +9,4 @@ function tt(text){
   let m=$(".self").clone(); $(".chat").append(m).find(".dialog").last().text(text);
     $("input").val("");
     $(".self span").remove();
-    // .text(text);
 }
