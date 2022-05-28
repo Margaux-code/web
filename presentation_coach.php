@@ -36,7 +36,7 @@ function loginForm()
 
 function isCo()
 {
-    if ($_COOKIE["connection"] == false) {
+    if ($_COOKIE["connectionDB"] == false) {
         loginForm();
     } else {
         $_SESSION['name'] = $_COOKIE["Session_name_user"];
@@ -125,7 +125,7 @@ if (isset($_POST['coach11'])) {
 
 include 'SqlConDatabase.php';
 
-if ($_COOKIE["connectionDB"] == true) {
+if ($_COOKIE["connectionDB"]) {
 
     $sql1 = "SELECT * FROM coach WHERE Id_coach = '" . $coach . "'";
 
@@ -204,10 +204,8 @@ if ($_COOKIE["connectionDB"] == true) {
 
                         <tbody>
                             <?php
-
-
-                            $connect = $_COOKIE['connection'];
-                            if ($connect) {
+                           
+                            if ($_COOKIE["connectionDB"]) {
                                 $sql_RechercheCoach = "SELECT * from planning_coach WHERE Id_coach= '" . $coach . "'";
                                 $availablecoach = mysqli_query($db_handle, $sql_RechercheCoach);
                                 while ($row_coach = mysqli_fetch_assoc($availablecoach)) {

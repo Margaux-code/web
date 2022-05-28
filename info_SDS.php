@@ -62,7 +62,7 @@
                         machines</a>
                     <a class="nav-item nav-link" href="#v-pills-abo" data-toggle="tab">Abonnements et Prix</a>
                     <a class="nav-item nav-link" href="#v-pills-alim" data-toggle="tab">Alimentation et nutrition</a>
-                    <a class="nav-item nav-link" href="#v-pills-gyne" data-toggle="tab">Gynécologie</a>
+                    <a class="nav-item nav-link" href="#v-pills-gyne" data-toggle="tab">Sport pré-natal</a>
             </div>
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="v-pills-personnel">
@@ -344,7 +344,7 @@
                 <div class="tab-pane fade" id="v-pills-gyne">
                     <div class="Gynécologie">
                         <h2 class="TitreService">
-                            Gynécologie
+                            Sport pré-natal
                         </h2>
                         <img id="img_Gyne" src="Image/Gynecologie.jpg" width="500" height="325">
                         <div class="Informations">

@@ -63,7 +63,7 @@
                 </div>
                 <div class="form-group">
                     <label>Numéro de carte </label>
-                    <input type="number" class="form-control" id="inputNumCarte" placeholder="1234 5678 9012 3456" required>
+                    <input type="number" class="form-control" id="inputNumCarte" placeholder="1234 5678 9012 3456" onkeydown='return event.keyCode !== 69' required>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -97,7 +97,7 @@
                         $sql2 = "UPDATE time_slot SET Status = REPLACE (Status, 'actif','inactif') WHERE Id_time_slot=" . $IdTimeSlot . ";";
                         $envoi2 = mysqli_query($db_handle, $sql2);
                         if ($envoi && $envoi2) {
-                            echo "<p style='font-family : Roboto; text-align : center;'>Le paiement a été un succes <form style='text-align:center;' action='Rendezvous.php' method='post'> <input type='submit' value='Retournez au choix de rendez-vous'></form>";
+                            echo "<p style='font-family : Roboto; text-align : center;'>Le paiement a été un succes <button ><a class='nav-page' href='Accueil.html'>Retour a l'accueil</a></button>";
                         }
                     } else {
                         echo "ERREUR PAIEMENT";
