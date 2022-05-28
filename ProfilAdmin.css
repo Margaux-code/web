@@ -31,7 +31,7 @@
     color: #333;
     border-bottom-right-radius: 25px;
     border-top-right-radius: 25px;
-    height: 70%;
+    height: 100%;
     left: 0;
     overflow-x: hidden;
     padding-top: 5%;
@@ -87,7 +87,7 @@
 }
 
 .nav-pills .nav-link {
-    margin-top: 30% !important;
+    margin-top: 20% !important;
     margin-bottom: 2% !important;
     color: black !important;
     margin-left: 5%;
@@ -106,7 +106,7 @@
 }
 
 .darkmode--activated .nav-pills .nav-link.active {
-    margin-top: 1% !important;
+    margin-top: 20% !important;
     margin-bottom: 2% !important;
     color: black !important;
 }
@@ -255,7 +255,7 @@ fieldset[disabled] .form-control {
 
 .table_container {
     max-width: calc(100vw - 40px);
-    width: 50%;
+    width: 60%;
     height: 70%;
     background: white;
     border-radius: 8px;
@@ -297,7 +297,12 @@ td input {
 
 }
 
-.button_plus{
+.SupprCoach{
+    text-align: center;
+    padding-top: 2.1%;
+}
+
+.ContactCoach{
     text-align: center;
     padding-top: 2.1%;
 }

@@ -37,10 +37,6 @@
     width: 17%;
 }
 
-.darkmode--activated .sidenav {
-    background: black;
-}
-
 .sidenav .disconnect img {
     color: #333;
     margin-left: 2%;
@@ -54,11 +50,6 @@
     color: black;
     font-family: 'Roboto', sans-serif;
 }
-
-.darkmode--activated .ProfileTitle {
-    color: white;
-}
-
 
 .profile {
     margin-bottom: 20px;
@@ -101,47 +92,13 @@
     width: 70%;
 }
 
-/* End */
+/* __________________________ Darkmode Infos personnelles ______________________________ */
 
-/* ______________________________________ Main _______________________________________ */
 
-.form-container {
-    display: flex;
-}
-
-.form {
-    max-width: calc(100vw - 40px);
-    width: 50%;
-    height: 70%;
-    background: white;
-    border-radius: 8px;
-    margin: 3% auto;
-    padding: 1% 1.5%;
-    box-sizing: border-box;
-    position: relative;
-    font-family: 'Roboto', sans-serif;
-    font-size: 90%;
-    margin-right: 16%;
-}
-
-.darkmode--activated .form {
-    background: black;
-}
-
-.darkmode--activated .form-label {
-    color: white;
-}
-
-.form-group input {
-    width: 100%;
-    font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
-    outline: none;
-    resize: none;
-    border: 0;
-    background-color: #f0f1f5;
-    transition: all .3s;
-    border: 2px solid #d4af37;
+.darkmode--activated .relative i.fa {
+    border-left: 20px solid transparent;
+    border-right: 30px solid rgb(132, 132, 132);
+    border-bottom: 34px solid rgb(132, 132, 132);
 }
 
 .darkmode--activated .form-group input {
@@ -153,67 +110,88 @@
     color: red;
 }
 
-.darkmode--activated .relative i.fa {
-    border-left: 20px solid transparent;
-    border-right: 30px solid rgb(132, 132, 132);
-    border-bottom: 34px solid rgb(132, 132, 132);
+.darkmode--activated .form {
+    background: black;
 }
 
-.relative {
-    position: relative;
+.darkmode--activated .form-label {
+    color: white;
 }
 
-.relative i.fa {
-    position: absolute;
-    top: 2px;
-    right: 1px;
-    width: 40px;
+.darkmode--activated .ProfileTitle {
+    color: white;
+}
+
+.darkmode--activated .sidenav {
+    background: black;
+}
+
+/* ______________________________________ Main _______________________________________ */
+
+.table_container {
+    display: flex;
+    background:red;
+}
+
+.right_body {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* --- TABLE --- */
+
+table {
+    border: 1px solid #987d25;
+}
+
+th {
+    background-color: #8a8880;
+    color: #ffffff;
     text-align: center;
-    border-radius: 0 4px 4px 0;
-    width: 0;
-    height: 0;
-    z-index: 99;
-    border-left: 20px solid transparent;
-    border-right: 30px solid #ccc;
-    border-bottom: 34px solid #ccc;
-    transition: all 0.15s ease-in-out;
+    border: 1px solid #ffffff;
 }
 
-.iconify {
-    margin-top: 10px;
+td {
+    background-color: #ffffff;
+    color: #333333;
+    text-align: center;
+    border: 1px solid #987d25;
 }
 
-.form-group .form-control:focus {
-    border-color: #d4af37;
-    box-shadow: inset 0px 1px 1px #d4af37, 0 0 8px #d4af37;
+td input {
+    background-color: #d4af37;
+    border: 1px solid white;
+    border-radius: 28px;
+    font-size: small;
+    width: 85%;
 }
 
-.relative input:focus+i.fa {
-    border-left: 20px solid transparent;
-    border-right: 30px solid #d4af37;
-    border-bottom: 34px solid #d4af37;
+tr:hover td {
+    background-color: black;
+    border: 1px solid #d4af37;
 }
 
-input:focus+i.fa:before {
-    color: rgb(176, 21, 21);
+tr:hover td input {
+    background-color: black;
+    color: #d4af37;
+    border-radius: 28px;
+    border: 1px solid white;
 }
 
-.input-group .form-control:not(:first-child):not(:last-child),
-.input-group-addon:not(:first-child):not(:last-child),
-.input-group-btn:not(:first-child):not(:last-child) {
-    border-radius: 0 4px 4px 0;
+tr:hover td:hover input {
+    background-color: black;
+    color: white;
+    border-radius: 28px;
+    border: 1px solid white;
+    width: 90%;
 }
 
-.form-control[disabled],
-.form-control[readonly],
-fieldset[disabled] .form-control {
-    background-color: rgb(255, 255, 255);
-}
-
-/* --- Animated Buttons --- */
-
-/* End */
-
-.darkmode-toggle {
-    z-index: 1000;
+tr:hover th {
+    background-color: black;
+    border: 1px solid white;
+    color: #d4af37;
 }
