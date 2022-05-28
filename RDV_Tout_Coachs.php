@@ -113,7 +113,7 @@
                 <input type='hidden' name='id_planning' value='" . $IdPlanning . "'>
                 <input type='hidden' name='id_coach' value='" . $IdCoach . "'>     
                 <input type='hidden' name='date' value='" . $dateChoisie . "'>                    
-            <input type='submit' name='bouton' class='a' value='Choisir ce coach'>                    
+            <input type='submit' name='bouton' value='Choisir ce coach'>                    
             </form> </td>";
 
                                 echo "</tr>";
