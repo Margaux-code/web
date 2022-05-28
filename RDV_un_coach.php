@@ -5,7 +5,7 @@
     <title>Base</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html" />
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="RDV.css">
+    <link rel="stylesheet"  href="RDV.css">
     <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_base.css">
     <link rel="stylesheet" media="screen and (max-width: 980px)" href="style_base_mobile.css">
     <script type="text/javascript" src="script_base.js"></script>
@@ -42,8 +42,8 @@
                     <script>
                         "use strict";
 
-                        document.cookie = "user=John"; // update only cookie named 'user'
-                        // alert(document.cookie); // show all cookies
+                        // document.cookie = "user=John"; // update only cookie named 'user'
+                                // alert(document.cookie); // show all cookies
                     </script>
                 </div>
             </div>
@@ -53,7 +53,27 @@
 
         <div class="milieu" id="content">
 
+        
 
+        <div class="PresRDV"> Vous êtes sur la page de réservation d'une séance avec
+            <?php
+            include 'SqlConDatabase.php';
+            $connect = $_COOKIE['connection'];
+            $date = $_POST['date'];
+            $idCoach = $_POST['id_coach'];
+            $sql2 = "SELECT * from coach WHERE Id_coach= '" . $idCoach . "'";
+            $get2 = mysqli_query($db_handle, $sql2);
+            while ($row2 = mysqli_fetch_assoc($get2)) {
+                $NomCoach = $row2['Nom_coach'];
+                $PrenomCoach = $row2['Prenom_coach'];
+                $Domaine = $row2['Domaine_coach'];
+                echo " " . $PrenomCoach . " " . $NomCoach . " </br> Avec pour domaine : " . $Domaine . "</br> Prendre rendez vous le " . $date;
+            }
+            ?>
+        </div>
+        <table class="table table-dark">
+        <thread>
+            <tr>
 
             <div class="PresRDV"> Vous êtes sur la page de réservation d'une séance avec
                 <?php

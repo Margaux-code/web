@@ -1,3 +1,5 @@
+<?php include 'SqlConDatabase.php'; ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -11,7 +13,6 @@
 
     <!-- css for the page -->
     <link rel="stylesheet" href="info_SDS.css">
-    <link rel="stylesheet" media="screen and (max-width: 980px)" href="info_SDS_mobile.css">
     <link rel="stylesheet" media="screen and (min-width: 981px)" href="AbonnementTest.css">
     <link rel="stylesheet" media="screen and (max-width: 980px)" href="AbonnementTest_mobile.css">
 
@@ -71,8 +72,7 @@
                         </h2>
                         <img id="img_Personnel" src="Image/SalleDeSport/Personnel Salle de sport.jpg">
                         <div class="Informations">
-                            <?php
-                            include 'SqlConDatabase.php';
+                            <?php                            
                             $sql = "SELECT * FROM coach";
                             $result = mysqli_query($db_handle, $sql);
                             echo "<table class=\"table-data\" border='1'>";

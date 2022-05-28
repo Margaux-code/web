@@ -80,7 +80,7 @@ if (isset($_POST["Se_Connecter"])) {
                     <script>
                         "use strict";
 
-                        // document.cookie = "user=John"; // update only cookie named 'user'
+                        document.cookie = "user=John"; // update only cookie named 'user'
                         // alert(document.cookie); // show all cookies
                     </script>
                 </div>
