@@ -1,48 +1,28 @@
 <!-- --------------------------------------------- ChatBox -------------------------------------------------------------------------- -->
 <?php
 session_start();
-if (isset($_GET['logout'])) {
-
-    //Message de sortie simple
-    $logout_message = "<div class='msgln'><span class='left-info'>User <b class='user-name-left'>" .
-        $_SESSION['name'] . "</b> a quitté la session de chat.</span><br></div>";
-
-
-    $myfile = fopen(__DIR__ . "/log.html", "a") or die("Impossible d'ouvrir le fichier!" . __DIR__ . "/log.html");
-    fwrite($myfile, $logout_message);
-    fclose($myfile);
-    session_destroy();
-    sleep(1);
-    header("Location: index.php"); //Rediriger l'utilisateur
-}
-if (isset($_POST['enter'])) {
-    if ($_POST['name'] != "") {
-        $_SESSION['name'] = stripslashes(htmlspecialchars($_POST['name']));
-    } else {
-        echo '<span class="error">Veuillez saisir votre nom</span>';
-    }
-}
-function loginForm()
-{
-    echo
-    '<div id="loginform">
- <p>Veuillez saisir votre nom pour continuer!</p>
- <form action="index.php" method="post">
- <label for="name">Nom: </label>
- <input type="text" name="name" id="name_chat" />
- <input type="submit" name="enter" id="enter" value="Soumettre" />
- </form>
- </div>';
-}
 
 function isCo()
 {
     if ($_COOKIE["connection"] == false) {
         loginForm();
     } else {
-        $_SESSION['name_chat'] = $_COOKIE["Session_name_user"];
+        $_SESSION['name'] = $_COOKIE["Session_name_user"];
     }
 }
+
+function isClient_php()
+{
+    if ($_COOKIE["Session_type_user"] != 'client') {
+        echo "<script> document.getElementById('button-chatbox-container').style.display = 'none'; <script> ";
+    }
+}
+if($_COOKIE["Session_type_user"] == null){
+    $client = 0;
+} else {
+    $client = $_COOKIE["Session_type_user"];
+}
+
 ?>
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------- -->
@@ -53,14 +33,13 @@ function isCo()
 
 <head>
     <title>Base</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
     <!-- main css -->
     <link rel="stylesheet" href="style_base.css">
 
     <!-- css for the page -->
-    <link rel="stylesheet" media="screen and (min-width: 981px)" href="chatbox.css">
-    <link rel="stylesheet" media="screen and (max-width: 980px)" href="chatbox_mobile.css">
-    <link rel="stylesheet" href="style_profil_coach.css">
+    <link rel="stylesheet" href="test_coach.css">
 
     <script type="text/javascript" src="script_base.js"></script>
     <script type="text/javascript" src="script_chatbox.js"></script>
@@ -105,92 +84,197 @@ function isCo()
 
 
         <div class="milieu" id="content">
-
-        <!-- ---------------------------------------------------ChatBox--------------------------------------------------------------------- -->
-        <div id="button-chatbox-container">
-            <button id="button-chatbox" onclick="chatBox_open()"><i class="iconify" id="button-chatbox-icon" data-icon="bi:chat-dots-fill"></i></button>
-        </div>
-        <div id="chatbox-container">
-            <?php
-            // isCo();
-            $_SESSION['name'] = 'coach';
-            ?>
-            <div id="chatbox-wrapper">
-                <div id="menu">
-                    <div class="menu-welcome">
-                        <p class="welcome">Bienvenue, <b><?php echo $_SESSION['name']; ?></b></p>
-                    </div>
-                    <div class="menu-button">
-                        <button id="close-session" onclick="chatBox_close()"><i class="iconify" id="button-chatbox-icon" data-icon="charm:circle-cross"></i></button>
-                    </div>
-                </div>
-                <div id="chatbox">
-                    <?php
-                    echo "<script>console.log('Debug Objects: " . file_get_contents("log.html") . "' );</script>";
-                    if (file_exists("log.html") && filesize("log.html") > 0) {
-                        $contents = file_get_contents("log.html");
-                        echo $contents;
-                    }
-                    ?>
-                </div>
-                <form name="message" action="">
-                    <input name="usermsg" type="text" id="usermsg" />
-                    <input name="submitmsg" type="submit" id="submitmsg" value="Envoyer" />
-                </form>
+            <!-- ---------------------------------------------------ChatBox--------------------------------------------------------------------- -->
+            <div class="chatbox-list-container">
+                <table class="liste-client">
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                    <tr>
+                        <td class="client">Thierry</td>
+                    </tr>
+                </table>
             </div>
-            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script type="text/javascript">
-                // jQuery Document
-                $(document).ready(function() {
-                    $("#submitmsg").click(function() {
-                        var clientmsg = $("#usermsg").val();
-                        $.post("post.php", {
-                            text: clientmsg
-                        });
-                        $("#usermsg").val("");
-                        return false;
-                    });
-
-                    function loadLog() {
-                        var oldscrollHeight = $("#chatbox")[0].scrollHeight - 20; //Hauteur de défilement avant la requête
-                        $.ajax({
-                            url: "log.html",
-                            cache: false,
-                            success: function(html) {
-                                $("#chatbox").html(html); //Insérez le log de chat dans la #chatbox div
-                                //Auto-scroll
-                                var newscrollHeight = $("#chatbox")[0].scrollHeight - 20; //Hauteur de défilement apres la requête
-                                if (newscrollHeight > oldscrollHeight) {
-                                    $("#chatbox").animate({
-                                        scrollTop: newscrollHeight
-                                    }, 'normal'); //Défilement automatique
-                                }
-                            }
-                        });
-                    }
-                    setInterval(loadLog, 2500);
-                    $("#exit").click(function() {
-                        var exit = confirm("Voulez-vous vraiment mettre fin à la session ?");
-                        if (exit == true) {
-                            window.location = "index.php?logout=true";
+            <div id="chatbox-container">
+                <?php
+                isCo();
+                ?> <div id="chatbox-wrapper">
+                    <div id="chatbox">
+                        <?php
+                        if (file_exists("Discussion/" . $_COOKIE['Session_Id_user'] . "log" . $client . ".html") && filesize("Discussion/" . $_COOKIE['Session_Id_user'] . "log" . $client . ".html") > 0) {
+                            $contents = file_get_contents("Discussion/" . $_COOKIE['Session_Id_user'] . "log" . $client . ".html");
+                            echo $contents;
                         }
+                        ?>
+                    </div>
+                    <div class="chat-input-container">
+                        <form class="chat-input-form" name="message" action="">
+                            <div id="chat-input-text">
+                                <input class="chat-input" name="usermsg" type="text" id="usermsg" />
+                            </div>
+                            <div id="chat-input-button">
+                                <input class="chat-input" name="submitmsg" type="submit" id="submitmsg" value="Envoyer" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+                </script>
+                <script type="text/javascript">
+                    // jQuery Document
+                    $(document).ready(function() {
+                        $("#submitmsg").click(function() {
+                            var clientmsg = $("#usermsg").val();
+                            $.post('post_coach.php', {
+                                text: clientmsg
+                            });
+                            $("#usermsg").val("");
+                            return false;
+                        });
+
+                        function loadLog() {
+                            var oldscrollHeight = $("#chatbox")[0].scrollHeight - 20; //Hauteur de défilement avant la requête
+                            var dir = "Discussion/" + getCookie('Session_Id_user') + "_log_" + getCookie('clientConsulte') + ".html";
+                            $.ajax({
+                                url: dir,
+                                cache: false,
+                                success: function(html) {
+                                    $("#chatbox").html(html); //Insérez le log de chat dans la #chatbox div
+                                    //Auto-scroll
+                                    var newscrollHeight = $("#chatbox")[0].scrollHeight - 20; //Hauteur de défilement apres la requête
+                                    if (newscrollHeight > oldscrollHeight) {
+                                        $("#chatbox").animate({
+                                            scrollTop: newscrollHeight
+                                        }, 'normal'); //Défilement automatique
+                                    }
+                                }
+                            });
+                        }
+                        setInterval(loadLog, 2500);
                     });
-                });
-            </script>
+                </script>
+            </div>
+
+            <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+
         </div>
 
-        <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
-
-    </div>
-
-    <div class="footer" id="footer">
-        <div class="copyright">
-            <p>ceci est un copyright</p>
+        <div class="footer" id="footer">
+            <div class="copyright">
+                <p>ceci est un copyright</p>
+            </div>
+            <div class="text">
+                <p>footer</p>
+            </div>
         </div>
-        <div class="text">
-            <p>footer</p>
-        </div>
-    </div>
     </div>
 
     <!--Form de Connection/Inscription-->
@@ -245,6 +329,26 @@ function isCo()
         </div>
     </div>
     <!--Fin du Form de Connection/Inscription-->
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            autoIncrementId();
+        });
+
+        function autoIncrementId() {
+            var i = 0;
+            $('.client').each(function() {
+                i++;
+                $(this).attr('id', i);
+            });
+        }
+
+        $(".liste-client").on("click", "td", function() {
+            var id = $(this).attr("id");
+            document.cookie = "clientConsulte = " + id;
+            window.location.reload();
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 

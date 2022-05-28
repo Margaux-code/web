@@ -11,16 +11,13 @@
 
     <!-- css for the page -->
     <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_accueil.css">
-    
+
 
     <script type="text/javascript" src="script_base.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
@@ -51,12 +48,6 @@
                 <div class="btnRegLog">
                     <button class="reg-log" id="reg-log" onclick="btnProfil()"><i class="iconify" id="compte"
                             data-icon="uil:user"></i></button>
-                    <script>
-                        "use strict";
-
-                        // document.cookie = "user=John"; // update only cookie named 'user'
-                                // alert(document.cookie); // show all cookies
-                    </script>
                 </div>
             </div>
         </div>
@@ -159,8 +150,14 @@
 
                         function initMap() {
                             // The location of Uluru
-                            const ece = { lat: 48.85124937693324, lng: 2.286258160245369 };
-                            const inseec = { lat: 48.85112458095641, lng: 2.2885363058663177 };
+                            const ece = {
+                                lat: 48.85124937693324,
+                                lng: 2.286258160245369
+                            };
+                            const inseec = {
+                                lat: 48.85112458095641,
+                                lng: 2.2885363058663177
+                            };
                             // The map, centered at Uluru
                             const map = new google.maps.Map(document.getElementById("map"), {
                                 zoom: 13,
@@ -192,9 +189,9 @@
                 <div class="col-md-3">
                     <div class="thumbnail">
                         <form action="presentation_coach.php" method="post">
-                            <img src="Image/Profil_profs/1.jpg" alt="Lights" style="width:70% ;">
+                            <img src="Image/Profil_profs/1.jpg" alt="Nature" style="width:70%">
                             <div class="caption">
-                                <input type="submit" name="coach1" value="Benjamin Dupont">
+                                <input type="submit" name="1" value="Leo Martin">
                             </div>
                         </form>
                     </div>
@@ -392,8 +389,8 @@
             left: '32px', // default: 'unset'
             time: '0.5s', // default: '0.3s'
             mixColor: '#fff', // default: '#fff'
-            backgroundColor: '#fff',  // default: '#fff'
-            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            backgroundColor: '#fff', // default: '#fff'
+            buttonColorDark: '#100f2c', // default: '#100f2c'
             buttonColorLight: '#fff', // default: '#fff'
             saveInCookies: true, // default: true,
             label: '🌓', // default: ''
@@ -414,3 +411,5 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 </body>
+
+</html>

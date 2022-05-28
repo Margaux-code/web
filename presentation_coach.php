@@ -4,11 +4,9 @@ session_start();
 if (isset($_GET['logout'])) {
 
     //Message de sortie simple
-    $logout_message = "<div class='msgln'><span class='left-info'>User <b class='user-name-left'>" .
-        $_SESSION['name'] . "</b> a quitté la session de chat.</span><br></div>";
+    $logout_message = "<div class='msgln'><span class='left-info'>User <b class='user-name-left'>" . $_SESSION['name'] . "</b> a quitté la session de chat.</span><br></div>";
 
-
-    $myfile = fopen(__DIR__ . "/log.html", "a") or die("Impossible d'ouvrir le fichier!" . __DIR__ . "/log.html");
+    $myfile = fopen(__DIR__ . "Discussion/" . $coach . "log" . $_COOKIE['Session_Id_user'] . ".html", "a") or die("Impossible d'ouvrir le fichier!" . __DIR__ . "Discussion/" . $coach . "log" . $_COOKIE['Session_Id_user'] . ".html");
     fwrite($myfile, $logout_message);
     fclose($myfile);
     session_destroy();
@@ -43,6 +41,13 @@ function isCo()
         $_SESSION['name'] = $_COOKIE["Session_name_user"];
     }
 }
+
+function isClient_php()
+{
+    if ($_COOKIE["Session_type_user"] != 'client') {
+        echo "<script> document.getElementById('button-chatbox-container').style.display = 'none'; <script> ";
+    }
+}
 ?>
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------- -->
@@ -69,39 +74,51 @@ function isCo()
 
 </head>
 <?php
+setcookie('num_coach', 0, 0, "", "", false, false);
 
 if (isset($_POST['coach1'])) {
     $coach = 1;
+    setcookie('num_coach', $coach, 0, "", "", false, false);
 }
 if (isset($_POST['coach2'])) {
     $coach = 2;
+    setcookie('num_coach', $coach, 0, "", "", false, false);
 }
 if (isset($_POST['coach3'])) {
     $coach = 3;
+    setcookie('num_coach', $coach, 0, "", "", false, false);
 }
 if (isset($_POST['coach4'])) {
     $coach = 4;
+    setcookie('num_coach', $coach, 0, "", "", false, false);
 }
 if (isset($_POST['coach5'])) {
     $coach = 5;
+    setcookie('num_coach', $coach, 0, "", "", false, false);
 }
 if (isset($_POST['coach6'])) {
     $coach = 6;
+    setcookie('num_coach', $coach, 0, "", "", false, false);
 }
 if (isset($_POST['coach7'])) {
     $coach = 7;
+    setcookie('num_coach', $coach, 0, "", "", false, false);
 }
 if (isset($_POST['coach8'])) {
     $coach = 8;
+    setcookie('num_coach', $coach, 0, "", "", false, false);
 }
 if (isset($_POST['coach9'])) {
     $coach = 9;
+    setcookie('num_coach', $coach, 0, "", "", false, false);
 }
 if (isset($_POST['coach10'])) {
     $coach = 10;
+    setcookie('num_coach', $coach, 0, "", "", false, false);
 }
 if (isset($_POST['coach11'])) {
     $coach = 11;
+    setcookie('num_coach', $coach, 0, "", "", false, false);
 }
 
 include 'SqlConDatabase.php';
@@ -124,7 +141,7 @@ if ($_COOKIE["connectionDB"] == true) {
 }
 ?>
 
-<body>
+<body onload="isClient()">
     <div class="page" id="page">
         <div class="haut">
             <div class="logo_slogan">
@@ -149,18 +166,12 @@ if ($_COOKIE["connectionDB"] == true) {
                     <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" id="compte" data-icon="uil:user"></i></button>
                     <script>
                         "use strict";
-
-                        // document.cookie = "user=John"; // update only cookie named 'user'
-                        // alert(document.cookie); // show all cookies
                     </script>
                 </div>
             </div>
         </div>
 
-
-
         <div class="milieu" id="content">
-
             <div class="page_profil">
                 <div id="pro">
                     <div class="photo_profil">
@@ -176,14 +187,10 @@ if ($_COOKIE["connectionDB"] == true) {
                 <div id="RDV">
                     <h2 id="dispo"> Voici les jours où ce coach est disponible :</h2>
                     <table class="table table-dark">
-
                         <thread>
-
                             <tr>
-
                                 <th scope="col">date</th>
                                 <th scope="col">Prendre Rendez-vous</th>
-
                             </tr>
                         </thread>
 
@@ -245,9 +252,8 @@ if ($_COOKIE["connectionDB"] == true) {
                     </div>
                     <div id="chatbox">
                         <?php
-                        echo "<script>console.log('Debug Objects: " . file_get_contents("log.html") . "' );</script>";
-                        if (file_exists("log.html") && filesize("log.html") > 0) {
-                            $contents = file_get_contents("log.html");
+                        if (file_exists("Discussion/" . $coach . "log" . $_COOKIE['Session_Id_user'] . ".html") && filesize("Discussion/" . $coach . "log" . $_COOKIE['Session_Id_user'] . ".html") > 0) {
+                            $contents = file_get_contents("Discussion/" . $coach . "log" . $_COOKIE['Session_Id_user'] . ".html");
                             echo $contents;
                         }
                         ?>
@@ -263,7 +269,7 @@ if ($_COOKIE["connectionDB"] == true) {
                     $(document).ready(function() {
                         $("#submitmsg").click(function() {
                             var clientmsg = $("#usermsg").val();
-                            $.post("post.php", {
+                            $.post('post.php', {
                                 text: clientmsg
                             });
                             $("#usermsg").val("");
@@ -272,8 +278,9 @@ if ($_COOKIE["connectionDB"] == true) {
 
                         function loadLog() {
                             var oldscrollHeight = $("#chatbox")[0].scrollHeight - 20; //Hauteur de défilement avant la requête
+                            var dir = "Discussion/" + getCookie('num_coach') + "_log_" + getCookie('Session_Id_user') + ".html";
                             $.ajax({
-                                url: "log.html",
+                                url: dir,
                                 cache: false,
                                 success: function(html) {
                                     $("#chatbox").html(html); //Insérez le log de chat dans la #chatbox div

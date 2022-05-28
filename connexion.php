@@ -40,7 +40,7 @@ if (isset($_POST["Se_Connecter"])) {
     $row2 = mysqli_num_rows($result2);
 
     if ($row2 == 1) {
-        header("Location: Coach.php");
+        header("Location: accueil.html");
 
         setCookie('connection', true, 0, "", "", false, false);
         setcookie('Session_Id_user', $IdCoach, 0, "", "", false, false);
