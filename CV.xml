@@ -16,7 +16,7 @@
     <Coach id = "Coach2"> 
         <Age> 26 </Age>
         <Nom> Martin </Nom>
-        <Prenom> Léo </Prenom>
+        <Prenom> Leo </Prenom>
         <Diplomes> BPJEPS Musculation </Diplomes>
         <Experiences> Coach Musculation à FitnessPark (2 ans) </Experiences>
         <LV1> Italien </LV1>
@@ -54,7 +54,7 @@
         <Nom> Garnier </Nom>
         <Prenom> Louise </Prenom>
         <Diplomes> CQP Instructeur Fitness  </Diplomes>
-        <Experiences> Super Heros / Action </Experiences>
+        <Experiences> Soutien Equipe professionnelle football (12 ans)</Experiences>
         <LV1> Francais </LV1>
         <LV2> Allemand </LV2>
     </Coach>
@@ -65,14 +65,14 @@
         <Diplomes> DESJEPS Biking </Diplomes>
         <Experiences> Super Heros / Action </Experiences>
         <LV1> Francais </LV1>
-        <LV2> Portuguais </LV2>
+        <LV2> Americain </LV2>
     </Coach>
     <Coach id = "Coach8"> 
         <Age> 27 </Age>
         <Nom> Robin </Nom>
         <Prenom> Leon </Prenom>
         <Diplomes> DESJEPS Football </Diplomes>
-        <Experiences> Super Heros / Action </Experiences>
+        <Experiences>Co-leader club de biking (4 ans)</Experiences>
         <LV1> Allemand </LV1>
         <LV2> Anglais </LV2>
     </Coach>
@@ -81,7 +81,7 @@
         <Nom> Perrin </Nom>
         <Prenom> Lou </Prenom>
         <Diplomes> DEJEPS Plongeon </Diplomes>
-        <Experiences> Super Heros / Action </Experiences>
+        <Experiences>Entraîneur célébrité aux JO (8 ans)</Experiences>
         <LV1> Espagnol </LV1>
         <LV2> Anglais </LV2>
     </Coach>
@@ -89,18 +89,18 @@
         <Age> 28 </Age>
         <Nom> Boyer </Nom>
         <Prenom> Inès </Prenom>
-        <Diplomes> DEJEPS Plongeon </Diplomes>
-        <Experiences> Super Heros / Action </Experiences>
-        <LV1> Anglais </LV1>
-        <LV2> Francais </LV2>
+        <Diplomes> BPJEPS Cours Collectifs </Diplomes>
+        <Experiences>Coach sportif  Camping (6 ans)</Experiences>
+        <LV1> Francais </LV1>
+        <LV2> Espagnol </LV2>
     </Coach>
     <Coach id = "Coach11"> 
         <Age> 33 </Age>
         <Nom> Bertrand </Nom>
         <Prenom> Martin </Prenom>
-        <Diplomes> BPJEPS Cours Collectifs </Diplomes>
-        <Experiences> Super Heros / Action </Experiences>
-        <LV1> Allemand </LV1>
+        <Diplomes> DEFB Basket </Diplomes>
+        <Experiences>Assistant centre de formation</Experiences>
+        <LV1> Anglais </LV1>
         <LV2> Francais </LV2>
     </Coach>
 </CV>

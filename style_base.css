@@ -578,3 +578,6 @@ p {
     background-color: #d4af37;
 }
 
+.darkmode-toggle {
+    z-index: 1000;
+}

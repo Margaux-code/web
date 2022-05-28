@@ -1,15 +1,31 @@
 .page_profil{
-    margin-top : 3%;
+    
     display : flex;
+    flex-direction: column;
     flex-wrap : wrap;
     justify-content : space-evenly;
     font-family:'Roboto';
+    margin : 3%;
+}
+#pro{
+    order :1;
+    display : flex;
+    flex-direction: row;
 }
 .photo_profil{
     order :1;
     flex-shrink :1;
 
    
+}
+#dispo{
+    margin-bottom : 2%;
+   
+    
+}
+#RDV{
+    order : 2;
+    
 }
 .description_profil{
     order :2;

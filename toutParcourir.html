@@ -3,7 +3,15 @@
 
 <head>
     <title>Tout Parcourir</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html" />
+    <meta charset="utf-8" />
+    <!-- main css -->
+    <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_base.css">
+    <link rel="stylesheet" media="screen and (max-width: 980px)" href="style_base_mobile.css">
+
+    <!-- css for the page -->
+    <link rel="stylesheet" href="toutParcourir.css">
+
     <link rel="stylesheet" href="style_toutParcourir.css">
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -25,7 +33,8 @@
             </div>
             <div class="div_button">
                 <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
-                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout parcourir</a></button>
+                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout
+                        parcourir</a></button>
                 <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
@@ -40,7 +49,7 @@
                     <script>
                         "use strict";
 
-                        document.cookie = "user=John"; // update only cookie named 'user'
+                        // document.cookie = "user=John"; // update only cookie named 'user'
                                 // alert(document.cookie); // show all cookies
                     </script>
                 </div>
@@ -51,20 +60,67 @@
 
         <div class="milieu" id="content">
             <div class="nav-button-side-container">
-                <button class="nav-button-side active"
-                    onClick="document.getElementById('activite').scrollIntoView({ behavior: 'smooth', block: 'center' })">
-                    <p class="text-side-button">ACTIVITES</p>
-                </button>
-                <button class="nav-button-side"
-                    onClick="document.getElementById('competition').scrollIntoView({ behavior: 'smooth', block: 'center' })">
-                    <p class="text-side-button">COMPETITION</p>
-                </button>
-                <button class="nav-button-side"
-                    onClick="document.getElementById('salle').scrollIntoView({ behavior: 'smooth', block: 'center' })">
-                    <p class="text-side-button">SALLES</p>
-                </button>
+                <div class="nav-button-side-class>">
+                    <button class="nav-button-side"
+                        onClick="document.getElementById('activite').scrollIntoView({ behavior: 'smooth', block: 'center' })">
+                        <p class="text-side-button">ACTIVITES</p>
+                    </button>
+                </div>
+                <div class="nav-button-side-class>">
+                    <button class="nav-button-side active"
+                        onClick="document.getElementById('competition').scrollIntoView({ behavior: 'smooth', block: 'center' })">
+                        <p class="text-side-button">COMPETITION</p>
+                    </button>
+                </div>
+                <div class="nav-button-side-class>">
+                    <button class="nav-button-side"
+                        onClick="document.getElementById('salle').scrollIntoView({ behavior: 'smooth', block: 'center' })">
+                        <p class="text-side-button">SALLES</p>
+                    </button>
+                </div>
             </div>
+
             <div class="page-content">
+                <div class="navbarVert" id="salle">
+                    <div class="text-container">
+                        <h2>Salles de sport Omnes</h2>
+                        <div class="text-box">
+                            <h3>Section text</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+                                eius molestiae perferendis eos provident vitae iste.
+                            </p>
+                        </div>
+                        <div class="button-box">
+                            <button class="nav-button" id="nos-services"><a class="nav-page" href="info_SDS.php">Nos
+                                    services</a></button>
+                        </div>
+                    </div>
+                    <div class="img-container">
+                    </div>
+                </div>
+
+                <div class="navbarVert" id="competition">
+                    <div class="img-container">
+                        <img class="halteres" id="halteres" src="Image/halteres.png">
+                        <img class="perso" id="perso" src="Image/Perso_ssHaltere.png">
+                    </div>
+                    <div class="text-container">
+                        <h2>Les sports de compétition</h2>
+                        <div class="text-box">
+                            <h3>Section Text</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex est
+                                rerum id quis eaque rem suscipit reprehenderit quaerat vero
+                                nesciunt?
+                            </p>
+                        </div>
+                        <div class="button-box">
+                            <button class="nav-button"><a class="nav-page" href="#">Nos services</a></button>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="navbarVert" id="activite">
                     <div class="text-container">
                         <h2>Activités sportives</h2>
@@ -76,42 +132,11 @@
                                 nesciunt?
                             </p>
                         </div>
-                    </div>
-                    <div class="img-container">
-                        <img class="halteres" id="halteres" src="Image/halteres.png">
-                        <img class="perso" id="perso" src="Image/Perso_ssHaltere.png">
-                    </div>
-                </div>
-
-                <div class="navbarVert" id="competition">
-                    <div class="container">
-                        <h2>Les sports de compétition</h2>
-                        <div class="text-container">
-                            <div class="text-box">
-                                <h3>Section Text</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex est
-                                    rerum id quis eaque rem suscipit reprehenderit quaerat vero
-                                    nesciunt?
-                                </p>
-                            </div>
+                        <div class="button-box">
+                            <button class="nav-button"><a class="nav-page" href="#">Rendez vous</a></button>
                         </div>
                     </div>
-                </div>
-
-                <div class="navbarVert" id="salle">
-                    <div class="container">
-                        <h2>Salles de sport Omnes</h2>
-                        <div class="text-container">
-                            <div class="text-box">
-                                <h3>Section text</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-                                    eius molestiae perferendis eos provident vitae iste.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="img-container"></div>
                 </div>
             </div>
         </div>
@@ -190,7 +215,7 @@
 
     <script>
         const options = {
-            bottom: '50px', // default: '32px'
+            bottom: '32px', // default: '32px'
             right: '32px', // default: '32px'
             left: 'unset', // default: 'unset'
             time: '0.5s', // default: '0.3s'
