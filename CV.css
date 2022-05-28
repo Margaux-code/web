@@ -1,0 +1,31 @@
+
+.table_container {
+    max-width: calc(100vw - 40px);
+    width: 50%;
+    height: 70%;
+    background: white;
+    border-radius: 8px;
+    margin: 3% auto;
+    padding: 1% 1.5%;
+    box-sizing: border-box;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: 90%;
+    margin-right: 16%;
+}
+
+td, th {
+    width: 20%;
+}
+
+td{
+    text-align: center;
+}
+
+th{
+    text-align: center;
+}
+
+tr:hover td{
+    text-decoration: underline #d4af37;
+}
