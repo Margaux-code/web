@@ -37,42 +37,10 @@ function closeForm() {
 /* Animation scroll */
 var controller = new ScrollMagic.Controller();
 
-var scene1 = new ScrollMagic.Scene({
+var sceneHalteres = new ScrollMagic.Scene({
     triggerElement: "#competition",
     duration: 500,
     triggerHook: 0
 })
 .setClassToggle('.halteres', 'go-up')
-.setIndicator()
-.setPin("#competition")
-.addTo(controller);
-
-var scene2 = new ScrollMagic.Scene({
-    triggerElement: "#competition",
-    duration: 500,
-    triggerHook: 0
-})
-.setClassToggle('.text-container', 'appear-bottom')
-.setIndicator()
-.setPin("#competition")
-.addTo(controller);
-
-var scene3 = new ScrollMagic.Scene({
-    triggerElement: "#activite",
-    duration: 500,
-    triggerHook: 0
-})
-.setClassToggle('.text-container', 'appear-bottom')
-.setIndicator()
-.setPin("#activite")
-.addTo(controller);
-
-var scene4 = new ScrollMagic.Scene({
-    triggerElement: "#salle",
-    duration: 500,
-    triggerHook: 0
-})
-.setClassToggle('.text-container', 'appear-bottom')
-.setIndicator()
-.setPin("#salle")
 .addTo(controller);

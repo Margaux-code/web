@@ -1,118 +1,685 @@
 .debut_accueil {
 
-    font-family: 'Roboto';
-    display : flex;
-    justify-content: space-evenly;
-    flex-direction : column;
-  
-  }
-  .darkmode-toggle {
-    z-index: 1000;
-}
-  .vente {
-    order :1;
-    color: cornflowerblue;
-    text-align: center;
-    margin-top : 2%;
-    
-  }
-  
-  .developpement{
-    margin-top : 5%;
-    margin-bottom : 5%;
-    align-items: center;
-    order :2;
-    display :flex;
-    flex-direction : row;
-  }
-  .citation {
-    order :1; 
-    margin-left : 3%;
-    margin-right : 3%;
-  
-  }
-  
-  .catch_phrase {
-  
-    order :2;
-    color: grey;
-    
-    font-style: italic;
-  
-  }
-  #carouselactu{
-    order :3;
-  }
-  #pres_carte{
-    margin : 10%;
-    text-align: center;
-    order :4;
-  }
-  #map{
-    order :5;
-    margin-left : 3%;
-    margin-right : 3%;
-  }
-  #pres_coach{
-    order :6;
-    margin : 2%;
-  }
-  .row{
+  font-family: 'Roboto';
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
 
-margin-top : 5%;
+}
+
+.darkmode-toggle {
+  z-index: 1000;
+}
+
+.vente {
+  order: 1;
+  color: cornflowerblue;
+  text-align: center;
+  margin-top: 2%;
+
+}
+
+.developpement {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  align-items: center;
+  order: 2;
+  display: flex;
+  flex-direction: row;
+}
+
+.citation {
+  order: 1;
+  margin-left: 3%;
+  margin-right: 3%;
+
+}
+
+.catch_phrase {
+
+  order: 2;
+  color: grey;
+
+  font-style: italic;
+
+}
+
+#carouselactu {
+  order: 3;
+}
+
+#map {
+  order: 5;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+#pres_coach {
+  order: 6;
+  margin: 2%;
+}
+
+.row {
+
+  margin-top: 5%;
+}
+
+.carousel-caption {
+  width: 100%;
+  height: 100%;
+  left: 0 !important;
+}
+
+.carousel-caption h5 {
+  text-align: left;
+  margin-left: 30px;
+}
+
+.carousel-caption p {
+  margin-top: 40%;
+  text-align: center;
+}
+
+@media screen and (max-width: 479px) {
+  .carousel-caption p {
+    margin-top: 20%;
+    font-size: smaller;
   }
-  .carousel-caption {
-    width: 100%;
-    height: 100%;
-    left: 0 !important;
+
+  .developpement {
+
+    flex-direction: column;
   }
-  
-  .carousel-caption h5 {
-    text-align: left;
-    margin-left: 30px;
+
+  .debut_accueil {
+    font-size: 70%;
   }
-  
+
+}
+
+@media screen and (min-width: 480px) and (max-width: 640px) {
+  .carousel-caption p {
+    margin-top: 30%;
+    font-size: smaller;
+  }
+
+  .developpement {
+
+    flex-direction: column;
+  }
+
+  .debut_accueil {
+    font-size: 70%;
+  }
+}
+
+@media screen and (min-width: 641px) {
   .carousel-caption p {
     margin-top: 40%;
-    text-align: center;
   }
-  
-  @media screen and (max-width: 479px) {
-    .carousel-caption p {
-      margin-top: 20%;
-      font-size: smaller;
-    }
-      .developpement{
-        
-        flex-direction : column;
-      }
-       .debut_accueil{
-      font-size: 70%;
-    }
-    
-  }
-  
-  @media screen and (min-width: 480px) and (max-width: 640px) {
-    .carousel-caption p {
-      margin-top: 30%;
-      font-size: smaller;
-    }
-    .developpement{
-        
-      flex-direction : column;
-    }
-    .debut_accueil{
-      font-size: 70%;
-    }
-  }
-  
-  @media screen and (min-width: 641px) {
-    .carousel-caption p {
-      margin-top: 40%;
-    }
-    .developpement{
-        
-      flex-direction : row;
-    }
 
+  .developpement {
+
+    flex-direction: row;
   }
+
+}
+
+/* Animated Text */
+.vente,
+.citation,
+.catch_phrase {
+  display: block;
+  overflow: hidden;
+}
+
+.animated-text {
+  display: block;
+  transform: translateY(100%);
+  animation: spanFadeIn 1.5s ease forwards;
+}
+
+.darkmode--activated #animated-text-1 {
+  filter: invert(100%);
+}
+
+.darkmode--activated #animated-text-2 {
+  color: white;
+}
+
+.darkmode--activated #animated-text-3 {
+  color: white;
+}
+
+#animated-text-2 {
+  animation-delay: 300ms;
+}
+
+#animated-text-1 {
+  animation-delay: 500ms;
+}
+
+@keyframes spanFadeIn {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.map-animation {
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+  order: 4;
+}
+
+#pres_carte {
+  position: relative;
+  margin-top: 5%;
+  animation: titleAnimation 10s linear infinite;
+}
+
+.loop-wrapper {
+  margin: 0 auto;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border-bottom: 3px solid darkgreen;
+}
+
+.mountain {
+  position: absolute;
+  right: -900px;
+  bottom: -20px;
+  width: 2px;
+  height: 2px;
+  box-shadow:
+    0 0 0 50px brown,
+    60px 50px 0 70px brown,
+    90px 90px 0 50px brown,
+    250px 250px 0 50px brown,
+    290px 320px 0 50px brown,
+    320px 400px 0 50px brown;
+  transform: rotate(130deg);
+  animation: mtn 20s linear infinite;
+}
+
+.hill {
+  position: absolute;
+  right: -900px;
+  bottom: -50px;
+  width: 400px;
+  border-radius: 50%;
+  height: 20px;
+  box-shadow:
+    0 0 0 50px green,
+    -20px 0 0 20px green,
+    -90px 0 0 50px green,
+    250px 0 0 50px green,
+    290px 0 0 50px green,
+    620px 0 0 50px green;
+  animation: hill 10s 2s linear infinite;
+}
+
+.tree,
+.tree:nth-child(2),
+.tree:nth-child(3) {
+  position: absolute;
+  height: 100px;
+  width: 35px;
+  bottom: 0;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/130015/tree.svg) no-repeat;
+  filter: invert(80%);
+}
+
+.rock {
+  margin-top: -17%;
+  height: 2%;
+  width: 2%;
+  bottom: -2px;
+  border-radius: 20px;
+  position: absolute;
+  background: grey;
+}
+
+.truck,
+.wheels {
+  transition: all ease;
+  width: 85px;
+  margin-right: -60px;
+  bottom: 0px;
+  right: 50%;
+  position: absolute;
+  filter: invert(100%) hue-rotate(180deg);
+}
+
+.darkmode--activated .truck, .darkmode--activated .wheels {
+  filter: invert(0) hue-rotate(0deg);
+}
+
+.truck {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/130015/truck.svg) no-repeat;
+  background-size: contain;
+  height: 60px;
+}
+
+.truck:before {
+  content: " ";
+  position: absolute;
+  width: 25px;
+  box-shadow:
+    -80px 28px 0 1.5px #bfa4a4,
+    -85px 18px 0 1.5px #bfa4a4;
+}
+
+.wheels {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/130015/wheels.svg) no-repeat;
+  height: 15px;
+  margin-bottom: 0;
+}
+
+.tree {
+  animation: tree 3s 0.000s linear infinite;
+}
+
+.tree:nth-child(2) {
+  animation: tree2 2s 0.150s linear infinite;
+}
+
+.tree:nth-child(3) {
+  animation: tree3 8s 0.050s linear infinite;
+}
+
+.rock {
+  animation: rock 4s -0.530s linear infinite;
+}
+
+.truck {
+  animation: truck 4s 0.080s ease infinite;
+}
+
+.wheels {
+  animation: truck 4s 0.001s ease infinite;
+}
+
+.truck:before {
+  animation: wind 1.5s 0.000s ease infinite;
+}
+
+
+@keyframes tree {
+  0% {
+    transform: translate(1350px);
+  }
+
+  50% {}
+
+  100% {
+    transform: translate(-50px);
+  }
+}
+
+@keyframes tree2 {
+  0% {
+    transform: translate(650px);
+  }
+
+  50% {}
+
+  100% {
+    transform: translate(-50px);
+  }
+}
+
+@keyframes tree3 {
+  0% {
+    transform: translate(2750px);
+  }
+
+  50% {}
+
+  100% {
+    transform: translate(-50px);
+  }
+}
+
+@keyframes rock {
+  0% {
+    right: -200px;
+  }
+
+  100% {
+    right: 2000px;
+  }
+}
+
+@keyframes truck {
+  0% {}
+
+  20% {
+    transform: translateY(0px);
+  }
+
+  21% {
+    transform: translateY(-6px);
+  }
+
+  23% {
+    transform: translateY(0px);
+  }
+
+  24% {
+    transform: translateY(-1px);
+  }
+
+  25% {
+    transform: translateY(0px);
+  }
+
+  100% {}
+}
+
+@keyframes wind {
+  0% {}
+
+  50% {
+    transform: translateY(3px)
+  }
+
+  100% {}
+}
+
+@keyframes mtn {
+  100% {
+    transform: translateX(-300vw) rotate(130deg);
+  }
+}
+
+@keyframes hill {
+  100% {
+    transform: translateX(-300vw);
+  }
+}
+
+.bouncing-text {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 900;
+  font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+}
+
+.space {
+  color: white;
+}
+
+.darkmode--activated .space {
+  color: black;
+}
+
+.s,
+.u,
+.i,
+.v,
+.e,
+.z,
+.l,
+.a,
+.c,
+.a-2,
+.r,
+.t,
+.e-2,
+.ex {
+  position: relative;
+  color: #4cc9f0;
+  text-shadow: 0 3px #4361ee, 0 3px #4361ee, 0 5px #4361ee;
+}
+
+.darkmode--activated .s,
+.darkmode--activated .u,
+.darkmode--activated .i,
+.darkmode--activated .v,
+.darkmode--activated .e,
+.darkmode--activated .z,
+.darkmode--activated .l,
+.darkmode--activated .a,
+.darkmode--activated .c,
+.darkmode--activated .a-2,
+.darkmode--activated .r,
+.darkmode--activated .t,
+.darkmode--activated .e-2,
+.darkmode--activated .ex {
+  filter: invert(100%);
+}
+
+.darkmode--activated #pres_carte {
+  color: white;
+}
+
+.s {
+  animation: bounce 1s ease infinite;
+  -webkit-animation: bounce 1s ease infinite;
+}
+
+.u {
+  animation: bounce 1s ease infinite .1s;
+  -webkit-animation: bounce 1s ease infinite .1s;
+}
+
+.i {
+  animation: bounce 1s ease infinite .2s;
+  -webkit-animation: bounce 1s ease infinite .2s;
+}
+
+.v {
+  animation: bounce 1s ease infinite .3s;
+  -webkit-animation: bounce 1s ease infinite .3s;
+}
+
+.e {
+  animation: bounce 1s ease infinite .4s;
+  -webkit-animation: bounce 1s ease infinite .4s;
+}
+
+.z {
+  animation: bounce 1s ease infinite .5s;
+  -webkit-animation: bounce 1s ease infinite .5s;
+}
+
+.l {
+  animation: bounce 1s ease infinite .6s;
+  -webkit-animation: bounce 1s ease infinite .6s;
+}
+
+.a {
+  animation: bounce 1s ease infinite .7s;
+  -webkit-animation: bounce 1s ease infinite .7s;
+}
+
+.c {
+  animation: bounce 1s ease infinite .8s;
+  -webkit-animation: bounce 1s ease infinite .8s;
+}
+
+.a-2 {
+  animation: bounce 1s ease infinite .9s;
+  -webkit-animation: bounce 1s ease infinite .9s;
+}
+
+.r {
+  animation: bounce 1s ease infinite;
+  -webkit-animation: bounce 1s ease infinite;
+}
+
+.t {
+  animation: bounce 1s ease infinite .1s;
+  -webkit-animation: bounce 1s ease infinite .1s;
+}
+
+.e-2 {
+  animation: bounce 1s ease infinite .2s;
+  -webkit-animation: bounce 1s ease infinite .2s;
+}
+
+.ex {
+  animation: bounce 1s ease infinite .3s;
+  -webkit-animation: bounce 1s ease infinite .3s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+
+  10% {
+    transform: scale(1.1, .9) translateY(0);
+  }
+
+  30% {
+    transform: scale(.9, 1.1) translateY(-10px);
+  }
+
+  50% {
+    transform: scale(1.05, .95) translateY(0);
+  }
+
+  58% {
+    transform: scale(1, 1) translateY(-1px);
+  }
+
+  65% {
+    transform: scale(1, 1) translateY(0);
+  }
+
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+
+  10% {
+    transform: scale(1.1, .9) translateY(0);
+  }
+
+  30% {
+    transform: scale(.9, 1.1) translateY(-55px);
+  }
+
+  50% {
+    transform: scale(1.05, .95) translateY(0);
+  }
+
+  58% {
+    transform: scale(1, 1) translateY(-7px);
+  }
+
+  65% {
+    transform: scale(1, 1) translateY(0);
+  }
+
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+
+.ppCoach {
+  width: 20vh;
+  height: 20vh;
+  border-radius: 6px;
+  margin: 2% auto;
+}
+
+.captionBtn {
+  background: #D4AF37;
+  color: black;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+}
+
+.caption {
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+.darkmode--activated .captionBtn {
+  color: white;
+}
+
+.captionBtn:hover {
+  border: 3px solid black;
+}
+
+.darkmode--activated .captionBtn:hover {
+  border: 3px solid white;
+}
+
+.formCoach {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardImage {
+  width: 20vh;
+  height: 20vh;
+  height: auto;
+  position: relative;
+  border: none;
+  border-radius: 6px;
+  z-index: 100;
+}
+
+.inner {
+  background: none;
+  width: 21vh;
+  height: 21vh;
+  position: absolute;
+  transform: translateY(-3.5vh);
+  border-radius: 6px;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.gradient {
+  position: relative;
+  width: 40vh;
+  height: 40vh;
+  border-radius: 100%;
+  animation: spin 2.5s linear infinite;
+  z-index: 1;
+}
+
+.cardImage:hover+.inner .gradient {
+  background: linear-gradient(90deg,
+      rgba(138, 21, 21, 1) 0%,
+      rgba(255, 0, 0, 1) 40%,
+      rgba(240, 227, 185, 1) 80%,
+      rgba(255, 255, 255, 1) 100%)
+}
+
+.darkmode--activated .cardImage:hover+.inner .gradient {
+  filter: invert(100%);
+}
+
+@keyframes spin {
+  from {
+    transform: translateY(-9vh) translateX(-10vh) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(-9vh) translateX(-10vh) rotate(360deg);
+  }
+}
