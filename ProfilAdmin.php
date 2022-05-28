@@ -8,48 +8,15 @@ setcookie('Session_type_user', false, 0, "", "", false, false);
 
 // ***************************** FORM SE CONNECTER PHP ***********************
 
-// INSERE LES NOUVELLES DONNEES DU COACH DANS LA BDD
-if (isset($_POST["Envoyer"])) {
+{
+    // RECUPERER ET AFFICHE LES DONNEES DE L'ADMIN DE LA BDD
 
-    $Nom = $_POST['Nom'];
-    $Prenom = $_POST['Prenom'];
-    $Email = $_POST['Email'];
-    $Tel = $_POST['Tel'];
-    $Domaine = $_POST['Domaine'];
-    $Bureau = $_POST['Bureau'];
-    $MDP = $_POST['MDP'];
-
-    $sql = "INSERT INTO coach (Nom_coach, Prenom_coach, Email_coach, Tel_coach, Domaine_coach, Bureau_coach, MDP_coach) 
-            VALUES ('$Nom', '$Prenom', '$Email', '$Tel', '$Domaine', '$Bureau', '$MDP')";
-    $res = mysqli_query($db_handle, $sql);
-} {
-    // RECUPERER ET AFFICHE LES DONNEES DU CLIENT DE LA BDD
-
-    $sql_RechercheAdmin = "SELECT * from administrateur WHERE Id_admin = '1'";
+    $sql_RechercheAdmin= "SELECT * from administrateur WHERE Id_admin = ".$_COOKIE["Session_Id_user"];
     $result_Admin = mysqli_query($db_handle, $sql_RechercheAdmin);
 
     while ($row_admin = mysqli_fetch_assoc($result_Admin)) {
         $Login_admin = $row_admin['Login_admin'];
         $MDP_admin = $row_admin['MPD_admin'];
-    }
-}
-
-
-// MET A JOUR LES NOUVELLES DONNEES DE L'ADMIN DANS LA BDD
-if (isset($_POST["Modifier"])) {
-
-    // $sql = "INSERT INTO client (Nom_client, Prenom_client, Email_client, Tel_client, Adresse_client, Ville_client, CodePostal_client, MDP_client) 
-    //         VALUES ('$Nom', '$Prenom', '$Email', '$Tel', '$Adresse', '$Ville', '$CodePostal', '$MDP') WHERE Id_client = '1'";  //" . $id_client . "
-
-    $sql = "UPDATE administrateur 
-            SET Login_admin='$Login_admin', MPD_admin='$MDP_admin'
-            WHERE Id_admin = '1'";  //" . $id_client . "
-    $res = mysqli_query($db_handle, $sql);
-
-    if ($res) {
-        echo "Données modifiées avec succès!";
-    } else {
-        echo "Problème de modification des données!";
     }
 }
 
@@ -93,9 +60,8 @@ if (isset($_POST["Modifier"])) {
             </div>
             <div class="div_button">
                 <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
-                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout
-                        parcourir</a></button>
-                <button class="nav-button" id="rdv"><a class="nav-page" href="Rendezvous.html">Rendez vous</a></button>
+                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout parcourir</a></button>
+                <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
                 <div class="search-box">
@@ -116,9 +82,9 @@ if (isset($_POST["Modifier"])) {
 
 
         <div class="milieu" id="content">
-
+            
             <div class="nav-pills-container" id="nav-pills-container">
-                <div class="ProfileTitle">PROFIL ADMIN</div>
+            <div class="ProfileTitle">PROFIL ADMIN</div>
                 <nav class="nav nav-pills nav-fill">
                     <a class="nav-item nav-link active" href="#v-pills-InfosAdmin" data-toggle="tab"> Mes Informations</a>
                     <a class="nav-item nav-link" href="#v-pills-CreerCoach" data-toggle="tab">Créer Compte Coach</a>
@@ -127,15 +93,16 @@ if (isset($_POST["Modifier"])) {
                     <a class="nav-item nav-link" href="#v-pills-CVCoach" data-toggle="tab">Voir CV Coach</a>
             </div>
 
-            <div class="tab-content">
+            <div class="tab-content" id="body_informations">
                 <div class="tab-pane fade show active" id="v-pills-InfosAdmin">
-                    <br><br><br><br>
-                    <div class="infos_container">
+
+                <div class="infos_container">
+                    <form action="Connexion.php" method="post">
                         <div class="form-group">
                             <label class="form-label" for="login">Login :</label>
                             <div class="relative">
                                 <?php echo "<input class='form-control' id='email' type='text' required='' placeholder='Veuillez indiquer votre Login' value='$Login_admin'>"; ?>
-                                <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>
+                                <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>  
                             </div>
                         </div>
                         <div class="form-group">
@@ -147,12 +114,71 @@ if (isset($_POST["Modifier"])) {
                         </div>
                         <div class="form-group">
                             <div class="relative">
-                                <input class="bouton" type="submit" name="Modifier" value="Enregistrer les Modifications" method="POST">
+                                <input class="bouton" type="submit" name="ModifierInfosAdmin" value="Enregistrer les Modifications" method="POST">
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
-                <div class="tab-pane fade" id="v-pills-AjDispos">
+                </div>
+                <div class="tab-pane fade" id="v-pills-CreerCoach">
+                    <div class="infos_container">
+                    <form action="Connexion.php" method="post">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Nom :</label>
+                            <div class="relative">
+                            <input class="form-control" id="name" type="text" pattern="[a-zA-Z\s]+" required="" autofocus="" placeholder="Rentrez le Nom" name="Nom">
+                            <i class="fa fa-building"><i class="iconify" data-icon="bx:user"></i></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="firstname">Prénom :</label>
+                            <div class="relative">
+                            <input class="form-control" id="firstname" type="text" pattern="[a-zA-Z\s]+" required="" autofocus="" placeholder="Rentrez le Prénom" name="Prenom">
+                            <i class="fa fa-building"><i class="iconify" data-icon="bx:user"></i></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="domaine">Domaine :</label>
+                            <div class="relative">
+                            <input class="form-control" id="domaine" type="text" pattern="[a-zA-Z\s]+" required="" autofocus="" placeholder="Rentrez le Domaine d'expertise" name="Domaine">
+                            <i class="fa fa-building"><i class="iconify" data-icon="bx:home-alt"></i></i>  
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="bureau">Bureau :</label>
+                            <div class="relative">
+                            <input class="form-control" id="bureau" type="text" required="" autofocus="" placeholder="Rentrez le Numéro de bureau" name="Bureau">
+                            <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>  
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Numéro de Téléphone :</label>
+                            <div class="relative">
+                            <input class="form-control" id="tel" type="text"required="" autofocus="" placeholder="Rentrez le Numéro de téléphone" name="Tel">
+                            <i class="fa fa-building"><i class="iconify" data-icon="ant-design:phone-outlined"></i></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email :</label>
+                            <div class="relative">
+                            <input class="form-control" id="email" type="text" required="" autofocus="" placeholder="Rentrez le Numéro de téléphone" name="Email">
+                            <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>  
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="passwd">Mot de passe :</label>
+                            <div class="relative">
+                            <input class="form-control" id="passwd" type="password" required="" autofocus="" placeholder="Rentrez le mot de passe" name="MDP">
+                            <i class="fa fa-building"><i class="iconify" data-icon="ri:lock-password-fill"></i></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="relative">
+                                <input class="bouton" type="submit" name="AjouterInfosCoach" value="Insérer les données">
+                            </div>
+                        </div>
+                    </form>
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-CVCoach">
                     <?php
@@ -174,68 +200,78 @@ if (isset($_POST["Modifier"])) {
                     print($html_fragment);
                     ?>
                 </div>
-                <div class="tab-pane fade" id="v-pills-CreerCoach">
-                    <div class="infos_container">
-                        <div class="form-group">
-                            <label class="form-label" for="image">Choisir Image :</label>
-                            <div class="relative">
-                                <input class="form-control" id="image" type="file" accept="image/*" required="" autofocus="" placeholder="Veuillez choisir la photo du coach">
-                            </div>
+                <div class="tab-pane fade" id="v-pills-AjDispos">
+                    <div class="infos_planning">
+                        <div class="table_container">
+                            <?php
+                                include 'SqlConDatabase.php';
+                                $sql3 = "SELECT C.Id_coach, C.Nom_coach, C.Domaine_coach, D.planning_coach_date, D.start_time, D.temps_consultation FROM coach C JOIN planning_coach D ON C.Id_coach=D.Id_coach ORDER BY D.Id_Coach";
+                                //$sql1 = "SELECT *  from coach";
+                                $resulttable = mysqli_query($db_handle, $sql3);
+                                echo "<table>";
+                                echo "<tr>";
+                                echo "<th class='table_th'>" . "Id" . "</th>";
+                                echo "<th class='table_th'>" . "Nom" . "</th>";
+                                echo "<th class='table_th'>" . "Expertise" . "</th>";
+                                echo "<th class='table_th'>" . "Date du RDV" . "</th>";
+                                echo "<th class='table_th'>" . "Heure du RDV" . "</th>";
+                                echo "<th class='table_th'>" . "Durée d'un RDV" . "</th>";
+                                echo "</tr>";
+
+                                //afficher le resultat
+                                while ($data1 = mysqli_fetch_assoc($resulttable)) 
+                                {
+                                    echo "<tr>";
+                                    echo "<td class='table_td'>" . $data1['Id_coach'] . "</td>";
+                                    echo "<td class='table_td'>" . $data1['Nom_coach'] . "</td>";
+                                    echo "<td class='table_td'>" . $data1['Domaine_coach'] . "</td>";
+                                    echo "<td class='table_td'>" . $data1['planning_coach_date'] . "</td>";
+                                    echo "<td class='table_td'>" . $data1['start_time'] . "</td>";
+                                    echo "<td class='table_td'>" . $data1['temps_consultation'] . "</td>";
+                                    echo "</tr>";
+                                }
+                                echo "</table>";
+                            ?>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label" for="name">Nom :</label>
-                            <div class="relative">
-                                <input class="form-control" id="name" type="text" pattern="[a-zA-Z\s]+" required="" autofocus="" placeholder="Rentrez le Nom" name="Nom">
-                                <i class="fa fa-building"><i class="iconify" data-icon="bx:user"></i></i>
+                        <br><br>
+                        <form action="gestionPlanning.php" method="post">
+                            <div class="form-group">
+                                <label class="element-label" for="id_coach" required>Id du coach :</label>
+                                <div class="entree">
+                                <input class="form-control" id="id_coach" type="number" name="IDCoach">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="firstname">Prénom :</label>
-                            <div class="relative">
-                                <input class="form-control" id="firstname" type="text" pattern="[a-zA-Z\s]+" required="" autofocus="" placeholder="Rentrez le Prénom" name="Prenom">
-                                <i class="fa fa-building"><i class="iconify" data-icon="bx:user"></i></i>
+                            <div class="form-group">
+                                <label class="element-label" for="jour_travail">Date :</label>
+                                <div class="entree">
+                                <input class="form-control" id="jour_travail" type="date" name="JourTravail" min="2022-06-02" max="2022-07-10">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="domaine">Domaine :</label>
-                            <div class="relative">
-                                <input class="form-control" id="domaine" type="text" pattern="[a-zA-Z\s]+" required="" autofocus="" placeholder="Rentrez le Domaine d'expertise" name="Domaine">
-                                <i class="fa fa-building"><i class="iconify" data-icon="bx:home-alt"></i></i>
+                            <div class="form-group">
+                                <label class="element-label" for="HeureDepart">Heure de départ :</label>
+                                <div class="entree">
+                                <input class="form-control" id="HeureDepart" type="time" name="HeureDepart">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="bureau">Bureau :</label>
-                            <div class="relative">
-                                <input class="form-control" id="bureau" type="text" required="" autofocus="" placeholder="Rentrez le Numéro de bureau" name="Bureau">
-                                <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>
+                            <div class="form-group">
+                                <label class="element-label" for="HeureFin">Heure de fin :</label>
+                                <div class="entree">
+                                <input class="form-control" id="HeureFin" type="time" name="HeureFin">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="phone">Numéro de Téléphone :</label>
-                            <div class="relative">
-                                <input class="form-control" id="tel" type="text" maxlength="10" onkeydown="return event.keyCode !== 69" required="" autofocus="" placeholder="Rentrez le Numéro de téléphone" name="Tel">
-                                <i class="fa fa-building"><i class="iconify" data-icon="ant-design:phone-outlined"></i></i>
+                            <div class="form-group">
+                                <label class="element-label" for="TempsConsult">Durée d'un Rendez-vous :</label>
+                                <div class="entree">
+                                <input class="form-control" id="TempsConsult" type="number" name="TempsConsult" min=01:00 max=04:00> 
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="email">Email :</label>
-                            <div class="relative">
-                                <input class="form-control" id="email" type="email" required="" autofocus="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Rentrez le Numéro de téléphone" name="Email">
-                                <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>
+                            <div class="form-group">
+                                <div class="relative">
+                                    <input class="bouton" type="reset">
+                                    <input class="bouton" type="submit" name="JourRDV" value="Ajouter au planning">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="passwd">Mot de passe :</label>
-                            <div class="relative">
-                                <input class="form-control" id="passwd" type="password" required="" autofocus="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Rentrez le mot de passe" name="MDP">
-                                <i class="fa fa-building"><i class="iconify" data-icon="ri:lock-password-fill"></i></i>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="relative">
-                                <input class="bouton" type="submit" name="Envoyer" value="Insérer les données">
-                            </div>
-                        </div>
+                        </form>
                     </div>
                     <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mattis eu urna in sollicitudin. Pellentesque pharetra lacinia mollis. Maecenas hendrerit scelerisque vestibulum. Curabitur eu faucibus lorem. Nam sollicitudin arcu sit amet risus volutpat lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec a dui vehicula, malesuada risus eu, imperdiet nisi. Fusce laoreet tellus at est interdum, vel facilisis ante finibus. Nunc id urna et libero ullamcorper pulvinar at ac ipsum. In et vulputate odio. Nam sed lacinia augue. Aliquam sed dolor diam. Nam vestibulum, odio eget ullamcorper fringilla, nibh nisl tempor dolor, ac tincidunt turpis augue a ante. Sed eleifend rutrum velit. Maecenas nec tristique sapien. Pellentesque sit amet finibus est.</p> -->
                 </div>
@@ -258,7 +294,8 @@ if (isset($_POST["Modifier"])) {
                         echo "</tr>";
 
                         //afficher le resultat
-                        while ($data1 = mysqli_fetch_assoc($result1)) {
+                        while ($data1 = mysqli_fetch_assoc($result1)) 
+                        {
                             echo "<tr>";
                             echo "<td class='SupprCoach'><form type='action='' methode='post''><input type='submit' name='boutonSupr' value='Supprimer'></form></td>";
                             echo "<td class='table_td'>" . $data1['Prenom_coach'] . "</td>";
@@ -271,7 +308,7 @@ if (isset($_POST["Modifier"])) {
                         }
                         echo "</table>";
                         ?>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>
@@ -302,35 +339,42 @@ if (isset($_POST["Modifier"])) {
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
-                        <div class="form-input">
-                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail">
-                            <i class="input-icon uil uil-at"></i>
-                        </div>
-                        <div class="form-input mt-2">
-                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe" id="mdp">
-                            <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <input type="submit" class="btnValid" name="validCo" value="Envoyer">
-                        <div class="mdp-forget-container">
-                            <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
-                        </div>
+                        <form action="Connexion.php" method="post">
+                            <div class="form-input">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-input mt-2">
+                                <input type="password" name="password" class="form-style"
+                                    placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">
+                            <div class="mdp-forget-container">
+                                <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="tab-pane" id="Ins">
-                        <form action="php.php" method="get">
+                        <form action="Connexion.php" method="post">
                             <div class="form-input">
-                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom">
+                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
+                                    autocomplete="off">
                                 <i class="input-icon uil uil-user"></i>
                             </div>
                             <div class="form-input">
-                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input">
-                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp">
+                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe"
+                                    id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
-                            <input type="submit" class="btnValid" name="validI" value="Validate">
+                            <input type="submit" class="btnValid" name="creer_Compte" value="Validate">
                         </form>
                     </div>
                 </div>

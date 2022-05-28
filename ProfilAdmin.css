@@ -11,7 +11,9 @@
 
 .milieu {
     background-color: #f0f1f5;
+    flex-direction: row;
 }
+
 
 
 .page {
@@ -19,24 +21,25 @@
     /* hauteur minimale égale à 100% du viewport */
     display: flex;
     flex-direction: column;
+}
 
+
+.body_informations {
+    background: rgb(0, 33, 181);
 }
 
 /* End */
 
 /* Sidenav */
 .nav-pills-container {
-    display: block;
-    background-color: white;
+    background: rgb(255, 153, 153);
     color: #333;
     border-bottom-right-radius: 25px;
     border-top-right-radius: 25px;
     height: 100%;
     left: 0;
-    overflow-x: hidden;
     padding-top: 5%;
     margin-top: 2%;
-    position: absolute;
     border: 3px solid #d4af37;
     width: 17%;
 }
@@ -87,8 +90,8 @@
 }
 
 .nav-pills .nav-link {
-    margin-top: 20% !important;
-    margin-bottom: 2% !important;
+    margin-top: 10% !important;
+    margin-bottom: 10% !important;
     color: black !important;
     margin-left: 5%;
     margin-right: 5%;
@@ -100,14 +103,14 @@
 }
 
 .darkmode--activated .nav-pills .nav-link {
-    margin-top: 1% !important;
-    margin-bottom: 2% !important;
+    margin-top: 10% !important;
+    margin-bottom: 10% !important;
     color: rgb(165, 165, 165) !important;
 }
 
 .darkmode--activated .nav-pills .nav-link.active {
-    margin-top: 20% !important;
-    margin-bottom: 2% !important;
+    margin-top: 10% !important;
+    margin-bottom: 10% !important;
     color: black !important;
 }
 
@@ -118,13 +121,11 @@
 .infos_container {
     max-width: calc(100vw - 40px);
     width: 50%;
-    height: 70%;
     background: white;
     border-radius: 8px;
     margin: 3% auto;
     padding: 1% 1.5%;
     box-sizing: border-box;
-    position: relative;
     font-family: 'Roboto', sans-serif;
     font-size: 90%;
     margin-right: 16%;
@@ -190,10 +191,6 @@
     border-bottom: 34px solid rgb(132, 132, 132);
 }
 
-.relative {
-    position: relative;
-}
-
 .relative i.fa {
     position: absolute;
     top: 2px;
@@ -241,12 +238,30 @@ fieldset[disabled] .form-control {
     background-color: rgb(255, 255, 255);
 }
 
+
 /* --- Animated Buttons --- */
 
 /* End */
 
 .darkmode-toggle {
     z-index: 1000;
+}
+
+.infos_planning {
+    max-width: calc(100vw - 40px);
+    width: 40%;
+    background: white;
+    border-radius: 8px;
+    margin: 3% auto;
+    padding: 1% 1.5%;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 90%;
+    margin-right: 16%;
+}
+
+.darkmode--activated .infos_planning {
+    background: black;
 }
 
 
@@ -275,6 +290,10 @@ fieldset[disabled] .form-control {
 
 td, th {
     width: 20%;
+}
+
+.table_planning td,th{
+    width: 40%;
 }
 
 .table_td{

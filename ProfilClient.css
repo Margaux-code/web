@@ -11,7 +11,9 @@
 
 .milieu {
     background-color: #f0f1f5;
+    flex-direction: row;
 }
+
 
 
 .page {
@@ -19,24 +21,24 @@
     /* hauteur minimale égale à 100% du viewport */
     display: flex;
     flex-direction: column;
+}
 
+
+.body_informations {
+    background: rgb(0, 33, 181);
 }
 
 /* End */
 
 /* Sidenav */
 .nav-pills-container {
-    display: block;
-    background-color: white;
+    background: rgb(129, 198, 255);
     color: #333;
     border-bottom-right-radius: 25px;
     border-top-right-radius: 25px;
-    height: 70%;
     left: 0;
-    overflow-x: hidden;
     padding-top: 5%;
     margin-top: 2%;
-    position: absolute;
     border: 3px solid #d4af37;
     width: 17%;
 }
@@ -87,8 +89,8 @@
 }
 
 .nav-pills .nav-link {
-    margin-top: 30% !important;
-    margin-bottom: 2% !important;
+    margin-top: 10% !important;
+    margin-bottom: 10% !important;
     color: black !important;
     margin-left: 5%;
     margin-right: 5%;
@@ -100,14 +102,14 @@
 }
 
 .darkmode--activated .nav-pills .nav-link {
-    margin-top: 1% !important;
-    margin-bottom: 2% !important;
+    margin-top: 10% !important;
+    margin-bottom: 10% !important;
     color: rgb(165, 165, 165) !important;
 }
 
 .darkmode--activated .nav-pills .nav-link.active {
-    margin-top: 1% !important;
-    margin-bottom: 2% !important;
+    margin-top: 10% !important;
+    margin-bottom: 10% !important;
     color: black !important;
 }
 

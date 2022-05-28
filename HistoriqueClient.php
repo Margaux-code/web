@@ -34,9 +34,8 @@
             </div>
             <div class="div_button">
                 <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
-                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout
-                        parcourir</a></button>
-                <button class="nav-button" id="rdv"><a class="nav-page" href="Rendezvous.html">Rendez vous</a></button>
+                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout parcourir</a></button>
+                <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
                 <div class="search-box">
@@ -94,7 +93,7 @@
                             <label class="form-label" for="addresse">Adresse :</label>
                             <div class="relative">
                                 <input class="form-control" id="addresse" type="text" required="" placeholder="Veuillez indiquer le numéro et le nom de votre Adresse">
-                                <i class="fa fa-building"><i class="iconify" data-icon="bx:home-alt"></i></i>
+                                <i class="fa fa-building"><i class="iconify" data-icon="bx:home-alt"></i></i>  
                             </div>
                         </div>
                         <div class="form-group">
@@ -108,7 +107,7 @@
                             <label class="form-label" for="postalCode">Code Postal :</label>
                             <div class="relative">
                                 <input class="form-control" id="postalCode" type="number" required="" placeholder="Veuillez indiquer votre code Postal">
-                                <i class="fa fa-building"><i class="iconify" data-icon="map:postal-code-prefix"></i></i>
+                                <i class="fa fa-building"><i class="iconify" data-icon="map:postal-code-prefix"></i></i> 
                             </div>
                         </div>
                         <div class="form-group">
@@ -129,7 +128,7 @@
                             <label class="form-label" for="email">Email :</label>
                             <div class="relative">
                                 <input class="form-control" id="email" type="email" required="" placeholder="Rentrez votre Adresse Mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-                                <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>
+                                <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>  
                             </div>
                         </div>
                         <div class="form-group">
@@ -158,7 +157,8 @@
                     echo "</tr>";
 
                     //afficher le resultat
-                    while ($data1 = mysqli_fetch_assoc($result1)) {
+                    while ($data1 = mysqli_fetch_assoc($result1)) 
+                    {
                         echo "<tr>";
                         echo "<td class='table_td'>" . $data1['Prenom_coach'] . "</td>";
                         echo "<td class='table_td'>" . $data1['Nom_coach'] . "</td>";
@@ -170,8 +170,8 @@
                     }
                     echo "</table>";
                     ?>
-                </div>
-            </div>
+                </div> 
+            </div> 
         </div>
 
         <div class="footer" id="footer">
@@ -200,35 +200,42 @@
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
-                        <div class="form-input">
-                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail">
-                            <i class="input-icon uil uil-at"></i>
-                        </div>
-                        <div class="form-input mt-2">
-                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe" id="mdp">
-                            <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <input type="submit" class="btnValid" name="validCo" value="Envoyer">
-                        <div class="mdp-forget-container">
-                            <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
-                        </div>
+                        <form action="Connexion.php" method="post">
+                            <div class="form-input">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-input mt-2">
+                                <input type="password" name="password" class="form-style"
+                                    placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">
+                            <div class="mdp-forget-container">
+                                <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="tab-pane" id="Ins">
-                        <form action="php.php" method="get">
+                        <form action="Connexion.php" method="post">
                             <div class="form-input">
-                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom">
+                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
+                                    autocomplete="off">
                                 <i class="input-icon uil uil-user"></i>
                             </div>
                             <div class="form-input">
-                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input">
-                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp">
+                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe"
+                                    id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
-                            <input type="submit" class="btnValid" name="validI" value="Validate">
+                            <input type="submit" class="btnValid" name="creer_Compte" value="Validate">
                         </form>
                     </div>
                 </div>

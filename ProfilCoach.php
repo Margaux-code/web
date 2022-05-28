@@ -15,7 +15,7 @@ setcookie('Session_type_user', false, 0, "", "", false, false);
 
     // RECUPERER INFOS DU COACH CONNECTE
 
-    $sql_RechercheCoach = "SELECT * from coach WHERE Id_coach = '7'";
+    $sql_RechercheCoach = "SELECT * from coach WHERE Id_coach =".$_COOKIE["Session_Id_user"];
     $result_Coach = mysqli_query($db_handle, $sql_RechercheCoach);
 
     while ($row_coach = mysqli_fetch_assoc($result_Coach)) {
@@ -69,9 +69,8 @@ setcookie('Session_type_user', false, 0, "", "", false, false);
             </div>
             <div class="div_button">
                 <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
-                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout
-                        parcourir</a></button>
-                <button class="nav-button" id="rdv"><a class="nav-page" href="Rendezvous.html">Rendez vous</a></button>
+                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout parcourir</a></button>
+                <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
                 <div class="search-box">
@@ -91,9 +90,9 @@ setcookie('Session_type_user', false, 0, "", "", false, false);
         </div>
 
         <div class="milieu" id="content">
-
+            
             <div class="nav-pills-container" id="nav-pills-container">
-                <div class="ProfileTitle">PROFIL COACH</div>
+            <div class="ProfileTitle">PROFIL COACH</div>
                 <nav class="nav nav-pills nav-fill">
                     <a class="nav-item nav-link active" href="#v-pills-Infos" data-toggle="tab">Informations</a>
                     <a class="nav-item nav-link" href="#v-pills-RDV" data-toggle="tab">Mes rendez-vous </a>
@@ -120,7 +119,7 @@ setcookie('Session_type_user', false, 0, "", "", false, false);
                             <label class="form-label" for="addresse">Domaine :</label>
                             <div class="relative">
                                 <?php echo "<output class='form-control' id='addresse'>" . $Domaine . "</output>"; ?>
-                                <i class="fa fa-building"><i class="iconify" data-icon="bx:home-alt"></i></i>
+                                <i class="fa fa-building"><i class="iconify" data-icon="bx:home-alt"></i></i>  
                             </div>
                         </div>
                         <div class="form-group">
@@ -134,14 +133,14 @@ setcookie('Session_type_user', false, 0, "", "", false, false);
                             <label class="form-label" for="email">Email :</label>
                             <div class="relative">
                                 <?php echo "<output class='form-control' id='email'>" . $Email . "</output>"; ?>
-                                <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>
+                                <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>  
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="bureau">Bureau :</label>
                             <div class="relative">
                                 <?php echo "<output class='form-control' id='room'>" . $Bureau . "</output>"; ?>
-                                <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>
+                                <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>  
                             </div>
                         </div>
                         <div class="form-group">
@@ -157,35 +156,36 @@ setcookie('Session_type_user', false, 0, "", "", false, false);
                 <div class="tab-pane fade" id="v-pills-RDV">
                     <div class="table_container">
                         <?php
-                        include 'SqlConDatabase.php';
-                        $sql2 = "SELECT Nom_client, Prenom_client, Email_client, Tel_client, Date_consultation, Heure_consultation  from client C, consultation D  WHERE D.Id_coach = '7' AND C.Id_client = D.Id_client";
-                        $result2 = mysqli_query($db_handle, $sql2);
-                        echo "<table>";
-                        echo "<tr>";
-                        echo "<th class='table_th'>" . "Nom" . "</th>";
-                        echo "<th class='table_th'>" . "Prenom" . "</th>";
-                        echo "<th class='table_th'>" . "Email" . "</th>";
-                        echo "<th class='table_th'>" . "Téléphone" . "</th>";
-                        echo "<th class='table_th'>" . "Date" . "</th>";
-                        echo "<th class='table_th'>" . "Heure" . "</th>";
-                        echo "<th class='table_th'>" . "Message" . "</th>";
-                        echo "</tr>";
-
-                        //afficher le resultat
-                        while ($data2 = mysqli_fetch_assoc($result2)) {
+                            include 'SqlConDatabase.php';
+                            $sql2 = "SELECT Nom_client, Prenom_client, Email_client, Tel_client, Date_consultation, Heure_consultation  from client C, consultation D  WHERE D.Id_coach = ".$_COOKIE["Session_Id_user"]." AND C.Id_client = D.Id_client";
+                            $result2 = mysqli_query($db_handle, $sql2);
+                            echo "<table>";
                             echo "<tr>";
-                            echo "<td class='table_td'>" . $data2['Nom_client'] . "</td>";
-                            echo "<td class='table_td'>" . $data2['Prenom_client'] . "</td>";
-                            echo "<td class='table_td'>" . $data2['Email_client'] . "</td>";
-                            echo "<td class='table_td'>" . $data2['Tel_client'] . "</td>";
-                            echo "<td class='table_td'>" . $data2['Date_consultation'] . "</td>";
-                            echo "<td class='table_td'>" . $data2['Heure_consultation'] . "</td>";
-                            echo "<td class='button_plus'><form type='action='' methode='post''><input type='submit' name='bouton' value='Discussion'></form></td>";
+                            echo "<th class='table_th'>" . "Nom" . "</th>";
+                            echo "<th class='table_th'>" . "Prenom" . "</th>";
+                            echo "<th class='table_th'>" . "Email" . "</th>";
+                            echo "<th class='table_th'>" . "Téléphone" . "</th>";
+                            echo "<th class='table_th'>" . "Date" . "</th>";
+                            echo "<th class='table_th'>" . "Heure" . "</th>";
+                            echo "<th class='table_th'>" . "Message" . "</th>";
                             echo "</tr>";
-                        }
-                        echo "</table>";
+
+                            //afficher le resultat
+                            while ($data2 = mysqli_fetch_assoc($result2)) 
+                            {
+                                echo "<tr>";
+                                echo "<td class='table_td'>" . $data2['Nom_client'] . "</td>";
+                                echo "<td class='table_td'>" . $data2['Prenom_client'] . "</td>";
+                                echo "<td class='table_td'>" . $data2['Email_client'] . "</td>";
+                                echo "<td class='table_td'>" . $data2['Tel_client'] . "</td>";
+                                echo "<td class='table_td'>" . $data2['Date_consultation'] . "</td>";
+                                echo "<td class='table_td'>" . $data2['Heure_consultation'] . "</td>";
+                                echo "<td class='button_plus'><form type='action='' methode='post''><input type='submit' name='bouton' value='Discussion'></form></td>";
+                                echo "</tr>";
+                            }
+                            echo "</table>";
                         ?>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>
@@ -216,35 +216,42 @@ setcookie('Session_type_user', false, 0, "", "", false, false);
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
-                        <div class="form-input">
-                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail">
-                            <i class="input-icon uil uil-at"></i>
-                        </div>
-                        <div class="form-input mt-2">
-                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe" id="mdp">
-                            <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <input type="submit" class="btnValid" name="validCo" value="Envoyer">
-                        <div class="mdp-forget-container">
-                            <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
-                        </div>
+                        <form action="Connexion.php" method="post">
+                            <div class="form-input">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-input mt-2">
+                                <input type="password" name="password" class="form-style"
+                                    placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">
+                            <div class="mdp-forget-container">
+                                <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="tab-pane" id="Ins">
-                        <form action="php.php" method="get">
+                        <form action="Connexion.php" method="post">
                             <div class="form-input">
-                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom">
+                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
+                                    autocomplete="off">
                                 <i class="input-icon uil uil-user"></i>
                             </div>
                             <div class="form-input">
-                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input">
-                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp">
+                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe"
+                                    id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
-                            <input type="submit" class="btnValid" name="validI" value="Validate">
+                            <input type="submit" class="btnValid" name="creer_Compte" value="Validate">
                         </form>
                     </div>
                 </div>

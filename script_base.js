@@ -52,9 +52,10 @@ function btnProfil() {
     if (who == 'client') {
       window.location = 'ProfilClient.php';
     } else if (who == 'coach') {
-      window.location = 'profil_coach_test.php';
-    } else {
-      window.location = 'accueil.html';
+      window.location = 'ProfilCoach.php';
+    } else if (who == 'admin') {
+      window.location = 'ProfilAdmin.php';
+    }else {
     }
   }
   else {
