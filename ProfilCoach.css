@@ -195,7 +195,7 @@
     box-shadow: inset 0px 1px 1px #d4af37, 0 0 8px #d4af37;
 }
 
-.relative inoutputput:focus+i.fa {
+.relative input:focus+i.fa {
     border-left: 20px solid transparent;
     border-right: 30px solid #d4af37;
     border-bottom: 34px solid #d4af37;

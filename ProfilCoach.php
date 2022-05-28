@@ -15,7 +15,7 @@ setcookie('Session_type_user', false, 0, "", "", false, false);
 
     // RECUPERER INFOS DU COACH CONNECTE
 
-    $sql_RechercheCoach = "SELECT * from coach WHERE Id_coach = '7'";
+    $sql_RechercheCoach = "SELECT * from coach WHERE Id_coach =".$_COOKIE["Session_Id_user"];
     $result_Coach = mysqli_query($db_handle, $sql_RechercheCoach);
 
     while ($row_coach = mysqli_fetch_assoc($result_Coach)) {
@@ -157,7 +157,7 @@ setcookie('Session_type_user', false, 0, "", "", false, false);
                     <div class="table_container">
                         <?php
                             include 'SqlConDatabase.php';
-                            $sql2 = "SELECT Nom_client, Prenom_client, Email_client, Tel_client, Date_consultation, Heure_consultation  from client C, consultation D  WHERE D.Id_coach = '7' AND C.Id_client = D.Id_client";
+                            $sql2 = "SELECT Nom_client, Prenom_client, Email_client, Tel_client, Date_consultation, Heure_consultation  from client C, consultation D  WHERE D.Id_coach = ".$_COOKIE["Session_Id_user"]." AND C.Id_client = D.Id_client";
                             $result2 = mysqli_query($db_handle, $sql2);
                             echo "<table>";
                             echo "<tr>";
@@ -216,35 +216,42 @@ setcookie('Session_type_user', false, 0, "", "", false, false);
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
-                        <div class="form-input">
-                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" >
-                            <i class="input-icon uil uil-at"></i>
-                        </div>
-                        <div class="form-input mt-2">
-                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe" id="mdp" >
-                            <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <input type="submit" class="btnValid" name="validCo" value="Envoyer">
-                        <div class="mdp-forget-container">
-                            <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
-                        </div>
+                        <form action="Connexion.php" method="post">
+                            <div class="form-input">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-input mt-2">
+                                <input type="password" name="password" class="form-style"
+                                    placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">
+                            <div class="mdp-forget-container">
+                                <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="tab-pane" id="Ins">
-                        <form action="php.php" method="get">
+                        <form action="Connexion.php" method="post">
                             <div class="form-input">
-                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom" >
+                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
+                                    autocomplete="off">
                                 <i class="input-icon uil uil-user"></i>
                             </div>
                             <div class="form-input">
-                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input">
-                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp" >
+                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe"
+                                    id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
-                            <input type="submit" class="btnValid" name="validI" value="Validate">
+                            <input type="submit" class="btnValid" name="creer_Compte" value="Validate">
                         </form>
                     </div>
                 </div>

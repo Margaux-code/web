@@ -75,8 +75,7 @@
             <div id="img-CoIns"><img id="imgCoIns" src="Image/marbreblanc.jpg" width="100%" height="100%"></div>
             <div class="CoIns">
                 <div id="closeForm-container">
-                    <button class="closeForm"><i class="iconify" id="close" data-icon="eva:close-circle-outline"
-                            onclick="closeForm()"></i></button>
+                    <button class="closeForm"><i class="iconify" id="close" data-icon="eva:close-circle-outline" onclick="closeForm()"></i></button>
                 </div>
 
                 <nav class="nav nav-tabs" id="myTab">
@@ -86,15 +85,15 @@
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
-                        <form action="LoginPage.php" method="post">
+                        <form action="Connexion.php" method="post">
                             <div class="form-input">
                                 <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
                                     autocomplete="off">
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input mt-2">
-                                <input type="password" name="password" class="form-style" placeholder="Votre Mot de passe"
-                                    id="mdp" autocomplete="off">
+                                <input type="password" name="password" class="form-style"
+                                    placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
                             <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">
@@ -105,7 +104,7 @@
                     </div>
 
                     <div class="tab-pane" id="Ins">
-                        <form action="LoginPage.php" method="post">
+                        <form action="Connexion.php" method="post">
                             <div class="form-input">
                                 <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
                                     autocomplete="off">
@@ -121,7 +120,7 @@
                                     id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
-                            <input type="submit" class="btnValid" name="validI" value="Validate">
+                            <input type="submit" class="btnValid" name="creer_Compte" value="Validate">
                         </form>
                     </div>
                 </div>

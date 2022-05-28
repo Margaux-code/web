@@ -8,56 +8,16 @@ setcookie('Session_type_user', false, 0, "", "", false, false);
 
 // ***************************** FORM SE CONNECTER PHP ***********************
 
-// INSERE LES NOUVELLES DONNEES DU COACH DANS LA BDD
-if (isset($_POST["Envoyer"])) {
-
-    $Nom = $_POST['Nom'];
-    $Prenom = $_POST['Prenom'];
-    $Email = $_POST['Email'];
-    $Tel = $_POST['Tel'];
-    $Domaine = $_POST['Domaine'];
-    $Bureau = $_POST['Bureau'];
-    $MDP = $_POST['MDP'];
-
-    $sql = "INSERT INTO coach (Nom_coach, Prenom_coach, Email_coach, Tel_coach, Domaine_coach, Bureau_coach, MDP_coach) 
-            VALUES ('$Nom', '$Prenom', '$Email', '$Tel', '$Domaine', '$Bureau', '$MDP')";
-    $res = mysqli_query($db_handle, $sql);
-
-}
-
 {
-    // RECUPERER ET AFFICHE LES DONNEES DU CLIENT DE LA BDD
+    // RECUPERER ET AFFICHE LES DONNEES DE L'ADMIN DE LA BDD
 
-    $sql_RechercheAdmin= "SELECT * from administrateur WHERE Id_admin = '1'";
+    $sql_RechercheAdmin= "SELECT * from administrateur WHERE Id_admin = ".$_COOKIE["Session_Id_user"];
     $result_Admin = mysqli_query($db_handle, $sql_RechercheAdmin);
 
     while ($row_admin = mysqli_fetch_assoc($result_Admin)) {
         $Login_admin = $row_admin['Login_admin'];
         $MDP_admin = $row_admin['MPD_admin'];
     }
-}
-
-
-// MET A JOUR LES NOUVELLES DONNEES DE L'ADMIN DANS LA BDD
-if (isset($_POST["Modifier"])) {
-
-    // $sql = "INSERT INTO client (Nom_client, Prenom_client, Email_client, Tel_client, Adresse_client, Ville_client, CodePostal_client, MDP_client) 
-    //         VALUES ('$Nom', '$Prenom', '$Email', '$Tel', '$Adresse', '$Ville', '$CodePostal', '$MDP') WHERE Id_client = '1'";  //" . $id_client . "
-    
-    $sql = "UPDATE administrateur 
-            SET Login_admin='$Login_admin', MPD_admin='$MDP_admin'
-            WHERE Id_admin = '1'";  //" . $id_client . "
-    $res = mysqli_query($db_handle, $sql);
-
-    if ($res)
-    {
-        echo "Données modifiées avec succès!";
-    }
-    else
-    {
-        echo "Problème de modification des données!";
-    }
-
 }
 
 ?>
@@ -135,8 +95,9 @@ if (isset($_POST["Modifier"])) {
 
             <div class="tab-content" id="body_informations">
                 <div class="tab-pane fade show active" id="v-pills-InfosAdmin">
-                <br><br><br><br>
+
                 <div class="infos_container">
+                    <form action="Connexion.php" method="post">
                         <div class="form-group">
                             <label class="form-label" for="login">Login :</label>
                             <div class="relative">
@@ -153,13 +114,15 @@ if (isset($_POST["Modifier"])) {
                         </div>
                         <div class="form-group">
                             <div class="relative">
-                                <input class="bouton" type="submit" name="Modifier" value="Enregistrer les Modifications" method="POST">
+                                <input class="bouton" type="submit" name="ModifierInfosAdmin" value="Enregistrer les Modifications" method="POST">
                             </div>
                         </div>
-                    </div>
+                    </form>
+                </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-CreerCoach">
                     <div class="infos_container">
+                    <form action="Connexion.php" method="post">
                         <div class="form-group">
                             <label class="form-label" for="name">Nom :</label>
                             <div class="relative">
@@ -191,29 +154,30 @@ if (isset($_POST["Modifier"])) {
                         <div class="form-group">
                             <label class="form-label" for="phone">Numéro de Téléphone :</label>
                             <div class="relative">
-                            <input class="form-control" id="tel" type="text" maxlength="10" onkeydown="return event.keyCode !== 69" required="" autofocus="" placeholder="Rentrez le Numéro de téléphone" name="Tel">
+                            <input class="form-control" id="tel" type="text"required="" autofocus="" placeholder="Rentrez le Numéro de téléphone" name="Tel">
                             <i class="fa fa-building"><i class="iconify" data-icon="ant-design:phone-outlined"></i></i>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="email">Email :</label>
                             <div class="relative">
-                            <input class="form-control" id="email" type="email" required="" autofocus="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Rentrez le Numéro de téléphone" name="Email">
+                            <input class="form-control" id="email" type="text" required="" autofocus="" placeholder="Rentrez le Numéro de téléphone" name="Email">
                             <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>  
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="passwd">Mot de passe :</label>
                             <div class="relative">
-                            <input class="form-control" id="passwd" type="password" required="" autofocus="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Rentrez le mot de passe" name="MDP">
+                            <input class="form-control" id="passwd" type="password" required="" autofocus="" placeholder="Rentrez le mot de passe" name="MDP">
                             <i class="fa fa-building"><i class="iconify" data-icon="ri:lock-password-fill"></i></i>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="relative">
-                                <input class="bouton" type="submit" name="Envoyer" value="Insérer les données">
+                                <input class="bouton" type="submit" name="AjouterInfosCoach" value="Insérer les données">
                             </div>
                         </div>
+                    </form>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="v-pills-CVCoach">
@@ -375,35 +339,42 @@ if (isset($_POST["Modifier"])) {
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
-                        <div class="form-input">
-                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" >
-                            <i class="input-icon uil uil-at"></i>
-                        </div>
-                        <div class="form-input mt-2">
-                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe" id="mdp" >
-                            <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <input type="submit" class="btnValid" name="validCo" value="Envoyer">
-                        <div class="mdp-forget-container">
-                            <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
-                        </div>
+                        <form action="Connexion.php" method="post">
+                            <div class="form-input">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-input mt-2">
+                                <input type="password" name="password" class="form-style"
+                                    placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">
+                            <div class="mdp-forget-container">
+                                <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="tab-pane" id="Ins">
-                        <form action="php.php" method="get">
+                        <form action="Connexion.php" method="post">
                             <div class="form-input">
-                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom" >
+                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
+                                    autocomplete="off">
                                 <i class="input-icon uil uil-user"></i>
                             </div>
                             <div class="form-input">
-                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input">
-                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp" >
+                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe"
+                                    id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
-                            <input type="submit" class="btnValid" name="validI" value="Validate">
+                            <input type="submit" class="btnValid" name="creer_Compte" value="Validate">
                         </form>
                     </div>
                 </div>

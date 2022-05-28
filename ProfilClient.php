@@ -16,7 +16,7 @@ setcookie('Session_type_user', false, 0, "", "", false, false);
     // RECUPERER ET AFFICHE LES DONNEES DU CLIENT DE LA BDD
 
     //$sql_RechercheClient = "SELECT * from client WHERE Id_client = " . $id_client . "'";
-    $sql_RechercheClient = "SELECT * from client WHERE Id_client = '1'";
+    $sql_RechercheClient = "SELECT * from client WHERE Id_client = ".$_COOKIE["Session_Id_user"];
     $result_Client = mysqli_query($db_handle, $sql_RechercheClient);
 
     while ($row_client = mysqli_fetch_assoc($result_Client)) {
@@ -127,6 +127,7 @@ if (isset($_POST["Modifier"])) {
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="v-pills-Infos">
                     <div class="infos_container">
+                    <form action="Connexion.php" method="post">
                         <div class="form-group">
                             <label class="form-label" for="name">Nom :</label>
                             <div class="relative">
@@ -151,7 +152,7 @@ if (isset($_POST["Modifier"])) {
                         <div class="form-group">
                             <label class="form-label" for="city">Ville :</label>
                             <div class="relative">
-                                <?php echo "<input class='form-control' id='city' type='text' pattern=[a-zA-Z\s]+' required='' autofocus='' placeholder='Veuillez indiquer votre Ville' value='$Ville'>"; ?>
+                                <?php echo "<input class='form-control' id='city' type='text' autofocus='' placeholder='Veuillez indiquer votre Ville' value='$Ville'>"; ?>
                                 <i class="fa fa-building"><i class="iconify" data-icon="material-symbols:location-city-rounded"></i></i>
                             </div>
                         </div>
@@ -179,7 +180,7 @@ if (isset($_POST["Modifier"])) {
                         <div class="form-group">
                             <label class="form-label" for="email">Email :</label>
                             <div class="relative">
-                                <?php echo "<input class='form-control' id='email' type='email' required='' placeholder='Veuillez indiquer votre Numéro de Téléphone' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' value='$Email'>"; ?>
+                                <?php echo "<input class='form-control' type='text' value='$Email'>"; ?>
                                 <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>  
                             </div>
                         </div>
@@ -192,9 +193,10 @@ if (isset($_POST["Modifier"])) {
                         </div>
                         <div class="form-group">
                             <div class="relative">
-                                <input class="bouton" type="submit" name="Modifier" value="Enregistrer les Modifications" method="POST">
+                                <input class="bouton" type="submit" name="ModifierInfosClients" value="Enregistrer les Modifications" method="POST">
                             </div>
                         </div>
+                    </form>
                     </div>
                     <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mattis eu urna in sollicitudin. Pellentesque pharetra lacinia mollis. Maecenas hendrerit scelerisque vestibulum. Curabitur eu faucibus lorem. Nam sollicitudin arcu sit amet risus volutpat lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec a dui vehicula, malesuada risus eu, imperdiet nisi. Fusce laoreet tellus at est interdum, vel facilisis ante finibus. Nunc id urna et libero ullamcorper pulvinar at ac ipsum. In et vulputate odio. Nam sed lacinia augue. Aliquam sed dolor diam. Nam vestibulum, odio eget ullamcorper fringilla, nibh nisl tempor dolor, ac tincidunt turpis augue a ante. Sed eleifend rutrum velit. Maecenas nec tristique sapien. Pellentesque sit amet finibus est.</p> -->
                 </div>
@@ -203,7 +205,7 @@ if (isset($_POST["Modifier"])) {
                         <?php
                         include 'SqlConDatabase.php';
                         //$sql1 = "SELECT Nom_coach,Domaine_coach, Date_consultation, Heure_consultation  from coach, consultation NATURAL JOIN consultation WHERE Id_client = '4'";
-                        $sql1 = "SELECT Nom_coach, Prenom_coach, Domaine_coach, Date_consultation, Heure_consultation  from coach A, consultation B  WHERE B.Id_client = '4' AND A.Id_coach = B.Id_coach";
+                        $sql1 = "SELECT Nom_coach, Prenom_coach, Domaine_coach, Date_consultation, Heure_consultation  from coach A, consultation B  WHERE B.Id_client = ".$_COOKIE["Session_Id_user"]" AND A.Id_coach = B.Id_coach";
                         $result1 = mysqli_query($db_handle, $sql1);
                         echo "<table>";
                         echo "<tr>";
@@ -260,35 +262,42 @@ if (isset($_POST["Modifier"])) {
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
-                        <div class="form-input">
-                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" >
-                            <i class="input-icon uil uil-at"></i>
-                        </div>
-                        <div class="form-input mt-2">
-                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe" id="mdp" >
-                            <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <input type="submit" class="btnValid" name="validCo" value="Envoyer">
-                        <div class="mdp-forget-container">
-                            <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
-                        </div>
+                        <form action="Connexion.php" method="post">
+                            <div class="form-input">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-input mt-2">
+                                <input type="password" name="password" class="form-style"
+                                    placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">
+                            <div class="mdp-forget-container">
+                                <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="tab-pane" id="Ins">
-                        <form action="php.php" method="get">
+                        <form action="Connexion.php" method="post">
                             <div class="form-input">
-                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom" >
+                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
+                                    autocomplete="off">
                                 <i class="input-icon uil uil-user"></i>
                             </div>
                             <div class="form-input">
-                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input">
-                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp" >
+                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe"
+                                    id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
-                            <input type="submit" class="btnValid" name="validI" value="Validate">
+                            <input type="submit" class="btnValid" name="creer_Compte" value="Validate">
                         </form>
                     </div>
                 </div>
