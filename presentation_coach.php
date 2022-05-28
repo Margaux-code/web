@@ -173,28 +173,7 @@ if ($_COOKIE["connectionDB"] == true) {
         </div>
 
         <div class="milieu" id="content">
-            <div class="page_profil">
-                <div id="pro">
-                    <div class="photo_profil">
-                        <?php echo " <img src='Image/Profil_profs/" . $coach . ".jpg' alt = 'Photo de Profil' style='max-width :200px;'>";
-                        ?>
-                    </div>
-                    <div class="description_profil">
-                        <h1 id="profil"> Profil de coach </h1>
-                        <?php echo "<p class='presentation'>" . $Prenom . " " . $Nom . "</br>  Spécialité : " . $Domaine . "</br> <i> Contact :</i> </br> " . $Tel . "</br>" . $Email . "</br> Vous pouvez trouver son bureau au 1er étage, porte n°" . $Bureau . "</br> </p>";
-                        ?>
-                    </div>
-                </div>
-                <div id="RDV">
-                    <h2 id="dispo"> Voici les jours où ce coach est disponible :</h2>
-                    <table class="table table-dark">
-                        <thread>
-                            <tr>
-                                <th scope="col">date</th>
-                                <th scope="col">Prendre Rendez-vous</th>
-                            </tr>
-                        </thread>
-
+           
             <div class="page_profil">
                 <div id="pro">
                     <div class="photo_profil">
