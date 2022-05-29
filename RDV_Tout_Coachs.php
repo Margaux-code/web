@@ -15,7 +15,7 @@
 
 </head>
 
-<body>
+<body onload="testCo()">>
     <div class="page" id="page">
         <div class="haut">
             <div class="logo_slogan">
@@ -38,8 +38,7 @@
                     <button type="submit" id="searchbutton" class="search"><i class="iconify" id="loupe" data-icon="simple-line-icons:magnifier"></i></button>
                 </div>
                 <div class="btnRegLog">
-                <button class="reg-log" id="disco" onclick="btnDeco()"><i class="iconify" id="deco"
-                            data-icon="material-symbols:exit-to-app"></i></button>
+                    <button class="reg-log" id="disco" onclick="btnDeco()"><i class="iconify" id="deco" data-icon="material-symbols:exit-to-app"></i></button>
                     <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" id="compte" data-icon="uil:user"></i></button>
                 </div>
             </div>
@@ -151,13 +150,11 @@
                     <div class="tab-pane active" id="Co">
                         <form action="Connexion.php" method="post">
                             <div class="form-input">
-                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
-                                    autocomplete="off">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input mt-2">
-                                <input type="password" name="password" class="form-style"
-                                    placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
+                                <input type="password" name="password" class="form-style" placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
                             <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">
@@ -170,18 +167,15 @@
                     <div class="tab-pane" id="Ins">
                         <form action="Connexion.php" method="post">
                             <div class="form-input">
-                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
-                                    autocomplete="off">
+                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom" autocomplete="off">
                                 <i class="input-icon uil uil-user"></i>
                             </div>
                             <div class="form-input">
-                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
-                                    autocomplete="off">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input">
-                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe"
-                                    id="mdp" autocomplete="off">
+                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
                             <input type="submit" class="btnValid" name="creer_Compte" value="Validate">

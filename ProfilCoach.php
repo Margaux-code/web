@@ -81,7 +81,7 @@ if ($_COOKIE["Session_type_user"] == null) {
 
 </head>
 
-<body>
+<body onload="testCo()">>
     <div class="page" id="page">
         <div class="haut">
             <div class="logo_slogan">

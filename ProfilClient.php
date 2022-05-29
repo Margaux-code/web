@@ -68,7 +68,7 @@ if (isset($_POST["Modifier"])) {
 
 </head>
 
-<body>
+<body onload="testCo()">>
     <div class="page" id="page">
         <div class="haut">
             <div class="logo_slogan">
