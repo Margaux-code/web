@@ -3,8 +3,8 @@ session_start();
 
 date_default_timezone_set('Europe/Paris');
 
-
 if (isset($_SESSION['name'])) {
+    
     $text = $_POST['text'];
 
     $text_message = "<div class='msgln'><span class='chat-time'>" . date("G:i") . "</span> <b class='username'>" . $_SESSION['name'] . "</b> " . stripslashes(htmlspecialchars($text)) . "<br></div>";

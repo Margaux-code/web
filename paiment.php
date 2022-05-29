@@ -28,8 +28,8 @@
                 </div>
             </div>
             <div class="div_button">
-                <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
-                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout
+                <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.php">Accueil</a></button>
+                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.php">Tout
                         parcourir</a></button>
                 <button class="nav-button" id="rdv"><a class="nav-page" href="Rendezvous.html">Rendez vous</a></button>
             </div>
@@ -113,7 +113,7 @@
                         $sql2 = "UPDATE time_slot SET Status = REPLACE (Status, 'actif','inactif') WHERE Id_time_slot=" . $IdTimeSlot . ";";
                         $envoi2 = mysqli_query($db_handle, $sql2);
                         if ($envoi && $envoi2) {
-                            echo "<p style='font-family : Roboto; text-align : center;'>Le paiement a été un succes <button ><a class='nav-page' href='Accueil.html'>Retour a l'accueil</a></button>";
+                            echo "<p style='font-family : Roboto; text-align : center;'>Le paiement a été un succes <button ><a class='nav-page' href='accueil.php'>Retour a l'accueil</a></button>";
                         }
                     } else {
                         echo "ERREUR PAIEMENT";
@@ -128,7 +128,7 @@
                 <p>ceci est un copyright</p>
             </div>
             <div class="text">
-                <p>footer</p>
+                <p>Nous contacter : 06 12 34 56 78</br> omnesSportCorp@pierresim.fr</p>
             </div>
         </div>
     </div>

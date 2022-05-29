@@ -66,7 +66,7 @@ function btnProfil() {
       window.location = 'ProfilAdmin.php';
     } else {
       alert("Une erreure est survenue. <br> Veuillez vous reconnecter");
-      window.location = 'accueil.html';
+      window.location = 'accueil.php';
     }
   }
   else {

@@ -7,7 +7,7 @@ if (isset($_GET['logout'])) {
     //Message de sortie simple
     $logout_message = "<div class='msgln'><span class='left-info'>User <b class='user-name-left'>" . $_SESSION['name'] . "</b> a quitté la session de chat.</span><br></div>";
 
-    $myfile = fopen(__DIR__ . "Discussion/" . $coach . "log" . $_COOKIE['Session_Id_user'] . ".html", "a") or die("Impossible d'ouvrir le fichier!" . __DIR__ . "Discussion/" . $coach . "log" . $_COOKIE['Session_Id_user'] . ".html");
+    $myfile = fopen(__DIR__ . "Discussion/" . $_COOKIE['num_coach'] . "_log_" . $_COOKIE['Session_Id_user'] . ".html", "a") or die("Impossible d'ouvrir le fichier!" . __DIR__ . "Discussion/" . $_COOKIE['num_coach'] . "_log_" . $_COOKIE['Session_Id_user'] . ".html");
     fwrite($myfile, $logout_message);
     fclose($myfile);
     session_destroy();
@@ -131,7 +131,7 @@ include 'SqlConDatabase.php';
 
 if ($_COOKIE["connectionDB"]) {
 
-    $sql1 = "SELECT * FROM coach WHERE Id_coach = '" . $coach . "'";
+    $sql1 = "SELECT * FROM coach WHERE Id_coach = '" . $_COOKIE['num_coach']  . "'";
 
     // ON CHERCHE LES INFORMATIONS DU COACH CORRESPONDANT AU DOMAINE SELECTIONNE PAR L'UTILISATEUR (Bouton)
     $result1 = mysqli_query($db_handle, $sql1);
@@ -159,8 +159,8 @@ if ($_COOKIE["connectionDB"]) {
                 </div>
             </div>
             <div class="div_button">
-                <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
-                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout
+                <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.php">Accueil</a></button>
+                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.php">Tout
                         parcourir</a></button>
                 <button class="nav-button" id="rdv"><a class="nav-page" href="Rendezvous.html">Rendez vous</a></button>
             </div>
@@ -202,7 +202,7 @@ if ($_COOKIE["connectionDB"]) {
             <div class="page_profil">
                 <div id="pro">
                     <div class="photo_profil">
-                        <?php echo " <img src='Image/Profil_profs/" . $coach . ".jpg' alt = 'Photo de Profil' style='max-width :200px;'>";
+                        <?php echo " <img src='Image/Profil_profs/" . $_COOKIE['num_coach']  . ".jpg' alt = 'Photo de Profil' style='max-width :200px;'>";
                         ?>
                     </div>
                     <div class="description_profil">
@@ -224,7 +224,7 @@ if ($_COOKIE["connectionDB"]) {
                         <tbody>
                             <?php
                             if ($_COOKIE["connectionDB"]) {
-                                $sql_RechercheCoach = "SELECT * from planning_coach WHERE Id_coach= '" . $coach . "'";
+                                $sql_RechercheCoach = "SELECT * from planning_coach WHERE Id_coach= '" . $_COOKIE['num_coach']  . "'";
                                 $availablecoach = mysqli_query($db_handle, $sql_RechercheCoach);
                                 while ($row_coach = mysqli_fetch_assoc($availablecoach)) {
 
@@ -235,7 +235,7 @@ if ($_COOKIE["connectionDB"]) {
                                     $IdPlanning = $row_coach['Id_planning'];
                                     echo "<td> <form name = '1' action ='RDV_un_coach.php' method='post'> 
                                    <input type='hidden' name='id_planning' value='" . $IdPlanning . "'>
-                                   <input type='hidden' name='id_coach' value='" . $coach . "'>     
+                                   <input type='hidden' name='id_coach' value='" . $_COOKIE['num_coach']  . "'>     
                                    <input type='hidden' name='date' value='" . $date . "'>                    
                                    <input type='submit' name='bouton' class='a' value='Choisir cette date'>                    
                                    </form> </td>";
@@ -272,15 +272,15 @@ if ($_COOKIE["connectionDB"]) {
                     </div>
                     <div id="chatbox">
                         <?php
-                        if (file_exists("Discussion/" . $coach . "log" . $_COOKIE['Session_Id_user'] . ".html") && filesize("Discussion/" . $coach . "log" . $_COOKIE['Session_Id_user'] . ".html") > 0) {
-                            $contents = file_get_contents("Discussion/" . $coach . "log" . $_COOKIE['Session_Id_user'] . ".html");
+                        if (file_exists("Discussion/" . $_COOKIE['num_coach'] . "_log_" . $_COOKIE['Session_Id_user'] . ".html") && filesize("Discussion/" . $_COOKIE['num_coach'] . "_log_" . $_COOKIE['Session_Id_user'] . ".html") > 0) {
+                            $contents = file_get_contents("Discussion/" . $_COOKIE['num_coach']  . "_log_" . $_COOKIE['Session_Id_user'] . ".html");
                             echo $contents;
                         }
                         ?>
                     </div>
-                    <form name="message" action="">
+                    <form name="message" action="" method="post">
                         <input name="usermsg" type="text" id="usermsg" />
-                        <input name="submitmsg" type="submit" id="submitmsg" value="Envoyer" />
+                        <input name="submitmsg" type="submit" id="submitmsg" value="Envoyer"/>
                     </form>
                 </div>
                 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -289,7 +289,7 @@ if ($_COOKIE["connectionDB"]) {
                     $(document).ready(function() {
                         $("#submitmsg").click(function() {
                             var clientmsg = $("#usermsg").val();
-                            $.post('post.php', {
+                            $.post("post.php", {
                                 text: clientmsg
                             });
                             $("#usermsg").val("");
@@ -334,7 +334,7 @@ if ($_COOKIE["connectionDB"]) {
                 <p>ceci est un copyright</p>
             </div>
             <div class="text">
-                <p>footer</p>
+                <p>Nous contacter : 06 12 34 56 78</br> omnesSportCorp@pierresim.fr</p>
             </div>
         </div>
     </div>

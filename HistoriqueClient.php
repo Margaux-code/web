@@ -33,8 +33,8 @@
                 </div>
             </div>
             <div class="div_button">
-                <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
-                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout parcourir</a></button>
+                <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.php">Accueil</a></button>
+                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.php">Tout parcourir</a></button>
                 <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
@@ -194,7 +194,7 @@
                 <p>ceci est un copyright</p>
             </div>
             <div class="text">
-                <p>footer</p>
+                <p>Nous contacter : 06 12 34 56 78</br> omnesSportCorp@pierresim.fr</p>
             </div>
         </div>
     </div>
