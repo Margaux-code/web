@@ -1,12 +1,13 @@
-.milieu {
+#v-pills-messages {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 #chatbox-container {
     display: flex;
     height: 75vh;
+    width: 50vw;
 }
 
 .chat-input-form {

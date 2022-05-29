@@ -30,7 +30,7 @@
 .description_profil{
     order :2;
     align-self : flex-start;
-    flex-grow:2;
+    flex-grow:3;
     margin-left :3%;
  
 }
@@ -38,7 +38,9 @@
     size: 70%;
 }
 .cv_coach{
+   order :3;
     margin-top : 5%;
-    order:3;
+    
+    
     
 }

@@ -1,5 +1,6 @@
 <!-- --------------------------------------------- ChatBox -------------------------------------------------------------------------- -->
 <?php
+
 session_start();
 if (isset($_GET['logout'])) {
 
@@ -35,7 +36,7 @@ function loginForm()
 
 function isCo()
 {
-    if ($_COOKIE["connection"] == false) {
+    if ($_COOKIE["connectionDB"] == false) {
         loginForm();
     } else {
         $_SESSION['name'] = $_COOKIE["Session_name_user"];
@@ -75,7 +76,7 @@ function isClient_php()
 
 </head>
 <?php
-setcookie('num_coach', 0, 0, "", "", false, false);
+// setcookie('num_coach', 0, 0, "", "", false, false);
 
 if (isset($_POST['coach1'])) {
     $coach = 1;
@@ -124,7 +125,7 @@ if (isset($_POST['coach11'])) {
 
 include 'SqlConDatabase.php';
 
-if ($_COOKIE["connectionDB"] == true) {
+if ($_COOKIE["connectionDB"]) {
 
     $sql1 = "SELECT * FROM coach WHERE Id_coach = '" . $coach . "'";
 
@@ -142,7 +143,7 @@ if ($_COOKIE["connectionDB"] == true) {
 }
 ?>
 
-<body onload="isClient()">
+<body onload="start()">
     <div class="page" id="page">
         <div class="haut">
             <div class="logo_slogan">
@@ -155,8 +156,9 @@ if ($_COOKIE["connectionDB"] == true) {
             </div>
             <div class="div_button">
                 <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
-                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout parcourir</a></button>
-                <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
+                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout
+                        parcourir</a></button>
+                <button class="nav-button" id="rdv"><a class="nav-page" href="Rendezvous.html">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
                 <div class="search-box">
@@ -164,16 +166,14 @@ if ($_COOKIE["connectionDB"] == true) {
                     <button type="submit" id="searchbutton" class="search"><i class="iconify" id="loupe" data-icon="simple-line-icons:magnifier"></i></button>
                 </div>
                 <div class="btnRegLog">
+                    <button class="reg-log" id="disco" onclick="btnDeco()"><i class="iconify" id="deco" data-icon="material-symbols:exit-to-app"></i></button>
                     <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" id="compte" data-icon="uil:user"></i></button>
-                    <script>
-                        "use strict";
-                    </script>
                 </div>
             </div>
         </div>
 
         <div class="milieu" id="content">
-           
+
             <div class="page_profil">
                 <div id="pro">
                     <div class="photo_profil">
@@ -181,7 +181,7 @@ if ($_COOKIE["connectionDB"] == true) {
                         ?>
                     </div>
                     <div class="description_profil">
-                        <h1 id="profil"> Profil de coach  </h1>
+                        <h1 id="profil"> Profil de coach </h1>
                         <?php echo "<p class='presentation'>" . $Prenom . " " . $Nom . "</br>  Spécialité : " . $Domaine . "</br> <i> Contact :</i> </br> " . $Tel . "</br>" . $Email . "</br> Vous pouvez trouver son bureau au 1er étage, porte n°" . $Bureau . "</br> </p>";
                         ?>
                     </div>
@@ -189,23 +189,16 @@ if ($_COOKIE["connectionDB"] == true) {
                 <div id="RDV">
                     <h2 id="dispo"> Voici les jours où ce coach est disponible :</h2>
                     <table class="table table-dark">
-
                         <thread>
-
                             <tr>
-
                                 <th scope="col">date</th>
                                 <th scope="col">Prendre Rendez-vous</th>
-
                             </tr>
                         </thread>
 
                         <tbody>
                             <?php
-
-
-                            $connect = $_COOKIE['connection'];
-                            if ($connect) {
+                            if ($_COOKIE["connectionDB"]) {
                                 $sql_RechercheCoach = "SELECT * from planning_coach WHERE Id_coach= '" . $coach . "'";
                                 $availablecoach = mysqli_query($db_handle, $sql_RechercheCoach);
                                 while ($row_coach = mysqli_fetch_assoc($availablecoach)) {
@@ -327,6 +320,20 @@ if ($_COOKIE["connectionDB"] == true) {
         </div>
     </div>
 
+    <!--Creation nom dde la session-->
+    <div class="askName">
+        <div class="ask-container" id="ask-container">
+            <div class="ask-container-text">
+                <label for="session-name">Veuillez entrer votre nom : </label>
+                <input type="text" id="session-name">
+            </div>
+            <div class="ask-container-text">
+                <button class="btn-ask" id="ask-ok" onclick="validName()">Valider</button>
+                <button class="btn-ask" id="ask-cancel" onclick="cancelSession()">Annuler</button>
+            </div>
+        </div>
+    </div>
+
     <!--Form de Connection/Inscription-->
     <div id="CoIns-window">
         <div class="section" id="section-form">
@@ -343,22 +350,24 @@ if ($_COOKIE["connectionDB"] == true) {
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
-                        <div class="form-input">
-                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
-                            <i class="input-icon uil uil-at"></i>
-                        </div>
-                        <div class="form-input mt-2">
-                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
-                            <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <input type="submit" class="btnValid" name="validCo" value="send">
-                        <div class="mdp-forget-container">
-                            <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
-                        </div>
+                        <form action="Connexion.php" method="post">
+                            <div class="form-input">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-input mt-2">
+                                <input type="password" name="password" class="form-style" placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">
+                            <div class="mdp-forget-container">
+                                <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="tab-pane" id="Ins">
-                        <form action="php.php" method="get">
+                        <form action="Connexion.php" method="post">
                             <div class="form-input">
                                 <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom" autocomplete="off">
                                 <i class="input-icon uil uil-user"></i>
@@ -371,7 +380,7 @@ if ($_COOKIE["connectionDB"] == true) {
                                 <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
-                            <input type="submit" class="btnValid" name="validI" value="Validate">
+                            <input type="submit" class="btnValid" name="creer_Compte" value="Validate">
                         </form>
                     </div>
                 </div>

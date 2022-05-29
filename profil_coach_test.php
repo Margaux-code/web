@@ -17,7 +17,7 @@ function isClient_php()
         echo "<script> document.getElementById('button-chatbox-container').style.display = 'none'; <script> ";
     }
 }
-if($_COOKIE["Session_type_user"] == null){
+if ($_COOKIE["Session_type_user"] == null) {
     $client = 0;
 } else {
     $client = $_COOKIE["Session_type_user"];
@@ -61,8 +61,9 @@ if($_COOKIE["Session_type_user"] == null){
             </div>
             <div class="div_button">
                 <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
-                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout parcourir</a></button>
-                <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
+                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout
+                        parcourir</a></button>
+                <button class="nav-button" id="rdv"><a class="nav-page" href="Rendezvous.html">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
                 <div class="search-box">
@@ -70,13 +71,8 @@ if($_COOKIE["Session_type_user"] == null){
                     <button type="submit" id="searchbutton" class="search"><i class="iconify" id="loupe" data-icon="simple-line-icons:magnifier"></i></button>
                 </div>
                 <div class="btnRegLog">
+                    <button class="reg-log" id="disco" onclick="btnDeco()"><i class="iconify" id="deco" data-icon="material-symbols:exit-to-app"></i></button>
                     <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" id="compte" data-icon="uil:user"></i></button>
-                    <script>
-                        "use strict";
-
-                        // document.cookie = "user=John"; // update only cookie named 'user'
-                        // alert(document.cookie); // show all cookies
-                    </script>
                 </div>
             </div>
         </div>
@@ -293,22 +289,24 @@ if($_COOKIE["Session_type_user"] == null){
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
-                        <div class="form-input">
-                            <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
-                            <i class="input-icon uil uil-at"></i>
-                        </div>
-                        <div class="form-input mt-2">
-                            <input type="password" name="mdp" class="form-style" placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
-                            <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <input type="submit" class="btnValid" name="validCo" value="send">
-                        <div class="mdp-forget-container">
-                            <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
-                        </div>
+                        <form action="Connexion.php" method="post">
+                            <div class="form-input">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-input mt-2">
+                                <input type="password" name="password" class="form-style" placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">
+                            <div class="mdp-forget-container">
+                                <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
+                            </div>
+                        </form>
                     </div>
 
                     <div class="tab-pane" id="Ins">
-                        <form action="php.php" method="get">
+                        <form action="Connexion.php" method="post">
                             <div class="form-input">
                                 <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom" autocomplete="off">
                                 <i class="input-icon uil uil-user"></i>
@@ -321,7 +319,7 @@ if($_COOKIE["Session_type_user"] == null){
                                 <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
-                            <input type="submit" class="btnValid" name="validI" value="Validate">
+                            <input type="submit" class="btnValid" name="creer_Compte" value="Validate">
                         </form>
                     </div>
                 </div>

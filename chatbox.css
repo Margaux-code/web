@@ -125,3 +125,49 @@ a:hover {
 .msgln {
     margin: 0 0 2px 0;
 }
+
+#ask-container {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #D4AF37;
+    padding: 2%;
+    border-radius: 10px;
+    width: 30vw;
+    height: 12vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid black;
+}
+
+.ask-container-text {
+    margin: 1%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+#session-name {
+    max-width: 10vw;
+    overflow: hidden;
+    border: 1px solid black;
+    border-radius: 0 10px 10px 0;
+}
+
+.btn-ask {
+    border-radius: 5px;
+    background: black;
+    border: none;
+    color: white;
+    width: 7vw;
+}
+
+.btn-ask:hover {
+    background: #D4AF37;
+    color: black;
+    border: 1px solid black;
+}

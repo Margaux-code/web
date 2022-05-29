@@ -8,7 +8,6 @@ if (isset($_SESSION['name'])) {
     $text = $_POST['text'];
 
     $text_message = "<div class='msgln'><span class='chat-time'>" . date("G:i") . "</span> <b class='username'>" . $_SESSION['name'] . "</b> " . stripslashes(htmlspecialchars($text)) . "<br></div>";
-    // file_put_contents("log.html", $text_message, FILE_APPEND | LOCK_EX);
 
     $dir = "Discussion/" . $_COOKIE['Session_Id_user'] . "_log_" . $client . ".html";
     $myfile = fopen($dir, "a") or die("Impossible d'ouvrir le fichier " . $dir);
