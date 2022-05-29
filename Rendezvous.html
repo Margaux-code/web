@@ -5,7 +5,7 @@
     <title>Base</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html" />
     <meta charset="utf-8" />
-    <link rel="stylesheet"  href="RDV.css">
+    <link rel="stylesheet" href="RDV.css">
     <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_base.css">
     <link rel="stylesheet" media="screen and (max-width: 980px)" href="style_base_mobile.css">
     <script type="text/javascript" src="script_base.js"></script>
@@ -31,7 +31,7 @@
                 <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
                 <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout
                         parcourir</a></button>
-                <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
+                <button class="nav-button" id="rdv"><a class="nav-page" href="Rendezvous.html">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
                 <div class="search-box">
@@ -40,14 +40,10 @@
                             data-icon="simple-line-icons:magnifier"></i></button>
                 </div>
                 <div class="btnRegLog">
+                    <button class="reg-log" id="disco" onclick="btnDeco()"><i class="iconify" id="deco"
+                        data-icon="material-symbols:exit-to-app"></i></button>
                     <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" id="compte"
                             data-icon="uil:user"></i></button>
-                    <script>
-                        "use strict";
-
-                        // document.cookie = "user=John"; // update only cookie named 'user'
-                                // alert(document.cookie); // show all cookies
-                    </script>
                 </div>
             </div>
         </div>
@@ -57,17 +53,17 @@
         <div class="milieu" id="content">
 
             <div class="PresRDV">
-                
-                   Vous avez un créneau libre, et vous voulez faire du sport ?</br>
-                    Choisissez votre date !
+
+                Vous avez un créneau libre, et vous voulez faire du sport ?</br>
+                Choisissez votre date !
                 </br>
-                <form action="RDV_Tout_Coachs.php" method="post">                   
+                <form action="RDV_Tout_Coachs.php" method="post">
                     <input type="date" id="JRDV" name="JourChoisi" value="2022-06-02" min="2022-06-02" max="2022-06-10"
                         required>
                     <input type="submit" name="bouton" value="Trouver les rendez-vous disponible">
 
                 </form>
-           
+
             </div>
 
         </div>

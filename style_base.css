@@ -106,14 +106,19 @@ body {
     font-weight: 900;
 }
 
-.nav-page, .nav-page:hover, .nav-page:focus, .nav-page:active {
+.nav-page,
+.nav-page:hover,
+.nav-page:focus,
+.nav-page:active {
     text-decoration: none;
     color: inherit;
-} 
+}
 
 .nav-page {
-	text-decoration: none; /* remove underline */
-	color: inherit; /* remove blue */
+    text-decoration: none;
+    /* remove underline */
+    color: inherit;
+    /* remove blue */
 }
 
 .darkmode--activated .nav-button {
@@ -215,8 +220,15 @@ body {
 
 /* Bouton de co/Ins */
 .btnRegLog {
+    display: flex;
     flex: 1;
     min-width: 60px;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#deco {
+    display: none;
 }
 
 .reg-log {
@@ -319,11 +331,13 @@ body {
     isolation: isolate;
 }
 
-.darkmode--activated .copyright, .darkmode--activated .text {
+.darkmode--activated .copyright,
+.darkmode--activated .text {
     color: rgb(228, 227, 227);
 }
 
-.copyright, .text {
+.copyright,
+.text {
     color: black;
     width: 30%;
 }

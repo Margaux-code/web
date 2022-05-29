@@ -5,7 +5,6 @@
     <title>Base</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html" />
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="RDV.css">
     <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_base.css">
     <link rel="stylesheet" media="screen and (max-width: 980px)" href="style_base_mobile.css">
     <script type="text/javascript" src="script_base.js"></script>
@@ -14,7 +13,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-
 
 <body onload="testCo()">
     <div class="page" id="page">
@@ -31,7 +29,7 @@
                 <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
                 <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout
                         parcourir</a></button>
-                <button class="nav-button" id="rdv"><a class="nav-page" href="Rendezvous.html">Rendez vous</a></button>
+                <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
                 <div class="search-box">
@@ -49,57 +47,6 @@
 
         <div class="milieu" id="content">
 
-            <p class="PresRDV">Veuillez renseigner vos informations bancaires pour prendre une réservation. </br> Vous pouvez annulé à tous moment jusqu'à 72h avant et vous serez remboursé intégralement. </p>
-
-            <form id="InfoCarte" action="" method="post">
-                <div class="form-group">
-                    <label>Nom du détenteur de la carte </label>
-                    <input type="text" class="form-control" id="inputNomCarte" placeholder="Jean Dupont" required>
-                </div>
-                <div class="form-group">
-                    <label>Numéro de carte </label>
-                    <input type="number" class="form-control" id="inputNumCarte" placeholder="1234 5678 9012 3456" onkeydown='return event.keyCode !== 69' required>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label>Date d'expiration</label>
-                        <input type="date" class="form-control" id="inputDateExpiration" value="2022-06-02" min="2022-06-02" required>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputState">CVV</label>
-                        <input type="number" class="form-control" name="CVV" id="CVV" placeholder="000" required>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Reserver cette seance</button>
-            </form>
-            <?php
-            include 'SqlConDatabase.php';
-            $connect = $_COOKIE['connectionDB'];
-            if ($connect) {
-
-                if (isset($_POST["CVV"])) {
-                    if (isset($_GET['VersPaiment'])) {
-
-                        $IdCoach = $_GET['IdCoach'];
-                        $IdClient = $_GET['IdClient'];
-                        $IdTimeSlot = $_GET['IdTimeSlot'];
-                        $date = $_GET['DateRdv'];
-                        $HeureDepart = $_GET['HeureDebut'];
-
-                        $sql = "INSERT INTO table_rdv (Id_client,Id_coach,Id_time_slot,dateRDV,heure_debut,en_ligne) VALUES ('" . $IdClient . "','" . $IdCoach . "','" . $IdTimeSlot . "','" . $date . "','" . $HeureDepart . "','non')";
-                        $envoi = mysqli_query($db_handle, $sql);
-                        $sql2 = "UPDATE time_slot SET Status = REPLACE (Status, 'actif','inactif') WHERE Id_time_slot=" . $IdTimeSlot . ";";
-                        $envoi2 = mysqli_query($db_handle, $sql2);
-                        if ($envoi && $envoi2) {
-                            echo "<p style='font-family : Roboto; text-align : center;'>Le paiement a été un succes <button ><a class='nav-page' href='Accueil.html'>Retour a l'accueil</a></button>";
-                        }
-                    } else {
-                        echo "ERREUR PAIEMENT";
-                    }
-                }
-            }
-            ?>
         </div>
 
         <div class="footer" id="footer">
@@ -128,7 +75,7 @@
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
-                        <form action="Connexion.php" method="post">
+                        <form action="LoginPage.php" method="post">
                             <div class="form-input">
                                 <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
                                 <i class="input-icon uil uil-at"></i>
@@ -145,7 +92,7 @@
                     </div>
 
                     <div class="tab-pane" id="Ins">
-                        <form action="Connexion.php" method="post">
+                        <form action="LoginPage.php" method="post">
                             <div class="form-input">
                                 <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom" autocomplete="off">
                                 <i class="input-icon uil uil-user"></i>
@@ -158,7 +105,7 @@
                                 <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
-                            <input type="submit" class="btnValid" name="creer_Compte" value="Validate">
+                            <input type="submit" class="btnValid" name="validI" value="Validate">
                         </form>
                     </div>
                 </div>

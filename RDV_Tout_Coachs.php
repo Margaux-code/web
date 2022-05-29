@@ -5,7 +5,7 @@
     <title>Base</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html" />
     <meta charset="utf-8" />
-    <link rel="stylesheet"  href="RDV.css">
+    <link rel="stylesheet" href="RDV.css">
     <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_base.css">
     <link rel="stylesheet" media="screen and (max-width: 980px)" href="style_base_mobile.css">
     <script type="text/javascript" src="script_base.js"></script>
@@ -30,7 +30,7 @@
                 <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
                 <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout
                         parcourir</a></button>
-                <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
+                <button class="nav-button" id="rdv"><a class="nav-page" href="Rendezvous.html">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
                 <div class="search-box">
@@ -38,13 +38,9 @@
                     <button type="submit" id="searchbutton" class="search"><i class="iconify" id="loupe" data-icon="simple-line-icons:magnifier"></i></button>
                 </div>
                 <div class="btnRegLog">
+                <button class="reg-log" id="disco" onclick="btnDeco()"><i class="iconify" id="deco"
+                            data-icon="material-symbols:exit-to-app"></i></button>
                     <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" id="compte" data-icon="uil:user"></i></button>
-                    <script>
-                        "use strict";
-
-                        // document.cookie = "user=John"; // update only cookie named 'user'
-                        // alert(document.cookie); // show all cookies
-                    </script>
                 </div>
             </div>
         </div>

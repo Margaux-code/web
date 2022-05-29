@@ -5,7 +5,7 @@
     <title>Base</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html" />
     <meta charset="utf-8" />
-    <link rel="stylesheet"  href="RDV.css">
+    <link rel="stylesheet" href="RDV.css">
     <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_base.css">
     <link rel="stylesheet" media="screen and (max-width: 980px)" href="style_base_mobile.css">
     <script type="text/javascript" src="script_base.js"></script>
@@ -30,7 +30,7 @@
                 <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.html">Accueil</a></button>
                 <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.html">Tout
                         parcourir</a></button>
-                <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
+                <button class="nav-button" id="rdv"><a class="nav-page" href="Rendezvous.html">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
                 <div class="search-box">
@@ -38,13 +38,9 @@
                     <button type="submit" id="searchbutton" class="search"><i class="iconify" id="loupe" data-icon="simple-line-icons:magnifier"></i></button>
                 </div>
                 <div class="btnRegLog">
+                <button class="reg-log" id="disco" onclick="btnDeco()"><i class="iconify" id="deco"
+                            data-icon="material-symbols:exit-to-app"></i></button>
                     <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" id="compte" data-icon="uil:user"></i></button>
-                    <script>
-                        "use strict";
-
-                        // document.cookie = "user=John"; // update only cookie named 'user'
-                                // alert(document.cookie); // show all cookies
-                    </script>
                 </div>
             </div>
         </div>
@@ -53,79 +49,65 @@
 
         <div class="milieu" id="content">
 
-        
 
-        <div class="PresRDV"> Vous êtes sur la page de réservation d'une séance avec
-            <?php
-            include 'SqlConDatabase.php';
-            $connect = $_COOKIE['connection'];
-            $date = $_POST['date'];
-            $idCoach = $_POST['id_coach'];
-            $sql2 = "SELECT * from coach WHERE Id_coach= '" . $idCoach . "'";
-            $get2 = mysqli_query($db_handle, $sql2);
-            while ($row2 = mysqli_fetch_assoc($get2)) {
-                $NomCoach = $row2['Nom_coach'];
-                $PrenomCoach = $row2['Prenom_coach'];
-                $Domaine = $row2['Domaine_coach'];
-                echo " " . $PrenomCoach . " " . $NomCoach . " </br> Avec pour domaine : " . $Domaine . "</br> Prendre rendez vous le " . $date;
-            }
-            ?>
-        </div>
-        <table class="table table-dark">
-        <thread>
+
+
+
             <tr>
 
-            <div class="PresRDV"> Vous êtes sur la page de réservation d'une séance avec
-                <?php
-                include 'SqlConDatabase.php';
-                $connect = $_COOKIE['connection'];
-                if (isset($_POST['bouton'])) {
-                   
-                    $date = $_POST['date'];
-                    $idCoach = $_POST['id_coach'];
-                    $sql2 = "SELECT * from coach WHERE Id_coach= '" . $idCoach . "'";
-                    $get2 = mysqli_query($db_handle, $sql2);
-                    while ($row2 = mysqli_fetch_assoc($get2)) {
-                        $NomCoach = $row2['Nom_coach'];
-                        $PrenomCoach = $row2['Prenom_coach'];
-                        $Domaine = $row2['Domaine_coach'];
-                        echo " " . $PrenomCoach . " " . $NomCoach . " </br> Avec pour domaine : " . $Domaine . "</br> Prendre rendez vous le " . $date;
-                    }
-                }
-
-                ?>
-            </div>
-            <table class="table table-dark">
-                <thread>
-                    <tr>
-
-                        <th scope="col">Début de la séance </th>
-                        <th scope="col">Fin de la séance </th>
-                        <th scope="col">Reserver cette séance </th>
-                    </tr>
-                </thread>
-                <tbody>
+                <div class="PresRDV"> Vous êtes sur la page de réservation d'une séance avec
                     <?php
+                    
+                    
+                    include 'SqlConDatabase.php';
+                    $connect = $_COOKIE['connectionDB'];
+                    if (isset($_POST['bouton'])) {
 
-                    if ($connect) {
-                        if (isset($_POST['bouton'])) {
-                            $idPlanning = $_POST['id_planning'];
+                        $date = $_POST['date'];
+                        $idCoach = $_POST['id_coach'];
+                        $sql2 = "SELECT * from coach WHERE Id_coach= '" . $idCoach . "'";
+                        $get2 = mysqli_query($db_handle, $sql2);
+                        while ($row2 = mysqli_fetch_assoc($get2)) {
+                            $NomCoach = $row2['Nom_coach'];
+                            $PrenomCoach = $row2['Prenom_coach'];
+                            $Domaine = $row2['Domaine_coach'];
+                            echo " " . $PrenomCoach . " " . $NomCoach . " </br> Avec pour domaine : " . $Domaine . "</br> Prendre rendez vous le " . $date;
+                        }
+                    }
 
-                            $sql1 = "SELECT * from time_slot WHERE Id_planning= '" . $idPlanning . "'AND Status='Actif'";
-                            $get1 = mysqli_query($db_handle, $sql1);
-                            // $IdClient = $_COOKIE['Session_Id_user'];
-                            //TEST AVANT LES COOKIES
-                            $IdClient = 1;
+                    ?>
+                </div>
+                <table class="table table-dark">
+                    <thread>
+                        <tr>
 
-                            while ($row1 = mysqli_fetch_assoc($get1)) {
-                                echo "<tr>";
-                                $debut = $row1['heure_debut'];
-                                $fin = $row1['heure_fin'];
-                                $IdTimeSlot = $row1['Id_time_slot'];
+                            <th scope="col">Début de la séance </th>
+                            <th scope="col">Fin de la séance </th>
+                            <th scope="col">Reserver cette séance </th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                        <?php
 
-                                echo "<td>" . $debut . "</td>";
-                                echo "<td>" . $fin . "</td>";
-                                echo "<td> <form name='2' action ='paiment.php' method='get'>    
+                        if ($connect) {
+                            if (isset($_POST['bouton'])) {
+                                $idPlanning = $_POST['id_planning'];
+
+                                $sql1 = "SELECT * from time_slot WHERE Id_planning= '" . $idPlanning . "'AND Status='Actif'";
+                                $get1 = mysqli_query($db_handle, $sql1);
+                                // $IdClient = $_COOKIE['Session_Id_user'];
+                                //TEST AVANT LES COOKIES
+                                $IdClient = 1;
+
+                                while ($row1 = mysqli_fetch_assoc($get1)) {
+                                    echo "<tr>";
+                                    $debut = $row1['heure_debut'];
+                                    $fin = $row1['heure_fin'];
+                                    $IdTimeSlot = $row1['Id_time_slot'];
+
+                                    echo "<td>" . $debut . "</td>";
+                                    echo "<td>" . $fin . "</td>";
+                                    echo "<td> <form name='2' action ='paiment.php' method='get'>    
                     <input type='hidden' name='IdCoach' value=" . $idCoach . ">
                     <input type='hidden' name='IdClient' value='" . $IdClient . "'>
                     <input type='hidden' name='IdTimeSlot' value=" . $IdTimeSlot . ">
@@ -134,14 +116,14 @@
                 <input type='submit' name='VersPaiment'  value='Choisir ce coach'>                    
                 </form> </td>";
 
-                                echo "</tr>";
+                                    echo "</tr>";
+                                }
                             }
                         }
-                    }
 
-                    ?>
-                </tbody>
-            </table>
+                        ?>
+                    </tbody>
+                </table>
 
         </div>
 

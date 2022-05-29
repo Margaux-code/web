@@ -10,8 +10,7 @@
     <link rel="stylesheet" media="screen and (max-width: 980px)" href="style_base_mobile.css">
 
     <!-- css for the page -->
-    <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_accueil.css">
-
+    <link rel="stylesheet" href="style_accueil.css">
 
     <script type="text/javascript" src="script_base.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
@@ -46,6 +45,8 @@
                             data-icon="simple-line-icons:magnifier"></i></button>
                 </div>
                 <div class="btnRegLog">
+                    <button class="reg-log" id="disco" onclick="btnDeco()"><i class="iconify" id="deco"
+                            data-icon="material-symbols:exit-to-app"></i></button>
                     <button class="reg-log" id="reg-log" onclick="btnProfil()"><i class="iconify" id="compte"
                             data-icon="uil:user"></i></button>
                 </div>
@@ -56,41 +57,50 @@
 
         <div class="milieu" id="content">
             <div class="debut_accueil">
-
-                <h1 class="vente"><b>Omnes Sports Corp,</b> la salle de sport spécialisée dans le
-                    coaching pour réaligner votre corps et votre esprit</h1>
+                <h1 class="vente"><span class="animated-text" id="animated-text-1"><b>Omnes Sports Corp,</b> la salle de
+                        sport spécialisée
+                        dans le
+                        coaching pour réaligner votre corps et votre esprit</span></h1>
                 <div class="developpement">
-                    <h2 class="citation">“ Faire du sport un plaisir, pour apprécier la vie. ”</h2>
-                    <p class="catch_phrase"> Venez découvrir le sport sans barrières supplémentaires dans un cadre
-                        simple et
-                        conviviale pour renouer avec votre corps.</br> Venez espérer vous rendre compte de votre santé,
-                        de
-                        votre
-                        caractère et
+                    <h2 class="citation"><span class="animated-text" id="animated-text-2">“ Faire du sport un plaisir,
+                            pour apprécier la vie.
+                            ”</span></h2>
+                    <p class="catch_phrase"><span class="animated-text" id="animated-text-3"> Venez découvrir le sport
+                            sans barrières
+                            supplémentaires dans un cadre
+                            simple et
+                            conviviale pour renouer avec votre corps.</br> Venez espérer vous rendre compte de votre
+                            santé,
+                            de
+                            votre
+                            caractère et
 
-                        de votre corps.</br> Venez évaluer votre seul régime de sport. Venez à travers l'idée de se
-                        match à
-                        match
-                        pour exercer et renouer vos
+                            de votre corps.</br> Venez évaluer votre seul régime de sport. Venez à travers l'idée de se
+                            match à
+                            match
+                            pour exercer et renouer vos
 
-                        partenaires, entre-temps.</br> Nos coach sportifs sont ici pour vous aider tout au long de votre
-                        parcours, quelque soit votre niveau.</br>
-                        Vous pouvez aller facilement vers du troisième sport (en offerts caractérisés par la
-                        discipline), en
-                        raison de la gamme
+                            partenaires, entre-temps.</br> Nos coach sportifs sont ici pour vous aider tout au long de
+                            votre
+                            parcours, quelque soit votre niveau.</br>
+                            Vous pouvez aller facilement vers du troisième sport (en offerts caractérisés par la
+                            discipline), en
+                            raison de la gamme
 
-                        amplement dédiée.</br> Vous pouvez également aller vers la douleur et l'âme, le sport qui nous
-                        donne
-                        un
+                            amplement dédiée.</br> Vous pouvez également aller vers la douleur et l'âme, le sport qui
+                            nous
+                            donne
+                            un
 
-                        avantage d'espérer et d'évaluer, </br> Le sport qui nous donne la liberté de penser d'avoir un
-                        objet
-                        grand
+                            avantage d'espérer et d'évaluer, </br> Le sport qui nous donne la liberté de penser d'avoir
+                            un
+                            objet
+                            grand
 
-                        sans réserve.</br>
+                            sans réserve.</br>
 
 
-
+                        </span>
                     </p>
 
                 </div>
@@ -125,9 +135,45 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
+                <div class="map-animation">
+                    <div class="audio">
+                        <audio id="JuisLaCarte" loop>
+                            <source src="Sound/JuisLaCarte.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
+                    <h3 id="pres_carte">Vous voulez nous rejoindre ?</h3>
+                    <div class="bouncing-text">
+                        <div class="s">S</div>
+                        <div class="u">u</div>
+                        <div class="i">i</div>
+                        <div class="v">v</div>
+                        <div class="e">e</div>
+                        <div class="z">z</div>
+                        <div class="space">..</div>
+                        <div class="l">l</div>
+                        <div class="a">a</div>
+                        <div class="space">..</div>
+                        <div class="c">c</div>
+                        <div class="a-2">a</div>
+                        <div class="r">r</div>
+                        <div class="t">t</div>
+                        <div class="e-2">e</div>
+                        <div class="space">..</div>
+                        <div class="ex">!</div>
+                    </div>
 
+                    <div class="loop-wrapper">
+                        <div class="mountain"></div>
+                        <div class="hill"></div>
+                        <div class="tree"></div>
+                        <div class="tree"></div>
+                        <div class="tree"></div>
+                        <div class="rock"></div>
+                        <div class="truck"></div>
+                        <div class="wheels"></div>
+                    </div>
+                </div>
 
-                <h3 id="pres_carte">Vous voulez nous rejoindre ? Suivez la carte ! </h3>
                 <div id="map" class="mt-3 mb-5" style=" height:400px; ">
 
                     <script>
@@ -188,30 +234,45 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action="presentation_coach.php" method="post">
-                            <img src="Image/Profil_profs/1.jpg" alt="Nature" style="width:70%">
+                        <form action="presentation_coach.php" class="formCoach" method="post">
+                            <div class="cardImage">
+                                <img src="Image/Profil_profs/1.jpg" class="ppCoach" alt="Lights">
+                            </div>
+                            <div class="inner">
+                                <div class="gradient"></div>
+                            </div>
                             <div class="caption">
-                                <input type="submit" name="1" value="Leo Martin">
+                                <input type="submit" class="captionBtn" name="coach1" value="Leo Martin">
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action="presentation_coach.php" method="post">
-                            <img src="Image/Profil_profs/2.jpg" alt="Nature" style="width:70%">
+                        <form action="presentation_coach.php" class="formCoach" method="post">
+                            <div class="cardImage">
+                                <img src="Image/Profil_profs/2.jpg" class="ppCoach" alt="Lights">
+                            </div>
+                            <div class="inner">
+                                <div class="gradient"></div>
+                            </div>
                             <div class="caption">
-                                <input type="submit" name="coach2" value="Leo Martin">
+                                <input type="submit" class="captionBtn" name="coach2" value="Leo Martin">
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action="presentation_coach.php" method="post">
-                            <img src="Image/Profil_profs/3.jpg" alt="Fjords" style="width:70%">
+                        <form action="presentation_coach.php" class="formCoach" method="post">
+                            <div class="cardImage">
+                                <img src="Image/Profil_profs/3.jpg" class="ppCoach" alt="Lights">
+                            </div>
+                            <div class="inner">
+                                <div class="gradient"></div>
+                            </div>
                             <div class="caption">
-                                <input type="submit" name="coach3" value="Gabriel Dubois">
+                                <input type="submit" class="captionBtn" name="coach3" value="Gabriel Dubois">
 
                             </div>
                         </form>
@@ -219,41 +280,30 @@
                 </div>
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action="presentation_coach.php" method="post">
-                            <img src="Image/Profil_profs/4.jpg" alt="Lights" style="width:70%;">
+                        <form action="presentation_coach.php" class="formCoach" method="post">
+                            <div class="cardImage">
+                                <img src="Image/Profil_profs/4.jpg" class="ppCoach" alt="Lights">
+                            </div>
+                            <div class="inner">
+                                <div class="gradient"></div>
+                            </div>
                             <div class="caption">
-                                <input type="submit" name="coach4" value="Jade Bonnet">
+                                <input type="submit" class="captionBtn" name="coach4" value="Jade Bonnet">
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action="presentation_coach.php" method="post">
-                            <img src="Image/Profil_profs/5.jpg" alt="Lights" style="width:70%;">
-                            <div class="caption">
-                                <input type="submit" name="coach5" value="Julia Legrand">
+                        <form action="presentation_coach.php" class="formCoach" method="post">
+                            <div class="cardImage">
+                                <img src="Image/Profil_profs/5.jpg" class="ppCoach" alt="Lights">
                             </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="thumbnail">
-                        <form action="presentation_coach.php" method="post">
-                            <img src="Image/Profil_profs/6.jpg" alt="Lights" style="width:70%;">
-                            <div class="caption">
-                                <input type="submit" name="coach6" value="Louise Garnier">
+                            <div class="inner">
+                                <div class="gradient"></div>
                             </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="thumbnail">
-                        <form action="presentation_coach.php" method="post">
-                            <img src="Image/Profil_profs/7.jpg" alt="Lights" style="width:70%;">
                             <div class="caption">
-                                <input type="submit" name="coach7" value="Arthur Blanc">
+                                <input type="submit" class="captionBtn" name="coach5" value="Julia Legrand">
                             </div>
                         </form>
                     </div>
@@ -261,10 +311,46 @@
 
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action="presentation_coach.php" method="post">
-                            <img src="Image/Profil_profs/8.jpg" alt="Lights" style="width:70%;">
+                        <form action="presentation_coach.php" class="formCoach" method="post">
+                            <div class="cardImage">
+                                <img src="Image/Profil_profs/6.jpg" class="ppCoach" alt="Lights">
+                            </div>
+                            <div class="inner">
+                                <div class="gradient"></div>
+                            </div>
                             <div class="caption">
-                                <input type="submit" name="coach8" value="Leon Robin">
+                                <input type="submit" class="captionBtn" name="coach6" value="Louise Garnier">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <form action="presentation_coach.php" class="formCoach" method="post">
+                            <div class="cardImage">
+                                <img src="Image/Profil_profs/7.jpg" class="ppCoach" alt="Lights">
+                            </div>
+                            <div class="inner">
+                                <div class="gradient"></div>
+                            </div>
+                            <div class="caption">
+                                <input type="submit" class="captionBtn" name="coach7" value="Arthur Blanc">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <form action="presentation_coach.php" class="formCoach" method="post">
+                            <div class="cardImage">
+                                <img src="Image/Profil_profs/8.jpg" class="ppCoach" alt="Lights">
+                            </div>
+                            <div class="inner">
+                                <div class="gradient"></div>
+                            </div>
+                            <div class="caption">
+                                <input type="submit" class="captionBtn" name="coach8" value="Leon Robin">
                             </div>
                         </form>
                     </div>
@@ -273,10 +359,15 @@
 
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action="presentation_coach.php" method="post">
-                            <img src="Image/Profil_profs/9.jpg" alt="Lights" style="width:70%;">
+                        <form action="presentation_coach.php" class="formCoach" method="post">
+                            <div class="cardImage">
+                                <img src="Image/Profil_profs/9.jpg" class="ppCoach" alt="Lights">
+                            </div>
+                            <div class="inner">
+                                <div class="gradient"></div>
+                            </div>
                             <div class="caption">
-                                <input type="submit" name="coach9" value="Julia Legrand">
+                                <input type="submit" class="captionBtn" name="coach9" value="Julia Legrand">
                             </div>
                         </form>
                     </div>
@@ -285,10 +376,15 @@
 
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action="presentation_coach.php" method="post">
-                            <img src="Image/Profil_profs/10.jpg" alt="Lights" style="width:70%;">
+                        <form action="presentation_coach.php" class="formCoach" method="post">
+                            <div class="cardImage">
+                                <img src="Image/Profil_profs/10.jpg" class="ppCoach" alt="Lights">
+                            </div>
+                            <div class="inner">
+                                <div class="gradient"></div>
+                            </div>
                             <div class="caption">
-                                <input type="submit" name="coach10" value="Ines Boyer">
+                                <input type="submit" class="captionBtn" name="coach10" value="Ines Boyer">
                             </div>
                         </form>
                     </div>
@@ -296,10 +392,15 @@
 
                 <div class="col-md-3">
                     <div class="thumbnail">
-                        <form action="presentation_coach.php" method="post">
-                            <img src="Image/Profil_profs/11.jpg" alt="Lights" style="width:70%;">
+                        <form action="presentation_coach.php" class="formCoach" method="post">
+                            <div class="cardImage">
+                                <img src="Image/Profil_profs/11.jpg" class="ppCoach" alt="Lights">
+                            </div>
+                            <div class="inner">
+                                <div class="gradient"></div>
+                            </div>
                             <div class="caption">
-                                <input type="submit" name="coach11" value="Martin Bertrand">
+                                <input type="submit" class="captionBtn" name="coach11" value="Martin Bertrand">
                             </div>
                         </form>
                     </div>
@@ -325,7 +426,8 @@
             <div id="img-CoIns"><img id="imgCoIns" src="Image/marbreblanc.jpg" width="100%" height="100%"></div>
             <div class="CoIns">
                 <div id="closeForm-container">
-                    <button class="closeForm"><i class="iconify" id="close" data-icon="eva:close-circle-outline" onclick="closeForm()"></i></button>
+                    <button class="closeForm"><i class="iconify" id="close" data-icon="eva:close-circle-outline"
+                            onclick="closeForm()"></i></button>
                 </div>
 
                 <nav class="nav nav-tabs" id="myTab">
@@ -400,6 +502,7 @@
         darkmode.showWidget();
     </script>
 
+    <script type="text/javascript" src="script_accueil.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

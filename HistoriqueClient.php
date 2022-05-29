@@ -21,7 +21,7 @@
 
 </head>
 
-<body>
+<body onload="testCo()">
     <div class="page" id="page">
         <div class="haut">
             <div class="logo_slogan">
@@ -43,13 +43,8 @@
                     <button type="submit" id="searchbutton" class="search"><i class="iconify" id="loupe" data-icon="simple-line-icons:magnifier"></i></button>
                 </div>
                 <div class="btnRegLog">
+                    <button class="reg-log" id="disco" onclick="btnDeco()"><i class="iconify" id="deco" data-icon="material-symbols:exit-to-app"></i></button>
                     <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" id="compte" data-icon="uil:user"></i></button>
-                    <script>
-                        "use strict";
-
-                        document.cookie = "user=John"; // update only cookie named 'user'
-                        // alert(document.cookie); // show all cookies
-                    </script>
                 </div>
             </div>
         </div>
@@ -93,7 +88,7 @@
                             <label class="form-label" for="addresse">Adresse :</label>
                             <div class="relative">
                                 <input class="form-control" id="addresse" type="text" required="" placeholder="Veuillez indiquer le numéro et le nom de votre Adresse">
-                                <i class="fa fa-building"><i class="iconify" data-icon="bx:home-alt"></i></i>  
+                                <i class="fa fa-building"><i class="iconify" data-icon="bx:home-alt"></i></i>
                             </div>
                         </div>
                         <div class="form-group">
@@ -107,7 +102,7 @@
                             <label class="form-label" for="postalCode">Code Postal :</label>
                             <div class="relative">
                                 <input class="form-control" id="postalCode" type="number" required="" placeholder="Veuillez indiquer votre code Postal">
-                                <i class="fa fa-building"><i class="iconify" data-icon="map:postal-code-prefix"></i></i> 
+                                <i class="fa fa-building"><i class="iconify" data-icon="map:postal-code-prefix"></i></i>
                             </div>
                         </div>
                         <div class="form-group">
@@ -128,7 +123,7 @@
                             <label class="form-label" for="email">Email :</label>
                             <div class="relative">
                                 <input class="form-control" id="email" type="email" required="" placeholder="Rentrez votre Adresse Mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-                                <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>  
+                                <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>
                             </div>
                         </div>
                         <div class="form-group">
@@ -157,8 +152,7 @@
                     echo "</tr>";
 
                     //afficher le resultat
-                    while ($data1 = mysqli_fetch_assoc($result1)) 
-                    {
+                    while ($data1 = mysqli_fetch_assoc($result1)) {
                         echo "<tr>";
                         echo "<td class='table_td'>" . $data1['Prenom_coach'] . "</td>";
                         echo "<td class='table_td'>" . $data1['Nom_coach'] . "</td>";
@@ -170,8 +164,8 @@
                     }
                     echo "</table>";
                     ?>
-                </div> 
-            </div> 
+                </div>
+            </div>
         </div>
 
         <div class="footer" id="footer">
@@ -202,13 +196,11 @@
                     <div class="tab-pane active" id="Co">
                         <form action="Connexion.php" method="post">
                             <div class="form-input">
-                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
-                                    autocomplete="off">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input mt-2">
-                                <input type="password" name="password" class="form-style"
-                                    placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
+                                <input type="password" name="password" class="form-style" placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
                             <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">
@@ -221,18 +213,15 @@
                     <div class="tab-pane" id="Ins">
                         <form action="Connexion.php" method="post">
                             <div class="form-input">
-                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
-                                    autocomplete="off">
+                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom" autocomplete="off">
                                 <i class="input-icon uil uil-user"></i>
                             </div>
                             <div class="form-input">
-                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
-                                    autocomplete="off">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input">
-                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe"
-                                    id="mdp" autocomplete="off">
+                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
                             <input type="submit" class="btnValid" name="creer_Compte" value="Validate">

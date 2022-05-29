@@ -37,16 +37,21 @@ function closeForm() {
 
 function testCo() {
   let co = getCookie("connection");
+  let btnDeco = document.getElementById("deco");
 
   if (co == true) {
-    alert("Vous êtes connecté");
+    console.log("User connection succed");
+    btnDeco.style.display = "inline-block";
   }
-
+  else {
+    btnDeco.style.display = "none";
+  }
 }
 
 function btnProfil() {
   let co = getCookie("connection");
   let who = getCookie("Session_type_user");
+  console.log(btnDeco)
 
   if (co == true) {
     if (who == 'client') {
@@ -55,10 +60,19 @@ function btnProfil() {
       window.location = 'ProfilCoach.php';
     } else if (who == 'admin') {
       window.location = 'ProfilAdmin.php';
-    }else {
+    } else {
+      alert("Une erreure est survenue. <br> Veuillez vous reconnecter");
+      window.location = 'accueil.html';
     }
   }
   else {
     openForm();
   }
+}
+
+function btnDeco() {
+  setCookie('Session_name_user', null, 0);
+  setCookie('Session_type_user', null, 0);
+  setCookie('Session_Id_user', null, 0);
+  setCookie('connection', null, 0);
 }
