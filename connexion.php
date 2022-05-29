@@ -160,5 +160,3 @@ if (isset($_POST["ModifierInfosAdmin"])) {
     }
 
 }
-
-?>
