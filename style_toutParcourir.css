@@ -173,3 +173,15 @@
         text-shadow: 2px 2px 3px rgb(131, 131, 131);
     }
 }
+
+.text-container p > span{
+    overflow: hidden;
+}
+
+.text-container h2 > span{
+    overflow: hidden;
+}
+
+.text-container h3 > span{
+    overflow: hidden;
+}
