@@ -10,7 +10,6 @@ setcookie('Id_rdv_coach', false, 0, "", "", false, false);
 //     $username = $_POST["username"];
 //     $password = $_POST["password"];
 
-
 {
     $sql_RechercheClient = "SELECT * from client WHERE Id_client = " . $_COOKIE["Session_Id_user"];
     $result_Client = mysqli_query($db_handle, $sql_RechercheClient);
@@ -69,7 +68,7 @@ if (isset($_POST["Modifier"])) {
 
 </head>
 
-<body>
+<body onload="testCo()">>
     <div class="page" id="page">
         <div class="haut">
             <div class="logo_slogan">
@@ -86,9 +85,30 @@ if (isset($_POST["Modifier"])) {
                 <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
-                <div class="search-box">
-                    <input type="text" name="input" id="search-bar" class="search" placeholder="Recherche">
-                    <button type="submit" id="searchbutton" class="search"><i class="iconify" id="loupe" data-icon="simple-line-icons:magnifier"></i></button>
+            <div class="search-box">
+                    <input type="text" id="search" placeholder="Rechercher..." />
+                    <div id="display"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $("#search").keyup(function() {
+                                var name = $('#search').val();
+                                if (name == "") {
+                                    $("#display").html("");
+                                } else {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "ajax.php",
+                                        data: {
+                                            search: name
+                                        },
+                                        success: function(html) {
+                                            $("#display").html(html).show();
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    </script>
                 </div>
                 <div class="btnRegLog">
                     <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" id="compte" data-icon="uil:user"></i></button>
