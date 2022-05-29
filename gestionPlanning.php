@@ -2,7 +2,7 @@
 
     include 'SqlConDatabase.php';
 
-$connect = $_COOKIE['connection'];
+$connect = $_COOKIE['connectionDB'];
 
  
 if($connect)
