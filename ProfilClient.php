@@ -211,6 +211,7 @@ if (isset($_POST["Modifier"])) {
                             echo "<td class='button_plus'>
                                     <input type='button' onclick='find_id_rdv(".$data1['Id_RDV'].")' name='go_page_rdv' value='Infos'/>
                             </td>";
+                            echo "<td class='button_plus'><form type='action='' methode='post''><input type='submit' name='bouton' value='+ Infos'></form></td>";
                             echo "</tr>";
                         }
                         echo "</table>";
