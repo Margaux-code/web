@@ -182,3 +182,116 @@ if (isset($_POST["ModifierInfosAdmin"])) {
         echo "Problème de modification des données!";
     }
 }
+
+if(isset($_POST["creer_Compte"]))
+{
+    include 'db_Connection.php';
+
+    $lastname = $_POST['nom'];
+    $email = $_POST['mail'];
+    $mdp = $_POST['mdp'];
+
+    $sql = "INSERT INTO client (Nom_client, Email_client, MDP_client) 
+            VALUES ('$lastname', '$email','$mdp')";
+    $res = mysqli_query($db_handle, $sql);
+
+    header("Location: ProfilClient.php");
+
+    if ($res)
+    {
+        echo "Vous êtes Inscrit avec succès!";
+    }
+    else
+    {
+        echo "Problème d'inscription!";
+    }
+}
+
+if (isset($_POST["ModifierInfosClients"])) {
+
+    include 'db_Connection.php';
+
+//     // $sql = "INSERT INTO client (Nom_client, Prenom_client, Email_client, Tel_client, Adresse_client, Ville_client, CodePostal_client, MDP_client) 
+//     //         VALUES ('$Nom', '$Prenom', '$Email', '$Tel', '$Adresse', '$Ville', '$CodePostal', '$MDP') WHERE Id_client = '1'";  //" . $id_client . "
+    
+    $sql = "UPDATE client 
+            SET Nom_client='$Nom', Prenom_client='$Prenom', Email_client='$Email',Tel_client='$Tel', Adresse_client='$Adresse', Ville_client='$Ville', CodePostal_client='$CodePostal', MDP_client='$MDP'
+            WHERE Id_client = ".$_COOKIE["Session_Id_user"];  //" . $id_client . "
+    $res = mysqli_query($db_handle, $sql);
+    header("Location: ProfilClient.php");
+
+    if ($res)
+    {
+        echo "Données modifiées avec succès!";
+    }
+    else
+    {
+        echo "Problème de modification des données!";
+    }
+
+}
+
+// INSERER LES NOUVELLES DONNEES DU COACH DANS LA BDD
+if (isset($_POST["AjouterInfosCoach"])) {
+
+    $Nom = $_POST['Nom'];
+    $Prenom = $_POST['Prenom'];
+    $Email = $_POST['Email'];
+    $Tel = $_POST['Tel'];
+    $Domaine = $_POST['Domaine'];
+    $Bureau = $_POST['Bureau'];
+    $MDP = $_POST['MDP'];
+    header("Location: ProfilAdmin.php");
+
+    $sql = "INSERT INTO coach (Nom_coach, Prenom_coach, Email_coach, Tel_coach, Domaine_coach, Bureau_coach, MDP_coach) 
+            VALUES ('$Nom', '$Prenom', '$Email', '$Tel', '$Domaine', '$Bureau', '$MDP')";
+    $res = mysqli_query($db_handle, $sql);
+
+}
+
+// MET A JOUR LES NOUVELLES DONNEES DE L'ADMIN DANS LA BDD
+if (isset($_POST["ModifierInfosAdmin"])) {
+
+    // $sql = "INSERT INTO client (Nom_client, Prenom_client, Email_client, Tel_client, Adresse_client, Ville_client, CodePostal_client, MDP_client) 
+    //         VALUES ('$Nom', '$Prenom', '$Email', '$Tel', '$Adresse', '$Ville', '$CodePostal', '$MDP') WHERE Id_client = '1'";  //" . $id_client . "
+    
+    $sql = "UPDATE administrateur 
+            SET Login_admin='$Login_admin', MPD_admin='$MDP_admin'
+            WHERE Id_admin = ".$_COOKIE["Session_Id_user"];  //" . $id_client . "
+    $res = mysqli_query($db_handle, $sql);
+    header("Location: ProfilAdmin.php");
+
+    if ($res)
+    {
+        echo "Données modifiées avec succès!";
+    }
+    else
+    {
+        echo "Problème de modification des données!";
+    }
+
+}
+
+// SUPPRIMER LES DONNEES DU COACH DANS LA BASE DE DONNEES
+if (isset($_POST["SupprimInfosCoach"])) {
+
+    $ID_COACH = $_POST['go_page_rdv'];
+
+    // $sql = "INSERT INTO client (Nom_client, Prenom_client, Email_client, Tel_client, Adresse_client, Ville_client, CodePostal_client, MDP_client) 
+    //         VALUES ('$Nom', '$Prenom', '$Email', '$Tel', '$Adresse', '$Ville', '$CodePostal', '$MDP') WHERE Id_client = '1'";  //" . $id_client . "
+    $sql_Supr_RDV = "DELETE FROM table_rdv WHERE Id_coach=".$ID_COACH;
+
+    header("Location: ProfilAdmin.php");
+    if ($res)
+    {
+        echo "Données supprimées avec succès!";
+    }
+    else
+    {
+        echo "Problème de supression des données!";
+    }
+
+}
+
+
+

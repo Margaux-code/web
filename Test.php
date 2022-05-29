@@ -38,7 +38,7 @@ if (isset($_POST["Modifier"])) {
 
     $sql = "INSERT INTO coach "
 
-    if($res)
+    if ($res)
     {
         echo "Données modifiées avec succès!";
     }

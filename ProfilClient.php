@@ -3,7 +3,7 @@
 <?php
 
 include 'SqlConDatabase.php';
-
+setcookie('Id_rdv_coach', false, 0, "", "", false, false);
 // ***************************** FORM SE CONNECTER PHP ***********************
 
 // if (isset($_POST["Se_Connecter"])) {
@@ -50,7 +50,7 @@ if (isset($_POST["Modifier"])) {
 <html lang="fr">
 
 <head>
-    <title>Base</title>
+    <title>Compte Client</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html; charset=utf-8" />
     <!-- main css -->
     <link rel="stylesheet" href="style_base.css">
@@ -207,7 +207,7 @@ if (isset($_POST["Modifier"])) {
                         <?php
                         include 'SqlConDatabase.php';
                         //$sql1 = "SELECT Nom_coach,Domaine_coach, Date_consultation, Heure_consultation  from coach, consultation NATURAL JOIN consultation WHERE Id_client = '4'";
-                        $sql1 = "SELECT Nom_coach, Prenom_coach, Domaine_coach, Date_consultation, Heure_consultation  from coach A, consultation B  WHERE B.Id_client = " . $_COOKIE["Session_Id_user"] . " AND A.Id_coach = B.Id_coach";
+                        $sql1 = "SELECT Id_RDV, A.Nom_coach, Prenom_coach, Domaine_coach, dateRDV, heure_debut  from coach A, table_rdv B  WHERE B.Id_client = " . $_COOKIE["Session_Id_user"] . " AND A.Id_coach = B.Id_coach";
                         $result1 = mysqli_query($db_handle, $sql1);
                         echo "<table>";
                         echo "<tr>";
@@ -225,8 +225,12 @@ if (isset($_POST["Modifier"])) {
                             echo "<td class='table_td'>" . $data1['Prenom_coach'] . "</td>";
                             echo "<td class='table_td'>" . $data1['Nom_coach'] . "</td>";
                             echo "<td class='table_td'>" . $data1['Domaine_coach'] . "</td>";
-                            echo "<td class='table_td'>" . $data1['Date_consultation'] . "</td>";
-                            echo "<td class='table_td'>" . $data1['Heure_consultation'] . "</td>";
+                            echo "<td class='table_td'>" . $data1['dateRDV'] . "</td>";
+                            echo "<td class='table_td'>" . $data1['heure_debut'] . "</td>";
+                            //echo "<td class='button_plus'><form action='MonRDV.php' methode='post''><input type='submit' name='go_page_rdv' value='" . $data1['Id_RDV'] . "'></form></td>";
+                            echo "<td class='button_plus'>
+                                    <input type='button' onclick='find_id_rdv(".$data1['Id_RDV'].")' name='go_page_rdv' value='Infos'/>
+                            </td>";
                             echo "<td class='button_plus'><form type='action='' methode='post''><input type='submit' name='bouton' value='+ Infos'></form></td>";
                             echo "</tr>";
                         }

@@ -248,13 +248,7 @@ if ($_COOKIE["connectionDB"]) {
                     </table>
                 </div>
                 <div class="cv_coach">
-                    Vous êtes un administrateur ?
-                    <form action="page_admin.php" method="post">
-
-                        <input type="submit" name="admin" value="Voir page admin">
-
-                    </form>
-
+                   
                 </div>
             </div>
 

@@ -77,8 +77,8 @@
 
                 <div class="PresRDV"> Vous êtes sur la page de réservation d'une séance avec
                     <?php
-
-
+                    
+                    
                     include 'SqlConDatabase.php';
                     $connect = $_COOKIE['connectionDB'];
                     if (isset($_POST['bouton'])) {
@@ -115,9 +115,9 @@
 
                                 $sql1 = "SELECT * from time_slot WHERE Id_planning= '" . $idPlanning . "'AND Status='Actif'";
                                 $get1 = mysqli_query($db_handle, $sql1);
-                                // $IdClient = $_COOKIE['Session_Id_user'];
+                                 $IdClient = $_COOKIE['Session_Id_user'];
                                 //TEST AVANT LES COOKIES
-                                $IdClient = 1;
+                               // $IdClient = 1;
 
                                 while ($row1 = mysqli_fetch_assoc($get1)) {
                                     echo "<tr>";
@@ -175,11 +175,13 @@
                     <div class="tab-pane active" id="Co">
                         <form action="Connexion.php" method="post">
                             <div class="form-input">
-                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input mt-2">
-                                <input type="password" name="password" class="form-style" placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
+                                <input type="password" name="password" class="form-style"
+                                    placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
                             <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">
@@ -192,15 +194,18 @@
                     <div class="tab-pane" id="Ins">
                         <form action="Connexion.php" method="post">
                             <div class="form-input">
-                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom" autocomplete="off">
+                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
+                                    autocomplete="off">
                                 <i class="input-icon uil uil-user"></i>
                             </div>
                             <div class="form-input">
-                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail" autocomplete="off">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
                                 <i class="input-icon uil uil-at"></i>
                             </div>
                             <div class="form-input">
-                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe" id="mdp" autocomplete="off">
+                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe"
+                                    id="mdp" autocomplete="off">
                                 <i class="input-icon uil uil-lock-alt"></i>
                             </div>
                             <input type="submit" class="btnValid" name="creer_Compte" value="Validate">

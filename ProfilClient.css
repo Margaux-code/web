@@ -115,7 +115,6 @@
 .infos_container {
     max-width: calc(100vw - 40px);
     width: 50%;
-    height: 70%;
     background: white;
     border-radius: 8px;
     margin: 3% auto;
