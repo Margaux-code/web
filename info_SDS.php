@@ -42,7 +42,7 @@
                 <button class="nav-button" id="rdv"><a class="nav-page" href="Rendezvous.html">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
-            <div class="search-box">
+                <div class="search-box">
                     <input type="text" id="search" placeholder="Rechercher..." />
                     <div id="display"></div>
                     <script type="text/javascript">
@@ -212,7 +212,7 @@
                                     <div class="price-card">
                                         <div class="face face1">
                                             <div class="content">
-                                                <div class="icon">
+                                                <div class="icon" id="classic">
                                                     <i class="icon-abo iconify" id="icon-vip" data-icon="fa6-solid:crown"></i>
                                                 </div>
                                                 <h3>CLASSIQUE</h3>
@@ -239,7 +239,7 @@
                                     <div class="price-card">
                                         <div class="face face1">
                                             <div class="content">
-                                                <div class="icon">
+                                                <div class="icon" id="free">
                                                     <i class="icon-abo iconify" id="icon-free" data-icon="foundation:unlink"></i>
                                                 </div>
                                                 <h3>SANS ENGAGEMENT</h3>
@@ -266,7 +266,7 @@
                                     <div class="price-card">
                                         <div class="face face1">
                                             <div class="content">
-                                                <div class="icon">
+                                                <div class="icon" id="student">
                                                     <i class="icon-abo iconify" id="icon-student" data-icon="icons8:student"></i>
                                                 </div>
                                                 <h3>ETUDIANT</h3>
@@ -293,7 +293,7 @@
                                     <div class="price-card">
                                         <div class="face face1">
                                             <div class="content">
-                                                <div class="icon">
+                                                <div class="icon" id="18">
                                                     <i class="icon-abo iconify" id="icon-young" data-icon="fa6-solid:children"></i>
                                                 </div>
                                                 <h3>16-18 ANS</h3>
@@ -321,6 +321,13 @@
                             </div>
                         </div>
                     </div>
+                    <script>
+                        $(".icon").click(function() {
+                            var id = $(this).attr("id");
+                            alert(id);
+                            window.location ='paiment.html';
+                        });
+                    </script>
                 </div>
                 <div class="tab-pane fade" id="v-pills-alim">
                     <div class="Alimentation">

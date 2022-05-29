@@ -45,7 +45,7 @@ include 'SqlConDatabase.php';
 
 </head>
 
-<body onload="testCo()">>
+<body onload="testCo()">
     <div class="page" id="page">
         <div class="haut">
             <div class="logo_slogan">

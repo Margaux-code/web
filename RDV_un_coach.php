@@ -115,7 +115,7 @@
 
                                 $sql1 = "SELECT * from time_slot WHERE Id_planning= '" . $idPlanning . "'AND Status='Actif'";
                                 $get1 = mysqli_query($db_handle, $sql1);
-                                 $IdClient = $_COOKIE['Session_Id_user'];
+                                $IdClient = $_COOKIE['Session_Id_user'];
                                 //TEST AVANT LES COOKIES
                                // $IdClient = 1;
 

@@ -1,5 +1,31 @@
 <!-- ___________________________ CODE PHP _____________________________ -->
 
+
+
+<!--____________________________ CODE HTML _____________________________-->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Compte Client</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html; charset=utf-8" />
+    <!-- main css -->
+    <link rel="stylesheet" href="style_base.css">
+    <link rel="stylesheet" media="screen and (min-width: 981px)" href="ProfilClient.css">
+
+    <!-- css for different device -->
+    <link rel="stylesheet" media="screen and (max-width: 980px)" href="ProfilClient_mobile.css">
+
+    <script type="text/javascript" src="ProfilClient.js"></script>
+    <script type="text/javascript" src="script_base.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
 <?php
 
 include 'SqlConDatabase.php';
@@ -27,48 +53,12 @@ setcookie('Id_rdv_coach', false, 0, "", "", false, false);
 }
 
 
-// MET A JOUR LES NOUVELLES DONNEES DU CLIENT DANS LA BDD
-if (isset($_POST["Modifier"])) {
-    $sql = "UPDATE client 
-            SET Nom_client='$Nom', Prenom_client='$Prenom', Email_client='$Email',Tel_client='$Tel', Adresse_client='$Adresse', Ville_client='$Ville', CodePostal_client='$CodePostal', MDP_client='$MDP'
-            WHERE Id_client = '1'";  //" . $id_client . "
-    $res = mysqli_query($db_handle, $sql);
 
-    if ($res) {
-        echo "Données modifiées avec succès!";
-    } else {
-        echo "Problème de modification des données!";
-    }
-}
+// MET A JOUR LES NOUVELLES DONNEES DU CLIENT DANS LA BDD
 
 ?>
 
-
-<!--____________________________ CODE HTML _____________________________-->
-
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <title>Compte Client</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html; charset=utf-8" />
-    <!-- main css -->
-    <link rel="stylesheet" href="style_base.css">
-    <link rel="stylesheet" media="screen and (min-width: 981px)" href="ProfilClient.css">
-
-    <!-- css for different device -->
-    <link rel="stylesheet" media="screen and (max-width: 980px)" href="ProfilClient_mobile.css">
-
-    <script type="text/javascript" src="ProfilClient.js"></script>
-    <script type="text/javascript" src="script_base.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-</head>
-
-<body onload="testCo()">>
+<body onload="testCo()">
     <div class="page" id="page">
         <div class="haut">
             <div class="logo_slogan">
@@ -85,7 +75,7 @@ if (isset($_POST["Modifier"])) {
                 <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
-            <div class="search-box">
+                <div class="search-box">
                     <input type="text" id="search" placeholder="Rechercher..." />
                     <div id="display"></div>
                     <script type="text/javascript">
@@ -129,39 +119,39 @@ if (isset($_POST["Modifier"])) {
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="v-pills-Infos">
                     <div class="infos_container">
-                        <form action="Connexion.php" method="post">
+                        <form action="" method="POST">
                             <div class="form-group">
                                 <label class="form-label" for="name">Nom :</label>
                                 <div class="relative">
-                                    <?php echo "<input class='form-control' id='name' type='text' pattern='[a-zA-Z\s]+' required='' autofocus='' placeholder='Rentrez votre Nom' value='$Nom'>"; ?>
+                                    <?php echo "<input class='form-control' id='name' type='text' pattern='[a-zA-Z\s]+' required='' autofocus='' placeholder='Rentrez votre Nom' value='$Nom' name='nom'>"; ?>
                                     <i class="fa fa-building"><i class="iconify" data-icon="bx:user"></i></i>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="firstname">Prénom :</label>
                                 <div class="relative">
-                                    <?php echo "<input class='form-control' id='firstname' type='text' pattern='[a-zA-Z\s]+' required='' autofocus='' placeholder='Rentrez votre Prénom' value='$Prenom'>"; ?>
+                                    <?php echo "<input class='form-control' id='firstname' type='text' pattern='[a-zA-Z\s]+' required='' autofocus='' placeholder='Rentrez votre Prénom' value='$Prenom' name='prenom'>"; ?>
                                     <i class="fa fa-building"><i class="iconify" data-icon="bx:user"></i></i>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="addresse">Adresse :</label>
                                 <div class="relative">
-                                    <?php echo "<input class='form-control' id='addresse' type='text' required='' autofocus='' placeholder='Veuillez indiquer le numéro et le nom de votre Adresse' value='$Adresse'>"; ?>
+                                    <?php echo "<input class='form-control' id='addresse' type='text' required='' autofocus='' placeholder='Veuillez indiquer le numéro et le nom de votre Adresse' value='$Adresse' name='adresse'>"; ?>
                                     <i class="fa fa-building"><i class="iconify" data-icon="bx:home-alt"></i></i>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="city">Ville :</label>
                                 <div class="relative">
-                                    <?php echo "<input class='form-control' id='city' type='text' autofocus='' placeholder='Veuillez indiquer votre Ville' value='$Ville'>"; ?>
+                                    <?php echo "<input class='form-control' id='city' type='text' autofocus='' placeholder='Veuillez indiquer votre Ville' value='$Ville' name='ville'>"; ?>
                                     <i class="fa fa-building"><i class="iconify" data-icon="material-symbols:location-city-rounded"></i></i>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="postalCode">Code Postal :</label>
                                 <div class="relative">
-                                    <?php echo "<input class='form-control' id='postalCode' type='number' required='' autofocus='' placeholder='Veuillez indiquer votre code Postal' value='$CodePostal'>"; ?>
+                                    <?php echo "<input class='form-control' id='postalCode' type='number' required='' autofocus='' placeholder='Veuillez indiquer votre code Postal' value='$CodePostal' name='poste'>"; ?>
                                     <i class="fa fa-building"><i class="iconify" data-icon="map:postal-code-prefix"></i></i>
                                 </div>
                             </div>
@@ -175,32 +165,43 @@ if (isset($_POST["Modifier"])) {
                             <div class="form-group">
                                 <label class="form-label" for="phone">Numéro de Téléphone :</label>
                                 <div class="relative">
-                                    <?php echo "<input class='form-control' id='tel' type='text' maxlength='10' onkeydown='return event.keyCode !== 69' placeholder='Veuillez indiquer votre Numéro de Téléphone' value='$Tel'>"; ?>
+                                    <?php echo "<input class='form-control' id='tel' type='text' maxlength='10' onkeydown='return event.keyCode !== 69' placeholder='Veuillez indiquer votre Numéro de Téléphone' value='$Tel' name='tel'>"; ?>
                                     <i class="fa fa-building"><i class="iconify" data-icon="ant-design:phone-outlined"></i></i>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="email">Email :</label>
                                 <div class="relative">
-                                    <?php echo "<input class='form-control' type='text' value='$Email'>"; ?>
+                                    <?php echo "<input class='form-control' type='text' value='$Email' name='email'>"; ?>
                                     <i class="fa fa-building"><i class="iconify" data-icon="ic:baseline-alternate-email"></i></i>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="passwd">Mot de passe :</label>
                                 <div class="relative">
-                                    <?php echo "<input class='form-control' id='passwd' type='text' required='' placeholder='Rentrez votre mot de passe'  value='$MDP'>"; ?>
-                                    <i class="fa fa-building"><i class="iconify" data-icon="ri:lock-password-fill"></i></i>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="relative">
-                                    <input class="bouton" type="submit" name="ModifierInfosClients" value="Enregistrer les Modifications" method="POST">
+                                    <input class="bouton" type="submit" name="ModifierInfosClients" value="Enregistrer les Modifications">
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
+
+
+                <?php
+
+                if (isset($_POST["ModifierInfosClients"])) {
+
+
+
+                    $sql = "UPDATE client 
+            SET Nom_client ='" . $_POST['nom'] . "', Prenom_client='" . $_POST['prenom'] . "', Email_client='" . $_POST['email'] . "',Tel_client='" . $_POST['tel'] . "', Adresse_client='" . $_POST['adresse'] . "', Ville_client='" . $_POST['ville'] . "', CodePostal_client='" . $_POST['poste'] . "' 
+            WHERE Id_client = " . $_COOKIE['Session_Id_user'];
+
+                    $res = mysqli_query($db_handle, $sql);
+                }
+                ?>
+
+
+
 
                 <div class="tab-pane fade" id="v-pills-RDV">
                     <div class="table_container">
@@ -227,9 +228,9 @@ if (isset($_POST["Modifier"])) {
                             echo "<td class='table_td'>" . $data1['Domaine_coach'] . "</td>";
                             echo "<td class='table_td'>" . $data1['dateRDV'] . "</td>";
                             echo "<td class='table_td'>" . $data1['heure_debut'] . "</td>";
-                            //echo "<td class='button_plus'><form action='MonRDV.php' methode='post''><input type='submit' name='go_page_rdv' value='" . $data1['Id_RDV'] . "'></form></td>";
-                            
-                            echo "<td class='button_plus'><form action='suppression.php' methode='get'><input type='hidden' name='id_table' value='".$data1['Id_RDV']."'><input type='submit' name='suppression' value='Supprimer'></form></td>";
+                            //echo "<td class='button_plus'><form action='MonRDV.php' methode='post''><input type='submit' value='go_page_rdv' value='" . $data1['Id_RDV'] . "'></form></td>";
+
+                            echo "<td class='button_plus'><form action='suppression.php' methode='get'><input type='hidden' name='id_table' value='" . $data1['Id_RDV'] . "'><input type='submit' value='suppression' value='Supprimer'></form></td>";
                             echo "</tr>";
                         }
                         echo "</table>";

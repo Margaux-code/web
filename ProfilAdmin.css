@@ -10,8 +10,10 @@
 }
 
 .milieu {
+    display: flex;
     background-color: #f0f1f5;
     flex-direction: row;
+    align-items: center;
 }
 
 
@@ -42,6 +44,10 @@
     margin-top: 2%;
     border: 3px solid #d4af37;
     width: 17%;
+}
+
+.tab-content {
+    flex: 2;
 }
 
 .nav-pills-container .disconnect img {

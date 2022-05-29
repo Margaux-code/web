@@ -132,20 +132,7 @@ if (isset($_POST["creer_Compte"])) {
 //     }
 // }
 
-if (isset($_POST["ModifierInfosClients"])) {
-    $sql = "UPDATE client 
-            SET Nom_client='$Nom', Prenom_client='$Prenom', Email_client='$Email',Tel_client='$Tel', Adresse_client='$Adresse', Ville_client='$Ville', CodePostal_client='$CodePostal', MDP_client='$MDP'
-            WHERE Id_client = " . $_COOKIE["Session_Id_user"];  //" . $id_client . "
-    $res = mysqli_query($db_handle, $sql);
 
-    header("Location: ProfilClient.php");
-
-    if ($res) {
-        echo "Données modifiées avec succès!";
-    } else {
-        echo "Problème de modification des données!";
-    }
-}
 
 // INSERER LES NOUVELLES DONNEES DU COACH DANS LA BDD
 if (isset($_POST["AjouterInfosCoach"])) {
@@ -207,29 +194,6 @@ if(isset($_POST["creer_Compte"]))
     }
 }
 
-if (isset($_POST["ModifierInfosClients"])) {
-
-    include 'db_Connection.php';
-
-//     // $sql = "INSERT INTO client (Nom_client, Prenom_client, Email_client, Tel_client, Adresse_client, Ville_client, CodePostal_client, MDP_client) 
-//     //         VALUES ('$Nom', '$Prenom', '$Email', '$Tel', '$Adresse', '$Ville', '$CodePostal', '$MDP') WHERE Id_client = '1'";  //" . $id_client . "
-    
-    $sql = "UPDATE client 
-            SET Nom_client='$Nom', Prenom_client='$Prenom', Email_client='$Email',Tel_client='$Tel', Adresse_client='$Adresse', Ville_client='$Ville', CodePostal_client='$CodePostal', MDP_client='$MDP'
-            WHERE Id_client = ".$_COOKIE["Session_Id_user"];  //" . $id_client . "
-    $res = mysqli_query($db_handle, $sql);
-    header("Location: ProfilClient.php");
-
-    if ($res)
-    {
-        echo "Données modifiées avec succès!";
-    }
-    else
-    {
-        echo "Problème de modification des données!";
-    }
-
-}
 
 // INSERER LES NOUVELLES DONNEES DU COACH DANS LA BDD
 if (isset($_POST["AjouterInfosCoach"])) {
@@ -292,6 +256,3 @@ if (isset($_POST["SupprimInfosCoach"])) {
     }
 
 }
-
-
-

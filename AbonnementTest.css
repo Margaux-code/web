@@ -15,14 +15,6 @@
     padding-top: 5%;
 }
 
-.price-container:nth-child(even) {
-    background: red;
-}
-
-.price-container:nth-child(odd) {
-    background: blue;
-}
-
 .darkmode-activated .price-card {
     background: black;
 }
