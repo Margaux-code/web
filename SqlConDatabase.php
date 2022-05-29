@@ -1,4 +1,5 @@
 <?php
+  
     echo "<meta charset=\"utf-8\">";
     $database = "omnes_sport";
     $db_handle = mysqli_connect('localhost', 'root', '');
