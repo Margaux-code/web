@@ -228,10 +228,8 @@ if (isset($_POST["Modifier"])) {
                             echo "<td class='table_td'>" . $data1['dateRDV'] . "</td>";
                             echo "<td class='table_td'>" . $data1['heure_debut'] . "</td>";
                             //echo "<td class='button_plus'><form action='MonRDV.php' methode='post''><input type='submit' name='go_page_rdv' value='" . $data1['Id_RDV'] . "'></form></td>";
-                            echo "<td class='button_plus'>
-                                    <input type='button' onclick='find_id_rdv(".$data1['Id_RDV'].")' name='go_page_rdv' value='Infos'/>
-                            </td>";
-                            echo "<td class='button_plus'><form type='action='' methode='post''><input type='submit' name='bouton' value='+ Infos'></form></td>";
+                            
+                            echo "<td class='button_plus'><form action='suppression.php' methode='get'><input type='hidden' name='id_table' value='".$data1['Id_RDV']."'><input type='submit' name='suppression' value='Supprimer'></form></td>";
                             echo "</tr>";
                         }
                         echo "</table>";
