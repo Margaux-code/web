@@ -16,29 +16,34 @@ if (isset($_POST["Se_Connecter"])) {
     $sql1 = "SELECT * from client WHERE Email_client = '" . $username . "'";
     $result1 = mysqli_query($db_handle, $sql1);
     $data1 = mysqli_fetch_assoc($result1);
-    $IdClient = $data1['Id_client'];
-    $NameClient = $data1['Nom_client'];
-    $mdp = $data1['MDP_client'];
-    $row1 = mysqli_num_rows($result1);
+    if ($data1 != '') {
+        
+        $IdClient = $data1['Id_client'];
+        $NameClient = $data1['Nom_client'];
+        $mdp = $data1['MDP_client'];
+    }
 
     // TESTER SI LOGIN ET MDP DE COACH
 
     $sql2 = "SELECT * from coach WHERE Email_coach = '" . $username . "'";
     $result2 = mysqli_query($db_handle, $sql2);
     $data2 = mysqli_fetch_assoc($result2);
-    $IdCoach = $data2['Id_coach'];
-    $NameCoach = $data2['Nom_coach'];
-    $mdpCoach = $data1['MDP_client'];
-    $row2 = mysqli_num_rows($result2);
+    if ($data2 != '') {
+        
+        $IdCoach = $data2['Id_coach'];
+        $NameCoach = $data2['Nom_coach'];
+        $mdpCoach = $data2['MDP_coach'];
+    }
 
     // TESTER SI LOGIN ET MDP D'ADMINISTRATEUR
 
     $sql3 = "SELECT * from administrateur WHERE Login_admin = '" . $username . "'";
     $result3 = mysqli_query($db_handle, $sql3);
     $data3 = mysqli_fetch_assoc($result3);
-    $IdAdmin = $data3['Id_admin'];
-    $mdpAdmin = $data1['MDP_client'];
-    $row3 = mysqli_num_rows($result3);
+    if ($data3 != '') {       
+        $IdAdmin = $data3['Id_admin'];
+        $mdpAdmin = $data3['MPD_admin'];
+    }
 
     if (password_verify($password, $mdp)) {
         header("Location: ProfilClient.php");

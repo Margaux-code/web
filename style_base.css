@@ -170,53 +170,59 @@ body {
 .search-box {
     flex-grow: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     flex: 2;
     min-width: 300px;
 }
 
-#search-bar {
+#search {
     width: 40%;
     border: 3px solid rgb(148, 148, 148);
-    border-right: none;
     padding: 5px;
     height: 36px;
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px;
     outline: none;
     color: black;
     background: white;
 }
 
-.darkmode--activated #search-bar {
+.darkmode--activated #search {
     color: white;
     background: darkgrey;
-    border: 3px solid rgb(27, 27, 27);
-}
-
-#searchbutton {
-    width: 40px;
-    height: 36px;
-    border: 1px solid rgb(148, 148, 148);
-    background: rgb(148, 148, 148);
-    text-align: center;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    font-size: 20px;
-}
-
-.darkmode--activated #loupe {
-    color: #ffffff;
-}
-
-.darkmode--activated #searchbutton {
-    background: rgb(27, 27, 27);
     border: 3px solid rgb(27, 27, 27);
 }
 
 .search-box:active {
     transform: translateY(2px);
 }
+
+#display {
+    background: white;
+    color: black;
+    position: relative;
+    border: 2px solid rgb(148, 148, 148);
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    top: 0;
+    left: 0;
+    width: 35%;
+    z-index: 100;
+}
+
+.darkmode--activated #display {
+    color: white;
+    background: darkgrey;
+    border: 3px solid rgb(27, 27, 27);
+}
+
+li {
+    left: 0;
+    font-family: 'Roboto', sans-serif;
+    list-style-type: none;
+}
+
 
 /* Bouton de co/Ins */
 .btnRegLog {
@@ -225,6 +231,11 @@ body {
     min-width: 60px;
     flex-direction: column;
     justify-content: space-around;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
 }
 
 #deco {

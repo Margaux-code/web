@@ -86,5 +86,5 @@ function btnDeco() {
   } else {
     window.location('accueilhtml');
   }
-
 }
+
