@@ -1,0 +1,43 @@
+.thumbnail{
+    text-align: center;
+    margin-top: 3%;
+    
+}
+.milieu{
+    display: flex;
+}
+.thumbnail img{
+    width:95%;
+    border: 4px solid #d4af37;
+}
+
+.row{
+    margin: auto;
+}
+
+.CC{
+    display: flex;
+    justify-content: center;
+}
+
+.caption input {
+    background-color: #d4af37;
+    border: 1px solid white;
+    border-radius: 28px;
+    font-size: medium;
+
+}
+
+.caption input:hover {
+    background-color: black;
+    color: white;
+    border-radius: 28px;
+    border: 1px solid white;
+}
+
+.caption input:active {
+    background-color: black;
+    color: #d4af37;
+    border-radius: 28px;
+    border: 1px solid white;
+}
