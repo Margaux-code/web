@@ -160,3 +160,27 @@ if (isset($_POST["ModifierInfosAdmin"])) {
     }
 
 }
+
+// SUPPRIMER LES DONNEES DU COACH DANS LA BASE DE DONNEES
+if (isset($_POST["SupprimInfosCoach"])) {
+
+    $ID_COACH = $_POST['go_page_rdv'];
+
+    // $sql = "INSERT INTO client (Nom_client, Prenom_client, Email_client, Tel_client, Adresse_client, Ville_client, CodePostal_client, MDP_client) 
+    //         VALUES ('$Nom', '$Prenom', '$Email', '$Tel', '$Adresse', '$Ville', '$CodePostal', '$MDP') WHERE Id_client = '1'";  //" . $id_client . "
+    $sql_Supr_RDV = "DELETE FROM table_rdv WHERE Id_coach=".$ID_COACH;
+
+    header("Location: ProfilAdmin.php");
+    if ($res)
+    {
+        echo "Données supprimées avec succès!";
+    }
+    else
+    {
+        echo "Problème de supression des données!";
+    }
+
+}
+
+
+

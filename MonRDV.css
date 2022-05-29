@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css');
+@import url('https://unicons.iconscout.com/release/v2.1.9/css/unicons.css');
+
+* {
+    font-family: 'Roboto', 'sans-serif';
+}
+
+.milieu {
+    display: flex;
+    background-color: #f0f1f5;
+    flex-direction: row;
+    align-items: center;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.infos_rdv{
+    flex-direction: column;
+}
+
+/* ______________________________________ BODY INFORMATIONS _______________________________________ */
+
+
+.InfoCoachRDV {
+    margin-right: 3%;
+    margin-left: 3%;
+    flex-direction: row;
+    max-width: calc(100vw - 40px);
+    width: 50%;
+    height: 70%;
+    background: white;
+    border-radius: 8px;
+    padding: 1% 1.5%;
+    box-sizing: border-box;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: 90%;
+}
+.InfosSuppl {
+    max-width: calc(100vw - 40px);
+    margin-top: 2%;
+    width: 110%;
+    background: white;
+    border-radius: 8px;
+    margin: 3% auto;
+    padding: 1% 1.5%;
+    box-sizing: border-box;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: 90%;
+}
+.infos_rdv_horaires {
+    max-width: calc(100vw - 40px);
+    width: 50%;
+    background: white;
+    border-radius: 8px;
+    margin: 3% auto;
+    padding: 1% 1.5%;
+    box-sizing: border-box;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: 90%;
+    margin: auto;
+}
+
+.TitreInfoSupl .TitreRDVInfo .TitreCoachInfo{
+    padding-left: 20%;
+}
+
+.darkmode--activated .infos_container {
+    background: black;
+}
+
+.darkmode--activated .form-label {
+    color: white;
+}
+
+.form-group output {
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    outline: none;
+    resize: none;
+    border: 0;
+    background-color: #f0f1f5;
+    transition: all .3s;
+    border: 2px solid #d4af37;
+}
+
+.darkmode--activated .form-group output {
+    background-color: #a0a0a0;
+    color: rgb(232, 232, 232);
+}
+
+.darkmode--activated .form-group output ::placeholder {
+    color: red;
+}
+
+.relative {
+    position: relative;
+}
+
+.iconify {
+    margin-top: 10px;
+}
+
+.form-group .form-control:focus {
+    border-color: #d4af37;
+    box-shadow: inset 0px 1px 1px #d4af37, 0 0 8px #d4af37;
+}
+
+.relative output:hover {
+    border-left: 5px solid #d4af37;
+    border-top: 5px solid #d4af37;
+    border-right: 5px solid #d4af37;
+    border-bottom: 5px solid #d4af37;
+}
+
+.input-group .form-control:not(:first-child):not(:last-child),
+.input-group-addon:not(:first-child):not(:last-child),
+.input-group-btn:not(:first-child):not(:last-child) {
+    border-radius: 0 4px 4px 0;
+}
+
+.form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control {
+    background-color: rgb(255, 255, 255);
+}
+
+/* --- Animated Buttons --- */
+
+/* End */
+
+.darkmode-toggle {
+    z-index: 1000;
+}
+
+
+/* ____________________________ */
+
+
+.retour .bouton{
+    margin-top: 4%;
+    padding-top: 0.9%;
+    padding-bottom: 1.05%;
+    width: 40%;
+    border: 3px solid #d4af37;
+    border-radius: 28px;
+    margin-left: 31%;
+}
+
+.retour .bouton:hover{
+    background-color: #a0a0a0;
+    color: white;
+}
+
+.retour .bouton:active{
+    margin-top: 3.8%;
+    background-color: #000000;
+    color: #d4af37;
+    width: 45%;
+    padding-top: 1%;
+    padding-bottom: 1.15%;
+    border: 3px solid #d4af37;
+    margin-left: 29%;
+}
