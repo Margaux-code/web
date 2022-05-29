@@ -2,45 +2,39 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css');
 @import url('https://unicons.iconscout.com/release/v2.1.9/css/unicons.css');
 
-/* Import Font Dancing Script */
-@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
-
 * {
     font-family: 'Roboto', 'sans-serif';
 }
 
 .milieu {
+    display: flex;
     background-color: #f0f1f5;
     flex-direction: row;
+    align-items: center;
 }
 
 
 
 .page {
     min-height: 100vh;
-    /* hauteur minimale égale à 100% du viewport */
     display: flex;
     flex-direction: column;
 }
 
-
-.body_informations {
-    background: rgb(0, 33, 181);
-}
-
-/* End */
-
 /* Sidenav */
 .nav-pills-container {
-    background: rgb(187, 255, 145);
     color: #333;
     border-bottom-right-radius: 25px;
     border-top-right-radius: 25px;
     left: 0;
     padding-top: 5%;
-    margin-top: 2%;
     border: 3px solid #d4af37;
-    width: 17%;
+    height: 100%;
+    max-width: 20vw;
+}
+
+.tab-content {
+    flex: 2;
 }
 
 .nav-pills-container .disconnect img {

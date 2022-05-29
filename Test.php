@@ -60,58 +60,58 @@ if (isset($_POST["Modifier"])) {
 </head>
 
 <body>
-<div class="form-group">
-                            <label class="form-label" for="name">Nom :</label>
-                            <div class="relative">
-                                <?php echo "<input class='form-control' id='name' type='text' pattern='[a-zA-Z\s]+' required='' autofocus='' placeholder='Rentrez votre Nom' value='$Nom'>"; ?>
-                                </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="firstname">Prénom :</label>
-                            <div class="relative">
-                                <?php echo "<input class='form-control' id='firstname' type='text' pattern='[a-zA-Z\s]+' required='' autofocus='' placeholder='Rentrez votre Prénom' value='$Prenom'>"; ?>
-                                </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="addresse">Adresse :</label>
-                            <div class="relative">
-                                <?php echo "<input class='form-control' id='addresse' type='text' required='' autofocus='' placeholder='Veuillez indiquer le numéro et le nom de votre Adresse' value='$Adresse'>"; ?>
-                                </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="city">Ville :</label>
-                            <div class="relative">
-                                <?php echo "<input class='form-control' id='city' type='text' pattern=[a-zA-Z\s]+' required='' autofocus='' placeholder='Veuillez indiquer votre Ville' value='$Ville'>"; ?>
-                                </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="postalCode">Code Postal :</label>
-                            <div class="relative">
-                                <?php echo "<input class='form-control' id='postalCode' type='number' required='' autofocus='' placeholder='Veuillez indiquer votre code Postal' value='$CodePostal'>"; ?>
-                                </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="phone">Numéro de Téléphone :</label>
-                            <div class="relative">
-                                <?php echo "<input class='form-control' id='tel' type='text' maxlength='10' onkeydown='return event.keyCode !== 69' placeholder='Veuillez indiquer votre Numéro de Téléphone' value='$Tel'>"; ?>
-                                </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="email">Email :</label>
-                            <div class="relative">
-                                <?php echo "<input class='form-control' id='email' type='email' required='' placeholder='Veuillez indiquer votre Numéro de Téléphone' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' value='$Email'>"; ?>
-                                </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="passwd">Mot de passe :</label>
-                            <div class="relative">
-                                <?php echo "<input class='form-control' id='passwd' type='text' required='' placeholder='Rentrez votre mot de passe'  value='$MDP'>"; ?>
-                                </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="relative">
-                                <input class="bouton" type="submit" name="Modifier" value="Enregistrer les Modifications" method="POST" formaction="Test.php">
-                            </div>
-                        </div>        
+    <div class="form-group">
+        <label class="form-label" for="name">Nom :</label>
+        <div class="relative">
+            <?php echo "<input class='form-control' id='name' type='text' pattern='[a-zA-Z\s]+' required='' autofocus='' placeholder='Rentrez votre Nom' value='$Nom'>"; ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="firstname">Prénom :</label>
+        <div class="relative">
+            <?php echo "<input class='form-control' id='firstname' type='text' pattern='[a-zA-Z\s]+' required='' autofocus='' placeholder='Rentrez votre Prénom' value='$Prenom'>"; ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="addresse">Adresse :</label>
+        <div class="relative">
+            <?php echo "<input class='form-control' id='addresse' type='text' required='' autofocus='' placeholder='Veuillez indiquer le numéro et le nom de votre Adresse' value='$Adresse'>"; ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="city">Ville :</label>
+        <div class="relative">
+            <?php echo "<input class='form-control' id='city' type='text' pattern=[a-zA-Z\s]+' required='' autofocus='' placeholder='Veuillez indiquer votre Ville' value='$Ville'>"; ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="postalCode">Code Postal :</label>
+        <div class="relative">
+            <?php echo "<input class='form-control' id='postalCode' type='number' required='' autofocus='' placeholder='Veuillez indiquer votre code Postal' value='$CodePostal'>"; ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="phone">Numéro de Téléphone :</label>
+        <div class="relative">
+            <?php echo "<input class='form-control' id='tel' type='text' maxlength='10' onkeydown='return event.keyCode !== 69' placeholder='Veuillez indiquer votre Numéro de Téléphone' value='$Tel'>"; ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="email">Email :</label>
+        <div class="relative">
+            <?php echo "<input class='form-control' id='email' type='email' required='' placeholder='Veuillez indiquer votre Numéro de Téléphone' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$' value='$Email'>"; ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="passwd">Mot de passe :</label>
+        <div class="relative">
+            <?php echo "<input class='form-control' id='passwd' type='text' required='' placeholder='Rentrez votre mot de passe'  value='$MDP'>"; ?>
+            </div>
+    </div>
+    <div class="form-group">
+        <div class="relative">
+            <input class="bouton" type="submit" name="Modifier" value="Enregistrer les Modifications" method="POST" formaction="Test.php">
+        </div>
+    </div>      
 </body>
 </html>

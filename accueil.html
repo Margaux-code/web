@@ -12,7 +12,6 @@
     <!-- css for the page -->
     <link rel="stylesheet" href="style_accueil.css">
 
-
     <script type="text/javascript" src="script_base.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -46,6 +45,8 @@
                             data-icon="simple-line-icons:magnifier"></i></button>
                 </div>
                 <div class="btnRegLog">
+                    <button class="reg-log" id="disco" onclick="btnDeco()"><i class="iconify" id="deco"
+                            data-icon="material-symbols:exit-to-app"></i></button>
                     <button class="reg-log" id="reg-log" onclick="btnProfil()"><i class="iconify" id="compte"
                             data-icon="uil:user"></i></button>
                 </div>
@@ -241,7 +242,7 @@
                                 <div class="gradient"></div>
                             </div>
                             <div class="caption">
-                                <input type="submit" class="captionBtn" name="1" value="Leo Martin">
+                                <input type="submit" class="captionBtn" name="coach1" value="Leo Martin">
                             </div>
                         </form>
                     </div>
@@ -425,7 +426,8 @@
             <div id="img-CoIns"><img id="imgCoIns" src="Image/marbreblanc.jpg" width="100%" height="100%"></div>
             <div class="CoIns">
                 <div id="closeForm-container">
-                    <button class="closeForm"><i class="iconify" id="close" data-icon="eva:close-circle-outline" onclick="closeForm()"></i></button>
+                    <button class="closeForm"><i class="iconify" id="close" data-icon="eva:close-circle-outline"
+                            onclick="closeForm()"></i></button>
                 </div>
 
                 <nav class="nav nav-tabs" id="myTab">

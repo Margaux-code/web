@@ -38,13 +38,9 @@
                     <button type="submit" id="searchbutton" class="search"><i class="iconify" id="loupe" data-icon="simple-line-icons:magnifier"></i></button>
                 </div>
                 <div class="btnRegLog">
+                <button class="reg-log" id="disco" onclick="btnDeco()"><i class="iconify" id="deco"
+                            data-icon="material-symbols:exit-to-app"></i></button>
                     <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" id="compte" data-icon="uil:user"></i></button>
-                    <script>
-                        "use strict";
-
-                        // document.cookie = "user=John"; // update only cookie named 'user'
-                        // alert(document.cookie); // show all cookies
-                    </script>
                 </div>
             </div>
         </div>
