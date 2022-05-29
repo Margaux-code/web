@@ -12,18 +12,13 @@ include 'SqlConDatabase.php';
 
 
 {
-    $sql_RechercheRDV = "SELECT C.Nom_coach, C.Prenom_coach, C.Domaine_coach, C.Bureau_coach, C.Tel_coach, C.Email_coach, D.dateRDV, D.heure_debut FROM coach C JOIN table_rdv D ON C.Id_coach=D.Id_coach WHERE D.Id_RDV = ".getCookie('Id_rdv_coach');
-    $result_RDV = mysqli_query($db_handle, $sql_RechercheRDV);
 
-    while ($row_RDV = mysqli_fetch_assoc($result_RDV)) {
-        $Nom = $row_RDV['Nom_coach'];
-        $Prenom = $row_RDV['Prenom_coach'];
-        $Bureau = $row_RDV['Bureau_coach'];
-        $Domaine = $row_RDV['Domaine_coach'];
-        $Tel = $row_RDV['Tel_coach'];
-        $Email = $row_RDV['Email_coach'];
-        $Date = $row_RDV['dateRDV'];
-        $Heure = $row_RDV['heure_debut'];
+    $sql_MDP = "SELECT MDP_client AS toto FROM client WHERE Id_client = ".$_COOKIE[''];
+    $result_MDP= mysqli_query($db_handle, $sql_MDP);
+
+    while ($row_RDV = mysqli_fetch_assoc($result_MDP)) {
+       $MDP = $row_RDV['toto'];
+       // ICI FAIRE LA COMPARAISON 
     }
 }
 

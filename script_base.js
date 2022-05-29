@@ -1,4 +1,4 @@
-function setCookie(cname, cvalue, exdays) {
+sfunction setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays * 1000));
   let expires = "expires=" + d.toUTCString();
@@ -18,6 +18,10 @@ function getCookie(cname) {
     }
   }
   return "";
+}
+
+function eraseCookie(name) {
+  document.cookie = name + '=; Max-Age=-99999999;';
 }
 
 function openForm() {
@@ -71,8 +75,16 @@ function btnProfil() {
 }
 
 function btnDeco() {
-  setCookie('Session_name_user', null, 0);
-  setCookie('Session_type_user', null, 0);
-  setCookie('Session_Id_user', null, 0);
-  setCookie('connection', null, 0);
+  eraseCookie('Session_name_user');
+  eraseCookie('Session_type_user');
+  eraseCookie('Session_Id_user');
+  eraseCookie('connection');
+  var path = window.location.pathname;
+  var page = path.split("/").pop();
+  if (page == 'acceuil.html') {
+    window.location.reload();
+  } else {
+    window.location('accueilhtml');
+  }
 }
+
