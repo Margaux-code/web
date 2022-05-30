@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE CV SYSTEM "CV.dtd">
+ <?xml-stylesheet href="CV.xsl" type="text/xsl"?>
+
+<CV> 
+    <Coach id = "Coach1"> 
+        <Age> 28 </Age>
+        <Nom> Dupont </Nom>
+        <Prenom> Benjamin </Prenom>
+        <Diplomes> BPJEPS Rugby,  </Diplomes>
+        <Experiences> Soutien Entraîneur RACING CLUB (3 ans) </Experiences>
+        <LV1> Francais </LV1>
+        <LV2> Anglais </LV2>
+    </Coach>
+    <Coach id = "Coach2"> 
+        <Age> 26 </Age>
+        <Nom> Martin </Nom>
+        <Prenom> Leo </Prenom>
+        <Diplomes> BPJEPS Musculation </Diplomes>
+        <Experiences> Coach Musculation à FitnessPark (2 ans) </Experiences>
+        <LV1> Italien </LV1>
+        <LV2> Francais </LV2>
+    </Coach>
+    <Coach id = "Coach3"> 
+        <Age> 32 </Age>
+        <Nom> Dubois </Nom>
+        <Prenom> Gabriel </Prenom>
+        <Diplomes> DEJEPS Tennis </Diplomes>
+        <Experiences> Assitant Directeur Roland Garros (5 ans) </Experiences>
+        <LV1> Francais </LV1>
+        <LV2> Anglais </LV2>
+    </Coach>
+    <Coach id = "Coach4"> 
+        <Age> 29 </Age>
+        <Nom> Bonnet </Nom>
+        <Prenom> Jade </Prenom>
+        <Diplomes> MEEF Cardio-Training </Diplomes>
+        <Experiences> Responsable Cardio-Training chez BasicFit (3 ans) </Experiences>
+        <LV1> Francais </LV1>
+        <LV2> Espagnol </LV2>
+    </Coach>
+    <Coach id = "Coach5"> 
+        <Age> 40 </Age>
+        <Nom> Legrand </Nom>
+        <Prenom> Julia </Prenom>
+        <Diplomes> DEJEPS Natation </Diplomes>
+        <Experiences> Coach Personnel Solène Lousseau (8 ans)</Experiences>
+        <LV1> Espagnol </LV1>
+        <LV2> Anglais </LV2>
+    </Coach>
+    <Coach id = "Coach6"> 
+        <Age> 38 </Age>
+        <Nom> Garnier </Nom>
+        <Prenom> Louise </Prenom>
+        <Diplomes> CQP Instructeur Fitness  </Diplomes>
+        <Experiences> Soutien Equipe professionnelle football (12 ans)</Experiences>
+        <LV1> Francais </LV1>
+        <LV2> Allemand </LV2>
+    </Coach>
+    <Coach id = "Coach7"> 
+        <Age> 35 </Age>
+        <Nom> Blanc </Nom>
+        <Prenom> Arthur </Prenom>
+        <Diplomes> DESJEPS Biking </Diplomes>
+        <Experiences> Super Heros / Action </Experiences>
+        <LV1> Francais </LV1>
+        <LV2> Americain </LV2>
+    </Coach>
+    <Coach id = "Coach8"> 
+        <Age> 27 </Age>
+        <Nom> Robin </Nom>
+        <Prenom> Leon </Prenom>
+        <Diplomes> DESJEPS Football </Diplomes>
+        <Experiences>Co-leader club de biking (4 ans)</Experiences>
+        <LV1> Allemand </LV1>
+        <LV2> Anglais </LV2>
+    </Coach>
+    <Coach id = "Coach9"> 
+        <Age> 30 </Age>
+        <Nom> Perrin </Nom>
+        <Prenom> Lou </Prenom>
+        <Diplomes> DEJEPS Plongeon </Diplomes>
+        <Experiences>Entraîneur célébrité aux JO (8 ans)</Experiences>
+        <LV1> Espagnol </LV1>
+        <LV2> Anglais </LV2>
+    </Coach>
+    <Coach id = "Coach10"> 
+        <Age> 28 </Age>
+        <Nom> Boyer </Nom>
+        <Prenom> Inès </Prenom>
+        <Diplomes> BPJEPS Cours Collectifs </Diplomes>
+        <Experiences>Coach sportif  Camping (6 ans)</Experiences>
+        <LV1> Francais </LV1>
+        <LV2> Espagnol </LV2>
+    </Coach>
+    <Coach id = "Coach11"> 
+        <Age> 33 </Age>
+        <Nom> Bertrand </Nom>
+        <Prenom> Martin </Prenom>
+        <Diplomes> DEFB Basket </Diplomes>
+        <Experiences>Assistant centre de formation</Experiences>
+        <LV1> Anglais </LV1>
+        <LV2> Francais </LV2>
+    </Coach>
+</CV>

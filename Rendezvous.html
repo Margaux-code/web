@@ -5,6 +5,7 @@
     <title>Base</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html" />
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="RDV.css">
     <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_base.css">
     <link rel="stylesheet" media="screen and (max-width: 980px)" href="style_base_mobile.css">
     <script type="text/javascript" src="script_base.js"></script>
@@ -15,7 +16,7 @@
 
 </head>
 
-<body onload="testCo()">
+<body>
     <div class="page" id="page">
         <div class="haut">
             <div class="logo_slogan">
@@ -30,7 +31,7 @@
                 <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.php">Accueil</a></button>
                 <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.php">Tout
                         parcourir</a></button>
-                <button class="nav-button" id="rdv"><a class="nav-page" href="#">Rendez vous</a></button>
+                <button class="nav-button" id="rdv"><a class="nav-page" href="Rendezvous.html">Rendez vous</a></button>
             </div>
             <div class="search-box-co">
                 <div class="search-box">
@@ -40,7 +41,7 @@
                 </div>
                 <div class="btnRegLog">
                     <button class="reg-log" id="disco" onclick="btnDeco()"><i class="iconify" id="deco"
-                            data-icon="material-symbols:exit-to-app"></i></button>
+                        data-icon="material-symbols:exit-to-app"></i></button>
                     <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" id="compte"
                             data-icon="uil:user"></i></button>
                 </div>
@@ -51,14 +52,28 @@
 
         <div class="milieu" id="content">
 
+            <div class="PresRDV">
+
+                Vous avez un créneau libre, et vous voulez faire du sport ?</br>
+                Choisissez votre date !
+                </br>
+                <form action="RDV_Tout_Coachs.php" method="post">
+                    <input type="date" id="JRDV" name="JourChoisi" value="2022-06-02" min="2022-06-02" max="2022-06-10"
+                        required>
+                    <input type="submit" name="bouton" value="Trouver les rendez-vous disponible">
+
+                </form>
+
+            </div>
+
         </div>
 
         <div class="footer" id="footer">
-            <div class="copyright">
+            <div class="copyright">068837068068837068
                 <p>ceci est un copyright</p>
             </div>
             <div class="text">
-                <p>Nous contacter : 06 12 34 56 78</br> omnesSportCorp@pierresim.fr</p>
+                <p>footer</p>
             </div>
         </div>
     </div>
@@ -69,8 +84,7 @@
             <div id="img-CoIns"><img id="imgCoIns" src="Image/marbreblanc.jpg" width="100%" height="100%"></div>
             <div class="CoIns">
                 <div id="closeForm-container">
-                    <button class="closeForm"><i class="iconify" id="close" data-icon="eva:close-circle-outline"
-                            onclick="closeForm()"></i></button>
+                    <button class="closeForm"><i class="iconify" id="close" data-icon="eva:close-circle-outline" onclick="closeForm()"></i></button>
                 </div>
 
                 <nav class="nav nav-tabs" id="myTab">
@@ -80,7 +94,7 @@
 
                 <div class="tab-content">
                     <div class="tab-pane active" id="Co">
-                        <form action="connexion.php" method="post">
+                        <form action="Connexion.php" method="post">
                             <div class="form-input">
                                 <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
                                     autocomplete="off">
@@ -99,7 +113,7 @@
                     </div>
 
                     <div class="tab-pane" id="Ins">
-                        <form action="connexion_v2.php" method="post">
+                        <form action="Connexion.php" method="post">
                             <div class="form-input">
                                 <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
                                     autocomplete="off">

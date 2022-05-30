@@ -1,0 +1,173 @@
+#chatbox-container {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 200;
+}
+
+#button-chatbox-container {
+    position: fixed;
+    right: 32px;
+    bottom: 64px;
+    z-index: 1000;
+}
+
+#button-chatbox {
+    border: none;
+    background: none;
+    width: 140%;
+    height: 140%;
+}
+
+#button-chatbox-icon {
+    width: 120%;
+    height: 120%;
+}
+
+.darkmode--activated #button-chatbox-icon {
+    filter: invert(100%);
+}
+
+.menu-button {
+    flex: 1;
+}
+
+.menu-welcome {
+    flex: 2;
+    overflow: hidden;
+}
+
+#close-session {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    border: none;
+    background: none;
+}
+
+form,
+p,
+span {
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    font: 12px arial;
+}
+
+a {
+    color: #0000FF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#chatbox-wrapper,
+#loginform {
+    margin: 0 auto;
+    padding-bottom: 25px;
+    background: #EBF4FB;
+    width: 504px;
+    border: 1px solid #ACD8F0;
+}
+
+#loginform {
+    padding-top: 18px;
+}
+
+#loginform p {
+    margin: 5px;
+}
+
+#chatbox {
+    text-align: left;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    padding: 10px;
+    background: #fff;
+    height: 270px;
+    width: 430px;
+    border: 1px solid #ACD8F0;
+    overflow: auto;
+}
+
+#usermsg {
+    width: 395px;
+    border: 1px solid #ACD8F0;
+}
+
+#submit {
+    width: 60px;
+}
+
+.error {
+    color: #ff0000;
+}
+
+#menu {
+    display: flex;
+    justify-content: space-between;
+    padding: 12.5px 25px 12.5px 25px;
+}
+
+.welcome {
+    float: left;
+}
+
+.logout {
+    float: right;
+}
+
+.msgln {
+    margin: 0 0 2px 0;
+}
+
+#ask-container {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #D4AF37;
+    padding: 2%;
+    border-radius: 10px;
+    width: 30vw;
+    height: 12vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid black;
+}
+
+.ask-container-text {
+    margin: 1%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+#session-name {
+    max-width: 10vw;
+    overflow: hidden;
+    border: 1px solid black;
+    border-radius: 0 10px 10px 0;
+}
+
+.btn-ask {
+    border-radius: 5px;
+    background: black;
+    border: none;
+    color: white;
+    width: 7vw;
+}
+
+.btn-ask:hover {
+    background: #D4AF37;
+    color: black;
+    border: 1px solid black;
+}

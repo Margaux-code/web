@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Tout Parcourir</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, text/html" />
+    <meta charset="utf-8" />
+    <!-- main css -->
+    <link rel="stylesheet" media="screen and (min-width: 981px)" href="style_base.css">
+    <link rel="stylesheet" media="screen and (max-width: 980px)" href="style_base_mobile.css">
+
+    <!-- css for the page -->
+    <link rel="stylesheet" href="toutParcourir.css">
+
+    <link rel="stylesheet" href="style_toutParcourir.css">
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="page" id="page">
+        <div class="haut">
+            <div class="logo_slogan">
+                <div class="logo">
+                    <img id="img_logo" src="Image/Logo_Omnes_Sport_bordure.png">
+                </div>
+                <div class="slogan" id="slogan">
+                    <span class="text_slogan">Omnes Sport</span>
+                </div>
+            </div>
+            <div class="div_button">
+                <button class="nav-button" id="accueil"><a class="nav-page" href="accueil.php">Accueil</a></button>
+                <button class="nav-button" id="parcourir"><a class="nav-page" href="toutParcourir.php">Tout
+                        parcourir</a></button>
+                <button class="nav-button" id="rdv"><a class="nav-page" href="Rendezvous.html">Rendez vous</a></button>
+            </div>
+            <div class="search-box-co">
+            <div class="search-box">
+                    <input type="text" id="search" placeholder="Rechercher..." />
+                    <div id="display"></div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $("#search").keyup(function() {
+                                var name = $('#search').val();
+                                if (name == "") {
+                                    $("#display").html("");
+                                } else {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "ajax.php",
+                                        data: {
+                                            search: name
+                                        },
+                                        success: function(html) {
+                                            $("#display").html(html).show();
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="btnRegLog">
+                    <button class="reg-log" id="reg-log" onclick="openForm()"><i class="iconify" id="compte"
+                            data-icon="uil:user"></i></button>
+                    <script>
+                        "use strict";
+
+                        // document.cookie = "user=John"; // update only cookie named 'user'
+                                // alert(document.cookie); // show all cookies
+                    </script>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="milieu" id="content">
+            <div class="nav-button-side-container">
+                <div class="nav-button-side-class>">
+                    <button class="nav-button-side"
+                        onClick="document.getElementById('salle').scrollIntoView({ behavior: 'smooth', block: 'center' })">
+                        <p class="text-side-button">SALLES</p>
+                    </button>
+                </div>
+                <div class="nav-button-side-class>">
+                    <button class="nav-button-side active"
+                        onClick="document.getElementById('competition').scrollIntoView({ behavior: 'smooth', block: 'center' })">
+                        <p class="text-side-button">COMPETITION</p>
+                    </button>
+                </div>
+                <div class="nav-button-side-class>">
+                    <button class="nav-button-side"
+                        onClick="document.getElementById('activite').scrollIntoView({ behavior: 'smooth', block: 'center' })">
+                        <p class="text-side-button">ACTIVITES</p>
+                    </button>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <div class="navbarVert" id="salle">
+                    <div class="text-container">
+                        <h2><span>Salles de sport Omnes</span></h2>
+                        <div class="text-box">
+                            <h3><span> Venez profiter du style de vie.</span></h3>
+                            <p><span>
+                                Inspirez-vous et découvrez le pouvoir de l'esprit et du corps avec nos incroyables cours
+                                et
+                                cours de fitness proposés par des instructeurs professionnels. </span></p>
+                        </div>
+                        <div class="button-box">
+                            <button class="nav-button" id="nos-services"><a class="nav-page" href="info_SDS.php">Nos
+                                    services</a></button>
+                        </div>
+                    </div>
+                    <div class="img-container" id="img-salle">
+                        <img class="img-page" id="SalleDeSport" src="Image/SalleDeSport/SalleDeSport.jpg">
+                    </div>
+                </div>
+
+                <div class="navbarVert" id="competition">
+                    <div class="img-container" id="img-competition">
+                        <img class="halteres" id="halteres" src="Image/halteres.png">
+                        <img class="perso" id="perso" src="Image/Perso_ssHaltere.png">
+                    </div>
+                    <div class="text-container">
+                        <h2><span>Les sports de compétition</span></h2>
+                        <div class="text-box">
+                            <h3><span>Les sports de compétition sont largement appréciés par les personnes de tous âges.</span></h3>
+                            <p><span>
+                                Les compétitions fournissent aux individus la motivation et l'environnement dont ils ont besoin pour améliorer leurs performances. 
+                            </span></p>
+                        </div>
+                        <div class="button-box">
+                            <button class="nav-button"><a class="nav-page" href="AcceuilSportCompetition.php">Nos
+                                    services</a></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navbarVert" id="activite">
+                    <div class="text-container">
+                        <h2><span>Activités sportives</span></h2>
+                        <div class="text-box">
+                            <h3><span>Une activité physique régulière est importante pour la santé et le bien-être en général.</span></h3>
+                            <p><span>
+                                Il peut améliorer la condition physique générale, aider à maintenir le poids et réduire le risque de certaines maladies.
+
+
+                            </span></p>
+                        </div>
+                        <div class="button-box">
+                            <button class="nav-button"><a class="nav-page" href="AcceuilActivitesSportives.php">Nos services</a></button>
+                        </div>
+                    </div>
+                    <div class="img-container" id="img-activite">
+                        <img class="img-page" src="Image/activite_sportive.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer" id="footer">
+            <div class="copyright">
+                <p>ceci est un copyright</p>
+            </div>
+            <div class="text">
+                <p>Nous contacter : 06 12 34 56 78</br> omnesSportCorp@pierresim.fr</p>
+            </div>
+        </div>
+    </div>
+
+    <!--Form de Connection/Inscription-->
+    <div id="CoIns-window">
+        <div class="section" id="section-form">
+            <div id="img-CoIns"><img id="imgCoIns" src="Image/marbreblanc.jpg" width="100%" height="100%"></div>
+            <div class="CoIns">
+                <div id="closeForm-container">
+                    <button class="closeForm"><i class="iconify" id="close" data-icon="eva:close-circle-outline" onclick="closeForm()"></i></button>
+                </div>
+
+                <nav class="nav nav-tabs" id="myTab">
+                    <a class="nav-item nav-link active" id="tab-co" href="#Co" data-toggle="tab">Connexion</a>
+                    <a class="nav-item nav-link" id="tab-ins" href="#Ins" data-toggle="tab">Inscription</a>
+                </nav>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="Co">
+                        <form action="Connexion.php" method="post">
+                            <div class="form-input">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-input mt-2">
+                                <input type="password" name="password" class="form-style"
+                                    placeholder="Votre Mot de passe" id="mdp" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <input type="submit" class="btnValid" name="Se_Connecter" value="Envoyer">
+                            <div class="mdp-forget-container">
+                                <p class="mdp-forget"><a href="#0" class="link">Mot de passe oublié ?</a></p>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane" id="Ins">
+                        <form action="Connexion.php" method="post">
+                            <div class="form-input">
+                                <input type="text" name="nom" class="form-style" placeholder="Votre nom" id="nom"
+                                    autocomplete="off">
+                                <i class="input-icon uil uil-user"></i>
+                            </div>
+                            <div class="form-input">
+                                <input type="email" name="mail" class="form-style" placeholder="Votre e-mail" id="mail"
+                                    autocomplete="off">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="form-input">
+                                <input type="password" name="mdp" class="form-style" placeholder="Votre mot de passe"
+                                    id="mdp" autocomplete="off">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <input type="submit" class="btnValid" name="creer_Compte" value="Validate">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fin du Form de Connection/Inscription-->
+
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+    <script>
+        const options = {
+            bottom: '32px', // default: '32px'
+            right: '32px', // default: '32px'
+            left: 'unset', // default: 'unset'
+            time: '0.5s', // default: '0.3s'
+            mixColor: '#fff', // default: '#fff'
+            backgroundColor: '#fff',  // default: '#fff'
+            buttonColorDark: '#100f2c',  // default: '#100f2c'
+            buttonColorLight: '#fff', // default: '#fff'
+            saveInCookies: true, // default: true,
+            label: '🌓', // default: ''
+            autoMatchOsTheme: true // default: true
+        }
+
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script type="text/javascript" src="script_toutParcourir.js"></script>
+</body>

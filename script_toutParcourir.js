@@ -37,42 +37,10 @@ function closeForm() {
 /* Animation scroll */
 var controller = new ScrollMagic.Controller();
 
-var scene1 = new ScrollMagic.Scene({
-    triggerElement: "#activite",
+var sceneHalteres = new ScrollMagic.Scene({
+    triggerElement: "#competition",
     duration: 500,
     triggerHook: 0
 })
-    .setClassToggle('.halteres', 'go-up')
-    .setPin("#activite")
-    .addIndicators({
-        colorTrigger: "black",
-        colorStart: "blue",
-        colorEnd: "red",
-        indent: 10
-    })
-    .addTo(controller);
-
-
-var scene2 = new ScrollMagic.Scene({
-    triggerElement: ".milieu",
-    duration: "350%",
-    triggerHook: 0
-})
-    .setClassToggle('.nav-button-side-container', 'change-fixed')
-    .addIndicators()
-    .addTo(controller);
-
-const getDeviceType = () => {
-    const ua = navigator.userAgent;
-    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
-        return "tablet";
-    }
-    if (
-        /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
-            ua
-        )
-    ) {
-        return "mobile";
-    }
-    return "desktop";
-};
+.setClassToggle('.halteres', 'go-up')
+.addTo(controller);
